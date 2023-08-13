@@ -1,4 +1,4 @@
-import { Header } from "./components/header.jsx";
+import { Header } from "./components/Header.jsx";
 import { Hero } from "./components/sections/Hero.jsx";
 import { Description } from "./components/sections/Description.jsx";
 import { Quotation } from "./components/sections/Quotation.jsx";
