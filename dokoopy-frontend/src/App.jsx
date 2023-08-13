@@ -10,8 +10,6 @@ import { DividingLine } from "./components/DividingLine.jsx";
 import { DonateButton } from "./components/donateButton.jsx";
 import { Modal } from "./components/Modal.jsx";
 
-// import "./styles/main.scss";
-
 function App() {
    return (
       <>
