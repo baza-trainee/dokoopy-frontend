@@ -1,18 +1,29 @@
 import { DonateButton } from "./DonateButton";
+import { Chevron } from "../assets/chevron-down.jsx";
 
 export const Header = () => {
    return (
-      <div className="container header">
-         <p className="logo">dokoopy</p>
-         <nav className="naigation">
-            <ul className="naigation-list">
-               <li>мета</li>
-               <li>бригада</li>
-               <li>проєкти</li>
-            </ul>
-         </nav>
-         <DonateButton></DonateButton>
-         <p>UA</p>
-      </div>
+      <header>
+         <div className="container">
+            <div className="header">
+               <p className="logo">dokoopy</p>
+               <nav className="naigation">
+                  <ul className="naigation-list">
+                     <li>мета</li>
+                     <li>бригада</li>
+                     <li>
+                        <a href="#" className="navigation-link">
+                           проєкти
+                        </a>
+                     </li>
+                  </ul>
+               </nav>
+               <DonateButton buttonClass={"headerButton"}></DonateButton>
+               <p className="language-selector">
+                  UA <Chevron />
+               </p>
+            </div>
+         </div>
+      </header>
    );
 };
