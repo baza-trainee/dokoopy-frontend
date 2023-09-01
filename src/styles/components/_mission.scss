@@ -1,11 +1,11 @@
-.Mission{
+.mission{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 60px;
 }
-.Mission-title h2{
-    color: #212121;
+.mission-title h2{
+    color: var(--text-main);
     font-family: PT Sans;
     font-size: 66px;
     font-style: normal;
@@ -13,31 +13,30 @@
     line-height: normal;
     text-transform: uppercase;
 }
-.Mission-container{
+.mission-block{
     display: flex;
     align-items: flex-start;
     gap: 24px;
 }
-.Mission-container-box{
+.mission-block-box{
     display: flex;
     align-items: flex-start;
     gap: 24px;
 }
 
-.Mission-container-box-img{
+.mission-block-box-img{
     width: 44px;
     height: 44px;
-    background-image: url('../../../public/images/target-mission.png');
-    background-color: #fffdfd00;
+    background-image: url('../../../public/images/target-mission.svg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
-.Mission-container-box-text{
+.mission-block-box-text{
     width: 540px;
 }
-.Mission-container-box-text p{
-    color: #212121;
+.mission-block-box-text p{
+    color: var(--text-main);
     font-family: PT Sans;
     font-size: 24px;
     font-style: normal;
@@ -46,55 +45,55 @@
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-    .Mission{
+    .mission{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 60px;
     align-self: stretch;
     }
-    .Mission-container{
+    .mission-block{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 50px;
         align-self: stretch;
     }
-    .Mission-container-box-text{
+    .mission-block-box-text{
         width: 100%;
     }
     
 }
 
 @media (max-width: 480px){
-    .Mission{
+    .mission{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 60px;
         align-self: stretch;
     }
-    .Mission-title{
+    .mission-title{
         display: flex;
         justify-content: center;
         text-align: center;
         align-self: stretch;
     }
-    .Mission-container{
+    .mission-block{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 50px;
         align-self: stretch;
     }
-    .Mission-container-box{
+    .mission-block-box{
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         gap: 24px;
         align-self: stretch;
     }
-    .Mission-container-box-text{
+    .mission-block-box-text{
         width: 100%;
     }
    
