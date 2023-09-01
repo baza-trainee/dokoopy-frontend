@@ -1,5 +1,4 @@
 .hero {
-   position: relative;
    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
       url("../../../public/images/hero_example.jpg");
    background-size: cover;
@@ -7,10 +6,13 @@
    min-height: 735px;
 }
 
+.container_hero {
+   position: relative;
+}
+
 .hero-title {
    position: absolute;
    top: 409px;
-   left: 112px;
    display: block;
    width: 912px;
    font-family: PT Sans;
