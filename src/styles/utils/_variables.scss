@@ -1,3 +1,8 @@
-$button-color: #c3dc73;
-$button-hover: #252525;
-$button-hover-burger: #ffffff;
+:root {
+  --background-about: rgba(240, 240, 240, 1);
+  --button-main-color: #c3dc73;
+  --button-hover-color: #252525;
+  --button-burger-hover-color: #ffffff;
+  --header-main: rgba(17, 17, 17, 1);
+  --text-main: rgba(33, 33, 33, 1);
+}

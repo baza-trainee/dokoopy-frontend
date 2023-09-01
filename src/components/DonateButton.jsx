@@ -1,12 +1,8 @@
-import '../styles/components/_donate-button.scss';
-
 export const DonateButton = ({ buttonClass }) => {
   return (
-    <button className={buttonClass}>
-      <a href='#' target='_blank'>
-        ЗРОБИТИ ДОНАТ
-      </a>
-    </button>
+    <a className={buttonClass + ' donateButton'} href='#' target='_blank'>
+      ЗРОБИТИ ДОНАТ
+    </a>
   );
 };
 
