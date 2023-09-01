@@ -1,15 +1,17 @@
+import { DonateButton } from "./DonateButton";
+
 export const Header = () => {
    return (
       <div className="container header">
          <p className="logo">dokoopy</p>
-         <nav>
-            <ul>
-               <li></li>
-               <li></li>
-               <li></li>
+         <nav className="naigation">
+            <ul className="naigation-list">
+               <li>мета</li>
+               <li>бригада</li>
+               <li>проєкти</li>
             </ul>
          </nav>
-         <button>donate</button>
+         <DonateButton></DonateButton>
          <p>UA</p>
       </div>
    );
