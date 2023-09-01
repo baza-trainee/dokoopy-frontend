@@ -11,7 +11,11 @@ export const Header = () => {
                   <ul className="naigation-list">
                      <li>мета</li>
                      <li>бригада</li>
-                     <li>проєкти</li>
+                     <li>
+                        <a href="#" className="navigation-link">
+                           проєкти
+                        </a>
+                     </li>
                   </ul>
                </nav>
                <DonateButton buttonClass={"headerButton"}></DonateButton>
