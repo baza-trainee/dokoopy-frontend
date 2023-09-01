@@ -9,13 +9,13 @@ import { Contacts } from "./components/sections/Contacts.jsx";
 
 import { Footer } from "./components/Footer.jsx";
 import { DividingLine } from "./components/DividingLine.jsx";
-import { DonateButton } from "./components/donateButton.jsx";
+import { DonateButton } from "./components/DonateButton.jsx";
 import { Modal } from "./components/Modal.jsx";
 
 function App() {
    return (
       <>
-         <Header className="header"></Header>
+         <Header></Header>
          <Hero></Hero>
          <Mission></Mission>
          <DividingLine></DividingLine>

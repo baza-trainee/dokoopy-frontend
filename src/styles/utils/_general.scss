@@ -25,4 +25,26 @@ a {
    @media screen and (min-width: 1200px) {
       width: 1260px;
    }
+
 }
+
+}
+.title{
+   width: auto;
+   color: var(--text-main);
+   font-family: PT Sans;
+   font-size: 66px;
+   font-style: normal;
+   font-weight: 700;
+   line-height: normal;
+   text-transform: uppercase;
+
+   @media (max-width: 480px){
+         text-align: center;
+         align-self: stretch;
+   }
+     
+   
+
+}
+
