@@ -1,9 +1,9 @@
 export const Mission = () => {
    return (
+      <div className="container">
       <div className="mission">
-         <div className="mission-title">
-            <h2>Наша мета</h2>
-         </div>
+            <h2 className="title">Наша мета</h2>
+         
          <div className="mission-block">
             <div className="mission-block-box">
                <div className="mission-block-box-img"></div>
@@ -28,6 +28,7 @@ export const Mission = () => {
                </div>
             </div>
          </div>
+      </div>
       </div>
    );
 };
