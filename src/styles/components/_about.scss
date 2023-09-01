@@ -6,11 +6,12 @@
         justify-content: center;
         .about_title {
           display: flex;
-          align-items: center;
-          font-family: 'PT Sans';
+          font-family: PT Sans;
+          font-style: normal;
           font-size: 66px;
           font-weight: 700;
           line-height: 85.4px;
+          text-transform: uppercase;
         }
         .about_description_wrapper {
             display: flex;
@@ -68,6 +69,7 @@
             width: 370px;
             height: 1047px;
                 .about_title {
+                    align-items: center;
                     width: 370px;
                     height: 170px;
                     font-size: 66px;
@@ -94,6 +96,7 @@
           width: 684px;
           height: 782px;
           .about_title {
+            align-items: center;
             width: 684px;
             height: 85px;
           }
@@ -133,7 +136,7 @@
           width: 1236px;
           height: 514px;
           .about_title {
-            width: 402px;
+            width: 403px;
             height: 85px;
           }
           .about_description_wrapper {
