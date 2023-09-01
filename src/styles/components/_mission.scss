@@ -1,0 +1,101 @@
+.Mission{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+}
+.Mission-title h2{
+    color: #212121;
+    font-family: PT Sans;
+    font-size: 66px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+.Mission-container{
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+.Mission-container-box{
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.Mission-container-box-img{
+    width: 44px;
+    height: 44px;
+    background-image: url('../../../public/images/target-mission.png');
+    background-color: #fffdfd00;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.Mission-container-box-text{
+    width: 540px;
+}
+.Mission-container-box-text p{
+    color: #212121;
+    font-family: PT Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .Mission{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+    align-self: stretch;
+    }
+    .Mission-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+        align-self: stretch;
+    }
+    .Mission-container-box-text{
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 480px){
+    .Mission{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+        align-self: stretch;
+    }
+    .Mission-title{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-self: stretch;
+    }
+    .Mission-container{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 50px;
+        align-self: stretch;
+    }
+    .Mission-container-box{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        align-self: stretch;
+    }
+    .Mission-container-box-text{
+        width: 100%;
+    }
+   
+}
