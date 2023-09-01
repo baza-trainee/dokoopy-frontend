@@ -1,10 +1,12 @@
 .about_section {
     display: flex;
-    background-color: rgba(240, 240, 240, 1);
+    background-color: var(--background-about);
     .about_wrapper {
         display: flex;
         justify-content: center;
         .about_title {
+          display: flex;
+          align-items: center;
           font-family: 'PT Sans';
           font-size: 66px;
           font-weight: 700;
@@ -16,13 +18,14 @@
             flex-direction: column;
             height: 817px;
             width: 370px;
-            color: rgba(17, 17, 17, 1);
+            color: var(--header-main);
             .about_description_container {
               display: flex;
               flex-direction: column;
               justify-content: space-between;
               height: 513px;
               .about_description_text {
+                font-family: 'PT Sans';
                 width: 370px;
                 height: 396px;
                 margin: 0;
@@ -53,7 +56,6 @@
     }
 }
     
-   
     @media (max-width: 767px) {
       .about_section {
         justify-content: center;
@@ -76,10 +78,10 @@
                   height: 817px;
                   width: 370px;
               }
-              }
-                  
+              }   
               }
           }
+
     @media (min-width: 768px) and (max-width: 1279px) {
       .about_section {
         justify-content: center;
@@ -105,18 +107,64 @@
               .about_description_text {
                 height: 216px;
                 width: 684px;
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 36px;
             }
-            
           }
           .about_photo_wrapper {
             justify-content: flex-end;
             order: 1;
           }
-
       }
     }
     }
+    }
 
+    @media (min-width: 1280px) {
+      .about_section {
+        justify-content: center;
+        align-items: center;
+        width: 1440px;
+        height: 794px;
+        .about_wrapper {
+          flex-direction: column;
+          justify-content: space-between;
+          width: 1236px;
+          height: 514px;
+          .about_title {
+            width: 402px;
+            height: 85px;
+          }
+          .about_description_wrapper {
+            height: 369px;
+            width: 1236px;
+            flex-direction: row;
+            .about_description_container {
+              height: 369px;
+              width: 608px;
+              .about_description_text {
+                height: 252px;
+                width: 608px;
+                font-size: 24px;
+                font-weight: 400;
+                line-height: 36px;
+            }
+            .about_btn_container {
+              justify-content: flex-start;
+            }
+            }
+            .about_photo_wrapper {
+              justify-content: flex-end;
+              height: 369px;
+              .about_photo_container {
+                width: 504px;
+                height: 332px;
+              }
+            }
+          }
+        }
+      }
     }
   
       
