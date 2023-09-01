@@ -1,3 +1,10 @@
 .header {
-   color: blue;
+   display: flex;
+   font-family: PT Sans;
+   font-weight: 700;
+}
+
+.logo {
+   font-size: 45px;
+   text-transform: uppercase;
 }
