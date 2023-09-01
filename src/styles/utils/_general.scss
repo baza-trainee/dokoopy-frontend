@@ -25,11 +25,9 @@ a {
    @media screen and (min-width: 1200px) {
       width: 1260px;
    }
-
 }
 
-}
-.title{
+.title {
    width: auto;
    color: var(--text-main);
    font-family: PT Sans;
@@ -39,12 +37,8 @@ a {
    line-height: normal;
    text-transform: uppercase;
 
-   @media (max-width: 480px){
-         text-align: center;
-         align-self: stretch;
+   @media (max-width: 480px) {
+      text-align: center;
+      align-self: stretch;
    }
-     
-   
-
 }
-
