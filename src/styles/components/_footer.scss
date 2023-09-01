@@ -1,0 +1,15 @@
+.footer {
+    display: flex;
+    background-color: rgba(37, 37, 37, 1);
+}
+
+@media (min-width: 1280px) {
+    footer {
+        width: 1440px;
+        height: 367px;
+    }
+    .logo-text {
+        width: 245px;
+        height: 73px;
+    }
+}
