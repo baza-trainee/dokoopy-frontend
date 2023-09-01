@@ -4,15 +4,6 @@
     align-items: flex-start;
     gap: 60px;
 }
-.mission-title h2{
-    color: var(--text-main);
-    font-family: PT Sans;
-    font-size: 66px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
-}
 .mission-block{
     display: flex;
     align-items: flex-start;
@@ -24,13 +15,17 @@
     gap: 24px;
 }
 
-.mission-block-box-img{
+.mission-block-box-img::before {
+    content: ""; 
     width: 44px;
     height: 44px;
     background-image: url('../../../public/images/target-mission.svg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: inline-block; 
+    vertical-align: middle; 
+    margin-right: 5px; 
 }
 .mission-block-box-text{
     width: 540px;
@@ -71,12 +66,6 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 60px;
-        align-self: stretch;
-    }
-    .mission-title{
-        display: flex;
-        justify-content: center;
-        text-align: center;
         align-self: stretch;
     }
     .mission-block{
