@@ -1,0 +1,39 @@
+.partner {
+    margin: 60px;
+    text-align: left;
+    overflow: hidden; /* Додайте цей стиль, щоб обмежити видиму частину */
+    width: auto; /* Обмеження ширини до 1260px */
+}
+
+.partner-list {
+    display: flex;
+    animation: scrollPartners 25s linear infinite;
+}
+
+.partner-card {
+    width: 397px;
+    height: 200px;
+    margin-right: 24px;
+    background-color: #ccc;
+}
+
+@keyframes scrollPartners {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-421px);
+    }
+    40% {
+        transform: translateX(-842px); /* 2 * ширина блоку партнера */
+    }
+    60% {
+        transform: translateX(-1263px); /* 3 * ширина блоку партнера */
+    }
+    80% {
+        transform: translateX(-1684px); /* 4 * ширина блоку партнера */
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

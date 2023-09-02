@@ -18,10 +18,10 @@ function App() {
          <Header></Header>
          <Hero></Hero>
          <Mission></Mission>
-         <DividingLine></DividingLine>
+         <DividingLine mainColor={"greenContainer"}></DividingLine>
          <About></About>
          <Projects></Projects>
-         <DividingLine></DividingLine>
+         <DividingLine mainColor={"greenContainer"}></DividingLine>
          <Partners></Partners>
          <Contacts></Contacts>
          <Footer></Footer>

@@ -1,6 +1,6 @@
 export const Mission = () => {
    return (
-      <div>
+      <div className="mission">
       <div className="container">
       <div className="mission-box">
             <h2 className="title">Наша мета</h2>
