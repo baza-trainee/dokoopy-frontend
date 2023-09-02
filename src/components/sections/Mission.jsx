@@ -1,7 +1,8 @@
 export const Mission = () => {
    return (
+      <div>
       <div className="container">
-      <div className="mission">
+      <div className="mission-box">
             <h2 className="title">Наша мета</h2>
          
          <div className="mission-block">
@@ -28,6 +29,7 @@ export const Mission = () => {
                </div>
             </div>
          </div>
+      </div>
       </div>
       </div>
    );
