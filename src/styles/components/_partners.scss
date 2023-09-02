@@ -1,39 +1,112 @@
+.partners {
+    display: flex;
+}
+
 .partner {
-    margin: 60px;
-    text-align: left;
-    overflow: hidden; /* Додайте цей стиль, щоб обмежити видиму частину */
-    width: auto; /* Обмеження ширини до 1260px */
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    margin: 140px 0;
 }
 
 .partner-list {
-    display: flex;
-    animation: scrollPartners 25s linear infinite;
+    border: none;
+    max-width: 100%;
+    overflow: hidden;
 }
 
-.partner-card {
+.partner-list div {
+    display: flex;
+    width: 200%;
+    animation: scrollPartners 40s linear infinite;
+    gap: 24px;
+}
+
+.partner-list span {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+}
+
+.partner-list a {
     width: 397px;
     height: 200px;
-    margin-right: 24px;
-    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-about);
+}
+
+.partner-list:hover div {
+    animation-play-state: paused;
+}
+
+.partner-list a:hover {
+    background-color: #fff;
 }
 
 @keyframes scrollPartners {
     0% {
-        transform: translateX(0);
-    }
-    20% {
-        transform: translateX(-421px);
-    }
-    40% {
-        transform: translateX(-842px); /* 2 * ширина блоку партнера */
-    }
-    60% {
-        transform: translateX(-1263px); /* 3 * ширина блоку партнера */
-    }
-    80% {
-        transform: translateX(-1684px); /* 4 * ширина блоку партнера */
+        transform: translateX(0%);
     }
     100% {
-        transform: translateX(0);
+        transform: translateX(-50%);
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .partner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+        align-self: stretch;
+        margin: 100px 0;
+    }
+
+    .partner-list span {
+        display: flex;
+        justify-content: space-around;
+        gap: 24px;
+    }
+
+    .partner-list a {
+        width: 100%;
+        padding: 38.5px 24px; /* Змінено розмір підходящий для мобільних пристроїв */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--background-about);
+    }
+}
+
+@media (max-width: 480px) {
+
+    .partner {
+        display: grid;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+        align-self: stretch;
+        margin: 80px 0;
+    }
+
+    .partner-list span {
+        width: 370px;
+        display: flex;
+        justify-content: space-around;
+        gap: 24px;
+    }
+
+    .partner-list a {
+        width: 100%;
+        padding: 33px 125px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--background-about);
     }
 }
