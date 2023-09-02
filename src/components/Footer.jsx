@@ -8,6 +8,7 @@ export const Footer = () => {
             </div>
          <div className='logo-text'>DOkoopy</div>
          </div>
+         <div className='policy-container'>Політика конфіденційності Правила користування сайтом Розробка Baza Trainee Ukraine 2023 © Всі права захищені</div>
 
       </footer>
       </div>

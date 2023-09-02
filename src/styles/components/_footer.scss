@@ -1,12 +1,14 @@
 footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     background-color: rgba(37, 37, 37, 1);
 }
 .footer-container {
     display: flex;
-    margin-top: 97px;
+    // margin-top: 97px;
     flex-direction: row;
+    justify-content: center;
 }
 .logo-svg-container {
     width: 64px;
@@ -29,6 +31,12 @@ footer {
     line-height: 72.46px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 1);
+}
+.policy-container {
+    width: 639px;
+    height: 56px;
+    color: rgba(255, 255, 255, 1);
+
 }
 
 @media (min-width: 1280px) {

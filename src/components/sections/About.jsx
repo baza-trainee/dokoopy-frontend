@@ -2,8 +2,9 @@ import { DonateButton } from '../DonateButton';
 
 export const About = () => {
    return (
-   <div className="container">
+   
    <section className="about-section">
+      <div className="container">
       <div className="about-wrapper">
          <div className="about-title">Про бригаду</div>
          <div className="about-description-wrapper">
@@ -26,7 +27,8 @@ export const About = () => {
       </div>
          </div>
       </div>
+      </div>
    </section>
-   </div>
+  
    );
 };
