@@ -4,11 +4,11 @@ footer {
     justify-content: center;
     background-color: rgba(37, 37, 37, 1);
 }
-.footer-container {
+.footer-logo-container {
     display: flex;
-    // margin-top: 97px;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 50px;
 }
 .logo-svg-container {
     width: 64px;
@@ -21,30 +21,105 @@ footer {
     background-image: url("src/assets/logo_footer.svg");
     background-size: cover;
     background-position: center;
-
 }
 .logo-text {
     font-family: PT Sans;
-    font-style: normal;
     font-size: 56px;
     font-weight: 700;
     line-height: 72.46px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 1);
 }
-.policy-container {
-    width: 639px;
-    height: 56px;
+.footer-policy-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.footer-policy-link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+}
+.footer-policy-link, .footer-policy-text {
+    display: flex;
+    height: 28px;
+    margin: 0;
     color: rgba(255, 255, 255, 1);
+    font-family: PT Sans;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 28.47px;
+}
+.footer-policy-link {
+    position: relative;
+}
+.footer-policy-link::after {
+    content: ""; 
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    bottom: 3.2px; 
+    height: 1px; 
+    background-color: rgba(255, 255, 255, 1); 
+}
+.footer-policy-text {
+    margin: 0 auto;
+}
 
+@media screen and (min-width: 480px) {
+    footer {
+        height: 502px;
+    }
+    .footer-policy-container {
+        height: 239px;
+    }
+    .footer-policy-link-container {
+        flex-direction: column;
+        height: 133px;
+    }
+    .footer-policy-text {
+        width: 345px;
+        height: 56px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1279px) {
+    footer {
+        height: 482px;
+    }
+    .footer-policy-container {
+        height: 189px;
+    }
+    .footer-policy-link-container {
+        height: 133px;
+    }
+    .footer-policy-text {
+        width: 576px;
+        height: 28px;
+    }
 }
 
 @media (min-width: 1280px) {
     footer {
-        height: 367px;
+        height: 384px;
     }
-    .logo-text {
-        width: 245px;
-        height: 73px;
+    .footer-policy-container {
+        height: 72px;
+        }
+    .footer-policy-link-container {
+        flex-direction: row;
+        width: 659px;
+        height: 28px;
+    }
+    .footer-policy-text {
+        height: 28px;
+        width: 639px;
+        flex-direction: row;
     }
 }
+
+
+
