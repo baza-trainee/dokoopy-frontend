@@ -1,17 +1,18 @@
-@import "./utils/variables";
-@import "./utils/general";
+@import './utils/variables';
+@import './utils/general';
+@import './utils/reset';
 
 // ?components
 
-@import "./components/header";
-@import "./components/hero";
-@import "./components/mission";
-@import "./components/about";
-@import "./components/projects";
-@import "./components/partners";
-@import "./components/contacts";
+@import './components/header';
+@import './components/hero';
+@import './components/mission';
+@import './components/about';
+@import './components/projects';
+@import './components/partners';
+@import './components/contacts';
 
-@import "./components/footer";
-@import "./components/donate-button";
-@import "./components/modal";
-@import "./components/dividing-line";
+@import './components/footer';
+@import './components/donate-button';
+@import './components/modal';
+@import './components/dividing-line';
