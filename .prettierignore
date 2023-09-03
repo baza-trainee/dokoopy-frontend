@@ -1,0 +1,10 @@
+build
+coverage
+.prettierignore
+.vscode
+*.md
+*.png
+*.jpg
+*.svg
+**/node_modules
+**/.git
