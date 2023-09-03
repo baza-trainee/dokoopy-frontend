@@ -21,7 +21,7 @@ export const About = () => {
          </div>
          <div className="about-photo-wrapper">
        <div className="about-photo-container">
-        <div className="about-photo"></div>
+         <img className="about-photo" src="src/assets/img/about_img.jpg" alt="flag_military"></img>
        </div>
       </div>
          </div>

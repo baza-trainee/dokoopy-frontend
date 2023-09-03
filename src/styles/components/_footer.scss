@@ -1,4 +1,4 @@
-footer {
+.footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -118,6 +118,7 @@ footer {
         height: 28px;
         width: 639px;
         flex-direction: row;
+        justify-content: center;
     }
 }
 
