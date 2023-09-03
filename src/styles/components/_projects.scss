@@ -25,14 +25,17 @@ body {
    font-family: 'PT Sans', sans-serif;
 }
 
+.projects{
+   background: var(--background-dark);
+}
 
 .projects-container{
    display: flex;
-   padding: 140px 100px;
+   padding-top: 100px;
+   padding-bottom: 100px;
    flex-direction: column;
    align-items: center;
-   gap: 80px;
-   background: var(--background-dark);
+   gap: 80px;   
 }
 
 .title-dark{
@@ -56,7 +59,7 @@ body {
 }
 
 .projects-block-box-img{
-   width: 288px;
+   width: 292px;
    height: 384px;
 }
 
@@ -65,12 +68,12 @@ body {
    font-size: 20px; 
 }
 
-.projects-btn{
+.projects-btn {
    display: flex;
    padding: 18px 40px;
    justify-content: center;
    align-items: center;
-   color: var(--white); 
+   color: var(--white);
    font-family: PT Sans;
    font-size: 24px;
    font-style: normal;
@@ -78,13 +81,12 @@ body {
    line-height: normal;
    text-transform: uppercase;
    background-color: transparent;
-   border: 1px solid var(--white);   
-}
+   border: 1px solid var(--white);
 
-.projects-btn:hover,
-.projects-btn:focus{
-   color: var(--accent-color);
-   border-color: var(--accent-color);
-
+   &:hover,
+   &:focus {
+      color: var(--accent-color);
+      border-color: var(--accent-color);
+   }
 }
 

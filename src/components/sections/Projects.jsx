@@ -47,29 +47,31 @@ export const Projects = () => {
    };
 
    return (
-      <div className="projects-container">
-         <h2 className="title title-dark">Наші проєкти</h2>
-         <ul className="projects-block">
-            {projectsData.slice(0, visibleProjects).map((project) => (
-               <li key={project.id} className="projects-block-box">
-                  <img
-                     className="projects-block-box-img"
-                     src={project.imageSrc || 'default-image.jpg'} // Зображення за замовчуванням
-                     alt={project.alt}
-                     width="292" 
-                     height="384" 
-                  />
-                  <div className="projects-block-box-text">
-                     <p>{project.description}</p>
-                  </div>
-               </li>
-            ))}
-         </ul>
-         {visibleProjects < projectsData.length && (
-            <a href="#" className="projects-btn" onClick={showMoreProjects}>
-               Більше проєктів
-            </a>
-         )}
+      <div className="projects">
+         <div className="container projects-container">
+            <h2 className="title title-dark">Наші проєкти</h2>
+            <ul className="projects-block">
+               {projectsData.slice(0, visibleProjects).map((project) => (
+                  <li key={project.id} className="projects-block-box">
+                     <img
+                        className="projects-block-box-img"
+                        src={project.imageSrc || 'default-image.jpg'} // Зображення за замовчуванням
+                        alt={project.alt}
+                        width="292" 
+                        height="384" 
+                     />
+                     <div className="projects-block-box-text">
+                        <p>{project.description}</p>
+                     </div>
+                  </li>
+               ))}
+            </ul>
+            {visibleProjects < projectsData.length && (
+               <a href="#" className="projects-btn" onClick={showMoreProjects}>
+                  Більше проєктів
+               </a>
+            )}
+         </div>
       </div>
    );
 };
