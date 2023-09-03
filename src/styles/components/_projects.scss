@@ -80,3 +80,11 @@ body {
    background-color: transparent;
    border: 1px solid var(--white);   
 }
+
+.projects-btn:hover,
+.projects-btn:focus{
+   color: var(--accent-color);
+   border-color: var(--accent-color);
+
+}
+
