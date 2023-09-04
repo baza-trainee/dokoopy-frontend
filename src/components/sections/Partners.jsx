@@ -5,7 +5,7 @@ export const Partners = () => {
                <div className="partner">
                   <h2 className="title">Наші партнери</h2>
                <div class="partner-list">
-                     <a href="https://baza-trainee.tech/"><div className="partner-card-baza"></div></a>
+                     <a href="https://baza-trainee.tech/" target="_blanck"><div className="partner-card-baza"></div></a>
                      <a href="#"><div className="partner-card"></div></a>
                      <a href="#"><div className="partner-card"></div></a>
                </div>
