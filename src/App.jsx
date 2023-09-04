@@ -9,7 +9,7 @@ import { Contacts } from "./components/sections/Contacts.jsx";
 
 import { Footer } from "./components/Footer.jsx";
 import { DividingLine } from "./components/DividingLine.jsx";
-import { DonateButton } from "./components/DonateButton.jsx";
+
 import { Modal } from "./components/Modal.jsx";
 
 function App() {
@@ -25,7 +25,6 @@ function App() {
          <Partners></Partners>
          <Contacts></Contacts>
          <Footer></Footer>
-         <DonateButton></DonateButton>
          <Modal></Modal>
       </>
    );

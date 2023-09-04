@@ -2,8 +2,8 @@ import { DonateButton } from '../DonateButton';
 
 export const About = () => {
    return (
-   <div className="container">
    <section className="about-section">
+      <div className="container">
       <div className="about-wrapper">
          <div className="about-title">Про бригаду</div>
          <div className="about-description-wrapper">
@@ -21,12 +21,12 @@ export const About = () => {
          </div>
          <div className="about-photo-wrapper">
        <div className="about-photo-container">
-        <div className="about-photo"></div>
+         <img className="about-photo" src="src/assets/img/about_img.jpg" alt="flag_military"></img>
        </div>
       </div>
          </div>
       </div>
+      </div>
    </section>
-   </div>
    );
 };

@@ -1,19 +1,19 @@
 export const DividingLine = ({ mainColor }) => {
-  return (
-    <div className={mainColor + ' containerHeshteg'}>
-      <ul className='contentHeshteg'>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
-  );
+   return (
+      <div className={mainColor + " containerHeshteg"}>
+         <ul className="contentHeshteg">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+         </ul>
+      </div>
+   );
 };
 
 // для використання цього компоненту необхідно при його вставці додати props -
