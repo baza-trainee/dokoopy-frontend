@@ -5,22 +5,9 @@ export const Partners = () => {
                <div className="partner">
                   <h2 className="title">Наші партнери</h2>
                <div class="partner-list">
-                  <div>
-                     <span>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     </span>
-                     <span>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     <a href="#"><img src="../../../public/images/logo-baza.png" alt="logo" /></a>
-                     </span>
-                  </div>
+                     <a href="https://baza-trainee.tech/"><div className="partner-card-baza"></div></a>
+                     <a href="#"><div className="partner-card"></div></a>
+                     <a href="#"><div className="partner-card"></div></a>
                </div>
             </div>
          </div>
