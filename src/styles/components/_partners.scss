@@ -1,5 +1,6 @@
 .partners{
     display: flex;
+    overflow: hidden;
 }
 .partner{
     display: flex;
@@ -24,13 +25,13 @@
     background-position: center;
     background-size: 121px;
     background-repeat: no-repeat;
-    background-color: var(--background-about);
     display: inline-block; 
     vertical-align: middle; 
+    border: 1px solid #000;
 
 }
 .partner-card:hover::before{
-    background-color: #fff;
+    border: none;
     
 
 }
@@ -42,12 +43,12 @@
     background-position: center;
     background-size: 121px;
     background-repeat: no-repeat;
-    background-color: var(--background-about);
     display: inline-block; 
     vertical-align: middle; 
+    border: 1px solid #000;
 }
 .partner-card-baza:hover::before{
-    background-color: #fff;
+    border: none;
     
 
 }
@@ -57,21 +58,11 @@
         margin: 100px 0;
 
     }
-    .partner-list{
-        max-width: 767px;
-        width: 100%;
-        overflow: hidden;
-    }
 }
 
 
 @media (max-width: 480px){
     .partner{
         margin: 80px 0;
-    }
-    .partner-list{
-        max-width: 370px;
-        width: 100%;
-        overflow: hidden;
     }
 }
