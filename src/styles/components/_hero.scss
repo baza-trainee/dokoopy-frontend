@@ -1,22 +1,103 @@
 .hero {
-   background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
-      url("../../../public/images/hero_example.jpg");
-   background-size: cover;
-   //    width: 1440px;
-   min-height: 735px;
+   padding-bottom: 40px;
 }
-
-.container_hero {
-   position: relative;
+.slider {
+   height: 235px;
 }
-
-.hero-title {
-   position: absolute;
-   top: 409px;
+.slider-arrow {
+   display: none;
+}
+.slider-title {
+   margin-top: 24px;
+   display: grid;
+   place-items: center;
+   width: 100%;
+   font-size: 24px;
+   line-height: 34px;
+}
+.slider-title p {
    display: block;
-   width: 912px;
-   font-family: PT Sans;
-   font-weight: 700;
-   font-size: 50px;
-   color: #fff;
+   background: white;
+}
+.slick-dots {
+   bottom: -50px;
+}
+.slick-dots li button:before {
+   transition: 0.4s;
+   content: "";
+   opacity: 1;
+   width: 8px;
+   height: 8px;
+   background: #e2e2e2;
+   border-radius: 50%;
+}
+li.slick-active button:before {
+   transition: 0.4s;
+   content: "";
+   opacity: 1;
+   width: 8px;
+   height: 8px;
+   background: #828282;
+   border-radius: 50%;
+}
+
+@media (min-width: 768px) {
+   .hero {
+      height: 735px;
+   }
+   .slider-arrow {
+      display: block;
+   }
+   .slider-container {
+      display: flex;
+   }
+   .slider {
+      height: 775px;
+   }
+   .slick-dots {
+      position: absolute;
+      bottom: 80px;
+   }
+   .slick-dots li button:before {
+      width: 16px;
+      height: 16px;
+   }
+
+   li.slick-active button:before {
+      opacity: 1;
+      background: #bdbdbd;
+      border: solid 2px white;
+   }
+
+   .slider-title {
+      position: absolute;
+      top: 460px;
+      max-width: 760px;
+      font-size: 40px;
+      line-height: 60px;
+      display: block;
+   }
+   .slider-title p {
+      -webkit-box-decoration-break: clone;
+      display: inline;
+      padding: 8px;
+   }
+
+   .slider-arrow {
+      position: absolute;
+      z-index: 100;
+      top: 50%;
+      background: #e3e3e373;
+      cursor: pointer;
+   }
+}
+@media (min-width: 1200px) {
+   .slider {
+      height: 735px;
+   }
+   .slider-title {
+      position: absolute;
+      top: 430px;
+      max-width: 920px;
+   }
 }

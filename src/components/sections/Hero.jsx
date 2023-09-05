@@ -1,11 +1,32 @@
+import { MySlider } from "./MySlider";
+
 export const Hero = () => {
+   const slides = [
+      {
+         id: 1,
+         url: "../../../images/hero_example.jpg",
+         title: "Збір на 57 бригаду, котрі беруть участь в найзапекліших боях",
+      },
+      {
+         id: 2,
+         url: "../../../images/1.jpg",
+         title: "Збір на 57 бригаду, котрі беруть участь в найзапекліших боях",
+      },
+      {
+         id: 3,
+         url: "../../../images/7.jpg",
+         title: "Збір на 57 бригаду, котрі беруть участь в найзапекліших боях",
+      },
+      {
+         id: 4,
+         url: "../../../images/8.jpg",
+         title: "Збір на 57 бригаду, котрі беруть участь в найзапекліших боях",
+      },
+   ];
+
    return (
-      <div className="hero">
-         <div className="container container_hero">
-            <h1 className="hero-title">
-               Збір на 57 бригаду, котрі беруть участь в найзапекліших боях
-            </h1>
-         </div>
-      </div>
+      <section className="hero">
+         <MySlider slides={slides} />
+      </section>
    );
 };
