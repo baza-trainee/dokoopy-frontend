@@ -1,8 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import arrLeft from "../../assets/chevron-left.svg";
-import arrRight from "../../assets/chevron-right.svg";
+import arrLeft from "../assets/chevron-left.svg";
+import arrRight from "../assets/chevron-right.svg";
 
 export const MySlider = ({ slides }) => {
    const settings = {
