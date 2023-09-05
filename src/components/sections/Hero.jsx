@@ -1,4 +1,4 @@
-import { MySlider } from "./Slider";
+import { MySlider } from "./MySlider";
 
 export const Hero = () => {
    const slides = [
