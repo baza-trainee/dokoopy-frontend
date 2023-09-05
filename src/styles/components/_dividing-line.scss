@@ -1,67 +1,78 @@
 .containerHeshteg {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 106px;
-  overflow: hidden;
+   padding: 0;
+   margin: 0;
+   width: 100%;
+   height: 106px;
+   overflow: hidden;
 }
 
 .contentHeshteg {
-  width: 500%;
-  height: 100%;
-  padding-left: 10px;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  li {
-    margin-right: 55px;
-    font-family: PT Sans;
-    font-weight: 700;
-    font-size: 24px;
-  }
-  @media (min-width: 720px) {
-    padding-left: 30px;
-  }
-  @media (min-width: 1280px) {
-    padding-left: 110px;
-  }
+   width: 500%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   list-style: none;
+   margin: 0;
+   li {
+      font-family: PT Sans;
+      font-weight: 700;
+      font-size: 24px;
+   }
+   @media (min-width: 1440px) {
+      width: 100%;
+      justify-content: center;
+   }
 }
 
 .whiteContainer {
-  background-color: #ffffff;
-  ul li::before {
-    content: '#ПІДТРИМАЙ БРИГАДУ';
-  }
+   background-color: #ffffff;
+   padding-left: 24px;
+   li {
+      margin-right: 47px;
+   }
+   ul li:nth-child(1):before,
+   ul li:nth-child(3):before,
+   ul li:nth-child(5):before {
+      content: "#ХОЛОД У ЖИЛАХ";
+   }
+   ul li:nth-child(2):before,
+   ul li:nth-child(4):before,
+   ul li:nth-child(6):before {
+      content: "#ЗАПАЛ У СЕРЦЯХ";
+   }
 }
 
 .greenContainer {
-  background-color: var(--button-main-color);
-  .contentHeshteg li:nth-child(1)::before {
-    content: url('src/assets/Logo_Ukraine_Defense.svg');
-  }
-  .contentHeshteg li:nth-child(2)::before {
-    content: '#МАЙБУТНЄ';
-  }
-  .contentHeshteg li:nth-child(3)::before {
-    content: '#СВОБОДА';
-  }
-  .contentHeshteg li:nth-child(4)::before {
-    content: '#ЗЕМЛЯ';
-  }
-  .contentHeshteg li:nth-child(5)::before {
-    content: '#РОДИНА';
-  }
-  .contentHeshteg li:nth-child(6)::before {
-    content: '#СИЛА';
-  }
-  .contentHeshteg li:nth-child(7)::before {
-    content: '#ЗАХИСТ';
-  }
-  .contentHeshteg li:nth-child(8)::before {
-    content: '#ВОЛЯ';
-  }
-  .contentHeshteg li:nth-child(9)::before {
-    content: '#НАЦІЯ';
-  }
+   background-color: var(--button-main-color);
+   padding-left: 101px;
+   li {
+      margin-right: 55px;
+   }
+   .contentHeshteg li:nth-child(1)::before {
+      content: url("src/assets/Logo_Ukraine_Defense.svg");
+   }
+   .contentHeshteg li:nth-child(2)::before {
+      content: "#МАЙБУТНЄ";
+   }
+   .contentHeshteg li:nth-child(3)::before {
+      content: "#СВОБОДА";
+   }
+   .contentHeshteg li:nth-child(4)::before {
+      content: "#ЗЕМЛЯ";
+   }
+   .contentHeshteg li:nth-child(5)::before {
+      content: "#РОДИНА";
+   }
+   .contentHeshteg li:nth-child(6)::before {
+      content: "#СИЛА";
+   }
+   .contentHeshteg li:nth-child(7)::before {
+      content: "#ЗАХИСТ";
+   }
+   .contentHeshteg li:nth-child(8)::before {
+      content: "#ВОЛЯ";
+   }
+   .contentHeshteg li:nth-child(9)::before {
+      content: "#НАЦІЯ";
+   }
 }
