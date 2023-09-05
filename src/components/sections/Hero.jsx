@@ -26,9 +26,7 @@ export const Hero = () => {
 
 	return (
 		<div className='hero'>
-			{/* <div className='container container_hero'> */}
 			<MySlider slides={slides} />
-			{/* </div> */}
 		</div>
 	)
 }

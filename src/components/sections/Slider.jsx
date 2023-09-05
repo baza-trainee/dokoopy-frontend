@@ -1,6 +1,9 @@
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
+import arrLeft from '../../assets/chevron-left.svg'
+import arrRight from '../../assets/chevron-right.svg'
+
 export default function MySlider({ slides }) {
 	const settings = {
 		dots: true,
@@ -10,70 +13,50 @@ export default function MySlider({ slides }) {
 		slidesToScroll: 1,
 		nextArrow: <SampleNextArrow />,
 		prevArrow: <SamplePrevArrow />,
-
-		customPaging: (dots) => <div></div>,
 	}
 	return (
 		<div>
 			<Slider {...settings}>
 				{slides.map((item) => (
-					<>
+					<div className='slider-container'>
 						<div
+							className='slider'
 							style={{
-								margin: '0 auto',
 								backgroundImage: `url(${item.url})`,
 								backgroundSize: 'cover',
-								width: '100%',
-								height: '730px',
 							}}
 						></div>
-						<div>{item.title}</div>
-					</>
+						<div className='container'>
+							<div className='slider-title'>
+								<p>{item.title}</p>
+							</div>
+						</div>
+					</div>
 				))}
 			</Slider>
 		</div>
 	)
 }
-function SampleNextArrow(props) {
-	const { className, style, onClick } = props
+function SampleNextArrow({ onClick }) {
 	return (
 		<div
+			className='container'
 			style={{
 				display: 'flex',
 				justifyContent: 'end',
 			}}
-			className='container'
 		>
-			<div
-				style={{
-					position: 'absolute',
-					zIndex: '130',
-					top: '50%',
-					display: 'block',
-					background: 'red',
-				}}
-				onClick={onClick}
-			>
-				000
+			<div className='slider-arrow' onClick={onClick}>
+				<img src={arrRight}></img>
 			</div>
 		</div>
 	)
 }
-function SamplePrevArrow(props) {
-	const { className, style, onClick } = props
+function SamplePrevArrow({ onClick }) {
 	return (
 		<div className='container'>
-			<div
-				style={{
-					position: 'absolute',
-					zIndex: '100',
-					top: '50%',
-					color: 'black',
-					background: 'red',
-				}}
-				onClick={onClick}
-			>
-				gggg
+			<div className='slider-arrow' onClick={onClick}>
+				<img src={arrLeft}></img>
 			</div>
 		</div>
 	)
