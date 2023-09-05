@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { DonateButton } from "./DonateButton";
 import { Chevron } from "../assets/chevron-down.jsx";
 
@@ -6,15 +7,15 @@ export const Header = () => {
       <header>
          <div className="container">
             <div className="header">
-               <p className="logo">dokoopy</p>
+               <Link to="/" className="logo">
+                  dokoopy
+               </Link>
                <nav className="naigation">
                   <ul className="naigation-list">
                      <li>мета</li>
                      <li>бригада</li>
                      <li>
-                        <a href="#" className="navigation-link">
-                           проєкти
-                        </a>
+                        <Link to="allprojects">проєкти</Link>
                      </li>
                   </ul>
                </nav>
