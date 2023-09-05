@@ -1,4 +1,9 @@
 
+.contact{
+    display: flex;
+    background-color: var(--background-about);
+}
+
 .contact-box{
     width: auto;
     display: flex;
@@ -17,7 +22,8 @@
     text-transform: uppercase;
 }
 .contact-box p{
-    width: auto;
+
+    max-width: 920px;
     color: var(--text-main);
     text-align: center;
     font-family: PT Sans;
@@ -84,14 +90,13 @@
     }
 .contact-box h2{
     color: var(--title-main);
+    text-align: center;
     font-family: PT Sans;
-    font-size: 47px;
+    font-size: 23px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
-    align-self: stretch;
-    text-align: center;
     }
 .contact-box p{
     align-self: stretch;
@@ -99,9 +104,17 @@
     color: var(--title-main);
     text-align: center;
     font-family: PT Sans;
-    font-size: 32px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 46px;
+    line-height: normal;
+    }
+.contact-box a{
+    color: var(--text-main);
+    font-family: PT Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
     }
 }

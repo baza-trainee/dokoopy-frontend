@@ -1,0 +1,68 @@
+.partners{
+    display: flex;
+    overflow: hidden;
+}
+.partner{
+    display: flex;
+    width: 100%;
+    margin: 140px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 60px;
+    overflow: hidden;
+}
+.partner-list{
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.partner-card::before{
+    width: 397px;
+    height: 200px;
+    content: ""; 
+    // background-image: url('../../../public/images/logo-baza.png');
+    background-position: center;
+    background-size: 121px;
+    background-repeat: no-repeat;
+    display: inline-block; 
+    vertical-align: middle; 
+    border: 1px solid #000;
+
+}
+.partner-card:hover::before{
+    border: none;
+    
+
+}
+.partner-card-baza::before{
+    width: 397px;
+    height: 200px;
+    content: ""; 
+    background-image: url('../../../public/images/logo-baza.png');
+    background-position: center;
+    background-size: 121px;
+    background-repeat: no-repeat;
+    display: inline-block; 
+    vertical-align: middle; 
+    border: 1px solid #000;
+}
+.partner-card-baza:hover::before{
+    border: none;
+    
+
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .partner{
+        margin: 100px 0;
+
+    }
+}
+
+
+@media (max-width: 480px){
+    .partner{
+        margin: 80px 0;
+    }
+}

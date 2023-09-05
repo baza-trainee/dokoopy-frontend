@@ -28,7 +28,7 @@ a {
 }
 
 .title {
-   width: auto;
+   width: 100%;
    color: var(--title-main);
    font-family: PT Sans;
    font-size: 66px;
@@ -36,9 +36,15 @@ a {
    font-weight: 700;
    line-height: normal;
    text-transform: uppercase;
+   text-align:start;
 
    @media (max-width: 480px) {
-      text-align: center;
       align-self: stretch;
+      font-family: PT Sans;
+      font-size: 28px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
    }
 }

@@ -1,3 +1,7 @@
+.mission{
+    display: flex;
+    background-color: var(--background-about);
+}
 .mission-box{
     display: flex;
     flex-direction: column;
@@ -89,4 +93,27 @@
         width: 100%;
     }
    
+
 }
+.title-mission {
+    width: 100%;
+    color: var(--title-main);
+    font-family: PT Sans;
+    font-size: 66px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align:start;
+ 
+    @media (max-width: 480px) {
+        text-align: center;
+        align-self: stretch;
+        font-family: PT Sans;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+ }
