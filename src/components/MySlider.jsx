@@ -8,19 +8,20 @@ export const MySlider = ({ slides }) => {
    const settings = {
       dots: true,
       infinite: true,
-      speed: 700,
+      speed: 600,
       autoplay: true,
       autoplaySpeed: 5000,
       slidesToShow: 1,
       slidesToScroll: 1,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
+      adaptiveHeight: true,
    };
    return (
       <div>
          <Slider {...settings}>
             {slides.map(item => (
-               <div className="slider-container">
+               <div key={item.id} className="slider-container">
                   <div
                      className="slider"
                      style={{
