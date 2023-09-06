@@ -5,7 +5,7 @@ export const About = () => {
    <section className="about-section">
       <div className="container">
       <div className="about-wrapper">
-         <div className="about-title">Про бригаду</div>
+         <h1 className="about-title">Про бригаду</h1>
          <div className="about-description-wrapper">
          <div className="about-description-container">
             <p className="about-description-text">
@@ -17,15 +17,13 @@ export const About = () => {
             </p>
             <div className="about-btn-container">
             <DonateButton buttonClass={'mainButton'} />
+            </div>
          </div>
          </div>
-         <div className="about-photo-wrapper">
        <div className="about-photo-container">
          <img className="about-photo" src="src/assets/img/about_img.jpg" alt="flag_military"></img>
        </div>
-      </div>
          </div>
-      </div>
       </div>
    </section>
    );
