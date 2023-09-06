@@ -1,32 +1,24 @@
-import { Header } from "./components/Header.jsx";
-import { Hero } from "./components/sections/Hero.jsx";
+import { Routes, Route } from "react-router-dom";
 
-import { Mission } from "./components/sections/Mission.jsx";
-import { About } from "./components/sections/About.jsx";
-import { Projects } from "./components/sections/Projects.jsx";
-import { Partners } from "./components/sections/Partners.jsx";
-import { Contacts } from "./components/sections/Contacts.jsx";
+import { SharedLayout } from "./components/SharedLayout.jsx";
 
-import { Footer } from "./components/Footer.jsx";
-import { DividingLine } from "./components/DividingLine.jsx";
+import { Home } from "./pages/Home.jsx";
+import { AllProjects } from "./pages/AllProjects.jsx";
+import { AdminPanel } from "./pages/AdminPanel.jsx";
+import { NotFound } from "./pages/NotFound.jsx";
 
 import { Modal } from "./components/Modal.jsx";
 
 function App() {
    return (
-      <>
-         <Header></Header>
-         <Hero></Hero>
-         <Mission></Mission>
-         <DividingLine mainColor={"greenContainer"}></DividingLine>
-         <About></About>
-         <Projects></Projects>
-         <DividingLine mainColor={"greenContainer"}></DividingLine>
-         <Partners></Partners>
-         <Contacts></Contacts>
-         <Footer></Footer>
-         <Modal></Modal>
-      </>
+      <Routes>
+         <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path="allprojects" element={<AllProjects />} />
+            <Route path="*" element={<NotFound />} />
+         </Route>
+         <Route path="/admin" element={<AdminPanel />}></Route>
+      </Routes>
    );
 }
 
