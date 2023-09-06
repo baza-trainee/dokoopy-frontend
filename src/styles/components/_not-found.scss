@@ -1,0 +1,39 @@
+.wrapper-error {
+    display: flex;
+    justify-content: center;
+    height: 440px;
+}
+.error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0 128px 0;
+    height: 265px; 
+}
+.error-title {
+    margin-bottom: 8px;
+    width: 164px;
+    height: 100px;
+    font-family: 'PT Sans';
+    font-size: 96px;
+    font-weight: 700;
+    line-height: 100px;
+}
+.error-text-warning {
+    margin-bottom: 8px;
+    height: 31px;
+    font-family: PT Sans;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 31.06px;
+    text-transform: uppercase; 
+
+}
+.error-text {
+    height: 20px;
+    font-family: PT Sans;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
