@@ -1,42 +1,42 @@
 .donateButton {
-  background-color: var(--button-main-color);
-  border: 1px solid;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-family: PT Sans;
-  font-weight: 700;
-  color: var(--button-hover-color);
-  &:hover {
-    background-color: var(--button-hover-color);
-    color: var(--button-burger-hover-color);
-  }
+   background-color: var(--button-main-color);
+   border: 1px solid;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-decoration: none;
+   font-family: PT Sans;
+   font-weight: 700;
+   color: var(--button-hover-color);
+   &:hover {
+      background-color: var(--button-hover-color);
+      color: var(--button-burger-hover-color);
+   }
 }
 
 .headerButton {
-  min-width: 160px;
-  min-height: 46px;
-  font-size: 14px;
-  @media (min-width: 1280px) {
-    min-width: 206px;
-    min-height: 54px;
-    font-size: 20px;
-  }
+   min-width: 206px;
+   min-height: 54px;
+   font-size: 20px;
 }
 
 .mainButton {
-  min-width: 262px;
-  min-height: 67px;
-  font-size: 24px;
+   min-width: 342px;
+   min-height: 52px;
+   font-size: 16px;
+   @media (min-width: 720px) {
+      min-width: 262px;
+      min-height: 67px;
+      font-size: 24px;
+   }
 }
 
 .burger {
-  min-width: 296px;
-  min-height: 69px;
-  font-size: 32px;
-  &:hover {
-    background-color: var(--button-burger-hover-color);
-    color: var(--button-burger-hover-color);
-  }
+   min-width: 342px;
+   min-height: 52px;
+   font-size: 32px;
+   &:hover {
+      background-color: var(--button-burger-hover-color);
+      color: var(--button-burger-hover-color);
+   }
 }

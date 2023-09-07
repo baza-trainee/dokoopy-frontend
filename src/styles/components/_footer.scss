@@ -1,19 +1,15 @@
 .footer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background-color: rgba(37, 37, 37, 1);
 }
 .footer-logo-container {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 50px;
 }
 .logo-svg-container {
-    width: 64px;
-    height: 64px;
-    margin-right: 28px;
+    display: flex;
+    align-self: center;
+    align-items: center;
 }
 .logo-svg {
     width: 100%;
@@ -23,34 +19,26 @@
     background-position: center;
 }
 .logo-text {
+    display: flex;
+    flex-direction: row;
     font-family: PT Sans;
-    font-size: 56px;
-    font-weight: 700;
-    line-height: 72.46px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 1);
+    color: var(--white);
 }
 .footer-policy-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex-direction: column;
 }
 .footer-policy-link-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     align-self: center;
 }
 .footer-policy-link, .footer-policy-text {
     display: flex;
-    height: 28px;
     margin: 0;
-    color: rgba(255, 255, 255, 1);
+    color: var(--white);
     font-family: PT Sans;
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 28.47px;
 }
 .footer-policy-link {
     position: relative;
@@ -60,9 +48,9 @@
     position: absolute; 
     left: 0; 
     right: 0; 
-    bottom: 3.2px; 
+    bottom: 3.5px; 
     height: 1px; 
-    background-color: rgba(255, 255, 255, 1); 
+    background-color: var(--white); 
 }
 .footer-policy-text {
     margin: 0 auto;
@@ -70,55 +58,128 @@
 
 @media screen and (min-width: 480px) {
     footer {
-        height: 502px;
+        width: 100%;
+        height: 366px;
+    }
+    .footer-logo-container {
+        flex-direction: column;
+        justify-content: space-between;
+        width: 197px;
+        margin: 70px auto 40px auto;
+        height: 154px;
+    }
+    .logo-svg-container {
+        width: 68px;
+        height: 68px;
+    }
+    .logo-text {
+        height: auto;
+        font-size: 45px;
+        line-height: 58.23px;
     }
     .footer-policy-container {
-        height: 239px;
+        width: 359px;
+        height: 32px;
+        margin: 0 auto;
     }
-    .footer-policy-link-container {
-        flex-direction: column;
-        height: 133px;
+    .footer-policy-link, .footer-policy-text {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15.53px;
     }
     .footer-policy-text {
-        width: 345px;
-        height: 56px;
-        text-align: center;
+        width: auto;
+    }
+    .footer-policy-link-container {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 359px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
     footer {
-        height: 482px;
+        width: 100%;
+        height: 367px;
+    }
+    .footer-logo-container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 97px auto 74px auto;
+        width: 337px;
+        height: auto;
+    }
+    .logo-svg-container {
+        width: 64px;
+        height: 64px;
+    }
+    .logo-text {
+        height: auto;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 72.46px;
     }
     .footer-policy-container {
-        height: 189px;
+        height: auto;
+        width: auto;
     }
     .footer-policy-link-container {
-        height: 133px;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 658px;
     }
     .footer-policy-text {
-        width: 576px;
-        height: 28px;
+        width: auto;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .footer-policy-link, .footer-policy-text {
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 28.47px;
     }
 }
 
 @media (min-width: 1280px) {
     footer {
-        height: 384px;
+        width: 100%;
+        height: 367px;
+    }
+    .footer-logo-container {
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 97px auto 74px auto;
+        width: 337px;
+        height: auto;
+    }
+    .logo-svg-container {
+        width: 64px;
+        height: 64px;
+    }
+    .logo-text {
+        height: auto;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 72.46px;
     }
     .footer-policy-container {
-        height: 72px;
-        }
+        height: auto;
+        width: auto;
+    }
     .footer-policy-link-container {
         flex-direction: row;
-        width: 659px;
-        height: 28px;
+        justify-content: space-evenly;
+        width: 671px;
     }
     .footer-policy-text {
-        height: 28px;
-        width: 639px;
+        width: auto;
         flex-direction: row;
         justify-content: center;
+    }
+    .footer-policy-link, .footer-policy-text {
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 28.47px;
     }
 }
 
