@@ -7,9 +7,7 @@ import { AllProjects } from "./pages/AllProjects.jsx";
 import { AdminPanel } from "./pages/AdminPanel.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
 
-import { Modal } from "./components/Modal.jsx";
-
-function App() {
+function App() {   
    return (
       <Routes>
          <Route path="/" element={<SharedLayout />}>
