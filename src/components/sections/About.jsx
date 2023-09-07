@@ -5,7 +5,7 @@ export const About = () => {
    <section className="about-section">
       <div className="container">
       <div className="about-wrapper">
-         <h1 className="about-title">Про бригаду</h1>
+         <h2 className="about-title">Про бригаду</h2>
          <div className="about-description-wrapper">
          <div className="about-description-container">
             <p className="about-description-text">
