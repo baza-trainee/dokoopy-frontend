@@ -1,92 +1,201 @@
-
-h2,
-p {
-   margin: 0;
-}
-
-ul {
-   margin: 0;
-   padding: 0;
-   list-style: none;
-}
-
-a {
-   color: currentColor;
-   text-decoration: none;
-}
-
 img {
    display: block;
    max-width: 100%;
    height: auto;
 }
 
-body { 
+body {
    font-family: 'PT Sans', sans-serif;
 }
 
-.projects{
+.projects {
    background: var(--background-dark);
 }
 
-.projects-container{
+.projects-container {
    display: flex;
-   padding-top: 100px;
-   padding-bottom: 100px;
    flex-direction: column;
-   align-items: center;
-   gap: 80px;   
+   width: 452px;
+   padding-top: 80px;
+   padding-bottom: 80px;
+   gap: 51px;
 }
 
-.title-dark{
-   color: var(--white);
-}
-
-.projects-block{
-   display: flex;
-   width: 1240px;
-   align-items: start;
-   gap: 28px;   
-}
-
-.projects-block-box{
-   display: flex;
-   width: 292px;   
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   gap: 24px;
-}
-
-.projects-block-box-img{
-   width: 292px;
-   height: 384px;
-}
-
-.projects-block-box-text{
-   color: var(--white);   
-   font-size: 20px; 
-}
-
-.projects-btn {
-   display: flex;
-   padding: 18px 40px;
-   justify-content: center;
-   align-items: center;
-   color: var(--white);
-   font-family: PT Sans;
-   font-size: 24px;
-   font-style: normal;
-   font-weight: 700;
-   line-height: normal;
-   text-transform: uppercase;
-   background-color: transparent;
-   border: 1px solid var(--white);
-
-   &:hover,
-   &:focus {
-      color: var(--accent-color);
-      border-color: var(--accent-color);
+@media (max-width: 479px) {
+   .projects-container {
+      width: 100%;
+      padding-top: 40px;
+      padding-bottom: 40px;
    }
 }
 
+@media (min-width: 768px) {
+   .projects-container {
+      width: 740px;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      gap: 40px;
+   }
+}
+
+@media (min-width: 1280px) {
+   .projects-container {
+      width: 1260px;
+      padding-top: 140px;
+      padding-bottom: 140px;
+      gap: 60px;
+   }
+}
+
+.title-dark {
+   color: var(--white);
+}
+
+.projects-block {
+   display: flex;
+   width: 432px;
+   align-items: flex-start;
+   align-content: flex-start;
+   gap: 129px 24px;
+   overflow: auto;
+}
+@media (max-width: 479px) {
+   .projects-block {
+      width: 100%;
+      gap: 16px;
+   }
+}
+
+@media (min-width: 768px) {
+   .projects-block {
+      width: 720px;
+      flex-wrap: wrap;
+      overflow: visible;
+   }
+}
+
+@media (min-width: 1280px) {
+   .projects-block {
+      width: 1260px;
+   }
+}
+
+.projects-block-box {
+   display: flex;
+   width: 432px;
+   flex-direction: column;
+   justify-content: center;   
+   gap: 16px;
+   flex-shrink: 0;
+}
+
+@media (max-width: 479px) { 
+   .projects-block-box {
+      width: 100%;
+   }
+}
+
+@media (min-width: 768px) {
+   .projects-block-box {
+      width: 348px;
+   }
+}
+
+@media (min-width: 1280px) {
+   .projects-block-box {
+      width: 292px;
+   }
+}
+
+.projects-block-box-img {
+   width: 432px;
+   height: 338px;
+   object-fit: cover;
+}
+@media (max-width: 479px) {
+   .projects-block-box-img {
+      width: 100%;
+      height: auto;
+   }
+}
+
+@media (min-width: 768px) {
+   .projects-block-box-img {
+      width: 348px;
+      height: 384px;
+   }
+}
+
+@media (min-width: 1280px) {
+   .projects-block-box-img {
+      width: 292px;
+      height: 384px;
+   }
+}
+
+.projects-block-box-date-title {
+   display: flex;
+   flex-direction: row-reverse;  
+   justify-content: space-between;     
+   gap: 16px;
+}
+
+ @media (min-width: 768px) {
+    .projects-block-box-date-title {
+      flex-direction: column;
+    }
+ }
+
+.projects-block-box-date{
+   color: var(--text-gray);
+   font-size: 14px;   
+   line-height: normal;
+}
+
+ @media (min-width: 768px) {
+   .projects-block-box-date {
+      font-size: 20px;
+    }
+ }
+
+.projects-block-box-title{
+   color: var(--white); 
+   font-size: 24px; 
+   font-weight: 700;
+   line-height: normal;
+}
+
+.projects-block-box-description{
+   color: var(--white); 
+   font-size: 20px;
+   line-height: normal;
+}
+
+ .projects-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 40px;
+    color: var(--white);
+    font-family: PT Sans;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid var(--white);
+
+    &:hover,
+    &:focus {
+       color: var(--accent-color);
+       border-color: var(--accent-color);
+    }
+ }
+
+ @media (min-width: 768px) {
+    .projects-btn {
+       margin-left: auto;
+       margin-right: auto;
+    }
+ }
