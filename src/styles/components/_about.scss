@@ -39,7 +39,7 @@
 @media screen and (min-width: 480px) {
       .about-section {
         justify-content: center;
-        height: 806px;
+        height: 808px;
       }
       .about-wrapper {
         display: flex;
@@ -61,8 +61,9 @@
         order: 3;
       }
       .about-description-container {
-        height: 352px;
-        width: 342px;
+        height: 208px;
+        // width: 432px;
+        width: auto;
         order: 3;
       }
       .about-description-text {
@@ -80,8 +81,8 @@
         flex-direction: row;
         align-self: center;
         order: 1;
-        width: 342px;
-        height: 224px;
+        width: 432px;
+        height: 264px;
       }
     }   
              
