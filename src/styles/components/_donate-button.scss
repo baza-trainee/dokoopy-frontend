@@ -15,9 +15,19 @@
 }
 
 .headerButton {
-   min-width: 206px;
-   min-height: 54px;
-   font-size: 20px;
+   display: none;
+   @media screen and (min-width: 480px) {
+   }
+
+   @media screen and (min-width: 768px) {
+      display: flex;
+      min-width: 206px;
+      min-height: 54px;
+      font-size: 20px;
+   }
+
+   @media screen and (min-width: 1280px) {
+   }
 }
 
 .mainButton {
