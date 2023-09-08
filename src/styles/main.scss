@@ -3,7 +3,7 @@
 @import "./utils/general";
 
 // ?components
-
+@import "./components/project-cart";
 @import "./components/header";
 @import "./components/hero";
 @import "./components/mission";
@@ -17,3 +17,5 @@
 @import "./components/modal";
 @import "./components/dividing-line";
 @import "./components/not-found";
+
+@import "./components/all-project";
