@@ -1,0 +1,39 @@
+.project-title {
+   font-size: 28px;
+   line-height: 36px;
+   font-weight: 700;
+   margin-top: 64px;
+   text-transform: uppercase;
+}
+@media screen and (min-width: 768px) {
+   .project-title {
+      font-size: 56px;
+      line-height: 76px;
+      margin-top: 100px;
+   }
+}
+
+@media (min-width: 1280px) {
+   .project-title {
+      font-size: 66px;
+      line-height: 76px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+   }
+}
+
+.pagination {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 140px;
+}
+
+.pagination-text {
+   text-transform: uppercase;
+   cursor: pointer;
+   font-size: 20px;
+   font-weight: 700px;
+   &:hover {
+      color: var(--text-gray);
+   }
+}
