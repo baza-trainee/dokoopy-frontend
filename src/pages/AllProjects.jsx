@@ -1,44 +1,40 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { data } from "../assets/mockProject/mockDataProjects.js";
+import Pagination from "../components/Pagination.jsx";
 import { ProjectCart } from "../components/ProjectCart";
 
 export const AllProjects = () => {
+   const [searchParams, setSearchParams] = useSearchParams();
    const [projectData, setProjectData] = useState([]);
-   const [firstEl, setFirstEl] = useState(0);
-   const [lastEl, setLastEl] = useState(4);
+   const [currentPage, setCurrentPage] = useState(searchParams.get("page")) || 1;
+
+   const postsPerPage = 4;
+   const lastPostIndex = currentPage * postsPerPage;
+   const firstPostIndex = lastPostIndex - postsPerPage;
+   const currentPosts = projectData.slice(firstPostIndex, lastPostIndex);
 
    useEffect(() => {
-      setProjectData(data.slice(firstEl, lastEl));
-   }, [firstEl]);
+      setProjectData(data);
+   }, []);
+   useEffect(() => {
+      searchParams.set("page", currentPage);
+      setSearchParams(searchParams);
+   }, [currentPage]);
 
-   const prevPage = () => {
-      if (firstEl > 3) {
-         window.scrollTo(0, 0);
-         setFirstEl(prev => prev - 4);
-         setLastEl(prev => prev - 4);
-      }
-   };
-   const nextPage = () => {
-      if (lastEl < data.length) {
-         window.scrollTo(0, 0);
-         setFirstEl(prev => prev + 4);
-         setLastEl(prev => prev + 4);
-      }
-   };
    return (
       <section className="container container-project">
          <h2 className="project-title">Наші проєкти</h2>
-         {projectData.map(item => (
+         {currentPosts.map(item => (
             <ProjectCart {...item} />
          ))}
          <div className="pagination">
-            <div onClick={prevPage} className="pagination-text">
-               Назад
-            </div>
-            <div className="numbersProjectPage"></div>
-            <div onClick={nextPage} className="pagination-text">
-               Вперед
-            </div>
+            <Pagination
+               totalPosts={projectData.length}
+               postsPerPage={postsPerPage}
+               setCurrentPage={setCurrentPage}
+               currentPage={currentPage}
+            />
          </div>
       </section>
    );
