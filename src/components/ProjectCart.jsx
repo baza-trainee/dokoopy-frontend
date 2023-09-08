@@ -1,5 +1,4 @@
 export const ProjectCart = ({ id, src, data, title, description }) => {
-   console.log(id);
    return (
       <div key={id} className="content">
          <div className="project-img-blok">
