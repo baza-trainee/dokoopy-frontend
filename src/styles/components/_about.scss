@@ -1,132 +1,90 @@
 .about-section {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--background-about);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-about);
+}
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px;
+  gap: 24px;
 }
 .about-title {
-    display: flex;
-    font-family: PT Sans;
-    font-style: normal;
-    text-transform: uppercase;
-    height: auto;
+  font-family: PT Sans;
+  font-style: normal;
+  text-transform: uppercase;
+  order: 2;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36.23px;
 }
 .about-description-wrapper {
-    color: var(--header-main);
+  color: var(--header-main);
+  order: 3;
 }
 .about-description-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  order: 3;
+  gap: 40px;
 }
 .about-description-text {
-    display: flex;
-    flex-direction: row;
-    font-family: 'PT Sans';
-    margin: 0;
-    width: 100%;
-    height: auto;
-
+  font-family: PT Sans;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 25.88px;
 }
 .about-btn-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 .about-photo {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%; 
 }
-        
-@media screen and (min-width: 480px) {
-      .about-section {
-        justify-content: center;
-        height: 808px;
-      }
-      .about-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 636px;
-      }
-      .about-title {
-      //  align-self:flex-start;
-      align-items: center;
-      // width: auto;
-        order: 2;
-        font-size: 28px;
-        font-weight: 700;
-        line-height: 36.23px;
-      }
-      .about-description-wrapper {
-        align-self: center;
-        order: 3;
-      }
-      .about-description-container {
-        height: 208px;
-        // width: 432px;
-        width: auto;
-        order: 3;
-      }
-      .about-description-text {
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 25.88px;
-      }
-      .about-photo-wrapper {
-        justify-content: center;
-        flex-direction: row;
-      }
 
+@media (max-width: 479px) {
+  .about-photo-container {
+    height: 224px; 
+  }
+  .about-description-wrapper {
+    margin-bottom: 66px;
+  }
+}
+  
+@media (min-width: 480px) and (max-width: 767px) {
+      .about-description-wrapper {
+        margin-bottom: 80px;
+      }
       .about-photo-container {
-        display: flex;
-        flex-direction: row;
-        align-self: center;
         order: 1;
-        width: 432px;
         height: 264px;
       }
     }   
              
     @media (min-width: 768px) and (max-width: 1279px) {
-      .about-section {
-        justify-content: center;
-        height: 1122px;
-      }
       .about-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 922px;
+        margin-top: 100px;
       }
       .about-title {
-        // align-self: center;
         font-size: 66px;
-        font-weight: 700;
         line-height: 85.4px;
-        order: 2;
       }
       .about-description-wrapper {
-        align-self: center;
-        order: 3;
+        margin: 24px 0 100px 0;
       }
       .about-description-container {
-        height: 323px;
-        width: 720px;
+        gap: 40px;
       }
       .about-description-text {
         font-size: 24px;
-        font-weight: 400;
         line-height: 36px;
       }
-      .about-photo-wrapper {
-       justify-content: center;
-       flex-direction: row;
-      }
       .about-photo-container {
-        display: flex;
-        flex-direction: row;
-        align-self: center;
+        margin-bottom: 40px;
         order: 1;
-        width: 720px;
         height: 450px;
       }
       }
@@ -144,7 +102,6 @@
         "header ."
         "description photo";
         row-gap: 40px;
-        height: 484px;
       }
       .about-title {
         grid-area: header;
@@ -156,12 +113,11 @@
         grid-area: description;
       }
       .about-description-container {
-        height: 359px;
+        gap: 40px;
         width: 608px;
       }
       .about-description-text {
         font-size: 24px;
-        font-weight: 400;
         line-height: 36px;
       }
       .about-btn-container {
@@ -171,14 +127,11 @@
         grid-area: photo;
         align-self: start;
         justify-self: end;
-        width: 504px;
         height: 332px;
       }
     }
 
   
-      
-
 
 
 

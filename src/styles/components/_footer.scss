@@ -2,186 +2,149 @@
     display: flex;
     flex-direction: column;
     background-color: rgba(37, 37, 37, 1);
+    height: 367px;
 }
+    @media screen and (min-width: 480px) {
+        .footer {
+        height: 366px;
+        }
+    }
 .footer-logo-container {
     display: flex;
-}
-.logo-svg-container {
-    display: flex;
-    align-self: center;
-    align-items: center;
-}
-.logo-svg {
-    width: 100%;
-    height: 100%;
-    background-image: url("src/assets/logo_footer.svg");
-    background-size: cover;
-    background-position: center;
-}
-.logo-text {
-    display: flex;
-    flex-direction: row;
-    font-family: PT Sans;
-    text-transform: uppercase;
-    color: var(--white);
-}
-.footer-policy-container {
-    display: flex;
     flex-direction: column;
+    width: 197px;
+    margin: 73px auto 37px auto;
+    gap: 28px;
 }
-.footer-policy-link-container {
-    display: flex;
-    align-items: center;
-    align-self: center;
-}
-.footer-policy-link, .footer-policy-text {
-    display: flex;
-    margin: 0;
-    color: var(--white);
-    font-family: PT Sans;
-}
-.footer-policy-link {
-    position: relative;
-}
-.footer-policy-link::after {
-    content: ""; 
-    position: absolute; 
-    left: 0; 
-    right: 0; 
-    bottom: 3.5px; 
-    height: 1px; 
-    background-color: var(--white); 
-}
-.footer-policy-text {
-    margin: 0 auto;
-}
+        @media (min-width: 768px) {
+        .footer-logo-container {
+            flex-direction: row;
+            margin: 97px auto 75px auto;
+            width: 337px;
+        }
+    }
 
-@media screen and (min-width: 480px) {
-    footer {
-        width: 100%;
-        height: 366px;
-    }
-    .footer-logo-container {
-        flex-direction: column;
-        justify-content: space-between;
-        width: 197px;
-        margin: 70px auto 40px auto;
-        height: 154px;
-    }
     .logo-svg-container {
+        display: flex;
+        align-self: center;
+        align-items: center;
         width: 68px;
         height: 68px;
     }
+    @media (min-width: 768px) {
+        .logo-svg-container {
+            width: 64px;
+            height: 64px; 
+        }
+    }
+    .logo-svg {
+        width: 100%;
+        height: 100%;
+        background-image: url("src/assets/logo_footer.svg");
+        background-size: cover;
+        background-position: center;
+    }
     .logo-text {
-        height: auto;
+        display: flex;
+        flex-direction: row;
+        font-family: PT Sans;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--white);
         font-size: 45px;
         line-height: 58.23px;
     }
+    @media (min-width: 768px) {
+        .logo-text  {
+            font-size: 56px;
+            line-height: 72.46px;
+        }
+    }
     .footer-policy-container {
-        width: 359px;
-        height: 32px;
-        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-policy-link-container {
+        display: flex;
+        align-items: center;
+        align-self: center;
+        flex-direction: row;
+    }
+    @media screen and (min-width: 480px) {
+        .footer-policy-link-container  {
+            justify-content: space-between;
+            width: 359px;
+        }
+    }
+    @media (min-width: 768px) and (max-width: 1279px) {
+        .footer-policy-link-container {
+            justify-content: space-between;
+            width: 658px;
+            padding: 0 3px;
+        }
+    }
+    @media (min-width: 1280px) {
+        .footer-policy-link-container {
+            justify-content: space-evenly;
+            width: 671px;
+        }
     }
     .footer-policy-link, .footer-policy-text {
-        font-size: 12px;
+        display: flex;
+        margin: 0;
+        color: var(--white);
+        font-family: PT Sans;
         font-weight: 400;
+        font-size: 12px;
         line-height: 15.53px;
     }
-    .footer-policy-text {
-        width: auto;
+    @media (min-width: 768px) {
+        .footer-policy-link, .footer-policy-text {
+            font-size: 22px;
+            line-height: 28.47px;
+        }
     }
-    .footer-policy-link-container {
-        flex-direction: row;
-        justify-content: space-between;
-        width: 359px;
+    .footer-policy-link {
+        position: relative;
     }
-}
-
-@media (min-width: 768px) and (max-width: 1279px) {
-    footer {
-        width: 100%;
-        height: 367px;
+    .footer-policy-link::after {
+        content: ""; 
+        position: absolute; 
+        left: 0; 
+        right: 0; 
+        bottom: 1.5px; 
+        height: 1px; 
+        background-color: var(--white); 
     }
-    .footer-logo-container {
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 97px auto 74px auto;
-        width: 337px;
-        height: auto;
-    }
-    .logo-svg-container {
-        width: 64px;
-        height: 64px;
-    }
-    .logo-text {
-        height: auto;
-        font-size: 56px;
-        font-weight: 700;
-        line-height: 72.46px;
-    }
-    .footer-policy-container {
-        height: auto;
-        width: auto;
-    }
-    .footer-policy-link-container {
-        flex-direction: row;
-        justify-content: space-around;
-        width: 658px;
+    @media screen and (min-width: 768px) {
+        .footer-policy-link::after {
+            bottom: 3.3px; 
+        }
     }
     .footer-policy-text {
-        width: auto;
-        flex-direction: row;
+        margin: 0 auto;
         justify-content: center;
     }
-    .footer-policy-link, .footer-policy-text {
-        font-size: 22px;
-        font-weight: 400;
-        line-height: 28.47px;
+    @media screen and (min-width: 480px) {
+        .footer-policy-text  {
+            width: 359px;
+        }
     }
-}
+    @media (min-width: 768px) and (max-width: 1279px) {
+        .footer-policy-text {
+            width: 658px;
+        }
+    }
+    @media (min-width: 1280px) {
+        .footer-policy-text{
+            width: 671px;
+            
+        }
+    }
 
-@media (min-width: 1280px) {
-    footer {
-        width: 100%;
-        height: 367px;
-    }
-    .footer-logo-container {
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 97px auto 74px auto;
-        width: 337px;
-        height: auto;
-    }
-    .logo-svg-container {
-        width: 64px;
-        height: 64px;
-    }
-    .logo-text {
-        height: auto;
-        font-size: 56px;
-        font-weight: 700;
-        line-height: 72.46px;
-    }
-    .footer-policy-container {
-        height: auto;
-        width: auto;
-    }
-    .footer-policy-link-container {
-        flex-direction: row;
-        justify-content: space-evenly;
-        width: 671px;
-    }
-    .footer-policy-text {
-        width: auto;
-        flex-direction: row;
-        justify-content: center;
-    }
-    .footer-policy-link, .footer-policy-text {
-        font-size: 22px;
-        font-weight: 400;
-        line-height: 28.47px;
-    }
-}
+
+
+
 
 
 
