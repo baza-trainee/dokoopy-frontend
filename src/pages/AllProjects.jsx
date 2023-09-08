@@ -7,7 +7,7 @@ import { ProjectCart } from "../components/ProjectCart";
 export const AllProjects = () => {
    const [searchParams, setSearchParams] = useSearchParams();
    const [projectData, setProjectData] = useState([]);
-   const [currentPage, setCurrentPage] = useState(searchParams.get("page")) || 1;
+   const [currentPage, setCurrentPage] = useState(+searchParams.get("page") || 1);
 
    const postsPerPage = 4;
    const lastPostIndex = currentPage * postsPerPage;
