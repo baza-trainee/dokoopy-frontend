@@ -1514,11 +1514,13 @@ body {
   opacity: 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  z-index: 20;
 }
 .modal-content {
   background: #fff;
   width: 1028px;
   height: 566px;
+  z-index: 20;
 }
 .modal-title {
   color: #111;

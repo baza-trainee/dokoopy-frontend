@@ -13,10 +13,12 @@
    justify-content: center;
    opacity: 0;
    transition: 0.5s;
+   z-index: 20;
    &-content {
       background: #fff;
       width: 1028px;
       height: 566px;
+      z-index: 20;
    }
    &-title {
       color: #111;
