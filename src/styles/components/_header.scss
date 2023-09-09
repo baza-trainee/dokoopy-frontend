@@ -39,17 +39,17 @@
    }
 }
 
-.naigation {
+.navigation {
    display: none;
 
    @media screen and (min-width: 1280px) {
       display: block;
-      margin-left: 181px;
+
       margin-right: 118px;
    }
 }
 
-.naigation-list {
+.navigation-list {
    display: flex;
    list-style: none;
    padding: 0px;
@@ -93,7 +93,7 @@
       display: flex;
       align-items: center;
 
-      margin: 0 0 0 81px;
+      margin-left: auto;
       font-size: 24px;
       text-transform: uppercase;
    }
