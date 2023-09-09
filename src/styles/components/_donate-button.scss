@@ -15,9 +15,13 @@
 }
 
 .headerButton {
-   min-width: 206px;
-   min-height: 54px;
-   font-size: 20px;
+   display: none;
+   @media screen and (min-width: 768px) {
+      display: flex;
+      min-width: 206px;
+      min-height: 54px;
+      font-size: 20px;
+   }
 }
 
 .mainButton {
@@ -38,5 +42,10 @@
    &:hover {
       background-color: var(--button-burger-hover-color);
       color: var(--button-burger-hover-color);
+   }
+   @media screen and (min-width: 480px) {
+      width: 432px;
+      margin-left: auto;
+      margin-right: auto;
    }
 }
