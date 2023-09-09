@@ -1,8 +1,31 @@
-export const DonateButton = ({ buttonClass }) => {
+import { useState } from "react";
+import { Modal } from "./Modal";
+
+export const DonateButton = ({ buttonClass, onClick, href }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleClick = (e) => {
+      e.preventDefault();
+      if (href) {
+          window.open(href, '_blank', 'noopener noreferrer');
+      }
+      if (onClick) {
+          onClick();
+      }
+      setModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+      setModalOpen(false);
+  };
+  
   return (
-    <a className={buttonClass + ' donateButton'} href='#' target='_blank'>
+    <>
+    <a className={buttonClass + ' donateButton'} onClick={handleClick} href='#' target='_blank'>
       ЗРОБИТИ ДОНАТ
     </a>
+    {modalOpen && <Modal onClose={handleCloseModal} />}
+    </>
   );
 };
 
