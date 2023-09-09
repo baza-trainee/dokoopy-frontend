@@ -1,8 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import arrLeft from "../assets/chevron-left.svg";
-import arrRight from "../assets/chevron-right.svg";
+import arrow from "../assets/arrow.svg";
+// import arrRight from "../assets/chevron-right.svg";
 
 export const MySlider = ({ slides }) => {
    const settings = {
@@ -16,6 +16,15 @@ export const MySlider = ({ slides }) => {
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
       adaptiveHeight: true,
+      swipe: false,
+      responsive: [
+         {
+            breakpoint: 1199,
+            settings: {
+               swipe: true,
+            },
+         },
+      ],
    };
    return (
       <div>
@@ -50,7 +59,9 @@ function SampleNextArrow({ onClick }) {
          }}
       >
          <div aria-label="Наступний слайд" className="slider-arrow" onClick={onClick}>
-            <img src={arrRight}></img>
+            <button className="arrow-slider">
+               <img src={arrow}></img>
+            </button>
          </div>
       </div>
    );
@@ -59,7 +70,9 @@ function SamplePrevArrow({ onClick }) {
    return (
       <div className="container">
          <div aria-label="Попередній слайд" className="slider-arrow" onClick={onClick}>
-            <img src={arrLeft}></img>
+            <button className="arrow-slider rotate-arrow">
+               <img src={arrow}></img>
+            </button>
          </div>
       </div>
    );
