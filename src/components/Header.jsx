@@ -32,8 +32,8 @@ export const Header = () => {
                <Link to="/" className="logo">
                   dokoopy
                </Link>
-               <nav className="naigation">
-                  <ul className="naigation-list">
+               <nav className="navigation">
+                  <ul className="navigation-list">
                      <li>мета</li>
                      <li>бригада</li>
                      <li>
