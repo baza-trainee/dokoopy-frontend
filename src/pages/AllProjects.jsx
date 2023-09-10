@@ -40,6 +40,7 @@ export const AllProjects = () => {
                </div>
             </section>
          ))}
+
          <div className="pagination">
             <Pagination
                totalPosts={projectData.length}
