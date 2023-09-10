@@ -1,26 +1,45 @@
+    @media screen and (max-width: 479px) {
+        .container {
+            display: flex;
+            // flex-direction: column;
+            width: 100%;
+        }
+      }
 .wrapper-error {
     display: flex;
     justify-content: center;
-    height: 440px;
 }
 .error-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 0 128px 0;
-    height: 265px; 
+}
+@media screen and (max-width: 767px) {
+    .error-container  {
+        margin: 121px 0 100px 0;
+    }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+    .error-container {
+        margin: 200px 0 201px 0;
+    }
+}
+@media (min-width: 1280px) {
+    .error-container {
+        margin: 40px 0 128px 0;
+        
+    }
 }
 .error-title {
     margin-bottom: 8px;
-    height: auto;
     font-family: 'PT Sans';
     font-size: 96px;
     font-weight: 700;
     line-height: 100px;
 }
 .error-text-warning {
+    width: auto;
     margin-bottom: 8px;
-    height: auto;
     font-family: PT Sans;
     font-size: 24px;
     font-weight: 700;
@@ -28,7 +47,6 @@
     text-transform: uppercase; 
 }
 .error-text {
-    height: auto;
     font-family: PT Sans;
     font-size: 16px;
     font-weight: 400;
@@ -36,18 +54,33 @@
 }
 .error-btn {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 1px;
+    font-family: PT Sans;
+    font-weight: 700;
+    border: 1px solid var(--button-main-color);
+    color: var(--button-main-color);
+    text-transform: uppercase;
+    margin-top: 46px;
+    width: 432px;
+    height: 52px;
+    font-size: 16px;
+    line-height: 20.7px;  
+}
+@media screen and (max-width: 479px) {
+    .error-btn  {
+        width: 100%;
+    }
+}
+@media screen and (min-width: 768px) {
+    .error-btn {
+    flex-direction: row;
     margin-top: 40px;
     width: 178px;
     height: 58px;
-    padding: 1px;
-    font-family: PT Sans;
     font-size: 20px;
-    font-weight: 700;
     line-height: 25.88px;
-    border: 1px solid var(--button-main-color);
-    color: var(--button-main-color);
-    text-transform: uppercase;  
+
+    }
 }
