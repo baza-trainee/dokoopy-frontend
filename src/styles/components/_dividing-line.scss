@@ -4,47 +4,45 @@
    width: 100%;
    height: 106px;
    overflow: hidden;
+   @media (min-width: 1440px) {
+      display: flex;
+      justify-content: center;
+   }
 }
 
 .contentHeshteg {
+   padding-left: 100px;
    width: 500%;
    height: 100%;
    display: flex;
    align-items: center;
    list-style: none;
-   margin: 0;
    li {
-      font-family: PT Sans;
       font-weight: 700;
       font-size: 24px;
    }
    @media (min-width: 1440px) {
-      width: 100%;
-      justify-content: center;
+      width: fit-content;
    }
 }
 
 .whiteContainer {
    background-color: #ffffff;
-   padding-left: 24px;
-   li {
-      margin-right: 47px;
-   }
    ul li:nth-child(1):before,
    ul li:nth-child(3):before,
    ul li:nth-child(5):before {
       content: "#ХОЛОД У ЖИЛАХ";
+      margin-right: 65.5px;
    }
    ul li:nth-child(2):before,
-   ul li:nth-child(4):before,
-   ul li:nth-child(6):before {
+   ul li:nth-child(4):before {
       content: "#ЗАПАЛ У СЕРЦЯХ";
+      margin-right: 65.5px;
    }
 }
 
 .greenContainer {
    background-color: var(--button-main-color);
-   padding-left: 101px;
    li {
       margin-right: 55px;
    }
