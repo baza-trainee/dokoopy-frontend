@@ -89,7 +89,7 @@ export const Projects = () => {
                }}
                className="projects-btn"
             >
-               <Link to="/allprojects" className="link-more-project">
+               <Link to="allprojects" className="link-more-project">
                   Більше проєктів
                </Link>
             </div>
