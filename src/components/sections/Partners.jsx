@@ -33,10 +33,9 @@ export const Partners = () => {
 
    const settings = {
       infinite: true,
-      speed: 2000,
+      speed: 3000,
       autoplay: true,
-      cssEase: "ease-in-out",
-      autoplaySpeed: 2000,
+      autoplaySpeed: 3000,
       slidesToShow: 3,
       slidesToScroll: 1,
       swiper: true,

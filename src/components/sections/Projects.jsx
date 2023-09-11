@@ -55,10 +55,6 @@ export const Projects = () => {
       setProjectsData(dataFromBackend);
    }, []);
 
-   const showMoreProjects = () => {
-      setVisibleProjects(visibleProjects + 4);
-   };
-
    return (
       <div className="projects">
          <div className="container">
