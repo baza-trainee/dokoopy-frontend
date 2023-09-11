@@ -81,7 +81,7 @@ export const Projects = () => {
          </ul>
          {visibleProjects < projectsData.length && (
             <div className="projects-btn">
-               <a href="allprojects" className="link-more-project">
+               <a href="/allprojects" className="link-more-project">
                   Більше проєктів
                </a>
             </div>
