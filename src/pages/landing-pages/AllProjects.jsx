@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { data } from "../assets/mockProject/mockDataProjects.js";
-import Pagination from "../components/Pagination.jsx";
+import { data } from "../../assets/mockProject/mockDataProjects.js";
+import Pagination from "../../components/Pagination.jsx";
 
 export const AllProjects = () => {
    const [searchParams, setSearchParams] = useSearchParams();

@@ -1,0 +1,18 @@
+.main-wrapper {
+   display: flex;
+   border: 1px dashed blue;
+}
+
+.body-wrapper {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 100%;
+   border: 1px dashed red;
+}
+
+.admin-backdrop {
+   height: 100%;
+   padding: 24px;
+   background-color: #f4f4f4;
+}
