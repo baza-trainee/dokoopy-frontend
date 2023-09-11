@@ -46,9 +46,9 @@
    li {
       margin-right: 55px;
    }
-   .contentHeshteg li:nth-child(1)::before {
-      content: url("src/assets/Logo_Ukraine_Defense.svg");
-   }
+   // .contentHeshteg li:nth-child(1)::before {
+   //    content: url("src/assets/Logo_Ukraine_Defense.svg");
+   // }
    .contentHeshteg li:nth-child(2)::before {
       content: "#МАЙБУТНЄ";
    }
