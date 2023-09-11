@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ProjectSlider from "./ProjectSlider";
 export const Projects = () => {
    const [projectsData, setProjectsData] = useState([]);
@@ -80,10 +81,17 @@ export const Projects = () => {
             <ProjectSlider data={projectsData} />
          </ul>
          {visibleProjects < projectsData.length && (
-            <div className="projects-btn">
-               <a href="/allprojects" className="link-more-project">
+            <div
+               onClick={() => {
+                  window.scrollTo({
+                     top: 0,
+                  });
+               }}
+               className="projects-btn"
+            >
+               <Link to="/allprojects" className="link-more-project">
                   Більше проєктів
-               </a>
+               </Link>
             </div>
          )}
       </div>
