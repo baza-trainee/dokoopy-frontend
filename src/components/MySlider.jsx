@@ -1,8 +1,8 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import arrLeft from "../assets/chevron-left.svg";
-import arrRight from "../assets/chevron-right.svg";
+import arrowLeft from "../assets/arrow-left-icon.svg";
+import arrowRight from "../assets/arrow-right-icon.svg";
 
 export const MySlider = ({ slides }) => {
    const settings = {
@@ -10,11 +10,11 @@ export const MySlider = ({ slides }) => {
       infinite: true,
       speed: 600,
       autoplay: true,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 3000,
       slidesToShow: 1,
       slidesToScroll: 1,
-      nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />,
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
       adaptiveHeight: true,
    };
    return (
@@ -40,27 +40,27 @@ export const MySlider = ({ slides }) => {
       </div>
    );
 };
-function SampleNextArrow({ onClick }) {
+function NextArrow({ onClick }) {
    return (
       <div
          className="container"
          style={{
             display: "flex",
-            justifyContent: "end",
+            flexDirection: "row-reverse",
          }}
       >
-         <div aria-label="Наступний слайд" className="slider-arrow" onClick={onClick}>
-            <img src={arrRight}></img>
-         </div>
+         <button onClick={onClick} aria-label="Наступний слайд" className="arrow-slider">
+            <img src={arrowRight}></img>
+         </button>
       </div>
    );
 }
-function SamplePrevArrow({ onClick }) {
+function PrevArrow({ onClick }) {
    return (
       <div className="container">
-         <div aria-label="Попередній слайд" className="slider-arrow" onClick={onClick}>
-            <img src={arrLeft}></img>
-         </div>
+         <button aria-label="Попередній слайд" onClick={onClick} className="arrow-slider ">
+            <img src={arrowLeft}></img>
+         </button>
       </div>
    );
 }
