@@ -3,14 +3,13 @@
 *::after {
    box-sizing: border-box;
 }
-
+body {
+   font-family: PT Sans;
+}
 .container {
    padding-left: 24px;
    padding-right: 24px;
-
-   margin-right: auto;
-   margin-left: auto;
-
+   margin: 0 auto;
    @media screen and (min-width: 480px) {
       width: 480px;
    }
@@ -18,6 +17,7 @@
    @media screen and (min-width: 768px) {
       padding-left: 24px;
       padding-right: 24px;
+
       width: 768px;
    }
 
@@ -29,23 +29,15 @@
 }
 
 .title {
-   width: 100%;
-   color: var(--title-main);
    font-family: PT Sans;
-   font-size: 66px;
+   font-size: 28px;
    font-style: normal;
    font-weight: 700;
-   line-height: normal;
    text-transform: uppercase;
-   text-align: start;
+   color: var(--title-main);
 
-   @media (max-width: 480px) {
-      align-self: stretch;
-      font-family: PT Sans;
-      font-size: 28px;
+   @media (min-width: 768px) {
+      font-size: 66px;
       font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      text-transform: uppercase;
    }
 }

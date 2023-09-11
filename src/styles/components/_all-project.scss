@@ -21,7 +21,7 @@
    font-weight: 700;
    padding-right: 10px;
 }
-.data-title-blok {
+.page-data-title-blok {
    display: flex;
    flex-direction: row-reverse;
    align-items: center;
@@ -33,10 +33,9 @@
    max-width: 432px;
    height: 338px;
    display: flex;
-}
-.project-img {
    object-fit: cover;
 }
+
 .project-description {
    max-width: 432px;
    font-size: 20px;
@@ -62,14 +61,14 @@
       max-width: 348px;
       height: 384px;
    }
-   .data-title-blok {
+   .page-data-title-blok {
       flex-direction: column;
       justify-content: flex-start;
       align-items: start;
       margin: 0px;
       gap: 20px;
    }
-   .project-cart-title {
+   .page-project-cart-title {
       font-size: 28px;
       line-height: 36px;
    }
@@ -85,12 +84,6 @@
 }
 
 @media (min-width: 1280px) {
-   .project-title {
-      font-size: 66px;
-      line-height: 76px;
-      margin-top: 100px;
-      margin-bottom: 100px;
-   }
    .project-title {
       font-size: 66px;
       line-height: 76px;
