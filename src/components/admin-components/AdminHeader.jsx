@@ -1,3 +1,3 @@
 export const AdminHeader = () => {
-   return <header>this is admin header</header>;
+   return <header className="admin-header">this is admin header</header>;
 };

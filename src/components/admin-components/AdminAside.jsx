@@ -3,24 +3,23 @@ import { Link } from "react-router-dom";
 export const AdminAside = () => {
    return (
       <aside className="aside">
-         this is aside
          <ul>
-            <li>
+            <li className="admin-list-item">
                <Link to="/admin">Hero</Link>
             </li>
-            <li>
+            <li className="admin-list-item">
                <Link to="projects">Проєкти</Link>
             </li>
-            <li>
+            <li className="admin-list-item">
                <Link to="partners">Партнери</Link>
             </li>
-            <li>
+            <li className="admin-list-item">
                <Link to="contacts">Контакти</Link>
             </li>
-            <li>
+            <li className="admin-list-item">
                <Link to="bank-account">Банківські реквізити</Link>
             </li>
-            <li>
+            <li className="admin-list-item">
                <Link to="reporting">Звітність</Link>
             </li>
          </ul>

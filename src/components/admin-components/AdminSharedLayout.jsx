@@ -11,8 +11,9 @@ export const AdminSharedLayout = () => {
          <div className="body-wrapper">
             <AdminHeader></AdminHeader>
             <main>
-               This is main body of admin panel
-               <Outlet />
+               <div className="admin-backdrop">
+                  <Outlet />
+               </div>
             </main>
             <AdminFooter></AdminFooter>
          </div>
