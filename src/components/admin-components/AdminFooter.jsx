@@ -1,3 +1,3 @@
 export const AdminFooter = () => {
-   return <footer>this is admin footer</footer>;
+   return <footer className="admin-footer">this is admin footer</footer>;
 };

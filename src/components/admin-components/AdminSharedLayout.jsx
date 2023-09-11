@@ -10,10 +10,8 @@ export const AdminSharedLayout = () => {
          <AdminAside></AdminAside>
          <div className="body-wrapper">
             <AdminHeader></AdminHeader>
-            <main>
-               <div className="admin-backdrop">
-                  <Outlet />
-               </div>
+            <main className="admin-backdrop">
+               <Outlet />
             </main>
             <AdminFooter></AdminFooter>
          </div>
