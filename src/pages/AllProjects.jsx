@@ -27,13 +27,13 @@ export const AllProjects = () => {
          {currentPosts.map(item => (
             <section key={item.id}>
                <div className="content">
-                  <div className="project-img-blok">
-                     <img className="project-img" src={item.src}></img>
+                  <div>
+                     <img className="project-img-blok" src={item.src}></img>
                   </div>
                   <div className="text-blok">
-                     <div className="data-title-blok">
+                     <div className="page-data-title-blok">
                         <p className="project-data">{item.data}</p>
-                        <h3 className="project-cart-title">{item.title}</h3>
+                        <h3 className="page-project-cart-title">{item.title}</h3>
                      </div>
                      <p className="project-description">{item.description}</p>
                   </div>
