@@ -14,7 +14,7 @@ export default function ProjectSlider({ data }) {
    return (
       <Slider {...settings}>
          {data.slice(0, 4).map(project => (
-            <div className="slide-blok">
+            <div key={project.id} className="slide-blok">
                <li key={project.id} className="projects-block-box">
                   <img
                      className="projects-img"
