@@ -6,14 +6,16 @@ import { AdminAside } from "./AdminAside";
 
 export const AdminSharedLayout = () => {
    return (
-      <>
+      <div className="main-wrapper">
          <AdminAside></AdminAside>
-         <AdminHeader></AdminHeader>
-         <main>
-            This is main body of admin panel
-            <Outlet />
-         </main>
-         <AdminFooter></AdminFooter>
-      </>
+         <div className="body-wrapper">
+            <AdminHeader></AdminHeader>
+            <main>
+               This is main body of admin panel
+               <Outlet />
+            </main>
+            <AdminFooter></AdminFooter>
+         </div>
+      </div>
    );
 };

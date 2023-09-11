@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const AdminAside = () => {
    return (
-      <aside>
+      <aside className="aside">
          this is aside
          <ul>
             <li>
