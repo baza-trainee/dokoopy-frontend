@@ -16,9 +16,10 @@
    color: var(--text-gray);
 }
 .project-cart-title {
-   font-size: 24px;
+   font-size: 18px;
    line-height: 31px;
    font-weight: 700;
+   padding-right: 10px;
 }
 .data-title-blok {
    display: flex;
@@ -40,6 +41,11 @@
    max-width: 432px;
    font-size: 20px;
    line-height: 25px;
+}
+@media screen and (min-width: 380px) {
+   .project-cart-title {
+      font-size: 24px;
+   }
 }
 
 @media screen and (min-width: 768px) {

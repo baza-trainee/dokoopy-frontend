@@ -6,8 +6,25 @@
 .slider {
    height: 235px;
 }
-.slider-arrow {
-   display: none;
+
+.arrow-slider {
+   position: absolute;
+   top: 110px;
+   z-index: 10;
+   width: 28px;
+   height: 28px;
+   border: none;
+   background-color: var(--hover-arrow-slider);
+   opacity: 0.7;
+   transition: 0.4s;
+   cursor: pointer;
+   & img {
+      margin: 0 auto;
+   }
+   &:hover {
+      background-color: var(--hover-arrow-slider);
+      opacity: 1;
+   }
 }
 .slider-title {
    margin-top: 24px;
@@ -15,7 +32,6 @@
    line-height: 34px;
 }
 .slider-title p {
-   display: block;
    background: white;
 }
 .slick-dots {
@@ -32,25 +48,19 @@
    border-radius: 50%;
 }
 li.slick-active button:before {
-   transition: 0.4s;
-   content: "";
-   opacity: 1;
-   width: 8px;
-   height: 8px;
    background: #828282;
-   border-radius: 50%;
 }
 
 @media (min-width: 768px) {
    .hero {
       height: 735px;
    }
-   .slider-arrow {
-      display: block;
+   .arrow-slider {
+      width: 38px;
+      height: 38px;
+      top: 47%;
    }
-   .slider-container {
-      display: flex;
-   }
+
    .slider {
       height: 775px;
    }
@@ -70,26 +80,18 @@ li.slick-active button:before {
    }
 
    .slider-title {
-      margin-top: 0px;
       position: absolute;
-      top: 470px;
+      top: 420px;
       max-width: 760px;
       font-size: 40px;
       line-height: 60px;
       display: block;
+      opacity: 0.6;
    }
    .slider-title p {
       -webkit-box-decoration-break: clone;
       display: inline;
-      padding: 8px;
-   }
-
-   .slider-arrow {
-      position: absolute;
-      z-index: 100;
-      top: 50%;
-      background: #e3e3e373;
-      cursor: pointer;
+      padding: 7px;
    }
 }
 @media (min-width: 1200px) {
@@ -97,27 +99,7 @@ li.slick-active button:before {
       height: 735px;
    }
    .slider-title {
-      top: 440px;
+      top: 420px;
       max-width: 920px;
    }
-}
-.custom-dots {
-   text-align: center;
-   margin-top: 20px;
-}
-
-.dot {
-   display: inline-block;
-   width: 10px;
-   height: 10px;
-   margin: 0 5px;
-   background-color: #ccc;
-   border-radius: 50%;
-   cursor: pointer;
-}
-
-.active-dot {
-   width: 12px;
-   height: 12px;
-   background-color: #007bff;
 }
