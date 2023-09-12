@@ -6,25 +6,25 @@
 body {
    font-family: PT Sans;
 }
+
 .container {
    padding-left: 24px;
    padding-right: 24px;
+   width: 100%;
    margin: 0 auto;
    @media screen and (min-width: 480px) {
-      width: 480px;
    }
 
-   @media screen and (min-width: 768px) {
-      padding-left: 24px;
-      padding-right: 24px;
-
-      width: 768px;
-   }
+   // @media screen and (min-width: 768px) {
+   //    padding-left: 24px;
+   //    padding-right: 24px;
+   // }
 
    @media screen and (min-width: 1280px) {
-      padding-left: 10px;
-      padding-right: 10px;
-      width: 1260px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      max-width: 1440px;
    }
 }
 

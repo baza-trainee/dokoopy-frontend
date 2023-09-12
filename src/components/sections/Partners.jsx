@@ -1,33 +1,34 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import logoBaza from "../../assets/images/logo-baza.png";
 export const Partners = () => {
    const partnerData = [
       {
          id: 1,
          link: "https://baza-trainee.tech/",
-         linkImg: "../../../images/logo-baza.png",
+         linkImg: logoBaza,
       },
 
       {
          id: 2,
          link: "https://baza-trainee.tech/",
-         linkImg: "../../../images/logo-baza.png",
+         linkImg: logoBaza,
       },
       {
          id: 3,
          link: "https://baza-trainee.tech/",
-         linkImg: "../../../images/logo-baza.png",
+         linkImg: logoBaza,
       },
       {
          id: 4,
          link: "https://baza-trainee.tech/",
-         linkImg: "../../../images/logo-baza.png",
+         linkImg: logoBaza,
       },
       {
          id: 5,
          link: "https://baza-trainee.tech/",
-         linkImg: "../../../images/logo-baza.png",
+         linkImg: logoBaza,
       },
    ];
 
@@ -39,6 +40,7 @@ export const Partners = () => {
       slidesToShow: 3,
       slidesToScroll: 1,
       swiper: true,
+      arrows: false,
 
       responsive: [
          {
@@ -92,7 +94,7 @@ export const Partners = () => {
                   <li className="partner-card" key={partner.id}>
                      <div
                         style={{
-                           width: "min-content",
+                           // width: "min-content",
                            backgroundImage: `url(${partner.linkImg})`,
                            // backgroundSize: "cover",
                            backgroundPosition: "center",

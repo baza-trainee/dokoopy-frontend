@@ -1,8 +1,8 @@
-import icon from "../assets/Logo_Ukraine_Defense.svg";
+import icon from "../assets/icon/Logo_Ukraine_Defense.svg";
 export const DividingLine = ({ mainColor }) => {
    return (
-      <div className={mainColor + " containerHeshteg"}>
-         <ul className="contentHeshteg">
+      <div className={mainColor + " containerHeshteg "}>
+         <ul className="contentHeshteg ">
             {mainColor === "whiteContainer" ? (
                <li></li>
             ) : (
