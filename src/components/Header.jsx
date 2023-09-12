@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 
 import { DonateButton } from "./DonateButton";
 
-import { Chevron } from "../assets/icon/chevron-down.jsx";
-import { ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { BurgerMenu } from "../assets/icon/burger-menu.jsx";
+import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../assets/icon/close-modal.jsx";
 
 const mobileMenuPortal = document.getElementById("mobile-menu");
@@ -29,9 +28,11 @@ export const Header = () => {
       <header className="container_header">
          <div className="container">
             <div className="header">
-               <Link to="/" className="logo">
-                  dokoopy
-               </Link>
+               <div>
+                  <Link to="/" className="logo">
+                     dokoopy
+                  </Link>
+               </div>
                <nav className="navigation">
                   <ul className="navigation-list">
                      <li>мета</li>
@@ -41,12 +42,14 @@ export const Header = () => {
                      </li>
                   </ul>
                </nav>
-               <DonateButton buttonClass={"headerButton"}></DonateButton>
-               <p className="language-selector">
-                  UA <Chevron />
-               </p>
-               <div className="burger-menu" onClick={openMenuHandler}>
-                  <BurgerMenu />
+               <div className="icon-button-blok">
+                  <DonateButton buttonClass={"headerButton"}></DonateButton>
+                  <p className="language-selector">
+                     UA <Chevron />
+                  </p>
+                  <div className="burger-menu" onClick={openMenuHandler}>
+                     <BurgerMenu />
+                  </div>
                </div>
             </div>
          </div>
