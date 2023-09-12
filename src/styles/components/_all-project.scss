@@ -15,7 +15,7 @@
    line-height: 18px;
    color: var(--text-gray);
 }
-.project-cart-title {
+.page-project-cart-title {
    font-size: 18px;
    line-height: 31px;
    font-weight: 700;
@@ -84,6 +84,12 @@
 }
 
 @media (min-width: 1280px) {
+   .project-title {
+      font-size: 66px;
+      line-height: 76px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+   }
    .project-title {
       font-size: 66px;
       line-height: 76px;

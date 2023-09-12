@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 import { DonateButton } from "./DonateButton";
 
-import { Chevron } from "../assets/chevron-down.jsx";
-import { ChevronMobile } from "../assets/chevron-down.jsx";
-import { BurgerMenu } from "../assets/burger-menu.jsx";
-import { CloseModal } from "../assets/close-modal.jsx";
+import { Chevron } from "../assets/icon/chevron-down.jsx";
+import { ChevronMobile } from "../assets/icon/chevron-down.jsx";
+import { BurgerMenu } from "../assets/icon/burger-menu.jsx";
+import { CloseModal } from "../assets/icon/close-modal.jsx";
 
 const mobileMenuPortal = document.getElementById("mobile-menu");
 

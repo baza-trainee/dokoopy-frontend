@@ -1,4 +1,4 @@
-import mission_icon from "../../../public/images/target-mission.svg";
+import mission_icon from "../../assets/icon/target-mission.svg";
 export const Mission = () => {
    return (
       <div className="mission">
