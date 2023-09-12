@@ -84,7 +84,6 @@
    }
    .mission-block-box{
        display: flex;
-       flex-direction: column;
        align-items: flex-start;
        gap: 24px;
        align-self: stretch;
@@ -92,7 +91,14 @@
    .mission-block-box-text{
        width: 100%;
    }
-  
+   .mission-block-box-text p{
+      color: var(--text-main);
+      font-family: PT Sans;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+   }
 
 }
 .title-mission {
