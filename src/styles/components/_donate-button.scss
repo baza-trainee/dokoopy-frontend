@@ -25,7 +25,8 @@
 }
 
 .mainButton {
-   min-width: 342px;
+   min-width: 90%;
+   max-width: 432px;
    min-height: 52px;
    font-size: 16px;
    @media (min-width: 720px) {
