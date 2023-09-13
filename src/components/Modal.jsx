@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { IconX } from '../assets/images/IconX';
 import{ FrameThanks } from'../assets/images/FrameThanks';
  
