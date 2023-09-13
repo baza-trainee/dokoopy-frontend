@@ -1,4 +1,4 @@
-import aboutPhoto from "../../assets/img/about_img.jpg";
+import aboutPhoto from "../../assets/images/about_img.jpg";
 import { DonateButton } from "../DonateButton";
 export const About = () => {
    return (

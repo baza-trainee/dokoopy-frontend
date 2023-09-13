@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+import defImg from "../../assets/images/default-image.jpg";
 export default function ProjectSlider({ data }) {
    const settings = {
       infinite: true,
@@ -18,7 +19,7 @@ export default function ProjectSlider({ data }) {
                <li key={project.id} className="projects-block-box">
                   <img
                      className="projects-img"
-                     src={project.imageSrc || "default-image.jpg"}
+                     src={project.imageSrc || defImg}
                      alt={project.alt}
                   />
                   <div className="data-title-blok">

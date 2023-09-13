@@ -5,17 +5,22 @@
    margin-top: 64px;
    text-transform: uppercase;
 }
+.project-content-blok {
+   margin: 40px 0 80px 0;
+}
 .content {
    display: flex;
+
    flex-direction: column;
-   margin: 40px 0 80px 0;
+   max-width: 432px;
+   margin: 0 auto;
 }
 .project-data {
    font-size: 14px;
    line-height: 18px;
    color: var(--text-gray);
 }
-.project-cart-title {
+.page-project-cart-title {
    font-size: 18px;
    line-height: 31px;
    font-weight: 700;
@@ -56,6 +61,7 @@
    .content {
       flex-direction: row;
       gap: 24px;
+      max-width: 100%;
    }
    .project-img-blok {
       max-width: 348px;
@@ -84,6 +90,12 @@
 }
 
 @media (min-width: 1280px) {
+   .project-title {
+      font-size: 66px;
+      line-height: 76px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+   }
    .project-title {
       font-size: 66px;
       line-height: 76px;

@@ -1,5 +1,6 @@
 .header {
    display: flex;
+   width: 100%;
    justify-content: space-between;
    align-items: center;
    font-family: PT Sans;
@@ -14,9 +15,8 @@
    }
 
    @media screen and (min-width: 1280px) {
-      justify-content: flex-start;
       min-height: 100px;
-      padding: 21px;
+      // padding: 21px;
    }
 }
 
@@ -34,7 +34,6 @@
    text-transform: uppercase;
 
    @media screen and (min-width: 768px) {
-      margin-right: 179px;
       font-size: 45px;
    }
 }
@@ -44,11 +43,17 @@
 
    @media screen and (min-width: 1280px) {
       display: block;
-
-      margin-right: 118px;
    }
 }
-
+.icon-button-blok {
+   display: flex;
+   align-items: center;
+   justify-content: end;
+   @media screen and (min-width: 768px) {
+      justify-content: space-between;
+      width: 330px;
+   }
+}
 .navigation-list {
    display: flex;
    list-style: none;
@@ -100,9 +105,9 @@
 }
 
 .burger-menu {
-   @media screen and (min-width: 768px) {
-      margin-left: 93px;
-   }
+   // @media screen and (min-width: 768px) {
+   //    // margin-left: 93px;
+   // }
 
    @media screen and (min-width: 1280px) {
       display: none;

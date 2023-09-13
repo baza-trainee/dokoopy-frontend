@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import defImg from "../../assets/images/default-image.jpg";
 import ProjectSlider from "./ProjectSlider";
 export const Projects = () => {
    const [projectsData, setProjectsData] = useState([]);
@@ -65,7 +66,7 @@ export const Projects = () => {
                   <li key={project.id} className="project-cart">
                      <img
                         className="projects-block-box-img"
-                        src={project.imageSrc || "default-image.jpg"}
+                        src={project.imageSrc || defImg}
                         alt={project.alt}
                      />
 
@@ -89,7 +90,7 @@ export const Projects = () => {
                }}
                className="projects-btn"
             >
-               <Link to="/allprojects" className="link-more-project">
+               <Link to="allprojects" className="link-more-project">
                   Більше проєктів
                </Link>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
-import arrowLeft from "../assets/arrow-left-icon.svg";
-import arrowRight from "../assets/arrow-right-icon.svg";
+import arrowLeft from "../assets/icon/arrow-left-icon.svg";
+import arrowRight from "../assets/icon/arrow-right-icon.svg";
 
 const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) => {
    let pages = [];
