@@ -1,7 +1,11 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import logoBaza from "../../assets/images/logo-baza.png";
+import logoBaza from "../../assets/images/logo-baza.svg";
+import contentChameleonLogo from "../../assets/images/content-chameleon-logo.svg";
+import dontPanicLogo from "../../assets/images/dont-panic-logo.svg";
+import juniverseLogo from "../../assets/images/juniverse-logo.svg";
+
 export const Partners = () => {
    const partnerData = [
       {
@@ -12,24 +16,20 @@ export const Partners = () => {
 
       {
          id: 2,
-         link: "https://baza-trainee.tech/",
-         linkImg: logoBaza,
+         link: "https://juniverse.com.ua/",
+         linkImg: juniverseLogo,
       },
       {
          id: 3,
-         link: "https://baza-trainee.tech/",
-         linkImg: logoBaza,
+         link: "https://www.linkedin.com/company/content-chameleon-sales-agency/",
+         linkImg: contentChameleonLogo,
       },
       {
          id: 4,
-         link: "https://baza-trainee.tech/",
-         linkImg: logoBaza,
+         link: "https://dontpanic.team/",
+         linkImg: dontPanicLogo,
       },
-      {
-         id: 5,
-         link: "https://baza-trainee.tech/",
-         linkImg: logoBaza,
-      },
+
    ];
 
    const settings = {
@@ -92,17 +92,8 @@ export const Partners = () => {
             <Slider {...settings}>
                {partnerData.map(partner => (
                   <li className="partner-card" key={partner.id}>
-                     <div
-                        style={{
-                           // width: "min-content",
-                           backgroundImage: `url(${partner.linkImg})`,
-                           // backgroundSize: "cover",
-                           backgroundPosition: "center",
-                           backgroundRepeat: "no-repeat",
-                        }}
-                        className="card"
-                     >
-                        <a className="partner_img" href={partner.link} target="_blank"></a>
+                     <div className="card">
+                        <a className="partner_img" href={partner.link} target="_blank"><img src={partner.linkImg}/></a>
                      </div>
                   </li>
                ))}

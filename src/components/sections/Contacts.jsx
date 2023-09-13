@@ -9,8 +9,8 @@ export const Contacts = () => {
                   ось сюди:{" "}
                </p>
                <div className="contact-link">
-                  <a href="mailto:info@baza-trainee.tech">email</a>
-                  <a href="https://t.me/+CBXkAJlsCy83ZDYy" target="_blanck">
+                  <a href="mailto:eugene@dontpanic.team">email</a>
+                  <a href="https://t.me/Boooble_boo" target="_blanck">
                      telegram
                   </a>
                </div>
