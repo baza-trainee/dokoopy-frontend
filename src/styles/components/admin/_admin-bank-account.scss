@@ -1,0 +1,238 @@
+.bank-contacts{
+    display: flex;
+    width: 100%;
+    padding-bottom: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+    background: #FFF;
+}
+.bank-contacts-header{
+    display: flex;
+    width: 100%;
+    height: 102px;
+    padding: 40px 40px;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--light_grey, #EBEBEB);
+}
+.bank-contacts-header h2{
+    flex: 1 0 0;
+    color: var(--text-color, #212121);
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    
+}
+.bank-contacts-list{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.bank-contacts-list-ul{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.bank-card{
+    display: flex;
+    width: 100%;
+}
+.bank-li{
+    display: flex;
+    width: 100%;
+    height: 99px;
+    max-width: 100%;
+    padding: 12px 40px;
+    align-items: center;
+    gap: 439px;
+    border-bottom: 1px solid var(--light_grey, #EBEBEB);
+    background: #FFF;
+}
+.bank-li p{
+    width: 71px;
+    flex-shrink: 0;
+}
+.bank-li-group{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.bank-li-group a{
+    width: 190px;
+    color: #2672E4;
+}
+.bank-li-group button{
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+@media (min-width: 481px) and (max-width: 768px){
+    .bank-contacts{
+        display: flex;
+        width: 100%;
+        padding-bottom: 0px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .bank-contacts-header{
+        display: flex;
+        width: 100%;
+        height: 102px;
+        padding: 37px 24px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .bank-contacts-header h2{
+        flex: 1 0 0;
+        color: var(--text-color, #212121);
+        font-family: Roboto;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .bank-contacts-list{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .bank-contacts-list-ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .bank-card{
+        display: flex;
+        width: 100%;
+    }
+    .bank-li{
+        display: flex;
+        width: 100%;
+        height: 99px;
+        padding: 12px 24px;
+        align-items: center;
+        gap: 120px;
+        border-bottom: 1px solid var(--light_grey, #EBEBEB);
+        background: #FFF;
+    }
+    .bank-li p{
+        width: 71px;
+        flex-shrink: 0;
+        color: var(--text-color, #212121);
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .bank-li-group{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .bank-li-group a{
+        width: 295px;
+        flex: 1 0 0;
+        color: #2672E4;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-decoration-line: underline;
+    }
+    .bank-li-group button{
+        width: 20px;
+        height: 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: none;
+    }
+}
+@media (max-width: 480px){
+    .bank-contacts{
+        display: flex;
+        width: 100%;
+        padding: 109px 0px 60px 1px;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 1px;
+    }
+    .bank-contacts-header{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        padding: 13px 24px;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+    }
+    .bank-contacts-header h2{
+        flex: 1 0 0;
+        color: var(--text-color, #212121);
+        font-family: Roboto;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
+    .bank-contacts-list{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .bank-contacts-list-ul{
+        display: flex;
+        flex-direction: column;
+    }
+    .bank-card{
+        display: flex;
+        width: 100%;
+    }
+    .bank-li{
+        display: flex;
+        height: 58px;
+        padding: 18px 36px 19px 24px;
+        align-items: flex-end;
+        border-bottom: 1px solid var(--light_grey, #EBEBEB);
+        background: #FFF;
+        overflow: hidden;
+        gap: 153px;
+    }
+    .bank-li p{
+        width: 71px;
+        flex-shrink: 0;
+        color: var(--text-color, #212121);
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .bank-li-group a{
+        width: 100%;
+        flex: 1 0 0;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        color: #2672E4;
+        text-overflow: ellipsis;
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .bank-li-group button{
+        display: none;
+    }
+}
