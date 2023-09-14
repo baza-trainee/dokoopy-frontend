@@ -1,0 +1,140 @@
+.form-container {
+   margin-top: 40px;
+}
+.input-liable {
+   margin-bottom: 14px;
+}
+.sm-input {
+   width: 100%;
+   height: 47px;
+   border-radius: 6px;
+   margin-bottom: 40px;
+   font-size: 18px;
+   padding-left: 10px;
+   border: solid 1px;
+}
+.text-area-blok {
+   position: relative;
+}
+.lg-input {
+   width: 100%;
+   padding: 10px;
+   height: 174px;
+   display: block;
+   border-radius: 6px;
+   font-size: 18px;
+   resize: none;
+}
+.counter-input {
+   position: absolute;
+   bottom: -30px;
+   right: 10px;
+   z-index: 3;
+   color: var(--text-gray);
+}
+.right-input-blok {
+   width: 494px;
+}
+.added-form {
+   font-size: 20px;
+   display: flex;
+   justify-content: space-between;
+}
+.addButton {
+   width: 100%;
+   height: 49px;
+   background: #72a9fc;
+   border: none;
+   border-radius: 6px;
+   margin: 80px 0 40px 0;
+   color: white;
+   font-size: 20px;
+   cursor: pointer;
+}
+.hidden {
+   width: 0px;
+   height: 0px;
+   padding: 0px;
+   margin: 0px;
+   opacity: 0;
+   overflow: hidden;
+   line-height: 0px;
+}
+.editImg {
+   height: 183px;
+   width: 179px;
+}
+.active-drop {
+   background: #f4fbff;
+}
+.liable-piker {
+   margin: 0px;
+   padding: 0px;
+}
+.success-icon {
+   width: 100%;
+   height: 100%;
+   background: white;
+}
+.edit-button-icon {
+   position: absolute;
+   right: 0;
+   bottom: -37px;
+   cursor: pointer;
+   width: 24px;
+   height: 24px;
+}
+.drag-input {
+   display: flex;
+   align-items: center;
+   height: 188px;
+   width: 177px;
+   border: dashed 3px;
+   transition: 0.4s;
+   position: relative;
+
+   & label {
+      width: 177px;
+      text-align: center;
+      overflow: hidden;
+      display: block;
+      font-size: 14px;
+      background: white;
+
+      color: var(--text-gray);
+   }
+}
+
+@media screen and (max-width: 1280px) {
+   .edit-button-icon {
+      top: 0;
+      right: -46px;
+   }
+   .right-input-blok {
+      width: 498px;
+   }
+   .added-form {
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      gap: 40px;
+      margin: 0 auto;
+   }
+   .addButton {
+      margin: 40px 0;
+   }
+}
+@media (max-width: 768px) {
+   .right-input-blok {
+      width: 384px;
+   }
+   .addButton {
+      margin: 40px 0;
+   }
+}
+@media (max-width: 480px) {
+   .right-input-blok {
+      width: 240px;
+      font-size: 16px;
+   }
+}

@@ -9,3 +9,9 @@
 .admin-list-item {
    margin: 10px;
 }
+
+@media (max-width: 768px) {
+   .aside {
+      display: none;
+   }
+}

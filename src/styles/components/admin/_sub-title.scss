@@ -1,0 +1,57 @@
+.sub-title-container {
+   height: 108px;
+   width: 100%;
+   border-bottom: solid 1px #ebebeb;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.title-icon {
+   display: flex;
+   gap: 8px;
+   & img {
+      cursor: pointer;
+   }
+}
+.admin-sub-title {
+   font-size: 26px;
+}
+@media (max-width: 768px) {
+   .admin-sub-title {
+      font-size: 22px;
+   }
+}
+@media (max-width: 480px) {
+   .admin-sub-title {
+      font-size: 19px;
+   }
+}
+.remove-btn {
+   border-radius: 6px;
+   width: 181px;
+   height: 49px;
+   border: none;
+   cursor: pointer;
+   background: #fde4e4;
+   &:hover {
+      border: solid 1px #ff6060;
+   }
+   & div {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      color: #ff6060;
+   }
+}
+@media (max-width: 768px) {
+   .remove-btn {
+      width: 30px;
+      height: 30px;
+      & p {
+         display: none;
+      }
+   }
+   .remove-btn-text {
+   }
+}

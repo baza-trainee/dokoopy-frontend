@@ -1,3 +1,8 @@
+import AddProject from "./addNew/AddProject";
 export const AdminProjects = () => {
-   return <div>Admin Projects</div>;
+   return (
+      <div>
+         <AddProject />
+      </div>
+   );
 };

@@ -1,0 +1,23 @@
+.admin-page-container {
+}
+.admin-sub-title {
+   font-size: 23px;
+   font-weight: 500px;
+}
+.page-container {
+   padding: 0 40px;
+   max-width: 1092px;
+   height: auto;
+   background: white;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+}
+@media (max-width: 396px) {
+   .page-container {
+      padding: 0 10px;
+   }
+   .addedSlider {
+      padding: 0 10px;
+   }
+}
