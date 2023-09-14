@@ -6,6 +6,7 @@ import { AdminPartnersIcon } from "../../assets/admin-icons/admin-partners";
 import { AdminContactsIcon } from "../../assets/admin-icons/admin-contacts";
 import { AdminBankIcon } from "../../assets/admin-icons/admin-bank";
 import { AdminReportIcon } from "../../assets/admin-icons/admin-report";
+import { AdminLogoutIcon } from "../../assets/admin-icons/admin-logout";
 
 export const AdminAside = () => {
    return (
@@ -48,7 +49,12 @@ export const AdminAside = () => {
                <Link to="reporting">Звітність</Link>
             </li>
          </ul>
-         <button type="button">close</button>
+         <Link to="/admin" className="admin-logout">
+            <div className="admin-list-icon">
+               <AdminLogoutIcon />
+            </div>
+            Вийти
+         </Link>
       </aside>
    );
 };

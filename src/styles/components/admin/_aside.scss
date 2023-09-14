@@ -1,8 +1,12 @@
 .aside {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
    width: 360px;
    height: 100vh;
    padding-left: 36px;
    padding-top: 105px;
+   padding-bottom: 41px;
    border: 1px dashed orange;
    font-size: 20px;
 }
@@ -17,4 +21,11 @@
 
 .admin-list-icon {
    margin-right: 20px;
+}
+
+.admin-logout {
+   display: flex;
+   align-items: center;
+   padding-top: 20px;
+   padding-bottom: 20px;
 }
