@@ -2,31 +2,36 @@ import { useState } from "react";
 import { Modal } from "./Modal";
 
 export const DonateButton = ({ buttonClass, onClick, href }) => {
-  const [modalOpen, setModalOpen] = useState(false);
+   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleClick = (e) => {
+   const handleClick = e => {
       e.preventDefault();
       if (href) {
-          window.open(href, '_blank', 'noopener noreferrer');
+         window.open(href, "_blank", "noopener noreferrer");
       }
       if (onClick) {
-          onClick();
+         onClick();
       }
       setModalOpen(true);
-  };
+   };
 
-  const handleCloseModal = () => {
+   const handleCloseModal = () => {
       setModalOpen(false);
-  };
+   };
 
-  return (
-    <>
-    <a className={buttonClass + ' donateButton'} onClick={handleClick} href='#' target='_blank'>
-      ЗРОБИТИ ДОНАТ
-    </a>
-    {modalOpen && <Modal onClose={handleCloseModal} />}
-    </>
-  );
+   return (
+      <>
+         <a
+            className={buttonClass + " donateButton"}
+            onClick={handleClick}
+            href="https://send.monobank.ua/jar/4B1mQWmGVS"
+            target="_blank"
+         >
+            ЗРОБИТИ ДОНАТ
+         </a>
+         {modalOpen && <Modal onClose={handleCloseModal} />}
+      </>
+   );
 };
 
 // для використання цього компоненту необхідно при його вставці додати props -
