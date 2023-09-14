@@ -1,10 +1,12 @@
 .form-container {
    margin-top: 40px;
+   font-family: Roboto;
 }
 .input-liable {
    margin-bottom: 14px;
 }
 .sm-input {
+   font-family: Roboto;
    width: 100%;
    height: 47px;
    border-radius: 6px;
@@ -17,6 +19,7 @@
    position: relative;
 }
 .lg-input {
+   font-family: Robot;
    width: 100%;
    padding: 10px;
    height: 174px;
@@ -24,6 +27,7 @@
    border-radius: 6px;
    font-size: 18px;
    resize: none;
+   line-height: 21.09px;
 }
 .counter-input {
    position: absolute;
@@ -41,6 +45,7 @@
    justify-content: space-between;
 }
 .addButton {
+   font-family: Roboto;
    width: 100%;
    height: 49px;
    background: #72a9fc;
@@ -61,8 +66,9 @@
    line-height: 0px;
 }
 .editImg {
-   height: 183px;
-   width: 179px;
+   height: 188px;
+   width: 177px;
+   object-fit: cover;
 }
 .active-drop {
    background: #f4fbff;
@@ -71,18 +77,25 @@
    margin: 0px;
    padding: 0px;
 }
-.success-icon {
-   width: 100%;
-   height: 100%;
-   background: white;
-}
+
 .edit-button-icon {
    position: absolute;
    right: 0;
-   bottom: -37px;
+   z-index: 40000;
+   top: 250px;
    cursor: pointer;
    width: 24px;
    height: 24px;
+}
+.drag {
+   height: 188px;
+   width: 177px;
+   position: relative;
+   margin-bottom: 24px;
+   cursor: pointer;
+   & :hover {
+      // background: #f4fbff;
+   }
 }
 .drag-input {
    display: flex;
@@ -90,24 +103,21 @@
    height: 188px;
    width: 177px;
    border: dashed 3px;
-   transition: 0.4s;
-   position: relative;
-
+   overflow: hidden;
    & label {
       width: 177px;
       text-align: center;
       overflow: hidden;
       display: block;
       font-size: 14px;
-      background: white;
-
       color: var(--text-gray);
+      cursor: pointer;
    }
 }
 
 @media screen and (max-width: 1280px) {
    .edit-button-icon {
-      top: 0;
+      top: 200px;
       right: -46px;
    }
    .right-input-blok {
@@ -133,8 +143,11 @@
    }
 }
 @media (max-width: 480px) {
+   .form-container {
+      margin: 40px auto;
+   }
    .right-input-blok {
-      width: 240px;
+      width: 250px;
       font-size: 16px;
    }
 }

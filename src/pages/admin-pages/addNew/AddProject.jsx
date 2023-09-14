@@ -1,17 +1,21 @@
-import AddForm from "../../../components/admin-components/AddForm";
-import SubTitle from "../../../components/admin-components/SubTitle";
+import { AddForm } from "../../../components/admin-components/AddForm";
+import { PageHeader } from "../../../components/admin-components/PageHeader";
 
-export default function AddProject() {
+const submitClick = data => {
+   console.log(data);
+};
+export const AddProject = () => {
    return (
       <section className="page-container">
-         <SubTitle title={"Додати новий проєкт"} />
+         <PageHeader title={"Додати новий проєкт"} />
          <AddForm
             smPlaceholder={"Введіть назву проєкту"}
             lgPlaceholder={"Додайте опис проєкту"}
             lgLiable={"Опис проєкту*"}
             smLiable={"Назва проєкту*"}
             nameButton={"Додати проєкт"}
+            submitClick={submitClick}
          />
       </section>
    );
-}
+};

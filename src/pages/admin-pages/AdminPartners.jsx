@@ -1,5 +1,5 @@
-import AddPartners from "./addNew/AddPartners";
-import EditPartners from "./editPage/EditPartners";
+import { AddPartners } from "./addNew/AddPartners";
+import { EditPartners } from "./editPage/EditPartners";
 
 export const AdminPartners = () => {
    return (

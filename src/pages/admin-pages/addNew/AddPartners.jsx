@@ -1,21 +1,22 @@
-import AddForm from "../../../components/admin-components/AddForm";
-import SubTitle from "../../../components/admin-components/SubTitle";
-export default function AddPartners() {
+import { AddForm } from "../../../components/admin-components/AddForm";
+import { PageHeader } from "../../../components/admin-components/PageHeader";
+
+export const AddPartners = () => {
    const submitClick = data => {
       console.log(data);
    };
    return (
       <section className="page-container">
-         <SubTitle title={"Додати нового партнера"} />
+         <PageHeader title={"Додати нового партнера"} />
          <AddForm
             smPlaceholder={"Введіть назву партнера"}
             lgPlaceholder={"https://partnerlink/ua"}
             lgLiable={"Назва партнера*"}
             smLiable={"Назва партнера*"}
-            lg={false}
+            textArea={false}
             nameButton={"Додати партнера"}
             submitClick={submitClick}
          />
       </section>
    );
-}
+};

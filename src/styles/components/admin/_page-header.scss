@@ -1,7 +1,7 @@
 .sub-title-container {
    height: 108px;
    width: 100%;
-   border-bottom: solid 1px #ebebeb;
+
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -13,8 +13,10 @@
       cursor: pointer;
    }
 }
+
 .admin-sub-title {
    font-size: 26px;
+   font-family: Roboto;
 }
 @media (max-width: 768px) {
    .admin-sub-title {
@@ -32,6 +34,7 @@
    height: 49px;
    border: none;
    cursor: pointer;
+   font-family: Roboto;
    background: #fde4e4;
    &:hover {
       border: solid 1px #ff6060;
@@ -51,7 +54,5 @@
       & p {
          display: none;
       }
-   }
-   .remove-btn-text {
    }
 }

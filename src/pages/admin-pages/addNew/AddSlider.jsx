@@ -1,13 +1,13 @@
-import AddForm from "../../../components/admin-components/AddForm";
-import SubTitle from "../../../components/admin-components/SubTitle";
+import { AddForm } from "../../../components/admin-components/AddForm";
+import { PageHeader } from "../../../components/admin-components/PageHeader";
 
-export default function AddSlider() {
+export const AddSlider = () => {
    const submitClick = data => {
       console.log(data);
    };
    return (
       <section className="page-container">
-         <SubTitle title={"Додати новий блок"} />
+         <PageHeader title={"Додати новий блок"} />
          <AddForm
             smPlaceholder={"Введіть назву блоку"}
             lgPlaceholder={"Додайте опис блоку"}
@@ -18,4 +18,4 @@ export default function AddSlider() {
          />
       </section>
    );
-}
+};
