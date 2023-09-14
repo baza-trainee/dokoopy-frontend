@@ -1,6 +1,11 @@
 .main-wrapper {
    display: flex;
    border: 1px dashed blue;
+   font-family: "Roboto";
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 1.17;
+   color: var(--admin-main-font);
 }
 
 .body-wrapper {
