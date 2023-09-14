@@ -2,8 +2,11 @@
    padding: 0;
    margin: 0;
    width: 100%;
-   height: 106px;
+   height: 64px;
    overflow: hidden;
+   @media (min-width: 768px) {
+      height: 106px;
+   }
    @media (min-width: 1480px) {
       display: flex;
       justify-content: center;
@@ -17,13 +20,14 @@
    display: flex;
    align-items: center;
    list-style: none;
+   @media (min-width: 1440px) {
+      padding-left: 100px;
+   }
    li {
       font-weight: 700;
-      font-size: 24px;
    }
    @media (min-width: 1440px) {
       width: fit-content;
-      padding-left: 100px;
    }
 }
 
@@ -33,19 +37,54 @@
    ul li:nth-child(3):before,
    ul li:nth-child(5):before {
       content: "#ХОЛОД У ЖИЛАХ";
-      margin-right: 65.5px;
+      margin-right: 20px;
+      @media (min-width: 480px) {
+         margin-right: 106px;
+      }
+      @media (min-width: 768px) {
+         margin-right: 66.5px;
+      }
+      @media (min-width: 1440px) {
+         margin-right: 65.5px;
+      }
    }
    ul li:nth-child(2):before,
    ul li:nth-child(4):before {
       content: "#ЗАПАЛ У СЕРЦЯХ";
-      margin-right: 65.5px;
+      margin-right: 20px;
+      @media (min-width: 480px) {
+         margin-right: 106px;
+      }
+      @media (min-width: 768px) {
+         margin-right: 66.5px;
+      }
+   }
+   li {
+      font-size: 16px;
+      @media (min-width: 390px) {
+         font-size: 20px;
+      }
+      @media (min-width: 768px) {
+         font-size: 24px;
+      }
    }
 }
 
 .greenContainer {
    background-color: var(--button-main-color);
    li {
-      margin-right: 55px;
+      margin-right: 15px;
+      font-size: 20px;
+      @media (min-width: 390px) {
+         margin-right: 24px;
+      }
+      @media (min-width: 768px) {
+         margin-right: 32px;
+         font-size: 24px;
+      }
+      @media (min-width: 1440px) {
+         margin-right: 55px;
+      }
    }
    .contentHeshteg li:nth-child(2)::before {
       content: "#МАЙБУТНЄ";
@@ -70,5 +109,14 @@
    }
    .contentHeshteg li:nth-child(9)::before {
       content: "#НАЦІЯ";
+   }
+   @media (min-width: 390px) {
+      padding-left: 26px;
+   }
+   @media (min-width: 480px) {
+      padding-left: 22px;
+   }
+   @media (min-width: 768px) {
+      padding-left: 0;
    }
 }
