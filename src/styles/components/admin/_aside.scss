@@ -1,11 +1,20 @@
 .aside {
-   width: 300px;
+   width: 360px;
    height: 100vh;
    padding-left: 36px;
    padding-top: 105px;
    border: 1px dashed orange;
+   font-size: 20px;
 }
 
 .admin-list-item {
-   margin: 10px;
+   display: flex;
+   align-items: center;
+
+   padding-top: 20px;
+   padding-bottom: 20px;
+}
+
+.admin-list-icon {
+   margin-right: 20px;
 }
