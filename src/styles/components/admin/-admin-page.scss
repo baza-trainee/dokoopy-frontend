@@ -1,0 +1,14 @@
+.page-container {
+   padding: 0 40px;
+   max-width: 1092px;
+   height: auto;
+   background: white;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+}
+@media (max-width: 396px) {
+   .page-container {
+      padding: 0 10px;
+   }
+}

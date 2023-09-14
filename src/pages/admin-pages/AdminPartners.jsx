@@ -1,3 +1,11 @@
+import { AddPartners } from "./addNew/AddPartners";
+import { EditPartners } from "./editPage/EditPartners";
+
 export const AdminPartners = () => {
-   return <div>Admin Partners</div>;
+   return (
+      <div>
+         <AddPartners />
+         <EditPartners />
+      </div>
+   );
 };
