@@ -13,7 +13,7 @@
    margin-bottom: 40px;
    font-size: 18px;
    padding-left: 10px;
-   border: solid 1px;
+   border: solid 1px#EBEBEB;
 }
 .text-area-blok {
    position: relative;
@@ -28,6 +28,7 @@
    font-size: 18px;
    resize: none;
    line-height: 21.09px;
+   border: solid 1px#EBEBEB;
 }
 .counter-input {
    position: absolute;
@@ -102,7 +103,7 @@
    align-items: center;
    height: 188px;
    width: 177px;
-   border: dashed 3px;
+   border: dashed 3px #ebebeb;
    overflow: hidden;
    & label {
       width: 177px;
