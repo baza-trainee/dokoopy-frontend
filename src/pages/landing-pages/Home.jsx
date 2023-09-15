@@ -18,6 +18,7 @@ export const Home = () => {
          <Projects></Projects>
          <DividingLine mainColor={"greenContainer"}></DividingLine>
          <Partners></Partners>
+         <Contacts></Contacts>
 
          {/* <Modal active={modalActive} setActive={setModalActive}></Modal> */}
       </>

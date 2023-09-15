@@ -1,3 +1,38 @@
+// slider
+.projects-block-box {
+   color: white;
+   padding: 0 24px;
+}
+// slider
+.slide-blok {
+   width: 100vw !important;
+   display: flex !important;
+   justify-content: center;
+}
+// slider
+.data-title-blok {
+   display: flex;
+   flex-direction: column;
+   gap: 16px;
+   justify-content: space-between;
+   width: 100%;
+   margin: 20px 0px;
+   padding-right: 8px;
+}
+// slider
+.project-cart-description {
+   padding-right: 8px;
+   max-width: 432px;
+   font-size: 20px;
+   line-height: 25px;
+}
+@media (min-width: 390px) {
+   .data-title-blok {
+      align-items: center;
+      flex-direction: row-reverse;
+   }
+}
+
 .projects {
    background: var(--background-dark);
    height: auto;
@@ -15,24 +50,19 @@
    display: grid;
    gap: 16px;
    color: white;
-   width: 292px;
-}
-// slider
-.slide-blok {
-   width: 100vw !important;
-   display: flex !important;
-   justify-content: center;
+   width: 100%;
 }
 
 .projects-img {
    width: 100%;
+   height: 384px;
+   object-fit: cover;
 }
-// slider
-.projects-block-box {
-   color: white;
-   padding: 0 20px;
+.projects-block-box-img {
+   width: 100%;
+   height: 384px;
+   object-fit: cover;
 }
-
 .link-more-project {
    display: block;
 }
@@ -46,23 +76,6 @@
    line-height: 31px;
    font-weight: 700;
    padding-right: 8px;
-}
-// slider
-.data-title-blok {
-   display: flex;
-   flex-direction: row-reverse;
-   align-items: center;
-   justify-content: space-between;
-   width: 100%;
-   margin: 20px 0px;
-   padding-right: 8px;
-}
-// slider
-.project-cart-description {
-   padding-right: 8px;
-   max-width: 432px;
-   font-size: 20px;
-   line-height: 25px;
 }
 
 .projects-btn {
@@ -81,7 +94,6 @@
    display: flex;
    align-items: center;
    justify-content: center;
-
    &:hover,
    &:focus {
       color: var(--accent-color);
@@ -95,26 +107,27 @@
    }
    .projects-block-desktop {
       display: grid;
-      place-items: center;
-      align-items: start;
       grid-template-columns: repeat(2, 1fr);
       gap: 24px;
    }
    .project-cart {
       padding: 20px 0;
+      display: flex;
+      flex-direction: column;
    }
    .title-dark {
-      padding: 100px 0 40px 0;
+      padding: 100px 0 20px 0;
    }
 }
 @media (min-width: 1280px) {
+   .project-cart {
+      width: 250px;
+   }
    .title-dark {
-      padding: 140px 0 60px 0;
+      padding: 140px 0 40px 0;
    }
    .projects-block-desktop {
-      display: grid;
-      gap: 28px;
-
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      justify-content: center;
    }
 }
