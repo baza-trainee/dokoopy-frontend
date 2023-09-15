@@ -56,7 +56,7 @@ export const AddForm = ({
                   />
                )}
 
-               <button className="addButton">{nameButton}</button>
+               <button className="admin-button">{nameButton}</button>
             </div>
          </form>
       </div>
