@@ -20,10 +20,7 @@ export const AdminContacts = () => {
          <div className="admin-contacts-list">
             <div className="admin-contacts-list-title">
                <p>Name</p>
-               <div className="admin-contacts-list-title1">
                <p>Data</p>
-               <span className="contacts-edit"><p>Edit</p></span>
-               </div>
             </div>
             <ul className="admin-contacts-list-ul">
                {contactsData.map(contacts => (
