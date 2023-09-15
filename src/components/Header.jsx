@@ -24,21 +24,39 @@ export const Header = () => {
       isMenuOpen(false);
    }
 
+   function logoClickHandler(e) {
+      // e.preventDefault();
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+   }
+
    return (
-      <header className="container_header">
+      <header className="wrapper-header">
          <div className="container">
             <div className="header">
                <div>
-                  <Link to="/" className="logo">
+                  <Link to="/" className="logo" onClick={logoClickHandler}>
                      dokoopy
                   </Link>
                </div>
                <nav className="navigation">
                   <ul className="navigation-list">
-                     <li>мета</li>
-                     <li>бригада</li>
-                     <li>
-                        <Link to="allprojects">проєкти</Link>
+                     <li className="navigation-list-item">
+                        {/* <Link to="/#mission" className="navigaton-link">
+                           мета
+                        </Link> */}
+                        <a href="#mission" className="navigaton-link">
+                           мета
+                        </a>
+                     </li>
+                     <li className="navigation-list-item">
+                        <a href="#about" className="navigaton-link">
+                           бригада
+                        </a>
+                     </li>
+                     <li className="navigation-list-item">
+                        <Link to="allprojects" className="navigaton-link">
+                           проєкти
+                        </Link>
                      </li>
                   </ul>
                </nav>
