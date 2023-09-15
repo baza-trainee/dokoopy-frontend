@@ -47,6 +47,7 @@ export const MySlider = ({ slides }) => {
                      style={{
                         backgroundImage: `url(${item.url})`,
                         backgroundSize: "cover",
+                        // backgroundPosition: "center",
                      }}
                   ></div>
                   <div className="container">

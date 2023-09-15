@@ -16,8 +16,13 @@ export const AllProjects = () => {
    const currentPosts = projectData.slice(firstPostIndex, lastPostIndex);
 
    useEffect(() => {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+   }, []);
+
+   useEffect(() => {
       setProjectData(data);
    }, []);
+
    useEffect(() => {
       searchParams.set("page", currentPage);
       setSearchParams(searchParams);
