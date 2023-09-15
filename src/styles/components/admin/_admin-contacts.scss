@@ -1,9 +1,7 @@
 .admin-contacts {
    display: flex;
    width: 100%;
-   padding-bottom: 0px;
    flex-direction: column;
-   align-items: flex-start;
    background: #fff;
 }
 .admin-contacts-header {
@@ -34,8 +32,13 @@
    width: 100%;
    padding: 26px 40px;
    align-items: center;
-   gap: 439px;
+   justify-content: space-between;
    background: var(--light_grey, #ebebeb);
+}
+.admin-contacts-list-title1{
+   display: flex;
+   justify-content: space-between;
+   width: 60%;
 }
 .admin-contacts-list-title p {
    width: 71px;
@@ -53,11 +56,11 @@
 .contacts-li {
    display: flex;
    width: 100%;
-   height: 99px;
+   height: 74px;
    max-width: 100%;
-   padding: 12px 40px;
+   padding: 26px 40px;
    align-items: center;
-   gap: 439px;
+   justify-content: space-between;
    border-bottom: 1px solid var(--light_grey, #ebebeb);
    background: #fff;
 }
@@ -67,19 +70,22 @@
 }
 .contacts-li-group {
    display: flex;
-   width: 100%;
    justify-content: space-between;
+   width: 60%;
 }
 .contacts-li-group a{
     width: 210px;
     color: #2672E4;
 }
 .contacts-li-group button {
-   width: 20px;
+   width: 110px;
    height: 20px;
    background: none;
    border: none;
    cursor: pointer;
+}
+.contacts-edit{
+   display: none;
 }
 @media (min-width: 481px) and (max-width: 768px) {
    .admin-contacts {
@@ -115,7 +121,7 @@
    .admin-contacts-list-title {
       display: flex;
       width: 100%;
-      padding: 26px 24px;
+      padding: 18px 36px 19px 24px;
       align-items: center;
       gap: 120px;
       background: var(--light_grey, #ebebeb);
@@ -160,7 +166,7 @@
    }
    .contacts-li-group {
       display: flex;
-      width: 100%;
+      width: 60%;
       justify-content: space-between;
    }
    .contacts-li-group a {
@@ -175,11 +181,9 @@
       text-decoration-line: underline;
    }
    .contacts-li-group button {
-      width: 20px;
-      height: 20px;
-      background: none;
-      border: none;
-      cursor: pointer;
+      display: none;
+   }
+   .contacts-edit{
       display: none;
    }
 }
@@ -217,6 +221,9 @@
       align-items: flex-start;
       width: 100%;
    }
+   .admin-contacts-list-title{
+   padding: 18px 36px 19px 24px;
+   }
    .admin-contacts-list-title p {
       width: 71px;
       flex-shrink: 0;
@@ -243,7 +250,7 @@
       border-bottom: 1px solid var(--light_grey, #ebebeb);
       background: #fff;
       overflow: hidden;
-      gap: 153px;
+      
    }
    .contacts-li p {
       width: 71px;
@@ -271,6 +278,9 @@
       line-height: normal;
    }
    .contacts-li-group button {
+      display: none;
+   }
+   .contacts-edit{
       display: none;
    }
 }
