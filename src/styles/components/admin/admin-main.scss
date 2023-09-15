@@ -1,0 +1,34 @@
+.admin-table-header {
+   display: flex;
+   padding: 19px 23px;
+   align-items: center;
+
+   font-size: 18px;
+   font-weight: 500;
+   color: var(--admin-title-color);
+
+   background: var(--admin-table-header-background);
+   @media (min-width: 768px) {
+      padding: 24px 27px;
+   }
+   @media (min-width: 1280px) {
+      font-size: 20px;
+      padding: 40px 26px;
+   }
+}
+
+.admin-table-list-item {
+   padding: 23px 5px;
+   font-size: 18px;
+   margin: 0;
+   @media (min-width: 768px) {
+      padding: 25px 12px;
+   }
+   @media (min-width: 1280px) {
+      font-size: 20px;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-left: 40px;
+      padding-right: 27px;
+   }
+}

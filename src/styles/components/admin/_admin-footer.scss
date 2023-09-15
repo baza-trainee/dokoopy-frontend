@@ -1,5 +1,13 @@
 .admin-footer {
-   min-height: 89px;
+   display: flex;
+   justify-content: space-between;
+
+   padding: 40px 24px;
    background-color: #f4f4f4;
-   border: 1px dashed blue;
+}
+
+.admin-navigation {
+   display: flex;
+   justify-content: space-between;
+   width: 144px;
 }
