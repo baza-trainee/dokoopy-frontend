@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { IconX } from '../assets/images/IconX';
-import frameThanks from '../assets/images/frameThanks.svg'
+import iconx from '../assets/images/iconx.svg';
+import frameThanks from '../assets/images/frameThanks.svg';
 
 
 export const Modal = ({ onClose }) => {
@@ -39,7 +39,7 @@ export const Modal = ({ onClose }) => {
     <div className="modal-window">
         <div className="modal-button">
           <button className="button-close" onClick={handleButtonCloseClick}>
-            <IconX className="iconx"/>
+            <img src={iconx} className="iconx"/>
           </button>
         </div>
         <div className="modal-text">
