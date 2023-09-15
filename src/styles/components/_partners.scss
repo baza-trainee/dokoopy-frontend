@@ -10,13 +10,21 @@
    height: 111px;
    width: 248px;
    display: flex;
-   border: 1px solid #000;
+
 }
 .partner_img {
+   display: flex;
    width: 248px;
    height: 111px;
+   justify-content: center;
+   align-items: center;
 }
-@media screen and (min-width: 768px) {
+.partner_img img{
+   width: 121.417px;
+   height: 111px;
+   flex-shrink: 0;
+}
+@media screen and (min-width: 769px) {
    .partner {
       margin: 100px 0;
       gap: 60px;
@@ -49,8 +57,16 @@
       height: 200px;
       width: 397px;
    }
+   .card:hover {
+      background-color: #F9F9F9;
+
+   }
    .partner_img {
       height: 200px;
       width: 397px;
+   }
+   .partner_img img{
+      width: 236px;
+      flex-shrink: 0;
    }
 }

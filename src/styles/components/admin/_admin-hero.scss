@@ -63,7 +63,7 @@
 .admin-hero-add-icon {
    width: 100%;
    height: 100%;
-   background-image: url("src/assets/icon/admin_add.svg");
+   background-image: url("../src/assets/icon/admin_add.svg");
    background-size: cover;
    background-position: center;
 }
@@ -170,13 +170,13 @@
    width: 20px;
    height: 20px;
 }
-.content-edit-icon {
-   width: 100%;
-   height: 100%;
-   background-image: url("src/assets/icon/edit_pencil.svg");
-   background-size: cover;
-   background-position: center;
-}
+// .content-edit-icon {
+//    width: 100%;
+//    height: 100%;
+//    background-image: url("src/assets/icon/edit_pencil.svg");
+//    background-size: cover;
+//    background-position: center;
+// }
 .content-element-img-box {
    flex: 1;
    align-self: flex-start;

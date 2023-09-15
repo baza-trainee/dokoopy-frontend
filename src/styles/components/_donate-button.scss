@@ -25,11 +25,11 @@
 }
 
 .mainButton {
-   min-width: 90%;
+   min-width: 100%;
    max-width: 432px;
    min-height: 52px;
    font-size: 16px;
-   @media (min-width: 720px) {
+   @media (min-width: 768px) {
       min-width: 262px;
       min-height: 67px;
       font-size: 24px;
@@ -37,15 +37,16 @@
 }
 
 .burger {
-   min-width: 342px;
+
+   min-width: 98%;
+
    min-height: 52px;
    font-size: 32px;
    &:hover {
       background-color: var(--button-burger-hover-color);
-      color: var(--button-burger-hover-color);
+      color: var(--button-hover-color);
    }
    @media screen and (min-width: 480px) {
-      width: 432px;
       margin-left: auto;
       margin-right: auto;
    }

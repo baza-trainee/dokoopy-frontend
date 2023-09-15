@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { EditIcon } from "../../assets/icon/EditIcon";
 
 export const AdminMainInnerPart = ({name, photo, date, link, data}) => {
     return (
@@ -27,7 +28,8 @@ export const AdminMainInnerPart = ({name, photo, date, link, data}) => {
                         <div className="content-element-data">{contentData.date ? contentData.date : contentData.link}</div>
                         <div className="content-edit-icon-box">
                            <div className="wrapper-edit-icon-box">
-                              <div className="content-edit-icon"></div>
+                           <EditIcon />
+                              {/* <div className="content-edit-icon"></div> */}
                            </div>
                         </div>
                         </div>

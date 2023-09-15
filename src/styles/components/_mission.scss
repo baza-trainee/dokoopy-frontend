@@ -1,29 +1,41 @@
-.mission {
+.mission{
    display: flex;
    background-color: var(--background-about);
 }
-.mission-box {
+.mission-box{
    display: flex;
    flex-direction: column;
    align-items: flex-start;
-   gap: 60px;
-   margin: 140px 0;
+   gap: 66px;
+   margin: 100px 0 140px;
 }
-.mission-block {
+.mission-block{
    display: flex;
    align-items: flex-start;
    gap: 24px;
 }
-.mission-block-box {
+.mission-block-box{
    display: flex;
    align-items: flex-start;
    gap: 24px;
 }
 
-.mission-block-box-text {
+.mission-block-box-img::before {
+   content: ""; 
+   width: 44px;
+   height: 44px;
+   background-image: url('../assets/icon/target-icon.svg');
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   display: inline-block; 
+   vertical-align: middle; 
+   margin-right: 5px; 
+}
+.mission-block-box-text{
    width: auto;
 }
-.mission-block-box-text p {
+.mission-block-box-text p{
    color: var(--text-main);
    font-family: PT Sans;
    font-size: 24px;
@@ -33,52 +45,62 @@
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-   .mission-box {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 60px;
-      align-self: stretch;
-      margin: 100px 0;
+   .mission-box{
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 78px;
+       align-self: stretch;
+       margin: 100px 0;
    }
-   .mission-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 50px;
-      align-self: stretch;
+   .mission-block{
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 40px;
+       align-self: stretch;
    }
-   .mission-block-box-text {
-      width: 100%;
+   .mission-block-box-text{
+       width: 100%;
    }
+   
 }
 
-@media (max-width: 480px) {
-   .mission-box {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 60px;
-      align-self: stretch;
-      margin: 80px 0;
+@media (max-width: 480px){
+   .mission-box{
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 40px;
+       align-self: stretch;
+       margin: 80px 0;
    }
-   .mission-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 50px;
-      align-self: stretch;
+   .mission-block{
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+       gap: 24px;
+       align-self: stretch;
    }
-   .mission-block-box {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 24px;
-      align-self: stretch;
+   .mission-block-box{
+       display: flex;
+       align-items: flex-start;
+       gap: 24px;
+       align-self: stretch;
    }
-   .mission-block-box-text {
+   .mission-block-box-text{
+       width: 100%;
+   }
+   .mission-block-box-text p{
       width: 100%;
+      color: var(--text-main);
+      font-family: PT Sans;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
    }
+
 }
 .title-mission {
    width: 100%;
@@ -89,16 +111,16 @@
    font-weight: 700;
    line-height: normal;
    text-transform: uppercase;
-   text-align: start;
+   text-align:start;
 
    @media (max-width: 480px) {
-      text-align: center;
-      align-self: stretch;
-      font-family: PT Sans;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      text-transform: uppercase;
+       text-align: center;
+       align-self: stretch;
+       font-family: PT Sans;
+       font-size: 28px;
+       font-style: normal;
+       font-weight: 700;
+       line-height: normal;
+       text-transform: uppercase;
    }
 }
