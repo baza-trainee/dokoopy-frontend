@@ -90,10 +90,10 @@
       // width: 494px;    
       font-size: 18px;
    }
+
    @media (min-width: 1280px) {
       font-size: 20px;      
    }
-
         &:hover,
         &:focus {
          background-color: var(--admin-button-accent);
