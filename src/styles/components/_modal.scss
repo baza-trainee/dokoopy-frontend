@@ -63,11 +63,10 @@
     line-height: normal;
     text-transform: uppercase;
 }
-.img-thank{
-    display: flex;
+.imgthank{
+
     width: 125px;
     height: 125px;
-    flex-shrink: 0;
 }
 .modal-text p{
     color: var(--text-main);
@@ -114,11 +113,11 @@
         text-transform: uppercase;
     }
 
-    .img-thank{
-        display: flex;
+    .imgthank{
+       
         width: 125px;
         height: 125px;
-        flex-shrink: 0;
+        
     }
     .iconx{
         width: 40px;
@@ -129,8 +128,8 @@
     .modal-window{
         display: flex;
         align-items: center;
-        width: 280px;
-        height: 371px;
+        width: 320px;
+        height: 471px;
         background-color: var(--background-about);
         flex-direction: column;
     }
@@ -145,8 +144,8 @@
         height: 18px;
     }
     .modal-text{
-        margin-top: 15px;
-        height: 378px;
+        padding: 0 20px;
+        height: 371px;
 
     }
     .modal-text h2{
@@ -159,16 +158,63 @@
         line-height: normal;
         text-transform: uppercase;
     }
-    .img-thank{
-        display: flex;
+    .imgthank{
         width: 89px;
         height: 89px;
-        flex-shrink: 0;
     }
     .modal-text p{
         color: var(--text-main);
+        text-align: center;
         font-family: PT Sans;
         font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+}
+@media (max-width: 320px){
+    .modal-window{
+        display: flex;
+        align-items: center;
+        width: 232px;
+        height: 336px;
+        background-color: var(--background-about);
+        flex-direction: column;
+    }
+    .modal-button {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 5px;
+        padding-right: 5px;
+    }
+    .iconx{
+        width: 18px;
+        height: 18px;
+    }
+    .modal-text{
+        padding: 0 20px;
+        height: 276px;
+
+    }
+    .modal-text h2{
+        color: var(--title-main);
+        text-align: center;
+        font-family: PT Sans;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    .imgthank{
+        width: 75px;
+        height: 74px;
+    }
+    .modal-text p{
+        color: var(--text-main);
+        text-align: center;
+        font-family: PT Sans;
+        font-size: 22px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
