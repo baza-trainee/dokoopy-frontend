@@ -1,10 +1,10 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import logoBaza from "../../assets/images/logo-baza.svg";
 import contentChameleonLogo from "../../assets/images/content-chameleon-logo.svg";
 import dontPanicLogo from "../../assets/images/dont-panic-logo.svg";
 import juniverseLogo from "../../assets/images/juniverse-logo.svg";
+import logoBaza from "../../assets/images/logo-baza.svg";
 
 export const Partners = () => {
    const partnerData = [
@@ -29,18 +29,18 @@ export const Partners = () => {
          link: "https://dontpanic.team/",
          linkImg: dontPanicLogo,
       },
-
    ];
 
    const settings = {
-      infinite: true,
-      speed: 3000,
+      dots: false,
+      arrows: false,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 4000,
+      speed: 2000,
       slidesToShow: 3,
       slidesToScroll: 1,
-      swiper: true,
-      arrows: false,
+      infinite: true,
+      draggable: true,
 
       responsive: [
          {
@@ -93,7 +93,9 @@ export const Partners = () => {
                {partnerData.map(partner => (
                   <li className="partner-card" key={partner.id}>
                      <div className="card">
-                        <a className="partner_img" href={partner.link} target="_blank"><img src={partner.linkImg}/></a>
+                        <a className="partner_img" href={partner.link} target="_blank">
+                           <img src={partner.linkImg} />
+                        </a>
                      </div>
                   </li>
                ))}

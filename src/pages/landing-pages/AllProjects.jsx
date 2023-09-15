@@ -24,20 +24,22 @@ export const AllProjects = () => {
    return (
       <section className="container container-project">
          <h2 className="project-title">Наші проєкти</h2>
-         {currentPosts.map(item => (
-            <section className="project-content-blok" key={item.id}>
-               <div className="content">
-                  <img className="project-img-blok" src={item.src}></img>
-                  <div className="text-blok">
-                     <div className="page-data-title-blok">
-                        <p className="project-data">{item.data}</p>
-                        <h3 className="page-project-cart-title">{item.title}</h3>
+         <ul className="project-page-list">
+            {currentPosts.map(item => (
+               <li key={item.id}>
+                  <div className="content">
+                     <img className="project-img-blok" src={item.src}></img>
+                     <div className="text-blok">
+                        <div className="page-data-title-blok">
+                           <p className="project-data">{item.data}</p>
+                           <h3 className="page-project-cart-title">{item.title}</h3>
+                        </div>
+                        <p className="project-description">{item.description}</p>
                      </div>
-                     <p className="project-description">{item.description}</p>
                   </div>
-               </div>
-            </section>
-         ))}
+               </li>
+            ))}
+         </ul>
 
          <div className="pagination">
             <Pagination
