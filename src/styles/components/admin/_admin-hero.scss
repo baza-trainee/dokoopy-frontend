@@ -1,3 +1,213 @@
 .admin-hero {
-   height: 300px;
+   height: 100%;
 }
+.admin-hero-header {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   background-color: var(--white);
+   height: 50px;
+
+@media screen and (min-width: 768px) {
+      height: 106px;
+}
+@media screen and (min-width: 1280px) {
+      height: 109px; 
+}
+}
+.admin-hero-header-wrapper {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 384px;
+   @media screen and (min-width: 768px) {
+      width: 486px;
+}
+@media screen and (min-width: 1280px) {
+      width: 1012px; 
+}
+}
+.admin-hero-title {
+   font-family: Roboto;
+   font-size: 26px;
+   font-weight: 500;
+   line-height: 30.47px;
+   color: var(--text-main);
+   font-size: 20px;
+   line-height: 23.44px;
+
+@media screen and (min-width: 768px)  {
+      font-size: 24px;
+      line-height: 28.13px;
+}
+@media screen and (min-width: 1280px) {
+      font-size: 26px;
+      line-height: 30.47px;  
+}
+}
+.admin-hero-add-icon-box {
+   width: 65px;
+   height: 24px;
+   cursor: pointer;
+@media screen and (min-width: 768px)  {
+      width: 78px;
+      height: 32px;
+}
+@media screen and (min-width: 1280px) {
+      width: 78px;
+      height: 32px;
+}
+}
+.admin-hero-add-icon {
+   width: 100%;
+   height: 100%;
+   background-image: url("src/assets/icon/admin_add.svg");
+   background-size: cover;
+   background-position: center;
+}
+.admin-hero-main-header {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   height: 57px;
+}
+@media screen and (min-width: 768px) {
+   .admin-hero-main-header {
+      height: 74px;
+   }
+ }
+ .admin-hero-main-header-wrapper {
+   display: flex;
+   align-items: center;
+   width: 384px;
+   @media screen and (min-width: 768px)  {
+      width: 486px;
+}
+@media screen and (min-width: 1280px) {
+      width: 1012px;
+}
+}
+.admin-hero-main-header-title {
+   flex: 1 1 0;
+   font-family: Roboto;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 21.09px;
+   color: var(--text-main);
+   align-self: center;
+}
+.admin-hero-main-header > div:first-child {
+@media screen and (min-width: 480px) {
+   }
+@media screen and (min-width: 768px) {
+   }
+@media screen and (min-width: 1280px) {
+      font-size: 20px;
+      line-height: 23.44px;
+}
+}
+// .admin-hero-main-header > div:nth-child(2) {
+// @media screen and (min-width: 480px) {
+//       // margin: 18.5px 68px 17.5px 0;
+//    }
+// @media screen and (min-width: 768px) {
+//       // margin: 26px 104px 27px 0;
+//    }
+// @media screen and (min-width: 1280px) {
+//       // margin: 26px 224px 25px 0;
+//    }
+// }
+// .admin-hero-main-header > div:nth-child(3) {
+// @media screen and (min-width: 480px) {
+//       // margin: 18.5px 0 17.5px 0;
+//    }
+// @media screen and (min-width: 768px) {
+//       // margin: 26px 0 27px 0;
+//    }
+// @media screen and (min-width: 1280px) {
+//       // margin: 26px 0 25px 0;
+//    }
+// }
+.admin-hero-main-content {
+   display: flex;
+   flex-direction: column;
+}
+.admin-hero-main-content-element {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 59px;
+   background-color: var(--white);
+   border-bottom: solid 1px rgba(235, 235, 235, 1); //////////////////////////border-box - height
+   @media screen and (min-width: 768px) {
+      height: 74px;
+      }
+}
+.content-element-wrapper {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   height: 50px;
+   width: 384px;
+   @media screen and (min-width: 768px) {
+      width: 486px;
+}
+@media screen and (min-width: 1280px) {
+      width: 1012px; 
+}
+}
+.content-edit-icon-box {
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   flex: 1;
+}
+.wrapper-edit-icon-box {
+   width: 20px;
+   height: 20px;
+}
+.content-edit-icon {
+   width: 100%;
+   height: 100%;
+   background-image: url("src/assets/icon/edit_pencil.svg");
+   background-size: cover;
+   background-position: center;
+}
+.content-element-img-box {
+   flex: 1;
+   align-self: flex-start;
+}
+.wrapper-img-box {
+   width: 80px;
+   height: 50px;
+}
+.wrapper-img-box-svg {
+   width: 54px;
+   height: 50px;
+}
+.content-element-img {
+   width: 100%;
+   height: 100%;
+}
+
+.content-element-name, .content-element-data {
+   flex: 1;
+   font-family: Roboto;
+   font-size: 18px;
+   font-weight: 400;
+   line-height: 21.09px;
+   color: var(--text-main);
+   @media screen and (min-width: 1280px) {
+      font-size: 20px;
+      line-height: 23.44px;
+      }
+}
+
+
+
+
+
