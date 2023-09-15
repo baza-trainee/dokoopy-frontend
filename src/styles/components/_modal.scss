@@ -14,36 +14,40 @@
     background-color: rgba(121, 120, 120, 0.7);
 }
 .modal-window{
-    display: flex;
-    align-items: center;
-    max-width: 1028px;
-    width: 100%;
-    height: 566px;
+    width: 742px;
+    height: 444px;
     background-color: var(--background-about);
     flex-direction: column;
-}
-.modal-button{
-    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+    }
+
+.modal-button {
     display: flex;
     justify-content: flex-end;
-    width: 99%;
-    
+    width: 100%;
+    margin-top: 25px;
+    padding-right: 24px;
+
 }
 .modal-button button{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 35px;
-    height: 35px;
     cursor: pointer;
     background: none;
     border: none;
+    padding: 0;
+}
+.iconx{
+    width: 30px;
+    height: 30px;
 }
 .modal-text{
     display: flex;
-    max-width: 791px;
-    width: 100%;
-    height: 455px;
+    height: 315px;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -80,27 +84,70 @@
     .modal-window{
         display: flex;
         align-items: center;
-        width: 720px;
-        height: 566px;
+        width: 551px;
+        height: 548px;
         background-color: var(--background-about);
         flex-direction: column;
     }
+    .modal-button {
+        height: 30px;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 25px;
+        padding-right: 86px;
+    }
+    .modal-text{
+        margin-top: 15px;
+        height: 378px;
+
+    }
+    .modal-text h2{
+        width: 372px;
+        color: var(--title-main);
+        text-align: center;
+        font-family: PT Sans;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+
     .img-thank{
         display: flex;
         width: 125px;
         height: 125px;
         flex-shrink: 0;
     }
+    .iconx{
+        width: 40px;
+        height: 40px;
+    }
 }
 @media (max-width: 480px){
     .modal-window{
         display: flex;
         align-items: center;
-        max-width: 432px;
-        width: 100%;
-        height: 566px;
+        width: 280px;
+        height: 371px;
         background-color: var(--background-about);
         flex-direction: column;
+    }
+    .modal-button {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 16px;
+        padding-right: 16px;
+    }
+    .iconx{
+        width: 18px;
+        height: 18px;
+    }
+    .modal-text{
+        margin-top: 15px;
+        height: 378px;
+
     }
     .modal-text h2{
         color: var(--title-main);

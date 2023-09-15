@@ -38,7 +38,7 @@ export const Modal = ({ onClose }) => {
     <div className="modal-window">
         <div className="modal-button">
           <button className="button-close" onClick={handleButtonCloseClick}>
-            <IconX/>
+            <IconX className="iconx"/>
           </button>
         </div>
         <div className="modal-text">
