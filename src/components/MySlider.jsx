@@ -1,3 +1,4 @@
+import { useCallback, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -5,10 +6,28 @@ import arrowLeft from "../assets/icon/arrow-left-icon.svg";
 import arrowRight from "../assets/icon/arrow-right-icon.svg";
 
 export const MySlider = ({ slides }) => {
+   const slideRef = useRef();
+   const observer = useRef();
+   const refSliderObserver = useCallback(node => {
+      if (observer.current) {
+         observer.current.disconnect();
+      }
+      observer.current = new IntersectionObserver(
+         entries => {
+            slideRef.current.slickPause();
+            if (entries[0].isIntersecting) {
+               slideRef.current.slickPlay();
+            }
+         },
+         { threshold: 0.5 }
+      );
+      if (node) observer.current.observe(node);
+   }, []);
+
    const settings = {
       dots: true,
       infinite: true,
-      speed: 600,
+      speed: 1000,
       autoplay: true,
       autoplaySpeed: 3000,
       slidesToShow: 1,
@@ -17,9 +36,10 @@ export const MySlider = ({ slides }) => {
       prevArrow: <PrevArrow />,
       adaptiveHeight: true,
    };
+
    return (
-      <div>
-         <Slider {...settings}>
+      <div ref={refSliderObserver}>
+         <Slider ref={slideRef} {...settings}>
             {slides.map(item => (
                <div key={item.id} className="slider-container">
                   <div
@@ -27,6 +47,7 @@ export const MySlider = ({ slides }) => {
                      style={{
                         backgroundImage: `url(${item.url})`,
                         backgroundSize: "cover",
+                        // backgroundPosition: "center",
                      }}
                   ></div>
                   <div className="container">

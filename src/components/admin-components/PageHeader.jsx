@@ -7,7 +7,7 @@ export const PageHeader = ({ title, edit }) => {
       <>
          <div className="sub-title-container">
             <div className="title-icon">
-               <img onClick={() => navigate(-1)} src={leftArow}></img>
+               <img className="title-icon-arrow" onClick={() => navigate(-1)} src={leftArow}></img>
                <h3 className="admin-sub-title">{title}</h3>
             </div>
             {edit && (

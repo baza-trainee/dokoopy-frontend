@@ -1,4 +1,5 @@
 import { EditIcon } from "../../assets/icon/EditIcon";
+import { EditContact } from "./editPage/EditContact";
 
 export const AdminContacts = () => {
    const contactsData = [
@@ -40,6 +41,7 @@ export const AdminContacts = () => {
                ))}
             </ul>
          </div>
+         <EditContact />
       </div>
    );
 };

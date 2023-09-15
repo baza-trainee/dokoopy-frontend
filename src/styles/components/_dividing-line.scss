@@ -20,7 +20,7 @@
    display: flex;
    align-items: center;
    list-style: none;
-   @media (min-width: 1440px) {
+   @media (min-width: 1280px) {
       padding-left: 100px;
    }
    li {
@@ -33,6 +33,8 @@
 
 .whiteContainer {
    background-color: #ffffff;
+   border-top: 1px solid #000000;
+   border-bottom: 1px solid #000000;
    ul li:nth-child(1):before,
    ul li:nth-child(3):before,
    ul li:nth-child(5):before {

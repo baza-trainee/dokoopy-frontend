@@ -34,13 +34,17 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
       scrollToUp();
       setCurrentPage(page);
    };
-
+   if (totalPosts < postsPerPage) {
+      return null;
+   }
    return (
       <div className="pagination">
          <div>
-            <button className="pagination-arrow" onClick={prevPage}>
-               <img src={arrowLeft} />
-            </button>
+            {currentPage > 1 && (
+               <button className="pagination-arrow" onClick={prevPage}>
+                  <img src={arrowLeft} />
+               </button>
+            )}
          </div>
          <div className="pagination-numbers">
             {pages.map((page, index) => {
@@ -56,9 +60,11 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
             })}
          </div>
          <div>
-            <button className="pagination-arrow" onClick={nextPage}>
-               <img src={arrowRight} />
-            </button>
+            {currentPage < pageCounter && (
+               <button className="pagination-arrow" onClick={nextPage}>
+                  <img src={arrowRight} />
+               </button>
+            )}
          </div>
       </div>
    );
