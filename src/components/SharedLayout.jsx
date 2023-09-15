@@ -8,7 +8,6 @@ export const SharedLayout = () => {
       <div>
          <Header></Header>
          <Outlet />
-         <Contacts></Contacts>
          <Footer></Footer>
       </div>
    );
