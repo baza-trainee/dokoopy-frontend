@@ -76,7 +76,7 @@
     &:hover {
         border-color: var(--text-main);
         color: var(--text-main);
-     } 
+     
 }
 @media screen and (max-width: 479px) {
     .error-btn  {
@@ -92,4 +92,5 @@
     font-size: 20px;
     line-height: 25.88px;
     }
+}
 }
