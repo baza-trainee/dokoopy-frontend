@@ -112,9 +112,16 @@
    line-height: normal;
    text-transform: uppercase;
    text-align:start;
-
+   @media (min-width: 481px) and (max-width: 768px) {
+      font-family: PT Sans;
+      font-size: 56px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
+   }
    @media (max-width: 480px) {
-       text-align: center;
+       text-align: start;
        align-self: stretch;
        font-family: PT Sans;
        font-size: 28px;
