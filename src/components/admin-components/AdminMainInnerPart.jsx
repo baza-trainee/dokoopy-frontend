@@ -25,7 +25,11 @@ export const AdminMainInnerPart = ({name, photo, date, link, data}) => {
                               </img>
                            </div>
                         </div>
-                        <div className="content-element-data">{contentData.date ? contentData.date : contentData.link}</div>
+                        <div className="content-element-data">
+                           <p>
+                           {contentData.date ? contentData.date : contentData.link}
+                           </p>
+                           </div>
                         <div className="content-edit-icon-box">
                            <div className="wrapper-edit-icon-box">
                            <EditIcon />
