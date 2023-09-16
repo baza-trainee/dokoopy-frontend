@@ -39,9 +39,9 @@
    margin: 20px 0px;
 }
 .project-img-blok {
-   max-width: 432px;
+   width: 438px;
    height: 338px;
-   display: flex;
+   display: block;
    object-fit: cover;
 }
 
@@ -110,11 +110,11 @@
       margin-bottom: 100px;
    }
    .project-description {
-      max-width: 608px;
+      width: 608px;
    }
    .project-img-blok {
-      max-width: 649px;
-      max-height: 384px;
+      min-width: 609px;
+      height: 384px;
    }
 }
 

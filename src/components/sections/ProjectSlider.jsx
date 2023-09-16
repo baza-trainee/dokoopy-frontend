@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import defImg from "../../assets/images/default-image.jpg";
+import { formatData } from "../../assets/helpers";
 export default function ProjectSlider({ data }) {
    const settings = {
       infinite: true,
@@ -19,11 +19,11 @@ export default function ProjectSlider({ data }) {
                <li key={project.id} className="projects-block-box">
                   <img
                      className="projects-img"
-                     src={project.imageSrc || defImg}
+                     src={`https://dokoopy.onrender.com/${project.imageURL}`}
                      alt={project.alt}
                   />
                   <div className="data-title-blok">
-                     <p className="project-data">{project.date}</p>
+                     <p className="project-data">{formatData(project.date)}</p>
                      <p className="project-cart-title">{project.title}</p>
                   </div>
                   <p className="project-cart-description">{project.description}</p>
