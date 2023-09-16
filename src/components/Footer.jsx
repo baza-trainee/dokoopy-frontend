@@ -1,3 +1,5 @@
+import logoFooterIcon from "../assets/images/logo.png";
+
 import { DonateButton } from "./DonateButton";
 
 export const Footer = () => {
@@ -6,12 +8,12 @@ export const Footer = () => {
          <div className="container">
          <div className='footer-logo-container'>
             <div className='logo-svg-container'>
-              <div className='logo-svg'></div>
+               <img className="logo-svg" src={logoFooterIcon} alt="logo"></img>
             </div>
          <div className='logo-text'>DOkoopy</div>
          </div>
          <div className='container-btn'>
-         <DonateButton buttonClass={"mainButton"} />
+         <DonateButton buttonClass={"footerButton"} />
          </div>
          <div className='footer-policy-container'>
             <div className='footer-policy-link-container'>
