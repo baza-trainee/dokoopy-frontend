@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
-import { IconX } from '../assets/images/IconX';
-import{ FrameThanks } from'../assets/images/FrameThanks';
- 
+import iconx from '../assets/images/iconx.svg';
+import frameThanks from '../assets/images/frameThanks.svg';
+
+
 export const Modal = ({ onClose }) => {
   const handleModalClick = (e) => {
     if (e.target.classList.contains("modal")) {
@@ -38,12 +39,12 @@ export const Modal = ({ onClose }) => {
     <div className="modal-window">
         <div className="modal-button">
           <button className="button-close" onClick={handleButtonCloseClick}>
-            <IconX/>
+            <img src={iconx} className="iconx"/>
           </button>
         </div>
         <div className="modal-text">
           <h2>Дякуємо за ваш внесок!</h2>
-          <FrameThanks className="img-thank" />
+          <img src={frameThanks} className='imgthank'/>
           <p className="backpage" onClick={handleParagrafClick}>
             Повернутись на головну
           </p>
@@ -52,4 +53,3 @@ export const Modal = ({ onClose }) => {
     </div>
   );
 };
-
