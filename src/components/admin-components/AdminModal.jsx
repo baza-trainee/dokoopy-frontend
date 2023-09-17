@@ -4,10 +4,10 @@ import iconx from '../assets/images/iconx.svg';
 export const AdminModal = () => {
 
   return (
-    <div className="admin-modal" onClick={handleAdminModalClick}>
+    <div className="admin-modal">
     <div className="admin-modal-window">
         <div className="admin-modal-button">
-          <button className="admin-button-close" onClick={handleButtonCloseModalClick}>
+          <button className="admin-button-close">
             <img src={iconx} className="iconx"/>
           </button>
         </div>
