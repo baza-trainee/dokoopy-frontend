@@ -220,3 +220,60 @@
         line-height: normal;
     }
 }
+@media (max-height: 650px){
+    .modal{
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .modal-window{
+        display: flex;
+        align-items: center;
+        width: 232px;
+        height: 336px;
+        background-color: var(--background-about);
+        flex-direction: column;
+        margin: 0;
+    }
+    .modal-button {
+        display: flex;
+        height: auto;
+        justify-content: flex-end;
+        margin-top: 5px;
+        padding-right: 5px;
+    }
+    .iconx{
+        width: 18px;
+        height: 18px;
+    }
+    .modal-text{
+        margin-top: 1px;
+        padding: 0 20px;
+        height: 276px;
+
+    }
+    .modal-text h2{
+        width: auto;
+        color: var(--title-main);
+        text-align: center;
+        font-family: PT Sans;
+        font-size: 26px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+    .imgthank{
+        width: 75px;
+        height: 74px;
+    }
+    .modal-text p{
+        color: var(--text-main);
+        text-align: center;
+        font-family: PT Sans;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+}
