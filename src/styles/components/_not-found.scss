@@ -1,9 +1,9 @@
-    @media screen and (max-width: 479px) {
-        .container {
-            display: flex;
-            width: 100%;
-        }
-      }
+@media screen and (max-width: 479px) {
+    .container {
+        display: flex;
+        width: 100%;
+    }
+}
 .wrapper-error {
     display: flex;
     justify-content: center;
@@ -69,28 +69,23 @@
     color: var(--button-main-color);
     text-transform: uppercase;
     margin-top: 46px;
-    width: 432px;
+    min-width: 272px;
     height: 52px;
     font-size: 16px;
     line-height: 20.7px;
     &:hover {
         border-color: var(--text-main);
         color: var(--text-main);
-     
-}
-@media screen and (max-width: 479px) {
-    .error-btn  {
-        width: 100%;
-    }
+    }  
+@media screen and (min-width: 480px) {
+        min-width: 432px;
 }
 @media screen and (min-width: 768px) {
-    .error-btn {
     flex-direction: row;
     margin-top: 40px;
     width: 178px;
     height: 58px;
     font-size: 20px;
     line-height: 25.88px;
-    }
 }
 }
