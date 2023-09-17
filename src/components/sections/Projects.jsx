@@ -1,12 +1,20 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import defImg from "../../assets/images/default-image.jpg";
+// import { lendingData } from "../../api/api";
+// import { formatData, sortData } from "../../assets/helpers";
+// import { useLoadingData } from "../../hook/useLoadingData";
 import ProjectSlider from "./ProjectSlider";
 export const Projects = () => {
    const [projectsData, setProjectsData] = useState([]);
-   const [visibleProjects, setVisibleProjects] = useState(4);
+
+   // const { data, isLoading } = useLoadingData(lendingData.getProject);
 
    useEffect(() => {
+      // if (data) {
+      //    setProjectsData(sortData(data.projects));
+      // }
+
       const dataFromBackend = [
          {
             id: 1,
@@ -62,12 +70,13 @@ export const Projects = () => {
          <div className="container">
             <h2 className="title   title-dark">Наші проєкти</h2>
             <ul className="projects-block-desktop">
-               {projectsData.slice(0, visibleProjects).map(project => (
+               {projectsData.slice(0, 4).map(project => (
                   <li key={project.id} className="project-cart">
                      <img
                         className="projects-block-box-img"
-                        src={project.imageSrc || defImg}
-                        alt={project.alt}
+                        // src={`https://dokoopy.onrender.com/${project.imageURL}`}
+                        src={defImg}
+                        alt={project.title}
                      />
 
                      <p className="project-data">{project.date}</p>
@@ -81,7 +90,7 @@ export const Projects = () => {
          <ul className="slider-project">
             <ProjectSlider data={projectsData} />
          </ul>
-         {visibleProjects < projectsData.length && (
+         {4 < projectsData.length && (
             <div
                onClick={() => {
                   window.scrollTo({

@@ -1,4 +1,5 @@
 import Slider from "react-slick";
+
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import defImg from "../../assets/images/default-image.jpg";
@@ -19,8 +20,9 @@ export default function ProjectSlider({ data }) {
                <li key={project.id} className="projects-block-box">
                   <img
                      className="projects-img"
-                     src={project.imageSrc || defImg}
+                     // src={`https://dokoopy.onrender.com/${project.imageURL}`}
                      alt={project.alt}
+                     src={defImg}
                   />
                   <div className="data-title-blok">
                      <p className="project-data">{project.date}</p>
