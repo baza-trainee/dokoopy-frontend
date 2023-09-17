@@ -17,7 +17,7 @@ export const AdminMainInnerPart = ({name, photo, date, link, data}) => {
                   return (
                      <li key={contentData.id} className="admin-main-content-element">
                         {/* <div className="content-element-wrapper"> */}
-                        <div className="content-element-name"><p>{contentData.name}</p></div>
+                        <p className="content-element-name">{contentData.name}</p>
                         <div className="content-element-img-box">
                            <div className={contentData.date ? "wrapper-img-box" : "wrapper-img-box-svg"}>
                               <img src={contentData.img} alt={contentData.alt}
@@ -25,15 +25,10 @@ export const AdminMainInnerPart = ({name, photo, date, link, data}) => {
                               </img>
                            </div>
                         </div>
-                        <div className="content-element-data">
-                           <p>
-                           {contentData.date ? contentData.date : contentData.link}
-                           </p>
-                           </div>
+                        <p className="content-element-data">{contentData.date ? contentData.date : contentData.link}</p>
                         <div className="content-edit-icon-box">
                            <div className="wrapper-edit-icon-box">
                            <EditIcon />
-                              <div className="content-edit-icon"></div>
                            </div>
                         </div>
                         {/* </div> */}

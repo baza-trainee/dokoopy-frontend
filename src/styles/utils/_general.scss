@@ -60,21 +60,23 @@ body {
 .admin-main-header {
    display: flex;
    width: 100%;
+   background-color: var(--admin-table-header-background);
+
 }
 .admin-main-header-wrapper {
    height: 57px;
    width: 100%;
    padding: 0 24px;
    display: grid;
-   grid-template-columns: 37.24% 30.73% 26.82% 20px; 
+   grid-template-columns: 37% 31% 27% 5%; 
    align-items: center;
    width: 100%;
    @media screen and (min-width: 768px) {
-      grid-template-columns: 36.6% 31.29% 27.98% 20px; 
+      padding: 0 40px;
+      grid-template-columns: 36% 32.5% 28% 3.5%; 
    }
    @media screen and (min-width: 1280px) {
-      grid-template-columns: 27.8% 27.6% 42.5% 20px; 
-      padding: 0 40px;
+      grid-template-columns: 28% 28% 42.7% 1.3%; 
    }
 }
 .admin-main-content {
@@ -85,16 +87,20 @@ body {
  }
  .admin-main-content-element {
    display: grid;
-   grid-template-columns: 37.24% 28.73% 27.82% 20px; 
+   grid-template-columns: 37% 31% 27% 5%; 
    width: 100%;
    height: 59px;
+   padding: 0 24px;
    align-items: center;
    border-bottom: solid 1px rgba(235, 235, 235, 1);
+   cursor: pointer;
    @media screen and (min-width: 768px) {
-      grid-template-columns: 36.6% 31.29% 27.98% 20px; 
+      grid-template-columns: 36% 32.5% 28% 3.5%; 
+      height: 74px;
+      padding: 0 40px;
    }
    @media screen and (min-width: 1280px) {
-      grid-template-columns: 27.8% 27.6% 42.5% 20px; 
+      grid-template-columns: 28% 28% 42% 2%; 
    }
 }
 .admin-main-content-element > div {
@@ -107,5 +113,3 @@ body {
 .admin-main-content-element > div:last-child {
    justify-content: flex-end; 
 }
-
-
