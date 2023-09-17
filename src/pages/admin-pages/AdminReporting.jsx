@@ -1,5 +1,6 @@
 import fileText from "../../assets/icon/filetext.svg";
 import { EditIcon } from "../../assets/icon/EditIcon";
+import {EditReporting} from "../../pages/admin-pages/editPage/EditReport"
 
 export const AdminReporting = () => {
    const reportingData =[
@@ -20,7 +21,7 @@ export const AdminReporting = () => {
                   <h2>Звітність</h2>
                </div>
                <div className="reporting-container-button">
-                  <button><EditIcon/></button>
+                  <button className="edit-icon-btn"><EditIcon/></button>
                </div>
             </div>
             <ul className="reporting-files">
@@ -32,7 +33,8 @@ export const AdminReporting = () => {
                   </div>
                   </li>
                ))}
-            </ul>
+         </ul>
+         <EditReporting/>
          </div>
    );
 };
