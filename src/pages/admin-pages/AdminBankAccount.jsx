@@ -1,4 +1,5 @@
 import { EditIcon } from "../../assets/icon/EditIcon";
+import { EditPayment } from "./editPage/EditPayment";
 
 export const AdminBankAccount = () => {
   
@@ -32,8 +33,8 @@ export const AdminBankAccount = () => {
       )}
      </ul>
      </div>
-   </div>
-
+     </div>
+     <EditPayment />
 
    </div>;
 };

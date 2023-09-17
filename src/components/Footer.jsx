@@ -1,3 +1,5 @@
+ import logoFooterIcon from "../assets/images/logo.png";
+
 import { DonateButton } from "./DonateButton";
 
 export const Footer = () => {
@@ -22,6 +24,7 @@ export const Footer = () => {
                <p className="footer-policy-text">
                   Розробка Baza Trainee Ukraine 2023 © Всі права захищені
                </p>
+
             </div>
          </div>
       </footer>

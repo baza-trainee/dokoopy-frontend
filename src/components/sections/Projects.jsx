@@ -1,17 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import defImg from "../../assets/images/default-image.jpg";
+// import { lendingData } from "../../api/api";
+// import { formatData, sortData } from "../../assets/helpers";
+// import { useLoadingData } from "../../hook/useLoadingData";
 import ProjectSlider from "./ProjectSlider";
 export const Projects = () => {
    const [projectsData, setProjectsData] = useState([]);
-   const [visibleProjects, setVisibleProjects] = useState(4);
+
+   // const { data, isLoading } = useLoadingData(lendingData.getProject);
 
    useEffect(() => {
+      // if (data) {
+      //    setProjectsData(sortData(data.projects));
+      // }
+
       const dataFromBackend = [
          {
             id: 1,
             imageSrc: "",
-            date: "31 серпня, 2023",
+            date: "31 серпня 2023",
             title: "Збір на 57 бригаду",
             description:
                "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
@@ -20,7 +28,7 @@ export const Projects = () => {
          {
             id: 2,
             imageSrc: "",
-            date: "15 серпня, 2023",
+            date: "15 серпня 2023",
             title: "Збір на 57 бригаду",
             description:
                "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
@@ -29,7 +37,7 @@ export const Projects = () => {
          {
             id: 3,
             imageSrc: "",
-            date: "15 серпня, 2023",
+            date: "15 серпня 2023",
             title: "Збір на 57 бригаду",
             description: "Ми – 57 бригада та беремо участь у найзапекліших боях. ",
             alt: "Зображення проекту 2",
@@ -37,7 +45,7 @@ export const Projects = () => {
          {
             id: 4,
             imageSrc: "",
-            date: "05 серпня, 2023",
+            date: "05 серпня 2023",
             title: "Збір на 57 бригаду",
             description:
                "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
@@ -46,7 +54,7 @@ export const Projects = () => {
          {
             id: 5,
             imageSrc: "",
-            date: "31 серпня, 2023",
+            date: "31 серпня 2023",
             title: "Збір на 57 бригаду",
             description:
                "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
@@ -62,12 +70,13 @@ export const Projects = () => {
          <div className="container">
             <h2 className="title   title-dark">Наші проєкти</h2>
             <ul className="projects-block-desktop">
-               {projectsData.slice(0, visibleProjects).map(project => (
+               {projectsData.slice(0, 4).map(project => (
                   <li key={project.id} className="project-cart">
                      <img
                         className="projects-block-box-img"
-                        src={project.imageSrc || defImg}
-                        alt={project.alt}
+                        // src={`https://dokoopy.onrender.com/${project.imageURL}`}
+                        src={defImg}
+                        alt={project.title}
                      />
 
                      <p className="project-data">{project.date}</p>
@@ -81,7 +90,7 @@ export const Projects = () => {
          <ul className="slider-project">
             <ProjectSlider data={projectsData} />
          </ul>
-         {visibleProjects < projectsData.length && (
+         {4 < projectsData.length && (
             <div
                onClick={() => {
                   window.scrollTo({

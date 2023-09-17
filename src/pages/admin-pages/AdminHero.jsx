@@ -34,8 +34,10 @@ const dataSlider = [
 export const AdminHero = () => {
    return (
    <div className="admin-hero">
+      {/* <div className="page-container"> */}
       <AdminMainHeader title={"Слайдер"} />
       <AdminMainInnerPart name="Name" photo="Photo" date="Date" data={dataSlider} /> 
+      {/* </div> */}
    </div>
    );
 };
