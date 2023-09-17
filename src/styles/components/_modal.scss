@@ -79,7 +79,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-
     .modal-window{
         display: flex;
         align-items: center;
@@ -112,7 +111,6 @@
         line-height: normal;
         text-transform: uppercase;
     }
-
     .imgthank{
        
         width: 125px;
@@ -124,7 +122,7 @@
         height: 40px;
     }
 }
-@media (min-width: 480) and (max-width: 768px){
+@media (min-width: 480px) and (max-width: 767px){
     .modal-window{
         display: flex;
         align-items: center;
@@ -172,7 +170,7 @@
         line-height: normal;
     }
 }
-@media (max-width: 399px){
+@media (max-width: 479px){
     .modal-window{
         display: flex;
         align-items: center;
