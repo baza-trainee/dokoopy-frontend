@@ -10,7 +10,7 @@ export const Footer = () => {
                <LogoFooterIcon />
                </div>
                <div className="logo-text">DOkoopy</div>
-            </div>
+               </div>
             <div className="container-btn">
                <DonateButton buttonClass={"footerButton"} />
             </div>
