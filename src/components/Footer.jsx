@@ -1,14 +1,14 @@
- import logoFooterIcon from "../assets/images/logo.png";
 
+import { LogoFooterIcon } from "../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
 
 export const Footer = () => {
    return (
       <footer className="footer">
          <div className="container">
-            <div className="footer-logo-container">
-               <div className="logo-svg-container">
-                  <div className="logo-svg"></div>
+         <div className='footer-logo-container'>
+            <div className='logo-svg-container'>
+               <LogoFooterIcon />
                </div>
                <div className="logo-text">DOkoopy</div>
             </div>
