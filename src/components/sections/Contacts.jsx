@@ -10,11 +10,11 @@ export const Contacts = () => {
                   ось сюди:
                </p>
                </div>
-               <div className="contact-link">
-                  <a href="mailto:eugene@dontpanic.team">
+               <div className="contact-link ">
+                  <a className="navigation-list-item" href="mailto:eugene@dontpanic.team">
                      email
                      </a>
-                  <a href="https://t.me/Boooble_boo" target="_blanck">
+                  <a className="navigation-list-item" href="https://t.me/Boooble_boo" target="_blanck">
                      telegram
                   </a>
                </div>
