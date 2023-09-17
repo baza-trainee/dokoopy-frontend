@@ -8,7 +8,7 @@ export const SharedLayout = () => {
          <div className="header-wrapper">
             <Header></Header>
          </div>
-         <Outlet />
+         <Outlet testPropsShared={"testPropsShared"} />
          <Footer></Footer>
       </div>
    );
