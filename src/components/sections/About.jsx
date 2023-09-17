@@ -1,6 +1,26 @@
-import aboutPhoto from "../../assets/images/about_img.jpg";
+import { useRef, useState, useEffect } from "react";
+
+import { useLocation } from "react-router-dom";
+
 import { DonateButton } from "../DonateButton";
+
+import aboutPhoto from "../../assets/images/about_img.jpg";
+
 export const About = () => {
+   // const location = useLocation();
+
+   // useEffect(() => {
+   //    const elementId = location.hash.substring(1); // Remove the leading '#' from the URL hash
+   //    scrollToElement(elementId);
+   // }, [location]);
+
+   // function scrollToElement(elementID) {
+   //    const aboutElement = document.getElementById(elementID);
+   //    if (aboutElement) {
+   //       aboutElement.scrollIntoView({ behavior: "smooth", block: "start" });
+   //    }
+   // }
+
    return (
       <section id="about" className="about-section">
          <div className="container">
