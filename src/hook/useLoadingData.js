@@ -7,8 +7,8 @@ export const useLoadingData = (dataFetcher, event = false) => {
 
    const fetchData = async data => {
       try {
-         const result = await dataFetcher(data);
-         setData(result.data);
+         const response = await dataFetcher(data);
+         setData(response.data);
          setIsLoading(false);
       } catch (error) {
          setError(error);
