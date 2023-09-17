@@ -1,8 +1,12 @@
+.container-project{
+   margin-top: 144px;
+}
 .project-title {
    font-size: 28px;
+   font-style: normal;
    line-height: 36px;
    font-weight: 700;
-   margin-top: 64px;
+   // margin-top: 64px;
    text-transform: uppercase;
 }
 .project-page-list {
@@ -57,10 +61,13 @@
 }
 
 @media screen and (min-width: 768px) {
+   .container-project {
+         margin-top: 200px;
+      }
    .project-title {
       font-size: 56px;
       line-height: 76px;
-      margin-top: 100px;
+      // margin-top: 100px;
    }
    .content {
       flex-direction: row;
@@ -95,20 +102,20 @@
 
 @media (min-width: 1280px) {
    .project-page-list {
-      margin: 100px 0 80px;
+      margin: 90px 0 80px;
    }
    .project-title {
       font-size: 66px;
       line-height: 76px;
-      margin-top: 100px;
-      margin-bottom: 100px;
+      // margin-top: 100px;
+      // margin-bottom: 100px;
    }
-   .project-title {
-      font-size: 66px;
-      line-height: 76px;
-      margin-top: 100px;
-      margin-bottom: 100px;
-   }
+   // .project-title {
+   //    font-size: 66px;
+   //    line-height: 76px;
+   //    margin-top: 100px;
+   //    margin-bottom: 100px;
+   // }
    .project-description {
       max-width: 608px;
    }
