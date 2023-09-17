@@ -1,8 +1,12 @@
+.container-project {
+   margin-top: 144px;
+}
 .project-title {
    font-size: 28px;
+   font-style: normal;
    line-height: 36px;
    font-weight: 700;
-   margin-top: 64px;
+   // margin-top: 64px;
    text-transform: uppercase;
 }
 .project-page-list {
@@ -12,9 +16,8 @@
    gap: 80px;
 }
 
-.content {
+.all-project-content {
    display: flex;
-
    flex-direction: column;
    max-width: 432px;
    margin: 0 auto;
@@ -39,13 +42,13 @@
    margin: 20px 0px;
 }
 .project-img-blok {
-   max-width: 432px;
+   min-width: 270px;
    height: 338px;
-   display: flex;
+   display: block;
    object-fit: cover;
 }
 
-.project-description {
+.all-project-description {
    max-width: 432px;
    font-size: 20px;
    line-height: 25px;
@@ -57,18 +60,21 @@
 }
 
 @media screen and (min-width: 768px) {
+   .container-project {
+      margin-top: 200px;
+   }
    .project-title {
       font-size: 56px;
       line-height: 76px;
-      margin-top: 100px;
+      // margin-top: 100px;
    }
-   .content {
+   .all-project-content {
       flex-direction: row;
       gap: 24px;
       max-width: 100%;
    }
    .project-img-blok {
-      max-width: 348px;
+      width: 348px;
       height: 384px;
    }
    .page-data-title-blok {
@@ -85,7 +91,7 @@
    .project-data {
       font-size: 20px;
    }
-   .project-description {
+   .all-project-description {
       max-width: 348px;
       margin-top: 24px;
       font-size: 24px;
@@ -95,26 +101,20 @@
 
 @media (min-width: 1280px) {
    .project-page-list {
-      margin: 100px 0 80px;
+      margin: 90px 0 80px;
    }
    .project-title {
       font-size: 66px;
       line-height: 76px;
-      margin-top: 100px;
-      margin-bottom: 100px;
+      // margin-top: 100px;
+      // margin-bottom: 100px;
    }
-   .project-title {
-      font-size: 66px;
-      line-height: 76px;
-      margin-top: 100px;
-      margin-bottom: 100px;
-   }
-   .project-description {
+   .all-project-description {
       max-width: 608px;
    }
    .project-img-blok {
-      max-width: 649px;
-      max-height: 384px;
+      min-width: 609px;
+      height: 384px;
    }
 }
 

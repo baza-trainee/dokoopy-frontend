@@ -5,13 +5,11 @@ import successIcon from "../../../assets/icon/success-icon.svg";
 export const FilesPicker = ({ defaultInfo, selectedFile, setSelectedFile }) => {
    const [onLeave, setOnLeave] = useState(false);
    const filePicker = useRef(null);
-   const formData = new FormData();
 
    const handleFileChange = e => {
       e.preventDefault();
       const file = e.target.files[0];
       setSelectedFile(file);
-      console.log(formData.append(""));
    };
 
    const handleDrop = e => {
