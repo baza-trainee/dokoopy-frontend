@@ -1,31 +1,7 @@
-import { useEffect } from 'react';
 import iconx from '../assets/images/iconx.svg';
 
 
-export const AdminModal = ({ onClose }) => {
-  const handleAdminModalClick = (e) => {
-    if (e.target.classList.contains("admin-modal")) {
-      onClose();
-    }
-  };
-
-  const handleButtonCloseModalClick = () => {
-    onClose();
-  };
-
-  const handleKeyAdminPress = (e) => {
-    if (e.key === 'Escape') {
-      onClose();
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyAdminPress);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyAdminPress);
-    };
-  }, []);
+export const AdminModal = () => {
 
   return (
     <div className="admin-modal" onClick={handleAdminModalClick}>
