@@ -38,7 +38,7 @@ export const Home = () => {
          <DividingLine mainColor={"greenContainer"}></DividingLine>
          <Partners></Partners>
          <Contacts></Contacts>
-         <Modal active={modalActive} setActive={setModalActive}></Modal>
+         {/* <Modal active={modalActive} setActive={setModalActive}></Modal> */}
       </>
    );
 };
