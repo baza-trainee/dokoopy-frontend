@@ -1,4 +1,4 @@
-import logoFooterIcon from "../assets/images/logo.png";
+ import logoFooterIcon from "../assets/images/logo.png";
 
 import { DonateButton } from "./DonateButton";
 
