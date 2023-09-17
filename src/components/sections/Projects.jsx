@@ -6,9 +6,11 @@ import { useLoadingData } from "../../hook/useLoadingData";
 import ProjectSlider from "./ProjectSlider";
 export const Projects = () => {
    const [projectsData, setProjectsData] = useState([]);
+
    const { data, isLoading } = useLoadingData(lendingData.getProject);
+
    useEffect(() => {
-      if (!isLoading) {
+      if (data) {
          setProjectsData(sortData(data.projects));
       }
    }, [data]);
@@ -18,20 +20,24 @@ export const Projects = () => {
          <div className="container">
             <h2 className="title   title-dark">Наші проєкти</h2>
             <ul className="projects-block-desktop">
-               {projectsData.slice(0, 4).map(project => (
-                  <li key={project.id} className="project-cart">
-                     <img
-                        className="projects-block-box-img"
-                        src={`https://dokoopy.onrender.com/${project.imageURL}`}
-                        alt={project.title}
-                     />
+               {isLoading ? (
+                  <div>Loading....</div>
+               ) : (
+                  projectsData.slice(0, 4).map(project => (
+                     <li key={project.id} className="project-cart">
+                        <img
+                           className="projects-block-box-img"
+                           src={`https://dokoopy.onrender.com/${project.imageURL}`}
+                           alt={project.title}
+                        />
 
-                     <p className="project-data">{formatData(project.date)}</p>
-                     <p className="project-cart-title">{project.title}</p>
+                        <p className="project-data">{formatData(project.date)}</p>
+                        <p className="project-cart-title">{project.title}</p>
 
-                     <p className="project-cart-description">{project.description}</p>
-                  </li>
-               ))}
+                        <p className="project-cart-description">{project.description}</p>
+                     </li>
+                  ))
+               )}
             </ul>
          </div>
          <ul className="slider-project">
