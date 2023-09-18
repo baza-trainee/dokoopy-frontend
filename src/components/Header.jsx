@@ -9,10 +9,34 @@ import { BurgerMenu } from "../assets/icon/burger-menu.jsx";
 import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../assets/icon/close-modal.jsx";
 
+import localization from '../assets/language-switcher/localization';
+
+
 const mobileMenuPortal = document.getElementById("mobile-menu");
 
 export const Header = () => {
    const [menuOpen, setMenuOpen] = useState(false);
+   const [currentLanguage, setCurrentLanguage] = useState(
+  typeof window !== "undefined" ? localStorage.getItem("currentLanguage") || 'ua' : 'ua'
+   );
+   
+   useEffect(() => {
+  if (typeof window !== "undefined") {
+    const storedLanguage = localStorage.getItem("currentLanguage");
+    if (storedLanguage) {
+      setCurrentLanguage(storedLanguage);
+      localization.setLanguage(storedLanguage);
+    }
+  }
+   }, []);
+   
+
+   const toggleLanguage = () => {
+
+   const newLanguage = currentLanguage === 'ua' ? 'en' : 'ua';
+   setCurrentLanguage(newLanguage);
+   localization.setLanguage(newLanguage); 
+};
 
    const mobileMenuRef = useRef(null);
 
@@ -54,7 +78,7 @@ export const Header = () => {
       setMenuOpen(false);
    }
 
-   return (
+  return (
       <header className="wrapper-header">
          <div className="container">
             <div className="header">
@@ -67,25 +91,29 @@ export const Header = () => {
                   <ul className="navigation-list">
                      <li className="navigation-list-item">
                         <Link to={`/#${missionElementId}`} className="navigaton-link">
-                           мета
+                           {localization.meta}
                         </Link>
                      </li>
                      <li className="navigation-list-item">
                         <Link to={`/#${aboutElementId}`} className="navigaton-link">
-                           бригада
+                           {localization.team}
                         </Link>
                      </li>
                      <li className="navigation-list-item">
                         <Link to="allprojects" className="navigaton-link">
-                           проєкти
+                           {localization.projects}
                         </Link>
                      </li>
                   </ul>
                </nav>
-               <div className="icon-button-blok">
-                  <DonateButton buttonClass={"headerButton"}></DonateButton>
-                  <p className="language-selector">
-                     UA <Chevron />
+
+               <div className="icon-button-blok">                
+                 <DonateButton buttonClass={"headerButton"} currentLanguage={currentLanguage}></DonateButton>
+
+
+                  <p className="language-selector" onClick={toggleLanguage}>
+                     {currentLanguage === 'ua' ? 'UA' : 'EN'}
+                     <Chevron />
                   </p>
                   <div className="burger-menu" onClick={openMenuHandler}>
                      <BurgerMenu />
@@ -122,7 +150,8 @@ export const Header = () => {
                              </li>
                           </ul>
                        </nav>
-                       <div className="language-selector_mobile">
+                     <div className="language-selector_mobile">
+                       
                           UA <ChevronMobile />
                        </div>
                        <DonateButton buttonClass={"burger"}></DonateButton>
