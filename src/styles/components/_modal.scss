@@ -218,7 +218,7 @@
         line-height: normal;
     }
 }
-@media (max-height: 650px){
+@media (max-height: 560px){
     .modal{
         justify-content: center;
         align-items: center;
@@ -227,7 +227,7 @@
     .modal-window{
         display: flex;
         align-items: center;
-        width: 430px;
+        width: 330px;
         height: 330px;
         background-color: var(--background-about);
         flex-direction: column;
