@@ -128,7 +128,7 @@ export const Header = () => {
          {menuOpen
             ? createPortal(
                  <div className="mobile-menu" ref={mobileMenuRef}>
-                    <div className="container">
+                    <div className="container container_burger">
                        <div className="close-modal" onClick={closeMenuHandler}>
                           <CloseModal />
                        </div>
