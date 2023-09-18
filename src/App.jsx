@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+// import { useEffect, useState, useRef } from "react";
 
 import { SharedLayout } from "./components/SharedLayout.jsx";
 import { AdminSharedLayout } from "./components/admin-components/AdminSharedLayout.jsx";
@@ -15,7 +16,7 @@ import { AdminBankAccount } from "./pages/admin-pages/AdminBankAccount.jsx";
 import { AdminReporting } from "./pages/admin-pages/AdminReporting.jsx";
 import { AdminNotFound } from "./pages/admin-pages/AdminNotFound.jsx";
 
-import { Modal } from "./components/Modal.jsx";
+import { About } from "./components/sections/About.jsx";
 
 function App() {
    return (

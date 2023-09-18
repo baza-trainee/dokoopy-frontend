@@ -1,6 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import defImg from "../../assets/images/default-image.jpg";
+
+import photo1 from "../../assets/mockProject/photo_1.jpg";
+import photo2 from "../../assets/mockProject/photo_2.png";
+import photo3 from "../../assets/mockProject/photo_3.jpg";
+import photo4 from "../../assets/mockProject/photo_4.jpg";
+
+
+
+
 // import { lendingData } from "../../api/api";
 // import { formatData, sortData } from "../../assets/helpers";
 // import { useLoadingData } from "../../hook/useLoadingData";
@@ -18,7 +27,7 @@ export const Projects = () => {
       const dataFromBackend = [
          {
             id: 1,
-            imageSrc: "",
+            imageSrc: photo1,
             date: "31 серпня 2023",
             title: "Збір на 57 бригаду",
             description:
@@ -27,7 +36,7 @@ export const Projects = () => {
          },
          {
             id: 2,
-            imageSrc: "",
+            imageSrc: photo2,
             date: "15 серпня 2023",
             title: "Збір на 57 бригаду",
             description:
@@ -36,7 +45,7 @@ export const Projects = () => {
          },
          {
             id: 3,
-            imageSrc: "",
+            imageSrc: photo3,
             date: "15 серпня 2023",
             title: "Збір на 57 бригаду",
             description: "Ми – 57 бригада та беремо участь у найзапекліших боях. ",
@@ -44,7 +53,7 @@ export const Projects = () => {
          },
          {
             id: 4,
-            imageSrc: "",
+            imageSrc: photo4,
             date: "05 серпня 2023",
             title: "Збір на 57 бригаду",
             description:
@@ -75,7 +84,7 @@ export const Projects = () => {
                      <img
                         className="projects-block-box-img"
                         // src={`https://dokoopy.onrender.com/${project.imageURL}`}
-                        src={defImg}
+                        src={project.imageSrc || defImg}
                         alt={project.title}
                      />
 
