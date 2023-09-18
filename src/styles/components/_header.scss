@@ -105,11 +105,11 @@
 
 .language-selector {
    display: none;
-   cursor: pointer;
+   cursor: pointer;   
+   
    @media screen and (min-width: 1280px) {
       display: flex;
       align-items: center;
-
 
       margin-left: auto;
       font-size: 24px;
@@ -214,4 +214,32 @@
    &:hover {
       color: var(--accent-color);
    }
+}
+
+
+.language-menu {
+   position: absolute;
+   top: 120%;
+   left: -12px;
+   flex-direction: column;
+   background-color: white;
+   border: 1px solid var(--hover-btn-gray);
+   z-index: 1;
+   padding: 5px 0;
+}
+
+.language-menu li {
+   cursor: pointer;
+   padding: 8px 20px;
+   font-size: 16px;
+   transition: background-color 0.2s, color 0.2s;
+}
+
+.language-menu li:hover {
+   background-color: var(--hover-btn-gray);
+   
+}
+
+.language-selector-wrapper{
+   position: relative;
 }

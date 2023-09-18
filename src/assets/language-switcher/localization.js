@@ -2,14 +2,14 @@ import LocalizedStrings from 'react-localization';
 
 const localization = new LocalizedStrings({
     ua: {
-    meta: 'Мета',
-    team: 'Бригада',
+    mission: 'Мета',
+    about: 'Бригада',
     projects: 'Проєкти',
     donate: 'Зробити донат'
   },
   en: {
-    meta: 'Mission',
-    team: 'Team',
+    mission: 'Mission',
+    about: 'Brigade',
     projects: 'Projects',
     donate: 'Make a donation',
   },

@@ -1,45 +1,42 @@
-import { useState, useEffect, useRef } from "react";
-
+import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
-
 import { DonateButton } from "./DonateButton";
-
 import { BurgerMenu } from "../assets/icon/burger-menu.jsx";
 import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../assets/icon/close-modal.jsx";
-
 import localization from '../assets/language-switcher/localization';
-
 
 const mobileMenuPortal = document.getElementById("mobile-menu");
 
 export const Header = () => {
    const [menuOpen, setMenuOpen] = useState(false);
    const [currentLanguage, setCurrentLanguage] = useState(
-  typeof window !== "undefined" ? localStorage.getItem("currentLanguage") || 'ua' : 'ua'
+      localStorage.getItem("currentLanguage") || 'ua'
    );
-   
+
    useEffect(() => {
-  if (typeof window !== "undefined") {
-    const storedLanguage = localStorage.getItem("currentLanguage");
-    if (storedLanguage) {
-      setCurrentLanguage(storedLanguage);
-      localization.setLanguage(storedLanguage);
-    }
-  }
+      const storedLanguage = localStorage.getItem("currentLanguage");
+      if (storedLanguage) {
+         setCurrentLanguage(storedLanguage);
+         localization.setLanguage(storedLanguage);
+      }
    }, []);
-   
 
-   const toggleLanguage = () => {
+   const toggleLanguageMenu = () => {
+      setMenuOpen(!menuOpen);
+   }
 
-   const newLanguage = currentLanguage === 'ua' ? 'en' : 'ua';
-   setCurrentLanguage(newLanguage);
-   localization.setLanguage(newLanguage); 
-};
+const selectLanguage = (language) => {
+  console.log(`Selected language: ${language}`);
+  setCurrentLanguage(language);
+  localization.setLanguage(language);
+  localStorage.setItem("currentLanguage", language);
+  setMenuOpen(false);
+}
+
 
    const mobileMenuRef = useRef(null);
-
    const aboutElementId = "about";
    const missionElementId = "mission";
 
@@ -48,14 +45,10 @@ export const Header = () => {
          if (!mobileMenuRef.current) {
             return;
          }
-         // if click was not inside of the element. "!" means not
-         // in other words, if click is outside the modal element
          if (!mobileMenuRef.current.contains(event.target)) {
             setMenuOpen(false);
          }
       };
-      // the key is using the `true` option
-      // `true` will enable the `capture` phase of event handling by browser
       document.addEventListener("click", handler, true);
       return () => {
          document.removeEventListener("click", handler);
@@ -73,12 +66,11 @@ export const Header = () => {
    }
 
    function logoClickHandler(e) {
-      // e.preventDefault();
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       setMenuOpen(false);
    }
 
-  return (
+   return (
       <header className="wrapper-header">
          <div className="container">
             <div className="header">
@@ -91,12 +83,12 @@ export const Header = () => {
                   <ul className="navigation-list">
                      <li className="navigation-list-item">
                         <Link to={`/#${missionElementId}`} className="navigaton-link">
-                           {localization.meta}
+                           {localization.mission}
                         </Link>
                      </li>
                      <li className="navigation-list-item">
                         <Link to={`/#${aboutElementId}`} className="navigaton-link">
-                           {localization.team}
+                           {localization.about}
                         </Link>
                      </li>
                      <li className="navigation-list-item">
@@ -106,15 +98,30 @@ export const Header = () => {
                      </li>
                   </ul>
                </nav>
-
-               <div className="icon-button-blok">                
-                 <DonateButton buttonClass={"headerButton"} currentLanguage={currentLanguage}></DonateButton>
-
-
-                  <p className="language-selector" onClick={toggleLanguage}>
-                     {currentLanguage === 'ua' ? 'UA' : 'EN'}
-                     <Chevron />
-                  </p>
+               <div className="icon-button-blok">
+                  <DonateButton buttonClass={"headerButton"}></DonateButton>
+                  <div className="language-selector-wrapper">
+                     <p className="language-selector" onClick={toggleLanguageMenu}>
+                        {currentLanguage === 'ua' ? 'UA' : 'EN'}
+                        <Chevron />
+                     </p>
+                     {menuOpen && (
+                     <ul className="language-menu">
+                        <li
+                           onClick={() => selectLanguage('ua')}
+                           className={currentLanguage === 'ua' ? 'selected-language' : ''}
+                        >
+                           UA
+                        </li>
+                        <li
+                           onClick={() => selectLanguage('en')}
+                           className={currentLanguage === 'en' ? 'selected-language' : ''}
+                        >
+                           EN
+                        </li>
+                     </ul>
+                  )}
+                  </div>
                   <div className="burger-menu" onClick={openMenuHandler}>
                      <BurgerMenu />
                   </div>
@@ -151,11 +158,10 @@ export const Header = () => {
                           </ul>
                        </nav>
                      <div className="language-selector_mobile">
-                       
-                          UA <ChevronMobile />
-                       </div>
-                       <DonateButton buttonClass={"burger"}></DonateButton>
-                    </div>
+                          {currentLanguage === 'ua' ? 'UA' : 'EN'} <ChevronMobile />
+                     </div>
+                     <DonateButton buttonClass={"burger"}></DonateButton>
+                  </div>
                  </div>,
                  mobileMenuPortal
               )
@@ -163,3 +169,5 @@ export const Header = () => {
       </header>
    );
 };
+
+
