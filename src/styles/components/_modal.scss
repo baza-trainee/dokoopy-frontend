@@ -227,8 +227,8 @@
     .modal-window{
         display: flex;
         align-items: center;
-        width: 232px;
-        height: 336px;
+        width: 430px;
+        height: 330px;
         background-color: var(--background-about);
         flex-direction: column;
         margin: 0;
@@ -248,8 +248,10 @@
         margin-top: 1px;
         padding: 0 20px;
         height: 276px;
-
+        justify-content: space-around
+        
     }
+
     .modal-text h2{
         width: auto;
         color: var(--title-main);
