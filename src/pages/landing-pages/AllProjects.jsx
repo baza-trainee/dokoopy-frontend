@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import defImg from "../../assets/images/default-image.jpg";
 import photo1 from "../../assets/mockProject/photo_1.jpg";
 import photo2 from "../../assets/mockProject/photo_2.png";
@@ -55,9 +55,9 @@ export const AllProjects = () => {
       },
    ];
 
-   const [searchParams, setSearchParams] = useSearchParams();
+   const { id } = useParams();
    // const [projectData, setProjectData] = useState([]);
-   const [currentPage, setCurrentPage] = useState(1);
+   const [currentPage, setCurrentPage] = useState(+id);
    const [currentPosts, setCurrentPost] = useState();
    const postsPerPage = 4;
    const lastPostIndex = currentPage * postsPerPage;
@@ -81,7 +81,7 @@ export const AllProjects = () => {
    }, [currentPage]);
 
    useEffect(() => {
-      setSearchParams({ page: currentPage });
+      // setSearchParams({ page: currentPage });
    }, [currentPage]);
    return (
       <>

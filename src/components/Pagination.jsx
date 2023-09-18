@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import arrowLeft from "../assets/icon/arrow-left-icon.svg";
 import arrowRight from "../assets/icon/arrow-right-icon.svg";
 
 const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) => {
    let pages = [];
+   const [offset, setOffset] = useState(currentPage);
    const pageCounter = Math.ceil(totalPosts / postsPerPage);
 
    for (let i = 1; i <= pageCounter; i++) {
@@ -13,13 +15,14 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
    const scrollToUp = () => {
       window.scrollTo({
          top: 0,
-         // behavior: "smooth",
+         behavior: "smooth",
       });
    };
    const prevPage = () => {
       if (currentPage > 1) {
          scrollToUp();
          setCurrentPage(prev => prev - 1);
+         setOffset(prev => prev - 1);
       }
    };
 
@@ -27,6 +30,7 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
       if (currentPage < pageCounter) {
          scrollToUp();
          setCurrentPage(prev => prev + 1);
+         setOffset(prev => prev + 1);
       }
    };
 
@@ -42,7 +46,9 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
          <div>
             {currentPage > 1 && (
                <button className="pagination-arrow" onClick={prevPage}>
-                  <img src={arrowLeft} />
+                  <Link to={`/allProjects/${currentPage - 1}`}>
+                     <img src={arrowLeft} />
+                  </Link>
                </button>
             )}
          </div>
@@ -54,7 +60,7 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
                      onClick={() => goCurrentPage(page)}
                      className={page == currentPage ? "active " : ""}
                   >
-                     {page}
+                     <Link to={`/allProjects/${page}`}>{page}</Link>
                   </button>
                );
             })}
@@ -62,7 +68,9 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
          <div>
             {currentPage < pageCounter && (
                <button className="pagination-arrow" onClick={nextPage}>
-                  <img src={arrowRight} />
+                  <Link to={`/allProjects/${currentPage + 1}`}>
+                     <img src={arrowRight} />
+                  </Link>
                </button>
             )}
          </div>
