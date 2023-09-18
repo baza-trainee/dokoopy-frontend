@@ -1,14 +1,14 @@
 .admin-hero {    
-height: 100%;
-width: 100%;
+   height: 100%;
+   width: 100%;
 }
 .admin-hero-header {
-display: flex;
-flex-direction: row;
-align-items: center;
-width: 100%;
-background-color: var(--white);
-height: 50px;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   width: 100%;
+   background-color: var(--white);
+   height: 50px;
 
 @media screen and (min-width: 768px) {
    height: 106px;
@@ -18,14 +18,14 @@ height: 50px;
 }
 }
 .admin-hero-header-wrapper {
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-width: 100%;
-padding: 0 24px;
-@media screen and (min-width: 768px) {
-   padding: 0 40px;
-}
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 100%;
+   padding: 0 24px;
+   @media screen and (min-width: 768px) {
+      padding: 0 40px;
+   }
 }
 .admin-hero-add-icon-box {
    display: flex;
@@ -53,16 +53,16 @@ padding: 0 24px;
       }
 }
 .admin-main-header {
-display: flex;
-flex-direction: row;
-align-items: center;
-height: 57px;
-width: 100%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   height: 57px;
+   width: 100%;
 }
 @media screen and (min-width: 768px) {
-.admin-main-header {
-   height: 74px;
-}
+   .admin-main-header {
+      height: 74px;
+   }
 }
 .content-element-img-box {
    display: block;
@@ -91,6 +91,27 @@ width: 100%;
       line-height: 23.44px;
    }
 }
+.content-element-name-partners {
+   display: flex;
+   align-items: center;
+   width: 100px;
+   height: 38px;
+   color: var(--text-main);
+   font-size: 16px;
+   line-height: 18.75px;
+   color: var(--admin-main-font);
+   @media screen and (min-width: 768px) {
+      width: 71px;
+      height: 63px;
+      font-size: 18px;
+      line-height: 21.09px;
+   }
+   @media screen and (min-width: 1280px) {
+      width: 187px;
+      font-size: 20px;
+      line-height: 23.44px;
+   }
+}
 .content-element-data {
    width: 71px;
    color: var(--text-main);
@@ -102,6 +123,35 @@ width: 100%;
       font-size: 20px;
       line-height: 23.44px;
    }
+}
+.content-element-link {
+   width: 83px;
+   height: auto;
+   color: var(--text-main);
+   font-size: 16px;
+   line-height: 18.75px;
+   color: var(--admin-main-accent);
+   white-space: nowrap; 
+   overflow: hidden; 
+   text-overflow: ellipsis;
+   text-decoration: underline;
+   @media screen and (min-width: 768px) {
+      display: block;
+      overflow-wrap: break-word;
+      white-space: normal; 
+      overflow: visible;
+      width: 110px;
+      height: auto;
+      font-size: 18px;
+      line-height: 21.09px;
+   }
+   @media screen and (min-width: 1280px) {
+      width: 249px;
+      height: 23px;
+      font-size: 20px;
+      line-height: 23.44px;
+   }
+
 }
 
 
