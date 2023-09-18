@@ -1,4 +1,3 @@
-
 import { LogoFooterIcon } from "../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
 
@@ -11,9 +10,9 @@ export const Footer = () => {
                <LogoFooterIcon />
                </div>
                <div className="logo-text">DOkoopy</div>
-            </div>
+               </div>
             <div className="container-btn">
-               <DonateButton buttonClass={"mainButton"} />
+               <DonateButton buttonClass={"footerButton"} />
             </div>
             <div className="footer-policy-container">
                <div className="footer-policy-link-container">
