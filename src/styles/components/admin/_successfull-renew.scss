@@ -1,0 +1,14 @@
+.check-mark {
+   width: 95px;
+   margin: 0 auto;
+   margin-bottom: 40px;
+   @media (min-width: 768px) {
+      margin-bottom: 95px;
+   }
+}
+
+@media (min-width: 768px) {
+   .success-form {
+      margin-top: 71px;
+   }
+}
