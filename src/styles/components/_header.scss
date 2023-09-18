@@ -19,7 +19,7 @@
    font-family: PT Sans;
    font-weight: 700;
 
-   padding-top: 79px;
+   padding-top: 25px;
    padding-bottom: 24px;
 
    @media screen and (min-width: 768px) {
@@ -128,8 +128,9 @@
 }
 
 //?mobile menu
+
 .mobile-menu {
-   position: absolute;
+   position: fixed;
    top: 0;
    left: 0;
    z-index: 101;
@@ -151,6 +152,12 @@
    margin-left: auto;
 
    width: 28px;
+   color: var(--icon-exit-burger-main);
+   transition: var(--transition);
+   &:hover {
+      color: var(--button-burger-hover-color);
+      background-color: var(--desktop-navigation-accent);
+   }
 }
 
 .logo_mobile-menu {
@@ -160,7 +167,9 @@
    width: 197px;
    font-size: 45px;
    color: var(--white);
-   @media screen and (min-width: 480px) {
+   transition: var(--transition);
+   &:hover {
+      color: var(--accent-color);
    }
 }
 
@@ -187,6 +196,10 @@
 
 .navigation-item_mobile-menu {
    margin-bottom: 32px;
+   transition: var(--transition);
+   &:hover {
+      color: var(--accent-color);
+   }
 }
 
 .language-selector_mobile {
@@ -195,4 +208,9 @@
    font-size: 30px;
    line-height: 1.2;
    text-align: center;
+   transition: var(--transition);
+   cursor: pointer;
+   &:hover {
+      color: var(--accent-color);
+   }
 }
