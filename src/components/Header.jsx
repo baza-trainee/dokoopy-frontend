@@ -1,18 +1,22 @@
 import React, { useState, useEffect, useRef } from "react";
+
 import { createPortal } from "react-dom";
+
 import { Link } from "react-router-dom";
+
 import { DonateButton } from "./DonateButton";
 import { BurgerMenu } from "../assets/icon/burger-menu.jsx";
 import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../assets/icon/close-modal.jsx";
-import localization from '../assets/language-switcher/localization';
+import localization from "../assets/language-switcher/localization";
 
 const mobileMenuPortal = document.getElementById("mobile-menu");
 
 export const Header = () => {
    const [menuOpen, setMenuOpen] = useState(false);
+   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
    const [currentLanguage, setCurrentLanguage] = useState(
-      localStorage.getItem("currentLanguage") || 'ua'
+      localStorage.getItem("currentLanguage") || "ua"
    );
 
    useEffect(() => {
@@ -22,23 +26,6 @@ export const Header = () => {
          localization.setLanguage(storedLanguage);
       }
    }, []);
-
-   const toggleLanguageMenu = () => {
-      setMenuOpen(!menuOpen);
-   }
-
-const selectLanguage = (language) => {
-  console.log(`Selected language: ${language}`);
-  setCurrentLanguage(language);
-  localization.setLanguage(language);
-  localStorage.setItem("currentLanguage", language);
-  setMenuOpen(false);
-}
-
-
-   const mobileMenuRef = useRef(null);
-   const aboutElementId = "about";
-   const missionElementId = "mission";
 
    useEffect(() => {
       const handler = event => {
@@ -54,6 +41,22 @@ const selectLanguage = (language) => {
          document.removeEventListener("click", handler);
       };
    }, []);
+
+   function toggleLanguageMenu() {
+      setLanguageMenuOpen(!languageMenuOpen);
+   }
+
+   function selectLanguage(language) {
+      console.log(`Selected language: ${language}`);
+      setCurrentLanguage(language);
+      localization.setLanguage(language);
+      localStorage.setItem("currentLanguage", language);
+      setLanguageMenuOpen(false);
+   }
+
+   const mobileMenuRef = useRef(null);
+   const aboutElementId = "about";
+   const missionElementId = "mission";
 
    function openMenuHandler(e) {
       e.preventDefault();
@@ -98,29 +101,23 @@ const selectLanguage = (language) => {
                      </li>
                   </ul>
                </nav>
-               <div className="icon-button-blok">
+               <div className="icon-button-block">
                   <DonateButton buttonClass={"headerButton"}></DonateButton>
                   <div className="language-selector-wrapper">
                      <p className="language-selector" onClick={toggleLanguageMenu}>
-                        {currentLanguage === 'ua' ? 'UA' : 'EN'}
+                        {currentLanguage === "ua" ? "UA" : "EN"}
                         <Chevron />
                      </p>
-                     {menuOpen && (
-                     <ul className="language-menu">
-                        <li
-                           onClick={() => selectLanguage('ua')}
-                           className={currentLanguage === 'ua' ? 'selected-language' : ''}
-                        >
-                           UA
-                        </li>
-                        <li
-                           onClick={() => selectLanguage('en')}
-                           className={currentLanguage === 'en' ? 'selected-language' : ''}
-                        >
-                           EN
-                        </li>
-                     </ul>
-                  )}
+                     {languageMenuOpen ? (
+                        <ul className="language-menu">
+                           <li onClick={() => selectLanguage("ua")} className="selected-language">
+                              <Link to="/">UA</Link>
+                           </li>
+                           <li onClick={() => selectLanguage("en")} className="selected-language">
+                              <Link to="en">EN</Link>
+                           </li>
+                        </ul>
+                     ) : null}
                   </div>
                   <div className="burger-menu" onClick={openMenuHandler}>
                      <BurgerMenu />
@@ -157,11 +154,11 @@ const selectLanguage = (language) => {
                              </li>
                           </ul>
                        </nav>
-                     <div className="language-selector_mobile">
-                          {currentLanguage === 'ua' ? 'UA' : 'EN'} <ChevronMobile />
-                     </div>
-                     <DonateButton buttonClass={"burger"}></DonateButton>
-                  </div>
+                       <div className="language-selector_mobile">
+                          {currentLanguage === "ua" ? "UA" : "EN"} <ChevronMobile />
+                       </div>
+                       <DonateButton buttonClass={"burger"}></DonateButton>
+                    </div>
                  </div>,
                  mobileMenuPortal
               )
@@ -169,5 +166,3 @@ const selectLanguage = (language) => {
       </header>
    );
 };
-
-
