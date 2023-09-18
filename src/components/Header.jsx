@@ -15,6 +15,7 @@ const mobileMenuPortal = document.getElementById("mobile-menu");
 export const Header = () => {
    const [menuOpen, setMenuOpen] = useState(false);
    const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+   const [languageMobile, setLanguageMobile] = useState(false);
    const [currentLanguage, setCurrentLanguage] = useState(
       localStorage.getItem("currentLanguage") || "ua"
    );
@@ -44,6 +45,7 @@ export const Header = () => {
 
    function toggleLanguageMenu() {
       setLanguageMenuOpen(!languageMenuOpen);
+      setLanguageMobile(!languageMobile);
    }
 
    function selectLanguage(language) {
@@ -52,6 +54,7 @@ export const Header = () => {
       localization.setLanguage(language);
       localStorage.setItem("currentLanguage", language);
       setLanguageMenuOpen(false);
+      setLanguageMobile(false);
    }
 
    const mobileMenuRef = useRef(null);
@@ -109,12 +112,16 @@ export const Header = () => {
                         <Chevron />
                      </p>
                      {languageMenuOpen ? (
-                        <ul className="language-menu">
-                           <li onClick={() => selectLanguage("ua")} className="selected-language">
-                              <Link to="/">UA</Link>
+                        <ul className="language-menu-list">
+                           <li onClick={() => selectLanguage("ua")} className="language-menu-item">
+                              <Link to="/" className="selected-language">
+                                 UA
+                              </Link>
                            </li>
-                           <li onClick={() => selectLanguage("en")} className="selected-language">
-                              <Link to="en">EN</Link>
+                           <li onClick={() => selectLanguage("en")} className="language-menu-item">
+                              <Link to="en" className="selected-language">
+                                 EN
+                              </Link>
                            </li>
                         </ul>
                      ) : null}
@@ -141,21 +148,43 @@ export const Header = () => {
                           <ul className="navigation-list_mobile-menu">
                              <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
                                 <Link to={`/#${missionElementId}`} className="navigaton-link">
-                                   мета
+                                   {localization.mission}
                                 </Link>
                              </li>
                              <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
                                 <Link to={`/#${aboutElementId}`} className="navigaton-link">
-                                   бригада
+                                   {localization.about}
                                 </Link>
                              </li>
                              <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
-                                <Link to="allprojects">проєкти</Link>
+                                <Link to="allprojects">{localization.projects}</Link>
                              </li>
                           </ul>
                        </nav>
-                       <div className="language-selector_mobile">
-                          {currentLanguage === "ua" ? "UA" : "EN"} <ChevronMobile />
+                       <div>
+                          <div className="language-selector_mobile" onClick={toggleLanguageMenu}>
+                             {currentLanguage === "ua" ? "UA" : "EN"} <ChevronMobile />
+                          </div>
+                          {languageMobile ? (
+                             <ul className="language-menu-list-mobile">
+                                <li
+                                   onClick={() => selectLanguage("ua")}
+                                   className="language-menu-item-mobile"
+                                >
+                                   <Link to="/" className="selected-language-mobile">
+                                      UA
+                                   </Link>
+                                </li>
+                                <li
+                                   onClick={() => selectLanguage("en")}
+                                   className="language-menu-item"
+                                >
+                                   <Link to="en" className="selected-language-mobile">
+                                      EN
+                                   </Link>
+                                </li>
+                             </ul>
+                          ) : null}
                        </div>
                        <DonateButton buttonClass={"burger"}></DonateButton>
                     </div>
