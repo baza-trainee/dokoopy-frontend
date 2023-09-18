@@ -1,55 +1,61 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import defImg from "../../assets/images/default-image.jpg";
+import photo1 from "../../assets/mockProject/photo_1.jpg";
+import photo2 from "../../assets/mockProject/photo_2.png";
+import photo3 from "../../assets/mockProject/photo_3.jpg";
+import photo4 from "../../assets/mockProject/photo_4.jpg";
+
 import Pagination from "../../components/Pagination.jsx";
 import { Contacts } from "../../components/sections/Contacts.jsx";
 export const AllProjects = () => {
-   const dataFromBackend = [
-      {
-         id: 1,
-         imageSrc: "",
-         date: "31 серпня 2023",
-         title: "Збір на 57 бригаду",
-         description:
-            "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-         alt: "Зображення проекту 1",
-      },
-      {
-         id: 2,
-         imageSrc: "",
-         date: "15 серпня 2023",
-         title: "Збір на 57 бригаду",
-         description:
-            "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-         alt: "Зображення проекту 2",
-      },
-      {
-         id: 3,
-         imageSrc: "",
-         date: "15 серпня 2023",
-         title: "Збір на 57 бригаду",
-         description: "Ми – 57 бригада та беремо участь у найзапекліших боях. ",
-         alt: "Зображення проекту 2",
-      },
-      {
-         id: 4,
-         imageSrc: "",
-         date: "05 серпня 2023",
-         title: "Збір на 57 бригаду",
-         description:
-            "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-         alt: "Зображення проекту 4",
-      },
-      {
-         id: 5,
-         imageSrc: "",
-         date: "31 серпня 2023",
-         title: "Збір на 57 бригаду",
-         description:
-            "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-         alt: "Зображення проекту 5",
-      },
+      const dataFromBackend = [
+         {
+            id: 1,
+            imageSrc: photo1,
+            date: "31 серпня 2023",
+            title: "Збір на 57 бригаду",
+            description:
+               "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
+            alt: "Зображення проекту 1",
+         },
+         {
+            id: 2,
+            imageSrc: photo2,
+            date: "15 серпня 2023",
+            title: "Збір на 57 бригаду",
+            description:
+               "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
+            alt: "Зображення проекту 2",
+         },
+         {
+            id: 3,
+            imageSrc: photo3,
+            date: "15 серпня 2023",
+            title: "Збір на 57 бригаду",
+            description: "Ми – 57 бригада та беремо участь у найзапекліших боях. ",
+            alt: "Зображення проекту 2",
+         },
+         {
+            id: 4,
+            imageSrc: photo4,
+            date: "05 серпня 2023",
+            title: "Збір на 57 бригаду",
+            description:
+               "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
+            alt: "Зображення проекту 4",
+         },
+         {
+            id: 5,
+            imageSrc: "",
+            date: "31 серпня 2023",
+            title: "Збір на 57 бригаду",
+            description:
+               "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
+            alt: "Зображення проекту 5",
+         },
    ];
+   
    const [searchParams, setSearchParams] = useSearchParams();
    const [projectData, setProjectData] = useState([]);
    const [currentPage, setCurrentPage] = useState(+searchParams.get("page") || 1);
@@ -90,7 +96,7 @@ export const AllProjects = () => {
                         <img
                            className="project-img-blok"
                            // src={`https://dokoopy.onrender.com/${item.imageURL}`}
-                           src={defImg}
+                           src={item.imageSrc || defImg}
                         ></img>
                         <div className="text-blok">
                            <div className="page-data-title-blok">
