@@ -1,10 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-
 import { Link } from "react-router-dom";
-
-import { BurgerMenu } from "../assets/icon/burger-menu.jsx";
+import { BurgerMenuIcon } from "../assets/icon/burger-menu.jsx";
 import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../assets/icon/close-modal.jsx";
 import localization from "../assets/language-switcher/localization";
@@ -120,7 +117,7 @@ export const Header = () => {
                      ) : null}
                   </div>
                   <div className="burger-menu" onClick={openMenuHandler}>
-                     <BurgerMenu />
+                     <BurgerMenuIcon />
                   </div>
                </div>
             </div>
