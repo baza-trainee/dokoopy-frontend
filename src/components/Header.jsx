@@ -187,10 +187,7 @@ export const Header = () => {
                              </ul>
                           ) : null}
                        </div>
-                       <DonateButton
-                          buttonClass={"burger"}
-                          onClick={closeMenuHandler}
-                       ></DonateButton>
+                       <DonateButton buttonClass={"burger"}></DonateButton>
                     </div>
                  </div>,
                  mobileMenuPortal
