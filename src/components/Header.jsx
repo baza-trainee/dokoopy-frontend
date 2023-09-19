@@ -17,21 +17,21 @@ export const Header = () => {
    const [menuOpen, setMenuOpen] = useState(false);
    const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
    const [languageMobile, setLanguageMobile] = useState(false);
-   const [currentLanguage, setCurrentLanguage] = useState(
-      localStorage.getItem("currentLanguage") || "ua"
-   );
+   // const [currentLanguage, setCurrentLanguage] = useState(
+   //    localStorage.getItem("currentLanguage") || "ua"
+   // );
 
    const mobileMenuRef = useRef(null);
    const aboutElementId = "about";
    const missionElementId = "mission";
 
-   useEffect(() => {
-      const storedLanguage = localStorage.getItem("currentLanguage");
-      if (storedLanguage) {
-         setCurrentLanguage(storedLanguage);
-         localization.setLanguage(storedLanguage);
-      }
-   }, []);
+   // useEffect(() => {
+   //    const storedLanguage = localStorage.getItem("currentLanguage") || "ua";
+   //    setCurrentLanguage(storedLanguage);
+   //    // localization.setLanguage(storedLanguage);
+   //    // selectLanguage(storedLanguage);
+   //    localization.setLanguage(storedLanguage);
+   // }, [currentLanguage]);
 
    useEffect(() => {
       const handler = event => {
@@ -56,14 +56,14 @@ export const Header = () => {
       setLanguageMobile(!languageMobile);
    }
 
-   function selectLanguage(language) {
-      console.log(`Selected language: ${language}`);
-      setCurrentLanguage(language);
-      localization.setLanguage(language);
-      localStorage.setItem("currentLanguage", language);
-      setLanguageMenuOpen(false);
-      setLanguageMobile(false);
-   }
+   // function selectLanguage(language) {
+   //    console.log(`Selected language: ${language}`);
+   //    setCurrentLanguage(language);
+   //    localization.setLanguage(language);
+   //    localStorage.setItem("currentLanguage", language);
+   //    setLanguageMenuOpen(false);
+   //    setLanguageMobile(false);
+   // }
 
    function openMenuHandler(e) {
       e.preventDefault();
@@ -112,17 +112,17 @@ export const Header = () => {
                   <DonateButton buttonClass={"headerButton"}></DonateButton>
                   <div className="language-selector-wrapper">
                      <p className="language-selector" onClick={toggleLanguageMenu}>
-                        {currentLanguage === "ua" ? "UA" : "EN"}
+                        UA
                         <Chevron />
                      </p>
                      {languageMenuOpen ? (
                         <ul className="language-menu-list">
-                           <li onClick={() => selectLanguage("ua")} className="language-menu-item">
+                           <li onClick={toggleLanguageMenu} className="language-menu-item">
                               <Link to="/" className="selected-language">
                                  UA
                               </Link>
                            </li>
-                           <li onClick={() => selectLanguage("en")} className="language-menu-item">
+                           <li onClick={toggleLanguageMenu} className="language-menu-item">
                               <Link to="en" className="selected-language">
                                  EN
                               </Link>
