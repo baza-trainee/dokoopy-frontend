@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import arrowLeft from "../assets/icon/arrow-left-icon.svg";
 import arrowRight from "../assets/icon/arrow-right-icon.svg";
 
 const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) => {
    let pages = [];
-   const [offset, setOffset] = useState(currentPage);
+
    const pageCounter = Math.ceil(totalPosts / postsPerPage);
 
    for (let i = 1; i <= pageCounter; i++) {
@@ -15,14 +15,12 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
    const scrollToUp = () => {
       window.scrollTo({
          top: 0,
-         behavior: "smooth",
       });
    };
    const prevPage = () => {
       if (currentPage > 1) {
          scrollToUp();
          setCurrentPage(prev => prev - 1);
-         setOffset(prev => prev - 1);
       }
    };
 
@@ -30,7 +28,6 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
       if (currentPage < pageCounter) {
          scrollToUp();
          setCurrentPage(prev => prev + 1);
-         setOffset(prev => prev + 1);
       }
    };
 
@@ -45,33 +42,35 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
       <div className="pagination">
          <div>
             {currentPage > 1 && (
-               <button className="pagination-arrow" onClick={prevPage}>
-                  <Link to={`/allProjects/${currentPage - 1}`}>
+               <Link to={`/allprojects/${currentPage - 1}`}>
+                  <button className="pagination-arrow" onClick={prevPage}>
                      <img src={arrowLeft} />
-                  </Link>
-               </button>
+                  </button>
+               </Link>
             )}
          </div>
          <div className="pagination-numbers">
             {pages.map((page, index) => {
                return (
-                  <button
-                     key={index}
-                     onClick={() => goCurrentPage(page)}
-                     className={page == currentPage ? "active " : ""}
-                  >
-                     <Link to={`/allProjects/${page}`}>{page}</Link>
-                  </button>
+                  <Link to={`/allprojects/${page}`}>
+                     <button
+                        key={index}
+                        onClick={() => goCurrentPage(page)}
+                        className={page == currentPage ? "active " : ""}
+                     >
+                        {page}
+                     </button>
+                  </Link>
                );
             })}
          </div>
          <div>
             {currentPage < pageCounter && (
-               <button className="pagination-arrow" onClick={nextPage}>
-                  <Link to={`/allProjects/${currentPage + 1}`}>
+               <Link to={`/allprojects/${currentPage + 1}`}>
+                  <button className="pagination-arrow" onClick={nextPage}>
                      <img src={arrowRight} />
-                  </Link>
-               </button>
+                  </button>
+               </Link>
             )}
          </div>
       </div>
