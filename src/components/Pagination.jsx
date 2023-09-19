@@ -13,26 +13,26 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
    }
 
    const scrollToUp = () => {
-      window.scrollTo({
-         top: 0,
-      });
+      // window.scrollTo({
+      //    top: 0,
+      // });
    };
    const prevPage = () => {
       if (currentPage > 1) {
-         scrollToUp();
+         // scrollToUp();
          setCurrentPage(prev => prev - 1);
       }
    };
 
    const nextPage = () => {
       if (currentPage < pageCounter) {
-         scrollToUp();
+         // scrollToUp();
          setCurrentPage(prev => prev + 1);
       }
    };
 
    const goCurrentPage = page => {
-      scrollToUp();
+      // scrollToUp();
       setCurrentPage(page);
    };
    if (totalPosts < postsPerPage) {
