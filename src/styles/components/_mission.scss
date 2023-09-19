@@ -34,6 +34,7 @@
 }
 .mission-block-box-text{
    width: auto;
+   font-size: 24px;
 }
 .mission-block-box-text p{
    color: var(--text-main);
@@ -61,7 +62,8 @@
        align-self: stretch;
    }
    .mission-block-box-text{
-       width: 100%;
+      width: 100%;
+      font-size: 24px;
    }
    
 }
@@ -90,6 +92,7 @@
    }
    .mission-block-box-text{
        width: 100%;
+       font-size: 20px;
    }
    .mission-block-box-text p{
       width: 100%;
@@ -121,12 +124,12 @@
   .mission-block-box{
       display: flex;
       align-items: flex-start;
-      flex-direction: column;
       gap: 24px;
       align-self: stretch;
   }
   .mission-block-box-text{
       width: 100%;
+      font-size: 20px;
   }
   .mission-block-box-text p{
      width: 100%;
@@ -158,7 +161,7 @@
       line-height: normal;
       text-transform: uppercase;
    }
-   @media (max-width: 768px) {
+   @media (max-width: 767px) {
        text-align: start;
        align-self: stretch;
        font-family: PT Sans;
