@@ -15,6 +15,7 @@ export const Modal = ({ onClose }) => {
     const goToHomePage = (e) => {
       if (e.target.classList.contains("backpage")){
         navigate('/');
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         onClose();
       }
     };

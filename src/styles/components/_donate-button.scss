@@ -8,6 +8,7 @@
    font-family: PT Sans;
    font-weight: 700;
    color: var(--button-hover-color);
+   text-transform: uppercase;
    &:hover {
       background-color: var(--button-hover-color);
       color: var(--button-burger-hover-color);

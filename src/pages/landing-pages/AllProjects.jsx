@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import defImg from "../../assets/images/default-image.jpg";
+import photo1 from "../../assets/mockProject/photo_1.jpg";
+import photo2 from "../../assets/mockProject/photo_2.png";
+import photo3 from "../../assets/mockProject/photo_3.jpg";
+import photo4 from "../../assets/mockProject/photo_4.jpg";
 import Pagination from "../../components/Pagination.jsx";
 import { Contacts } from "../../components/sections/Contacts.jsx";
 export const AllProjects = () => {
    const dataFromBackend = [
       {
          id: 1,
-         imageSrc: "",
+         imageSrc: photo1,
          date: "31 серпня 2023",
          title: "Збір на 57 бригаду",
          description:
@@ -16,7 +20,7 @@ export const AllProjects = () => {
       },
       {
          id: 2,
-         imageSrc: "",
+         imageSrc: photo2,
          date: "15 серпня 2023",
          title: "Збір на 57 бригаду",
          description:
@@ -25,7 +29,7 @@ export const AllProjects = () => {
       },
       {
          id: 3,
-         imageSrc: "",
+         imageSrc: photo3,
          date: "15 серпня 2023",
          title: "Збір на 57 бригаду",
          description: "Ми – 57 бригада та беремо участь у найзапекліших боях. ",
@@ -33,7 +37,7 @@ export const AllProjects = () => {
       },
       {
          id: 4,
-         imageSrc: "",
+         imageSrc: photo4,
          date: "05 серпня 2023",
          title: "Збір на 57 бригаду",
          description:
@@ -50,35 +54,28 @@ export const AllProjects = () => {
          alt: "Зображення проекту 5",
       },
    ];
-   const [searchParams, setSearchParams] = useSearchParams();
-   const [projectData, setProjectData] = useState([]);
-   const [currentPage, setCurrentPage] = useState(+searchParams.get("page") || 1);
+
+   const { id } = useParams();
+   const { pathname } = useLocation();
+   console.log(pathname);
+   const [currentPage, setCurrentPage] = useState(+id);
    const [currentPosts, setCurrentPost] = useState();
    const postsPerPage = 4;
    const lastPostIndex = currentPage * postsPerPage;
    const firstPostIndex = lastPostIndex - postsPerPage;
-   // const { data, isLoading, eventLoading } = useLoadingData(lendingData.getProject, true);
-
-   // useEffect(() => {
-   //    eventLoading();
-   // }, []);
 
    useEffect(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-   }, []);
+      setCurrentPage(+id);
+   }, [id, currentPage]);
 
    useEffect(() => {
-      // if (!isLoading) {
-      setProjectData(dataFromBackend);
+      window.scrollTo({ top: 0, left: 0 });
+   }, [pathname]);
+
+   useEffect(() => {
       setCurrentPost(dataFromBackend.slice(firstPostIndex, lastPostIndex));
-      // }
-      setProjectData(dataFromBackend);
    }, [currentPage]);
 
-   useEffect(() => {
-      searchParams.set("page", currentPage);
-      setSearchParams(searchParams);
-   }, [currentPage]);
    return (
       <>
          <section className="container container-project">
@@ -90,7 +87,7 @@ export const AllProjects = () => {
                         <img
                            className="project-img-blok"
                            // src={`https://dokoopy.onrender.com/${item.imageURL}`}
-                           src={defImg}
+                           src={item.imageSrc || defImg}
                         ></img>
                         <div className="text-blok">
                            <div className="page-data-title-blok">
