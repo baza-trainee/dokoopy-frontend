@@ -1,33 +1,20 @@
 .containerHeshteg {
    padding: 0;
    margin: 0;
-   width: 100%;
    height: 64px;
-   overflow: hidden;
    @media (min-width: 768px) {
       height: 106px;
-   }
-   @media (min-width: 1480px) {
-      display: flex;
-      justify-content: center;
    }
 }
 
 .contentHeshteg {
-   padding-left: 24px;
-   width: 500%;
    height: 100%;
    display: flex;
    align-items: center;
+   justify-content: center;
    list-style: none;
-   @media (min-width: 1280px) {
-      padding-left: 100px;
-   }
    li {
       font-weight: 700;
-   }
-   @media (min-width: 1440px) {
-      width: fit-content;
    }
 }
 
@@ -35,31 +22,13 @@
    background-color: #ffffff;
    border-top: 1px solid #000000;
    border-bottom: 1px solid #000000;
-   ul li:nth-child(1):before,
-   ul li:nth-child(3):before,
-   ul li:nth-child(5):before {
+   ul li:nth-child(1):before {
       content: "#ХОЛОД У ЖИЛАХ";
       margin-right: 20px;
-      @media (min-width: 480px) {
-         margin-right: 106px;
-      }
-      @media (min-width: 768px) {
-         margin-right: 66.5px;
-      }
-      @media (min-width: 1440px) {
-         margin-right: 65.5px;
-      }
    }
-   ul li:nth-child(2):before,
-   ul li:nth-child(4):before {
+   ul li:nth-child(2):before {
       content: "#ЗАПАЛ У СЕРЦЯХ";
       margin-right: 20px;
-      @media (min-width: 480px) {
-         margin-right: 106px;
-      }
-      @media (min-width: 768px) {
-         margin-right: 66.5px;
-      }
    }
    li {
       font-size: 16px;
@@ -70,55 +39,97 @@
          font-size: 24px;
       }
    }
+   @media (min-width: 768px) {
+      ul li:nth-child(1)::before,
+      ul li:nth-child(2)::before {
+         margin-right: 66.5px;
+      }
+      ul li:nth-child(3):before {
+         content: "#ХОЛОД У ЖИЛАХ";
+      }
+   }
+   @media (min-width: 1280px) {
+      ul li:nth-child(3):before {
+         margin-right: 66.5px;
+      }
+      ul li:nth-child(4):before {
+         content: "#ЗАПАЛ У СЕРЦЯХ";
+         margin-right: 66.5px;
+      }
+      ul li:nth-child(5):before {
+         content: "#ХОЛОД У ЖИЛАХ";
+      }
+   }
 }
 
 .greenContainer {
    background-color: var(--button-main-color);
    li {
-      margin-right: 15px;
       font-size: 20px;
-      @media (min-width: 390px) {
-         margin-right: 24px;
-      }
       @media (min-width: 768px) {
-         margin-right: 32px;
          font-size: 24px;
       }
-      @media (min-width: 1440px) {
-         margin-right: 55px;
-      }
    }
-   .contentHeshteg li:nth-child(2)::before {
+   ul li:nth-child(1) {
+      margin-right: 15px;
+   }
+   ul li:nth-child(2)::before {
       content: "#МАЙБУТНЄ";
+      margin-right: 15px;
    }
-   .contentHeshteg li:nth-child(3)::before {
+   ul li:nth-child(3)::before {
       content: "#СВОБОДА";
-   }
-   .contentHeshteg li:nth-child(4)::before {
-      content: "#ЗЕМЛЯ";
-   }
-   .contentHeshteg li:nth-child(5)::before {
-      content: "#РОДИНА";
-   }
-   .contentHeshteg li:nth-child(6)::before {
-      content: "#СИЛА";
-   }
-   .contentHeshteg li:nth-child(7)::before {
-      content: "#ЗАХИСТ";
-   }
-   .contentHeshteg li:nth-child(8)::before {
-      content: "#ВОЛЯ";
-   }
-   .contentHeshteg li:nth-child(9)::before {
-      content: "#НАЦІЯ";
-   }
-   @media (min-width: 390px) {
-      padding-left: 26px;
+      margin-right: 15px;
    }
    @media (min-width: 480px) {
-      padding-left: 22px;
+      ul li:nth-child(1) {
+         margin-right: 24px;
+      }
+      ul li:nth-child(2)::before,
+      ul li:nth-child(3)::before {
+         margin-right: 24px;
+      }
+      ul li:nth-child(4)::before {
+         content: "#ЗЕМЛЯ";
+      }
    }
    @media (min-width: 768px) {
-      padding-left: 0;
+      ul li:nth-child(2)::before,
+      ul li:nth-child(2)::before,
+      ul li:nth-child(3)::before,
+      ul li:nth-child(4)::before {
+         margin-right: 32px;
+      }
+      ul li:nth-child(5)::before {
+         content: "#РОДИНА";
+         margin-right: 32px;
+      }
+      ul li:nth-child(6)::before {
+         content: "#СИЛА";
+      }
+   }
+   @media (min-width: 1280px) {
+      ul li:nth-child(1) {
+         margin-right: 55px;
+      }
+      ul li:nth-child(2)::before,
+      ul li:nth-child(2)::before,
+      ul li:nth-child(3)::before,
+      ul li:nth-child(4)::before,
+      ul li:nth-child(5)::before,
+      ul li:nth-child(6)::before {
+         margin-right: 55px;
+      }
+      ul li:nth-child(7)::before {
+         content: "#ЗАХИСТ";
+         margin-right: 55px;
+      }
+      ul li:nth-child(8)::before {
+         content: "#ВОЛЯ";
+         margin-right: 55px;
+      }
+      ul li:nth-child(9)::before {
+         content: "#НАЦІЯ";
+      }
    }
 }
