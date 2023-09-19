@@ -36,7 +36,7 @@
    width: auto;
    font-size: 24px;
 }
-.mission-block-box-text p{
+.mission-block-box-text-p{
    color: var(--text-main);
    font-family: PT Sans;
    font-size: 24px;
@@ -45,7 +45,7 @@
    line-height: 36px;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media screen and (max-width: 1279px) {
    .mission-box{
        display: flex;
        flex-direction: column;
@@ -65,10 +65,17 @@
       width: 100%;
       font-size: 24px;
    }
-   
+   .mission-block-box-text-p{
+      color: var(--text-main);
+      font-family: PT Sans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 36px;
+   }
 }
 
-@media (min-width: 480px) and (max-width: 767px){
+@media screen and (max-width: 767px){
    .mission-box{
        display: flex;
        flex-direction: column;
@@ -90,11 +97,23 @@
        gap: 24px;
        align-self: stretch;
    }
+   .mission-block-box-img::before {
+      content: ""; 
+      width: 28px;
+      height: 28px;
+      background-image: url('../assets/icon/target-icon.svg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: inline-block; 
+      vertical-align: middle; 
+      margin-right: 5px; 
+   }
    .mission-block-box-text{
        width: 100%;
        font-size: 20px;
    }
-   .mission-block-box-text p{
+   .mission-block-box-text-p{
       width: 100%;
       color: var(--text-main);
       font-family: PT Sans;
@@ -104,7 +123,7 @@
       line-height: normal;
    }
 }
-   @media (max-width: 479px) {
+   @media screen and (max-width: 479px) {
       
    .mission-box{
       display: flex;
@@ -131,15 +150,15 @@
       width: 100%;
       font-size: 20px;
   }
-  .mission-block-box-text p{
-     width: 100%;
-     color: var(--text-main);
-     font-family: PT Sans;
-     font-size: 20px;
-     font-style: normal;
-     font-weight: 400;
-     line-height: normal;
-  }
+  .mission-block-box-text-p{
+   width: 100%;
+   color: var(--text-main);
+   font-family: PT Sans;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+}
    
 }
 
@@ -153,7 +172,7 @@
    line-height: normal;
    text-transform: uppercase;
    text-align:start;
-   @media (min-width: 768px) and (max-width: 1279px) {
+   @media screen and (max-width: 1279px) {
       font-family: PT Sans;
       font-size: 66px;
       font-style: normal;
@@ -161,7 +180,7 @@
       line-height: normal;
       text-transform: uppercase;
    }
-   @media (max-width: 767px) {
+   @media screen and (max-width: 767px) {
        text-align: start;
        align-self: stretch;
        font-family: PT Sans;
