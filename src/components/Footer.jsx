@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { LogoFooterIcon } from "../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
 
@@ -16,15 +17,14 @@ export const Footer = () => {
          </div>
          <div className='footer-policy-container'>
             <div className='footer-policy-link-container'>
-                  <a className='footer-policy-link'>Політика конфіденційності</a>
-                  <a className='footer-policy-link'>
-                     Правила користування сайтом
-                     </a> 
-                  <a className='footer-policy-link'>Звітність</a>
+               <a href="/src/assets/documents/policy.pdf" className='footer-policy-link'>Політика конфіденційності</a>
+               <a href="/src/assets/documents/rules.pdf" className='footer-policy-link'>Правила користування сайтом</a>
+               <Link className='footer-policy-link' to="/*">Звітність</Link>
             </div>
             <p className='footer-policy-text'>Розробка Baza Trainee Ukraine 2023 © Всі права захищені</p>
          </div>
          </div>
       </footer>
+     
    );
 };
