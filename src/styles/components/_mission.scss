@@ -45,7 +45,7 @@
    line-height: 36px;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media screen and (max-width: 1279px) {
    .mission-box{
        display: flex;
        flex-direction: column;
@@ -75,7 +75,7 @@
    }
 }
 
-@media (min-width: 480px) and (max-width: 767px){
+@media screen and (max-width: 767px){
    .mission-box{
        display: flex;
        flex-direction: column;
@@ -111,7 +111,7 @@
       line-height: normal;
    }
 }
-   @media (max-width: 479px) {
+   @media screen and (max-width: 479px) {
       
    .mission-box{
       display: flex;
@@ -160,7 +160,7 @@
    line-height: normal;
    text-transform: uppercase;
    text-align:start;
-   @media (min-width: 768px) and (max-width: 1279px) {
+   @media screen and (max-width: 1279px) {
       font-family: PT Sans;
       font-size: 66px;
       font-style: normal;
@@ -168,7 +168,7 @@
       line-height: normal;
       text-transform: uppercase;
    }
-   @media (max-width: 767px) {
+   @media screen and (max-width: 767px) {
        text-align: start;
        align-self: stretch;
        font-family: PT Sans;
