@@ -1,0 +1,101 @@
+.login-content {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin-top: 87px;
+   h2 {
+      margin: 0 auto;
+      margin-bottom: 40px;
+      font-size: 24px;
+      font-weight: 500;
+   }
+   @media (min-width: 768px) {
+      margin-top: 159px;
+      h2 {
+         font-size: 28px;
+      }
+   }
+   @media (min-width: 768px) {
+      margin-top: 171px;
+      h2 {
+         margin-bottom: 48px;
+      }
+   }
+}
+
+.login-text {
+   width: 320px;
+   margin: 0 auto;
+   color: var(--admin-main-font);
+   margin-bottom: 12px;
+   font-size: 14px;
+   @media (min-width: 768px) {
+      width: 466px;
+      margin-bottom: 24px;
+      font-size: 16px;
+   }
+}
+
+.login-form {
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   width: 320px;
+   margin-bottom: 3px;
+   button {
+      border: none;
+      border-radius: 6px;
+      background-color: var(--admin-button-main);
+      color: var(--white);
+      height: 50px;
+      cursor: pointer;
+      font-size: 16px;
+      &:hover {
+         background-color: var(--admin-main-accent);
+      }
+   }
+   @media (min-width: 768px) {
+      width: 466px;
+      margin-bottom: 24px;
+      button {
+         font-size: 18px;
+      }
+   }
+}
+.login-input {
+   border: 1px solid #d6d6d6;
+   border-radius: 6px;
+   padding-left: 10px;
+   margin-bottom: 24px;
+   &::placeholder {
+      color: var(--text-gray);
+   }
+}
+
+.mail {
+   height: 43px;
+}
+
+.pass {
+   height: 48px;
+   padding-right: 35px;
+   margin-bottom: 0;
+}
+.password-eye {
+   position: relative;
+   left: 285px;
+   bottom: 37px;
+   cursor: pointer;
+   @media (min-width: 768px) {
+      left: 435px;
+   }
+}
+
+.forget-password {
+   margin: 0 auto;
+   color: var(--admin-button-main);
+   font-size: 14px;
+   &:hover {
+      border-bottom: 1px solid var(--admin-button-main);
+   }
+}

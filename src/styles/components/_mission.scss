@@ -34,8 +34,9 @@
 }
 .mission-block-box-text{
    width: auto;
+   font-size: 24px;
 }
-.mission-block-box-text p{
+.mission-block-box-text-p{
    color: var(--text-main);
    font-family: PT Sans;
    font-size: 24px;
@@ -61,9 +62,17 @@
        align-self: stretch;
    }
    .mission-block-box-text{
-       width: 100%;
+      width: 100%;
+      font-size: 24px;
    }
-   
+   .mission-block-box-text-p{
+      color: var(--text-main);
+      font-family: PT Sans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 36px;
+   }
 }
 
 @media (min-width: 480px) and (max-width: 767px){
@@ -90,8 +99,9 @@
    }
    .mission-block-box-text{
        width: 100%;
+       font-size: 20px;
    }
-   .mission-block-box-text p{
+   .mission-block-box-text-p{
       width: 100%;
       color: var(--text-main);
       font-family: PT Sans;
@@ -101,7 +111,7 @@
       line-height: normal;
    }
 }
-   @media (min-width: 230px) and (max-width: 479px) {
+   @media (max-width: 479px) {
       
    .mission-box{
       display: flex;
@@ -121,22 +131,22 @@
   .mission-block-box{
       display: flex;
       align-items: flex-start;
-      flex-direction: column;
       gap: 24px;
       align-self: stretch;
   }
   .mission-block-box-text{
       width: 100%;
+      font-size: 20px;
   }
-  .mission-block-box-text p{
-     width: 100%;
-     color: var(--text-main);
-     font-family: PT Sans;
-     font-size: 20px;
-     font-style: normal;
-     font-weight: 400;
-     line-height: normal;
-  }
+  .mission-block-box-text-p{
+   width: 100%;
+   color: var(--text-main);
+   font-family: PT Sans;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+}
    
 }
 
@@ -150,15 +160,15 @@
    line-height: normal;
    text-transform: uppercase;
    text-align:start;
-   @media (min-width: 481px) and (max-width: 768px) {
+   @media (min-width: 768px) and (max-width: 1279px) {
       font-family: PT Sans;
-      font-size: 56px;
+      font-size: 66px;
       font-style: normal;
       font-weight: 700;
       line-height: normal;
       text-transform: uppercase;
    }
-   @media (max-width: 480px) {
+   @media (max-width: 767px) {
        text-align: start;
        align-self: stretch;
        font-family: PT Sans;
@@ -168,4 +178,5 @@
        line-height: normal;
        text-transform: uppercase;
    }
+   
 }

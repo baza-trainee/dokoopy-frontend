@@ -1,5 +1,4 @@
 import { EditIcon } from "../../assets/icon/EditIcon";
-import { EditContact } from "./editPage/EditContact";
 
 export const AdminContacts = () => {
    const contactsData = [
@@ -11,6 +10,7 @@ export const AdminContacts = () => {
       },
       { id: 1, name: "Telegram", contact: "telegram_link", link: "https://t.me/+CBXkAJlsCy83ZDYy" },
    ];
+
 
    return (
       <div className="admin-contacts">
@@ -29,7 +29,7 @@ export const AdminContacts = () => {
                         <p>{contacts.name}</p>
                         <div className="contacts-li-group">
                            <a href={contacts.link}>{contacts.contact}</a>
-                           <button>
+                           <button className="edit-contcts">
                               <EditIcon />
                            </button>
                         </div>
@@ -38,7 +38,6 @@ export const AdminContacts = () => {
                ))}
             </ul>
          </div>
-         <EditContact />
       </div>
    );
 };
