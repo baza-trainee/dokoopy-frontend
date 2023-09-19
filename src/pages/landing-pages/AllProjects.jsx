@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import defImg from "../../assets/images/default-image.jpg";
 import photo1 from "../../assets/mockProject/photo_1.jpg";
 import photo2 from "../../assets/mockProject/photo_2.png";
@@ -57,14 +57,25 @@ export const AllProjects = () => {
 
    const { id } = useParams();
    const { pathname } = useLocation();
-   console.log(pathname);
-   const [currentPage, setCurrentPage] = useState(+id);
+   const navigate = useNavigate();
+   const [currentPage, setCurrentPage] = useState(1);
    const [currentPosts, setCurrentPost] = useState();
    const postsPerPage = 4;
    const lastPostIndex = currentPage * postsPerPage;
    const firstPostIndex = lastPostIndex - postsPerPage;
 
    useEffect(() => {
+      const pageCounter = Math.ceil(dataFromBackend.length / postsPerPage);
+      let numberParam = +id;
+
+      if (numberParam > pageCounter || numberParam <= 0) {
+         navigate(`/${numberParam}`);
+      }
+
+      if (Number.isNaN(numberParam)) {
+         navigate(`/${id}`);
+      }
+
       setCurrentPage(+id);
    }, [id, currentPage]);
 
@@ -84,11 +95,7 @@ export const AllProjects = () => {
                {currentPosts?.map(item => (
                   <li key={item.id}>
                      <div className="all-project-content">
-                        <img
-                           className="project-img-blok"
-                           // src={`https://dokoopy.onrender.com/${item.imageURL}`}
-                           src={item.imageSrc || defImg}
-                        ></img>
+                        <img className="project-img-blok" src={item.imageSrc || defImg}></img>
                         <div className="text-blok">
                            <div className="page-data-title-blok">
                               <p className="project-data">{item.date}</p>
