@@ -16,37 +16,13 @@
     align-items: center;
     gap: 34px;
 }
-.contact-box-title-h2{
-    color: var(--title-main);
-    font-family: PT Sans;
-    font-size: 56px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
-}
-.contact-box-title-p{
-    color: var(--text-main);
-    text-align: center;
-    font-family: PT Sans;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 46px; 
-}
+
 .contact-link{
     display: flex;
     align-items: flex-start;
     gap: 40px;
 }
-.contact-link a{
-    color: var(--text-main);
-    font-family: PT Sans;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
+
 .contact-link a:hover{
     color: var(--accent-color) ;
     text-decoration: underline;
@@ -67,27 +43,7 @@
     align-items: center;
     gap: 24px;
     }
-.contact-box-title-h2{
-    color: var(--title-main);
-    font-family: PT Sans;
-    font-size: 47px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
-    align-self: stretch;
-    text-align: center;
-    }
-.contact-box-title-p{
-    align-self: stretch;
-    color: var(--title-main);
-    text-align: center;
-    font-family: PT Sans;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 46px;
-    }
+
 }
 @media screen and (max-width: 767px){
 .contact-box{
@@ -104,62 +60,114 @@
     align-items: center;
     gap: 20px;
 }
-.contact-box-title-h2{
-    color: var(--title-main);
-    text-align: center;
-    font-family: PT Sans;
-    font-size: 23px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    text-transform: uppercase;
-    }
-.contact-box-title p{
-    align-self: stretch;
-    color: var(--title-main);
-    text-align: center;
-    font-family: PT Sans;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    }
-.contact-link a{
-    color: var(--text-main);
-    font-family: PT Sans;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    }
+
 }
-@media screen and (max-width: 479px){
-    .contact-box-title h2{
-        color: var(--title-main);
-        text-align: center;
-        font-family: PT Sans;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        text-transform: uppercase;
-        }
-    .contact-box-title p{
-        align-self: stretch;
-        color: var(--title-main);
-        text-align: center;
-        font-family: PT Sans;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        }
-        .contact-link a{
-            color: var(--text-main);
+
+
+        .contact-box-title-h2{
+            color: var(--title-main);
+            text-align: center;
             font-family: PT Sans;
-            font-size: 20px;
+            font-size: 18px;
             font-style: normal;
             font-weight: 700;
             line-height: normal;
+            text-transform: uppercase;
             }
-        }
+            @media (min-width: 480px) {
+            .contact-box-title-h2{
+                color: var(--title-main);
+                text-align: center;
+                font-family: PT Sans;
+                font-size: 23px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                text-transform: uppercase;
+                }
+            }
+            @media (min-width: 768px) {
+                .contact-box-title-h2{
+                    color: var(--title-main);
+                    font-family: PT Sans;
+                    font-size: 47px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    text-transform: uppercase;
+                    align-self: stretch;
+                    text-align: center;
+                    }
+            }
+            @media (min-width: 1280px) {
+                .contact-box-title-h2{
+                    color: var(--title-main);
+                    font-family: PT Sans;
+                    font-size: 56px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    text-transform: uppercase;
+                }
+            }
+            .contact-box-title-p{
+                align-self: stretch;
+                color: var(--title-main);
+                text-align: center;
+                font-family: PT Sans;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                }
+                @media (min-width: 768px) {
+                    .contact-box-title-p{
+                        align-self: stretch;
+                        color: var(--title-main);
+                        text-align: center;
+                        font-family: PT Sans;
+                        font-size: 32px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 46px;
+                        }
+                }
+                .contact-link a{
+                    color: var(--text-main);
+                    font-family: PT Sans;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    }
+                    @media (min-width: 480px) {
+                        .contact-link a{
+                            color: var(--text-main);
+                            font-family: PT Sans;
+                            font-size: 20px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                            }
+                        }
+                    @media (min-width: 768px){
+                        .contact-link a{
+                            color: var(--text-main);
+                            font-family: PT Sans;
+                            font-size: 32px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                        }
+                    }
+                    @media (min-width: 1280px){
+                        .contact-link a{
+                            color: var(--text-main);
+                            font-family: PT Sans;
+                            font-size: 32px;
+                            font-style: normal;
+                            font-weight: 700;
+                            line-height: normal;
+                        }
+                    }
+
