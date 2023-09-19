@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Modal } from "./Modal";
 
-export const DonateButton = ({ buttonClass, onClick, href }) => {
+import localization from '../assets/language-switcher/localization';
+
+export const DonateButton = ({ buttonClass, onClick, href, currentLanguage }) => {
    const [modalOpen, setModalOpen] = useState(false);
 
    const handleClick = e => {
@@ -26,12 +28,13 @@ export const DonateButton = ({ buttonClass, onClick, href }) => {
             href="https://send.monobank.ua/jar/4B1mQWmGVS"
             target="_blank"
          >
-            ЗРОБИТИ ДОНАТ
+            {localization.donate}
          </a>
          {modalOpen && <Modal onClose={handleCloseModal} />}
       </>
    );
 };
+
 
 // для використання цього компоненту необхідно при його вставці додати props -
 // buttonClass, який відповідає розмірам кнопки. Існує 3 класи, які
