@@ -213,8 +213,11 @@
    }
 }
 
-.language-selector_mobile {
+.language-selector-container {
    position: relative;
+}
+
+.language-selector_mobile {
    display: flex;
    align-items: center;
    width: 49px;
@@ -235,8 +238,8 @@
 
 .language-menu-list-mobile {
    position: absolute;
-   top: 90%;
-   left: -15%;
+   top: 100%;
+   left: 45%;
 
    flex-direction: column;
    background-color: var(--background-dark);
@@ -248,6 +251,7 @@
 .language-menu-item-mobile {
    cursor: pointer;
    &:hover {
+      color: var(--header-text);
       background-color: var(--hover-btn-gray);
    }
 }

@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 
 import { DonateButton } from "./DonateButton";
-import { BurgerMenu } from "../assets/icon/burger-menu.jsx";
+import { BurgerMenuIcon } from "../assets/icon/burger-menu.jsx";
 import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../assets/icon/close-modal.jsx";
 import localization from "../assets/language-switcher/localization";
@@ -19,6 +19,10 @@ export const Header = () => {
    const [currentLanguage, setCurrentLanguage] = useState(
       localStorage.getItem("currentLanguage") || "ua"
    );
+
+   const mobileMenuRef = useRef(null);
+   const aboutElementId = "about";
+   const missionElementId = "mission";
 
    useEffect(() => {
       const storedLanguage = localStorage.getItem("currentLanguage");
@@ -45,6 +49,9 @@ export const Header = () => {
 
    function toggleLanguageMenu() {
       setLanguageMenuOpen(!languageMenuOpen);
+   }
+
+   function toggleLanguageMobile() {
       setLanguageMobile(!languageMobile);
    }
 
@@ -56,10 +63,6 @@ export const Header = () => {
       setLanguageMenuOpen(false);
       setLanguageMobile(false);
    }
-
-   const mobileMenuRef = useRef(null);
-   const aboutElementId = "about";
-   const missionElementId = "mission";
 
    function openMenuHandler(e) {
       e.preventDefault();
@@ -127,7 +130,7 @@ export const Header = () => {
                      ) : null}
                   </div>
                   <div className="burger-menu" onClick={openMenuHandler}>
-                     <BurgerMenu />
+                     <BurgerMenuIcon />
                   </div>
                </div>
             </div>
@@ -161,10 +164,10 @@ export const Header = () => {
                              </li>
                           </ul>
                        </nav>
-                       <div>
-                          <div className="language-selector_mobile" onClick={toggleLanguageMenu}>
+                       <div className="language-selector-container">
+                          <p className="language-selector_mobile" onClick={toggleLanguageMobile}>
                              {currentLanguage === "ua" ? "UA" : "EN"} <ChevronMobile />
-                          </div>
+                          </p>
                           {languageMobile ? (
                              <ul className="language-menu-list-mobile">
                                 <li
