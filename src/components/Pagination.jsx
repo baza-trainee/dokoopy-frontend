@@ -12,27 +12,19 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
       pages.push(i);
    }
 
-   const scrollToUp = () => {
-      // window.scrollTo({
-      //    top: 0,
-      // });
-   };
    const prevPage = () => {
       if (currentPage > 1) {
-         // scrollToUp();
          setCurrentPage(prev => prev - 1);
       }
    };
 
    const nextPage = () => {
       if (currentPage < pageCounter) {
-         // scrollToUp();
          setCurrentPage(prev => prev + 1);
       }
    };
 
    const goCurrentPage = page => {
-      // scrollToUp();
       setCurrentPage(page);
    };
    if (totalPosts < postsPerPage) {
@@ -52,9 +44,8 @@ const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) =
          <div className="pagination-numbers">
             {pages.map((page, index) => {
                return (
-                  <Link to={`/allprojects/${page}`}>
+                  <Link key={index} to={`/allprojects/${page}`}>
                      <button
-                        key={index}
                         onClick={() => goCurrentPage(page)}
                         className={page == currentPage ? "active " : ""}
                      >
