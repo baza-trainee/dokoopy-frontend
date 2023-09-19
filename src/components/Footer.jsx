@@ -1,5 +1,7 @@
 import { LogoFooterIcon } from "../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
+import policy from "../assets/documents/policy.pdf";
+import rules from "../assets/documents/rules.pdf";
 
 export const Footer = () => {
    return (
@@ -16,8 +18,8 @@ export const Footer = () => {
          </div>
          <div className='footer-policy-container'>
             <div className='footer-policy-link-container'>
-               <a href="./src/assets/documents/policy.pdf" target="_blank" className='footer-policy-link'>Політика конфіденційності</a>
-               <a href="./src/assets/documents/rules.pdf" target="_blank" className='footer-policy-link'>Правила користування сайтом</a>
+               <a href={policy} target="_blank" className='footer-policy-link' rel="noreferrer">Політика конфіденційності</a>
+               <a href={rules} target="_blank" className='footer-policy-link' rel="noreferrer">Правила користування сайтом</a>
                <a className='footer-policy-link' href="/not-found">Звітність</a>
             </div>
             <p className='footer-policy-text'>Розробка Baza Trainee Ukraine 2023 © Всі права захищені</p>
