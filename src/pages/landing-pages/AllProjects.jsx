@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import defImg from "../../assets/images/default-image.jpg";
 import photo1 from "../../assets/mockProject/photo_1.jpg";
 import photo2 from "../../assets/mockProject/photo_2.png";
@@ -56,7 +56,8 @@ export const AllProjects = () => {
    ];
 
    const { id } = useParams();
-
+   const { pathname } = useLocation();
+   console.log(pathname);
    const [currentPage, setCurrentPage] = useState(+id);
    const [currentPosts, setCurrentPost] = useState();
    const postsPerPage = 4;
@@ -69,7 +70,7 @@ export const AllProjects = () => {
 
    useEffect(() => {
       window.scrollTo({ top: 0, left: 0 });
-   }, []);
+   }, [pathname]);
 
    useEffect(() => {
       setCurrentPost(dataFromBackend.slice(firstPostIndex, lastPostIndex));
