@@ -44,13 +44,13 @@ export const MySlider = ({ slides }) => {
                <div key={item.id} className="slider-container">
                   <div
                      className="slider"
-                     // style={{
-                     //    backgroundImage: `url(${item.url})`,
-                     //    backgroundSize: "cover",
-                     //    backgroundPositionX: "center",
-                     // }}
+                     style={{
+                        backgroundImage: `url(${item.url})`,
+                        backgroundSize: "cover",
+                        backgroundPositionX: "center",
+                     }}
                   >
-                     <img src={item.url}></img>
+                     {/* <img src={item.url}></img> */}
                   </div>
                   <div className="container">
                      <div className="slider-title">

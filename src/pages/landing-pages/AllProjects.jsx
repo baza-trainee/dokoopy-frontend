@@ -56,33 +56,25 @@ export const AllProjects = () => {
    ];
 
    const { id } = useParams();
-   // const [projectData, setProjectData] = useState([]);
+
    const [currentPage, setCurrentPage] = useState(+id);
    const [currentPosts, setCurrentPost] = useState();
    const postsPerPage = 4;
    const lastPostIndex = currentPage * postsPerPage;
    const firstPostIndex = lastPostIndex - postsPerPage;
-   // const { data, isLoading, eventLoading } = useLoadingData(lendingData.getProject, true);
-
-   // useEffect(() => {
-   //    eventLoading();
-   // }, []);
 
    useEffect(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      setCurrentPage(+id);
+   }, [id, currentPage]);
+
+   useEffect(() => {
+      window.scrollTo({ top: 0, left: 0 });
    }, []);
 
    useEffect(() => {
-      // if (!isLoading) {
-      // setProjectData(dataFromBackend);
       setCurrentPost(dataFromBackend.slice(firstPostIndex, lastPostIndex));
-      // }
-      // setProjectData(dataFromBackend);
    }, [currentPage]);
 
-   useEffect(() => {
-      // setSearchParams({ page: currentPage });
-   }, [currentPage]);
    return (
       <>
          <section className="container container-project">

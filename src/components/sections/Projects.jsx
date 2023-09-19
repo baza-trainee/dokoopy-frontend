@@ -97,18 +97,18 @@ export const Projects = () => {
             <ProjectSlider data={projectsData} />
          </ul>
          {4 < projectsData.length && (
-            <div
-               onClick={() => {
-                  window.scrollTo({
-                     top: 0,
-                  });
-               }}
-               className="projects-btn"
-            >
-               <Link to="allprojects/1" className="link-more-project">
+            <Link to="allprojects/1" className="link-more-project">
+               <div
+                  onClick={() => {
+                     window.scrollTo({
+                        top: 0,
+                     });
+                  }}
+                  className="projects-btn"
+               >
                   Більше проєктів
-               </Link>
-            </div>
+               </div>
+            </Link>
          )}
       </div>
    );
