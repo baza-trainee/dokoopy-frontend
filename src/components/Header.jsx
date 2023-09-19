@@ -71,7 +71,7 @@ export const Header = () => {
    }
 
    function closeMenuHandler(e) {
-      e.preventDefault();
+      // e.preventDefault();
       setMenuOpen(false);
    }
 
@@ -190,7 +190,10 @@ export const Header = () => {
                              </ul>
                           ) : null}
                        </div>
-                       <DonateButton buttonClass={"burger"}></DonateButton>
+                       <DonateButton
+                          buttonClass={"burger"}
+                          onClick={closeMenuHandler}
+                       ></DonateButton>
                     </div>
                  </div>,
                  mobileMenuPortal
