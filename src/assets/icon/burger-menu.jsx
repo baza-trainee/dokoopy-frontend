@@ -1,4 +1,4 @@
-export const BurgerMenu = () => {
+export const BurgerMenuIcon = () => {
    return (
       <svg
          width="32"
