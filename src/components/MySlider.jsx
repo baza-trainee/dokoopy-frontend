@@ -34,7 +34,7 @@ export const MySlider = ({ slides }) => {
       slidesToScroll: 1,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
-      adaptiveHeight: true,
+      // adaptiveHeight: true,
    };
 
    return (
@@ -49,7 +49,9 @@ export const MySlider = ({ slides }) => {
                         backgroundSize: "cover",
                         backgroundPositionX: "center",
                      }}
-                  ></div>
+                  >
+                     {/* <img src={item.url}></img> */}
+                  </div>
                   <div className="container">
                      <div className="slider-title">
                         <p aria-label={item.title}>{item.title}</p>
