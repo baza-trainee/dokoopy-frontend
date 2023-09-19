@@ -167,22 +167,19 @@ export const Header = () => {
                        </nav>
                        <div className="language-selector-container">
                           <p className="language-selector_mobile" onClick={toggleLanguageMobile}>
-                             {currentLanguage === "ua" ? "UA" : "EN"} <ChevronMobile />
+                             UA <ChevronMobile />
                           </p>
                           {languageMobile ? (
                              <ul className="language-menu-list-mobile">
                                 <li
-                                   onClick={() => selectLanguage("ua")}
+                                   onClick={toggleLanguageMobile}
                                    className="language-menu-item-mobile"
                                 >
                                    <Link to="/" className="selected-language-mobile">
                                       UA
                                    </Link>
                                 </li>
-                                <li
-                                   onClick={() => selectLanguage("en")}
-                                   className="language-menu-item"
-                                >
+                                <li onClick={toggleLanguageMobile} className="language-menu-item">
                                    <Link to="en" className="selected-language-mobile">
                                       EN
                                    </Link>
