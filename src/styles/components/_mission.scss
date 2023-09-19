@@ -36,7 +36,7 @@
    width: auto;
    font-size: 24px;
 }
-.mission-block-box-text p{
+.mission-block-box-text-p{
    color: var(--text-main);
    font-family: PT Sans;
    font-size: 24px;
@@ -65,7 +65,14 @@
       width: 100%;
       font-size: 24px;
    }
-   
+   .mission-block-box-text-p{
+      color: var(--text-main);
+      font-family: PT Sans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 36px;
+   }
 }
 
 @media (min-width: 480px) and (max-width: 767px){
@@ -94,7 +101,7 @@
        width: 100%;
        font-size: 20px;
    }
-   .mission-block-box-text p{
+   .mission-block-box-text-p{
       width: 100%;
       color: var(--text-main);
       font-family: PT Sans;
@@ -131,15 +138,15 @@
       width: 100%;
       font-size: 20px;
   }
-  .mission-block-box-text p{
-     width: 100%;
-     color: var(--text-main);
-     font-family: PT Sans;
-     font-size: 20px;
-     font-style: normal;
-     font-weight: 400;
-     line-height: normal;
-  }
+  .mission-block-box-text-p{
+   width: 100%;
+   color: var(--text-main);
+   font-family: PT Sans;
+   font-size: 20px;
+   font-style: normal;
+   font-weight: 400;
+   line-height: normal;
+}
    
 }
 

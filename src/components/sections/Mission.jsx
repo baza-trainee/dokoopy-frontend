@@ -9,7 +9,7 @@ export const Mission = () => {
                   <div className="mission-block-box">
                      <div className="mission-block-box-img"></div>
                      <div className="mission-block-box-text">
-                        <p>
+                        <p className="mission-block-box-text-p">
                            Збір на 57 бригаду, котрі беруть участь в самих запеклих боях. Тому
                            потреба в розхідних матеріалах просто вееелеетенська - це і рації, і
                            ремонт машин, гума на колеса тощо. Саме тому у нас немає запиту на
@@ -21,7 +21,7 @@ export const Mission = () => {
                   <div className="mission-block-box">
                      <div className="mission-block-box-img"></div>
                      <div className="mission-block-box-text">
-                        <p>
+                        <p className="mission-block-box-text-p">
                            Ми віримо: якщо спроможні бізнеси, люди та корпорації візьмуть на себе
                            фінансову підтримку хоча б одного військового - потреби фронту будуть
                            закриватися швидше. На цьому сайті ми – Don’t Panic Group та усі, кому
