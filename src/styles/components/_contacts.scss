@@ -4,7 +4,6 @@
 }
 
 .contact-box{
-    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,13 +11,12 @@
     margin: 120px 0;
 }
 .contact-box-title{
-    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 34px;
 }
-.contact-box-title h2{
+.contact-box-title-h2{
     color: var(--title-main);
     font-family: PT Sans;
     font-size: 56px;
@@ -27,9 +25,7 @@
     line-height: normal;
     text-transform: uppercase;
 }
-.contact-box-title p{
-
-    max-width: 920px;
+.contact-box-title-p{
     color: var(--text-main);
     text-align: center;
     font-family: PT Sans;
@@ -59,7 +55,6 @@
 @media screen and (max-width: 1279px) {
 .contact-box{
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 36px;
@@ -68,12 +63,11 @@
     }
 .contact-box-title{
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 24px;
     }
-.contact-box-title h2{
+.contact-box-title-h2{
     color: var(--title-main);
     font-family: PT Sans;
     font-size: 47px;
@@ -84,7 +78,7 @@
     align-self: stretch;
     text-align: center;
     }
-.contact-box-title p{
+.contact-box-title-p{
     align-self: stretch;
     color: var(--title-main);
     text-align: center;
@@ -93,13 +87,11 @@
     font-style: normal;
     font-weight: 400;
     line-height: 46px;
-    width: auto;
     }
 }
 @media screen and (max-width: 767px){
 .contact-box{
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -108,12 +100,11 @@
     }
 .contact-box-title{
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
-.contact-box-title h2{
+.contact-box-title-h2{
     color: var(--title-main);
     text-align: center;
     font-family: PT Sans;
@@ -125,7 +116,6 @@
     }
 .contact-box-title p{
     align-self: stretch;
-    width: auto;
     color: var(--title-main);
     text-align: center;
     font-family: PT Sans;
@@ -156,7 +146,6 @@
         }
     .contact-box-title p{
         align-self: stretch;
-        width: auto;
         color: var(--title-main);
         text-align: center;
         font-family: PT Sans;

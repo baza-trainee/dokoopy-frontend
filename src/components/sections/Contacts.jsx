@@ -4,8 +4,8 @@ export const Contacts = () => {
          <div className="container">
             <div className="contact-box">
             <div className="contact-box-title">
-               <h2>Звернутись до організаторів</h2>
-               <p>
+               <h2 className="contact-box-title-h2">Звернутись до організаторів</h2>
+               <p className="contact-box-title-p">
                   Якщо готові скластись dokoopy і долучитись до хорошої справи – пишіть прямо зараз
                   ось сюди:
                </p>
