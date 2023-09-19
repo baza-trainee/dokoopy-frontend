@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { createPortal } from "react-dom";
 
 import { Link } from "react-router-dom";
 
-import { DonateButton } from "./DonateButton";
 import { BurgerMenu } from "../assets/icon/burger-menu.jsx";
 import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../assets/icon/close-modal.jsx";
 import localization from "../assets/language-switcher/localization";
+import { DonateButton } from "./DonateButton";
 
 const mobileMenuPortal = document.getElementById("mobile-menu");
 
@@ -95,7 +95,7 @@ export const Header = () => {
                         </Link>
                      </li>
                      <li className="navigation-list-item">
-                        <Link to="allprojects" className="navigaton-link">
+                        <Link to="allprojects/1" className="navigaton-link">
                            {localization.projects}
                         </Link>
                      </li>
