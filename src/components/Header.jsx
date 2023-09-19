@@ -4,8 +4,8 @@ import { createPortal } from "react-dom";
 
 import { Link } from "react-router-dom";
 
-import { DonateButton } from "./DonateButton";
 import { BurgerMenuIcon } from "../assets/icon/burger-menu.jsx";
+import { DonateButton } from "./DonateButton";
 
 import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../assets/icon/close-modal.jsx";
@@ -161,7 +161,7 @@ export const Header = () => {
                                 </Link>
                              </li>
                              <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
-                                <Link to="allprojects">{localization.projects}</Link>
+                                <Link to="allprojects/1">{localization.projects}</Link>
                              </li>
                           </ul>
                        </nav>
