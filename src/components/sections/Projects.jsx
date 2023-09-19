@@ -7,9 +7,6 @@ import photo2 from "../../assets/mockProject/photo_2.png";
 import photo3 from "../../assets/mockProject/photo_3.jpg";
 import photo4 from "../../assets/mockProject/photo_4.jpg";
 
-
-
-
 // import { lendingData } from "../../api/api";
 // import { formatData, sortData } from "../../assets/helpers";
 // import { useLoadingData } from "../../hook/useLoadingData";
@@ -108,7 +105,7 @@ export const Projects = () => {
                }}
                className="projects-btn"
             >
-               <Link to="allprojects" className="link-more-project">
+               <Link to="allprojects/1" className="link-more-project">
                   Більше проєктів
                </Link>
             </div>

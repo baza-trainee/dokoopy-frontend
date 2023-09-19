@@ -150,7 +150,7 @@ export const Header = () => {
                                 </Link>
                              </li>
                              <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
-                                <Link to="allprojects">проєкти</Link>
+                                <Link to="allprojects/1">проєкти</Link>
                              </li>
                           </ul>
                        </nav>
