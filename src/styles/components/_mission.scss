@@ -32,24 +32,6 @@
    vertical-align: middle; 
    margin-right: 5px; 
 }
-.mission-block-box-text-p{
-   color: var(--text-main);
-   font-family: PT Sans;
-   font-size: 24px;
-   font-style: normal;
-   font-weight: 400;
-   line-height: 36px;
-}
-.title-mission{
-   color: var(--title-main);
-   font-family: PT Sans;
-   font-size: 66px;
-   font-style: normal;
-   font-weight: 700;
-   line-height: normal;
-   text-transform: uppercase;
-   text-align:start;
-}
 
 @media screen and (max-width: 1279px) {
    .mission-box{
@@ -66,24 +48,6 @@
        align-items: flex-start;
        gap: 40px;
        align-self: stretch;
-   }
-   .title-mission {
-      color: var(--title-main);
-      font-family: PT Sans;
-      font-size: 66px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      text-transform: uppercase;
-      text-align:start;
-   }
-   .mission-block-box-text-p{
-      color: var(--text-main);
-      font-family: PT Sans;
-      font-size: 24px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 36px;
    }
 }
 
@@ -129,14 +93,6 @@
       vertical-align: middle; 
       margin-right: 5px; 
    }
-   .mission-block-box-text-p{
-      color: var(--text-main);
-      font-family: PT Sans;
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-   }
 }
 @media screen and (max-width: 479px) {      
    .mission-box{
@@ -160,20 +116,46 @@
       gap: 24px;
       align-self: stretch;
   }
-  .mission-block-box-text-p{
+}
+
+.mission-block-box-text-p{
    color: var(--text-main);
    font-family: PT Sans;
    font-size: 20px;
    font-style: normal;
    font-weight: 400;
    line-height: normal;
+ }
+ @media (min-width: 768px) {
+   .mission-block-box-text-p{
+      color: var(--text-main);
+      font-family: PT Sans;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 36px;
    }
-   .title-mission {
+ }
+
+
+
+ .title-mission {
    font-family: PT Sans;
    font-size: 28px;
    font-style: normal;
    font-weight: 700;
    line-height: normal;
    text-transform: uppercase;
+   }
+ @media (min-width: 768px) {
+   .title-mission{
+      color: var(--title-main);
+      font-family: PT Sans;
+      font-size: 66px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      text-transform: uppercase;
+      text-align:start;
    }
 }
