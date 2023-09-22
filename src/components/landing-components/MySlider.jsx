@@ -1,9 +1,12 @@
 import { useCallback, useRef } from "react";
+
 import Slider from "react-slick";
+
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import arrowLeft from "../assets/icon/arrow-left-icon.svg";
-import arrowRight from "../assets/icon/arrow-right-icon.svg";
+
+import arrowLeft from "../../assets/icon/arrow-left-icon.svg";
+import arrowRight from "../../assets/icon/arrow-right-icon.svg";
 
 export const MySlider = ({ slides }) => {
    const slideRef = useRef();

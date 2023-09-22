@@ -1,20 +1,19 @@
 import { Route, Routes } from "react-router-dom";
-// import { useEffect, useState, useRef } from "react";
 
-import { SharedLayout } from "./components/SharedLayout.jsx";
-import { AdminSharedLayout } from "./components/admin-components/AdminSharedLayout.jsx";
+import { SharedLayout } from "./components/landing-components/SharedLayout";
+import { AdminSharedLayout } from "./components/admin-components/AdminSharedLayout";
 
-import { AllProjects } from "./pages/landing-pages/AllProjects.jsx";
-import { Home } from "./pages/landing-pages/Home.jsx";
-import { NotFound } from "./pages/landing-pages/NotFound.jsx";
+import { AllProjects } from "./pages/landing-pages/AllProjects";
+import { Home } from "./pages/landing-pages/Home";
+import { NotFound } from "./pages/landing-pages/NotFound";
 
-import { AdminBankAccount } from "./pages/admin-pages/AdminBankAccount.jsx";
-import { AdminContacts } from "./pages/admin-pages/AdminContacts.jsx";
-import { AdminHero } from "./pages/admin-pages/AdminHero.jsx";
-import { AdminNotFound } from "./pages/admin-pages/AdminNotFound.jsx";
-import { AdminPartners } from "./pages/admin-pages/AdminPartners.jsx";
-import { AdminProjects } from "./pages/admin-pages/AdminProjects.jsx";
-import { AdminReporting } from "./pages/admin-pages/AdminReporting.jsx";
+import { AdminBankAccount } from "./pages/admin-pages/AdminBankAccount";
+import { AdminContacts } from "./pages/admin-pages/AdminContacts";
+import { AdminHero } from "./pages/admin-pages/AdminHero";
+import { AdminNotFound } from "./pages/admin-pages/AdminNotFound";
+import { AdminPartners } from "./pages/admin-pages/AdminPartners";
+import { AdminProjects } from "./pages/admin-pages/AdminProjects";
+import { AdminReporting } from "./pages/admin-pages/AdminReporting";
 
 function App() {
    return (

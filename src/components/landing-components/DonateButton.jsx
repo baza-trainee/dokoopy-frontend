@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Modal } from "./Modal";
 
-import localization from '../assets/language-switcher/localization';
+import localization from "../../assets/language-switcher/localization";
 
 export const DonateButton = ({ buttonClass, onClick, href, currentLanguage }) => {
    const [modalOpen, setModalOpen] = useState(false);
@@ -34,7 +34,6 @@ export const DonateButton = ({ buttonClass, onClick, href, currentLanguage }) =>
       </>
    );
 };
-
 
 // для використання цього компоненту необхідно при його вставці додати props -
 // buttonClass, який відповідає розмірам кнопки. Існує 3 класи, які
