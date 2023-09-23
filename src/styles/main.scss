@@ -4,21 +4,21 @@
 
 // ?components
 
-@import "./components/header";
-@import "./components/hero";
-@import "./components/mission";
-@import "./components/about";
-@import "./components/projects";
-@import "./components/partners";
-@import "./components/contacts";
-@import "./components/paginathion";
-@import "./components/footer";
-@import "./components/donate-button";
-@import "./components/modal";
-@import "./components/dividing-line";
-@import "./components/not-found";
+@import "./components/landing/header";
+@import "./components/landing/hero";
+@import "./components/landing/mission";
+@import "./components/landing/about";
+@import "./components/landing/projects";
+@import "./components/landing/partners";
+@import "./components/landing/contacts";
+@import "./components/landing/paginathion";
+@import "./components/landing/footer";
+@import "./components/landing/donate-button";
+@import "./components/landing/modal";
+@import "./components/landing/dividing-line";
+@import "./components/landing/not-found";
 
-@import "./components/all-project";
+@import "./components/landing/all-project";
 
 @import "./components/admin/admin-common";
 @import "./components/admin/admin-main";
@@ -39,4 +39,3 @@
 @import "./components/admin/forgot_password";
 @import "./components/admin/renew-password";
 @import "./components/admin/successfull-renew";
-
