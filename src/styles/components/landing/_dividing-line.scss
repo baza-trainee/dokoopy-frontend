@@ -2,134 +2,80 @@
    padding: 0;
    margin: 0;
    height: 64px;
+   overflow: hidden;
+   white-space: nowrap;
+   width: 500%;
+   line-height: 64px;
+   vertical-align: middle;
    @media (min-width: 768px) {
       height: 106px;
+      line-height: 106px;
    }
 }
 
 .contentHeshteg {
    height: 100%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
+   will-change: transform;
+   display: inline-block;
+   margin-right: 24px;
    list-style: none;
-   li {
-      font-weight: 700;
+   font-size: 20px;
+   font-weight: 700;
+   @media (min-width: 768px) {
+      margin-right: 47px;
+      font-size: 24px;
    }
 }
-
 .whiteContainer {
    background-color: #ffffff;
    border-top: 1px solid #000000;
    border-bottom: 1px solid #000000;
-   ul li:nth-child(1):before {
-      content: "#ХОЛОД У ЖИЛАХ";
-      margin-right: 20px;
-   }
-   ul li:nth-child(2):before {
-      content: "#ЗАПАЛ У СЕРЦЯХ";
-      margin-right: 20px;
-   }
-   li {
-      font-size: 16px;
-      @media (min-width: 390px) {
-         font-size: 20px;
+   animation: whiteContentAnimation 10s linear infinite;
+}
+
+@media (min-width: 0) {
+   @keyframes whiteContentAnimation {
+      from {
+         transform: translateX(0);
       }
-      @media (min-width: 768px) {
-         font-size: 24px;
+      to {
+         transform: translateX(-375px);
       }
    }
-   @media (min-width: 768px) {
-      ul li:nth-child(1)::before,
-      ul li:nth-child(2)::before {
-         margin-right: 66.5px;
+}
+@media (min-width: 768px) {
+   @keyframes whiteContentAnimation {
+      from {
+         transform: translateX(0);
       }
-      ul li:nth-child(3):before {
-         content: "#ХОЛОД У ЖИЛАХ";
-      }
-   }
-   @media (min-width: 1280px) {
-      ul li:nth-child(3):before {
-         margin-right: 66.5px;
-      }
-      ul li:nth-child(4):before {
-         content: "#ЗАПАЛ У СЕРЦЯХ";
-         margin-right: 66.5px;
-      }
-      ul li:nth-child(5):before {
-         content: "#ХОЛОД У ЖИЛАХ";
+      to {
+         transform: translateX(-485px);
       }
    }
 }
 
 .greenContainer {
    background-color: var(--button-main-color);
-   li {
-      font-size: 20px;
-      @media (min-width: 768px) {
-         font-size: 24px;
+   animation: greenContentAnimation 20s linear infinite;
+}
+
+@media (min-width: 0) {
+   @keyframes greenContentAnimation {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(-885px);
       }
    }
-   ul li:nth-child(1) {
-      margin-right: 15px;
-   }
-   ul li:nth-child(2)::before {
-      content: "#МАЙБУТНЄ";
-      margin-right: 15px;
-   }
-   ul li:nth-child(3)::before {
-      content: "#СВОБОДА";
-      margin-right: 15px;
-   }
-   @media (min-width: 480px) {
-      ul li:nth-child(1) {
-         margin-right: 24px;
+}
+@media (min-width: 768px) {
+   @keyframes greenContentAnimation {
+      from {
+         transform: translateX(0);
       }
-      ul li:nth-child(2)::before,
-      ul li:nth-child(3)::before {
-         margin-right: 24px;
-      }
-      ul li:nth-child(4)::before {
-         content: "#ЗЕМЛЯ";
-      }
-   }
-   @media (min-width: 768px) {
-      ul li:nth-child(2)::before,
-      ul li:nth-child(2)::before,
-      ul li:nth-child(3)::before,
-      ul li:nth-child(4)::before {
-         margin-right: 32px;
-      }
-      ul li:nth-child(5)::before {
-         content: "#РОДИНА";
-         margin-right: 32px;
-      }
-      ul li:nth-child(6)::before {
-         content: "#СИЛА";
-      }
-   }
-   @media (min-width: 1280px) {
-      ul li:nth-child(1) {
-         margin-right: 55px;
-      }
-      ul li:nth-child(2)::before,
-      ul li:nth-child(2)::before,
-      ul li:nth-child(3)::before,
-      ul li:nth-child(4)::before,
-      ul li:nth-child(5)::before,
-      ul li:nth-child(6)::before {
-         margin-right: 55px;
-      }
-      ul li:nth-child(7)::before {
-         content: "#ЗАХИСТ";
-         margin-right: 55px;
-      }
-      ul li:nth-child(8)::before {
-         content: "#ВОЛЯ";
-         margin-right: 55px;
-      }
-      ul li:nth-child(9)::before {
-         content: "#НАЦІЯ";
+      to {
+         transform: translateX(-1220px);
       }
    }
 }
