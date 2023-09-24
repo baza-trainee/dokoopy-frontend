@@ -1,8 +1,4 @@
-import { useRef, useState, useEffect } from "react";
-
-import { useLocation } from "react-router-dom";
-
-import { DonateButton } from "../DonateButton";
+import { DonateButton } from "../landing-components/DonateButton";
 
 import aboutPhoto from "../../assets/images/about_img.jpg";
 

@@ -1,4 +1,5 @@
-import icon from "../assets/icon/Logo_Ukraine_Defense.svg";
+import icon from "../../assets/icon/Logo_Ukraine_Defense.svg";
+
 export const DividingLine = ({ mainColor }) => {
    if (mainColor === "whiteContainer") {
       return (
