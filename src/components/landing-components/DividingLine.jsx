@@ -3,46 +3,50 @@ import icon from "../../assets/icon/Logo_Ukraine_Defense.svg";
 export const DividingLine = ({ mainColor }) => {
    if (mainColor === "whiteContainer") {
       return (
-         <div className={mainColor + " containerHeshteg "}>
-            <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-            <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-            <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-            <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-            <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-            <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-            <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-            <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+         <div className="outerContainer">
+            <div className={mainColor + " containerHeshteg "}>
+               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
+               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
+               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
+               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
+               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+            </div>
          </div>
       );
    } else {
       return (
-         <div className={mainColor + " containerHeshteg "}>
-            <div className="contentHeshteg">
-               <img src={icon} alt="icon" />
+         <div className="outerContainer">
+            <div className={mainColor + " containerHeshteg "}>
+               <div className="contentHeshteg">
+                  <img src={icon} alt="icon" />
+               </div>
+               <div className="contentHeshteg">#МАЙБУТНЄ</div>
+               <div className="contentHeshteg">#СВОБОДА</div>
+               <div className="contentHeshteg">#ЗЕМЛЯ</div>
+               <div className="contentHeshteg">#РОДИНА</div>
+               <div className="contentHeshteg">#СИЛА</div>
+               <div className="contentHeshteg">#ЗАХИСТ</div>
+               <div className="contentHeshteg">#ВОЛЯ</div>
+               <div className="contentHeshteg">#НАЦІЯ</div>
+               <div className="contentHeshteg">
+                  <img src={icon} alt="icon" />
+               </div>
+               <div className="contentHeshteg">#МАЙБУТНЄ</div>
+               <div className="contentHeshteg">#СВОБОДА</div>
+               <div className="contentHeshteg">#ЗЕМЛЯ</div>
+               <div className="contentHeshteg">#РОДИНА</div>
+               <div className="contentHeshteg">#СИЛА</div>
+               <div className="contentHeshteg">#ЗАХИСТ</div>
+               <div className="contentHeshteg">#ВОЛЯ</div>
+               <div className="contentHeshteg">#НАЦІЯ</div>
+               <div className="contentHeshteg">
+                  <img src={icon} alt="icon" />
+               </div>
+               <div className="contentHeshteg">#МАЙБУТНЄ</div>
             </div>
-            <div className="contentHeshteg">#МАЙБУТНЄ</div>
-            <div className="contentHeshteg">#СВОБОДА</div>
-            <div className="contentHeshteg">#ЗЕМЛЯ</div>
-            <div className="contentHeshteg">#РОДИНА</div>
-            <div className="contentHeshteg">#СИЛА</div>
-            <div className="contentHeshteg">#ЗАХИСТ</div>
-            <div className="contentHeshteg">#ВОЛЯ</div>
-            <div className="contentHeshteg">#НАЦІЯ</div>
-            <div className="contentHeshteg">
-               <img src={icon} alt="icon" />
-            </div>
-            <div className="contentHeshteg">#МАЙБУТНЄ</div>
-            <div className="contentHeshteg">#СВОБОДА</div>
-            <div className="contentHeshteg">#ЗЕМЛЯ</div>
-            <div className="contentHeshteg">#РОДИНА</div>
-            <div className="contentHeshteg">#СИЛА</div>
-            <div className="contentHeshteg">#ЗАХИСТ</div>
-            <div className="contentHeshteg">#ВОЛЯ</div>
-            <div className="contentHeshteg">#НАЦІЯ</div>
-            <div className="contentHeshteg">
-               <img src={icon} alt="icon" />
-            </div>
-            <div className="contentHeshteg">#МАЙБУТНЄ</div>
          </div>
       );
    }
