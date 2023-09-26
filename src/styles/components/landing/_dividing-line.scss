@@ -30,7 +30,7 @@
    background-color: #ffffff;
    border-top: 1px solid #000000;
    border-bottom: 1px solid #000000;
-   animation: whiteContentAnimation 10s linear infinite;
+   animation: whiteContentAnimation 15s linear infinite;
 }
 
 @media (min-width: 0) {
@@ -56,7 +56,7 @@
 
 .greenContainer {
    background-color: var(--button-main-color);
-   animation: greenContentAnimation 20s linear infinite;
+   animation: greenContentAnimation 30s linear infinite;
 }
 
 @media (min-width: 0) {
