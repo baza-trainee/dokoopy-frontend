@@ -15,6 +15,13 @@ import { AdminPartners } from "./pages/admin-pages/AdminPartners";
 import { AdminProjects } from "./pages/admin-pages/AdminProjects";
 import { AdminReporting } from "./pages/admin-pages/AdminReporting";
 
+import { EditSlider } from "./pages/admin-pages/editPage/EditSlider";
+import { EditProject } from "./pages/admin-pages/editPage/EditProject";
+import { EditPartner } from "./pages/admin-pages/editPage/EditPartner";
+import { EditContact } from "./pages/admin-pages/editPage/EditContact";
+import { EditBankAccount } from "./pages/admin-pages/editPage/EditBankAccount";
+import { EditReporting } from "./pages/admin-pages/editPage/EditReporting";
+
 function App() {
    return (
       <Routes>
@@ -25,11 +32,17 @@ function App() {
          </Route>
          <Route path="/admin" element={<AdminSharedLayout />}>
             <Route index element={<AdminHero />} />
+            <Route path="slider/edit/:slideId" element={<EditSlider />} />
             <Route path="projects" element={<AdminProjects />} />
+            <Route path="projects/edit/:projectId" element={<EditProject />} />
             <Route path="partners" element={<AdminPartners />} />
+            <Route path="partners/edit/:partnerId" element={<EditPartner />} />
             <Route path="contacts" element={<AdminContacts />} />
+            <Route path="contacts/edit" element={<EditContact />} />
             <Route path="bank-account" element={<AdminBankAccount />} />
+            <Route path="bank-account/edit" element={<EditBankAccount />} />
             <Route path="reporting" element={<AdminReporting />} />
+            <Route path="reporting/edit" element={<EditReporting />} />
             <Route path="*" element={<AdminNotFound />} />
          </Route>
       </Routes>
