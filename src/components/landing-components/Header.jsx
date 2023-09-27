@@ -4,12 +4,12 @@ import { createPortal } from "react-dom";
 
 import { Link } from "react-router-dom";
 
-import { BurgerMenuIcon } from "../assets/icon/burger-menu.jsx";
-import { DonateButton } from "./DonateButton";
+import { BurgerMenuIcon } from "../../assets/icon/burger-menu.jsx";
+import { DonateButton } from "./DonateButton.jsx";
 
-import { Chevron, ChevronMobile } from "../assets/icon/chevron-down.jsx";
-import { CloseModal } from "../assets/icon/close-modal.jsx";
-import localization from "../assets/language-switcher/localization";
+import { Chevron, ChevronMobile } from "../../assets/icon/chevron-down.jsx";
+import { CloseModal } from "../../assets/icon/close-modal.jsx";
+import localization from "../../assets/language-switcher/localization.js";
 
 const mobileMenuPortal = document.getElementById("mobile-menu");
 
@@ -17,21 +17,10 @@ export const Header = () => {
    const [menuOpen, setMenuOpen] = useState(false);
    const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
    const [languageMobile, setLanguageMobile] = useState(false);
-   // const [currentLanguage, setCurrentLanguage] = useState(
-   //    localStorage.getItem("currentLanguage") || "ua"
-   // );
 
    const mobileMenuRef = useRef(null);
    const aboutElementId = "about";
    const missionElementId = "mission";
-
-   // useEffect(() => {
-   //    const storedLanguage = localStorage.getItem("currentLanguage") || "ua";
-   //    setCurrentLanguage(storedLanguage);
-   //    // localization.setLanguage(storedLanguage);
-   //    // selectLanguage(storedLanguage);
-   //    localization.setLanguage(storedLanguage);
-   // }, [currentLanguage]);
 
    useEffect(() => {
       const handler = event => {
@@ -56,22 +45,12 @@ export const Header = () => {
       setLanguageMobile(!languageMobile);
    }
 
-   // function selectLanguage(language) {
-   //    console.log(`Selected language: ${language}`);
-   //    setCurrentLanguage(language);
-   //    localization.setLanguage(language);
-   //    localStorage.setItem("currentLanguage", language);
-   //    setLanguageMenuOpen(false);
-   //    setLanguageMobile(false);
-   // }
-
    function openMenuHandler(e) {
       e.preventDefault();
       setMenuOpen(true);
    }
 
    function closeMenuHandler(e) {
-      // e.preventDefault();
       setMenuOpen(false);
    }
 

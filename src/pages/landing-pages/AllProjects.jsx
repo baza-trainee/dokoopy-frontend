@@ -5,8 +5,9 @@ import photo1 from "../../assets/mockProject/photo_1.jpg";
 import photo2 from "../../assets/mockProject/photo_2.png";
 import photo3 from "../../assets/mockProject/photo_3.jpg";
 import photo4 from "../../assets/mockProject/photo_4.jpg";
-import Pagination from "../../components/Pagination.jsx";
+import Pagination from "../../components/landing-components/Pagination";
 import { Contacts } from "../../components/sections/Contacts.jsx";
+
 export const AllProjects = () => {
    const dataFromBackend = [
       {

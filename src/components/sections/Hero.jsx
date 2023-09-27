@@ -3,7 +3,8 @@ import foto4 from "../../assets/images/about_img.jpg";
 import foto1 from "../../assets/images/hero_example.jpg";
 import foto5 from "../../assets/images/photo5.jpeg";
 
-import { MySlider } from "../MySlider";
+import { MySlider } from "../landing-components/MySlider";
+
 export const Hero = () => {
    const slides = [
       {
