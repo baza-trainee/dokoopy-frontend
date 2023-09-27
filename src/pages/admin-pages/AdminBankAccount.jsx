@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { EditIcon } from "../../assets/icon/EditIcon";
 import { EditBankAccount } from "./editPage/EditBankAccount";
 
@@ -25,7 +27,9 @@ export const AdminBankAccount = () => {
                            <div className="bank-li-group">
                               <a href={monobank.link}>{monobank.contact}</a>
                               <button>
-                                 <EditIcon />
+                                 <Link to="edit">
+                                    <EditIcon />
+                                 </Link>
                               </button>
                            </div>
                         </div>

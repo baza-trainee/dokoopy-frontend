@@ -2,7 +2,8 @@ import { AdminApi } from "../../../api/api";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { useLoadingData } from "../../../hook/useLoadingData";
-export const AddSlider = () => {
+
+export const AddSlide = () => {
    const { data, eventLoading } = useLoadingData(AdminApi.addHero, true);
 
    const submitClick = data => {

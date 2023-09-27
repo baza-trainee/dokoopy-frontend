@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import fileText from "../../assets/icon/filetext.svg";
 import { EditIcon } from "../../assets/icon/EditIcon";
 import { EditReporting } from "./editPage/EditReporting";
@@ -19,7 +21,9 @@ export const AdminReporting = () => {
             </div>
             <div className="reporting-container-button">
                <button className="edit-icon-btn">
-                  <EditIcon />
+                  <Link to="edit">
+                     <EditIcon />
+                  </Link>
                </button>
             </div>
          </div>
@@ -33,7 +37,7 @@ export const AdminReporting = () => {
                </li>
             ))}
          </ul>
-         <EditReporting />
+         {/* <EditReporting /> */}
       </div>
    );
 };

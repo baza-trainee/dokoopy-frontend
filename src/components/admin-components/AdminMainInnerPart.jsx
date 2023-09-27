@@ -57,7 +57,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                      </p>
 
                      <div className="content-edit-icon-box">
-                        <Link to={`slider/edit/${contentData.id}`}>
+                        <Link to={`edit/${contentData.id}`}>
                            <div className="wrapper-edit-icon-box">
                               <EditIcon />
                            </div>

@@ -3,7 +3,7 @@ import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
-export const AddPartners = () => {
+export const AddPartner = () => {
    const { data, eventLoading } = useLoadingData(AdminApi.addPartners, true);
 
    const submitClick = data => {
