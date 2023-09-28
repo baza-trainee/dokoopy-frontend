@@ -1,11 +1,16 @@
+import { useParams } from "react-router-dom";
+
 import foto from "../../../assets/images/hero_example.jpg";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 
 export const EditSlider = () => {
+   const { slideId } = useParams();
+
    const submitClick = data => {
       console.log(data);
    };
+
    const defaultInfo = {
       img: foto,
       name: "",

@@ -2,7 +2,7 @@ import foto from "../../../assets/images/logo-baza.svg";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 
-export const EditPartners = () => {
+export const EditPartner = () => {
    const submitClick = data => {
       console.log(data);
    };

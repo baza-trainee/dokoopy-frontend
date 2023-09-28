@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+// import { useAdminContext } from "../provider-components/admin-provider";
 
 import { AdminSliderIcon } from "../../assets/admin-icons/admin-slider";
 import { AdminProjectsIcon } from "../../assets/admin-icons/admin-projects";
@@ -9,6 +10,8 @@ import { AdminReportIcon } from "../../assets/admin-icons/admin-report";
 import { AdminLogoutIcon } from "../../assets/admin-icons/admin-logout";
 
 export const AdminAside = () => {
+   // const { loggedIn } = useAdminContext();
+   // console.log(loggedIn);
    return (
       <aside className="aside">
          <ul>

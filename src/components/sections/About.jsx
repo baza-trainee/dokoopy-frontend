@@ -1,21 +1,14 @@
+// import { useLandingContext } from "../../hook/useLandingContext";
+
+import { useLandingContext } from "../provider-components/landing-provider";
+
 import { DonateButton } from "../landing-components/DonateButton";
 
 import aboutPhoto from "../../assets/images/about_img.jpg";
 
 export const About = () => {
-   // const location = useLocation();
-
-   // useEffect(() => {
-   //    const elementId = location.hash.substring(1); // Remove the leading '#' from the URL hash
-   //    scrollToElement(elementId);
-   // }, [location]);
-
-   // function scrollToElement(elementID) {
-   //    const aboutElement = document.getElementById(elementID);
-   //    if (aboutElement) {
-   //       aboutElement.scrollIntoView({ behavior: "smooth", block: "start" });
-   //    }
-   // }
+   const { language } = useLandingContext();
+   console.log(language);
 
    return (
       <section id="about" className="about-section">
