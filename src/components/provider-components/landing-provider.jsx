@@ -7,13 +7,13 @@ export const useLandingContext = () => useContext(LandingContext);
 export const LandingProvider = ({ children }) => {
    const [language, setLanguage] = useState("ua");
 
-   const switchToUkraine = () => {
+   function switchToUkraine() {
       setLanguage("ua");
-   };
+   }
 
-   const switchToEnglish = () => {
+   function switchToEnglish() {
       setLanguage("en");
-   };
+   }
 
    return (
       <LandingContext.Provider value={{ language, switchToEnglish, switchToUkraine }}>
