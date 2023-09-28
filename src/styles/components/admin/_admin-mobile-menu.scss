@@ -1,0 +1,16 @@
+.admin-mobile-menu-wrapper {
+   position: absolute;
+   top: 0px;
+   background-color: var(--background-light);
+
+   width: 90%;
+   height: 90%;
+   padding: 10px;
+}
+
+.admin-mobile-close-icon {
+   height: 16px;
+   width: 16px;
+   margin-left: auto;
+   color: var(--admin-title-color);
+}
