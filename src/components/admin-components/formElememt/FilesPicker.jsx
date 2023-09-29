@@ -34,7 +34,14 @@ export const FilesPicker = ({ defaultInfo, selectedFile, setSelectedFile }) => {
          onDragStart={handleDragOver}
          onDragLeave={() => setOnLeave(false)}
       >
-         <p className="liable-piker">Фото*</p>
+         <div className="label-icon-blok">
+            <p className="input-liable">Фото*</p>
+            {defaultInfo && (
+               <div onClick={handelPick} className="edit-button-icon">
+                  <EditIcon />
+               </div>
+            )}
+         </div>
          <input
             ref={filePicker}
             className="hidden"
@@ -54,28 +61,17 @@ export const FilesPicker = ({ defaultInfo, selectedFile, setSelectedFile }) => {
                      <label>{selectedFile.name}</label>
                   </div>
                ) : (
-                  <>
+                  <div className="editImg">
                      {defaultInfo ? (
-                        <div
-                           className="editImg"
-                           style={{
-                              backgroundImage: `url(${defaultInfo.img})`,
-                              backgroundSize: "cover",
-                              backgroundPosition: "center",
-                              backgroundRepeat: "no-repeat",
-                           }}
-                        ></div>
+                        <img src={defaultInfo.img} className="editImg-default"></img>
                      ) : (
-                        "Drag & Drop or Click to Select a File"
+                        <p className="file-placeholder">
+                           Перетягніть або натисніть тут, щоб завантажити файл
+                        </p>
                      )}
-                  </>
+                  </div>
                )}
             </label>
-            {defaultInfo && (
-               <div className="edit-button-icon">
-                  <EditIcon />
-               </div>
-            )}
          </div>
       </div>
    );

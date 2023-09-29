@@ -17,8 +17,8 @@ export const AddProject = () => {
       <section className="page-container">
          <PageHeader title={"Додати новий проєкт"} />
          <AddForm
-            smPlaceholder={"Введіть назву проєкту"}
-            lgPlaceholder={"Додайте опис проєкту"}
+            // smPlaceholder={"Введіть назву проєкту"}
+            // lgPlaceholder={"Додайте опис проєкту"}
             lgLiable={"Опис проєкту*"}
             smLiable={"Назва проєкту*"}
             nameButton={"Додати проєкт"}

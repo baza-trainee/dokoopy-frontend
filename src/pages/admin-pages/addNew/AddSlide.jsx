@@ -15,14 +15,15 @@ export const AddSlide = () => {
    };
    return (
       <section className="page-container">
-         <PageHeader title={"Додати новий блок"} />
+         <PageHeader title={"Додати новий слайдер"} />
          <AddForm
-            smPlaceholder={"Введіть назву блоку"}
-            lgPlaceholder={"Додайте опис блоку"}
-            lgLiable={"Опис блоку*"}
-            smLiable={"Назва блоку*"}
-            nameButton={"Додати блок"}
+            // smPlaceholder={"Введіть назву блоку"}
+            // lgPlaceholder={"Додайте опис блоку"}
+            lgLiable={"Опис слайдеру*"}
+            smLiable={"Назва слайдеру*"}
+            nameButton={"Додати слайдер"}
             submitClick={submitClick}
+            hiddenInputENG={true}
          />
       </section>
    );
