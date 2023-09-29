@@ -1,6 +1,23 @@
+.hidden {
+   width: 0px;
+   height: 0px;
+   padding: 0px;
+   margin: 0px;
+   opacity: 0;
+   overflow: hidden;
+   line-height: 0px;
+}
+.language-liable {
+   color: var(--admin-title-color);
+   font-style: normal;
+   font-weight: 500;
+   line-height: normal;
+}
+
 .input-liable {
    margin-bottom: 14px;
    color: var(--admin-title-color);
+   font-size: 18px;
    font-style: normal;
    font-weight: 500;
    line-height: normal;
@@ -10,13 +27,30 @@
    width: 100%;
    height: 47px;
    border-radius: 6px;
-   margin-bottom: 40px;
    font-size: 18px;
    padding-left: 10px;
    border: solid 1px#EBEBEB;
 }
+.input-link {
+   font-family: Roboto;
+   width: 100%;
+   height: 47px;
+   border-radius: 6px;
+   font-size: 18px;
+   padding-left: 10px;
+   border: solid 1px#EBEBEB;
+   color: var(--admin-button-accent);
+   text-decoration: underline;
+   &::placeholder {
+      color: var(--admin-button-accent);
+   }
+}
+.input-blok {
+   height: 84px;
+}
 .text-area-blok {
    position: relative;
+   margin-bottom: 30px;
 }
 .lg-input {
    font-family: Robot;
@@ -37,8 +71,16 @@
    z-index: 3;
    color: var(--text-gray);
 }
-.right-input-blok {
-   width: 494px;
+.form-input-container {
+   width: 430px;
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+   margin-bottom: 44px;
+}
+
+.form-button-blok {
+   margin-top: auto;
 }
 .added-form {
    padding: 0 40px;
@@ -46,54 +88,61 @@
    display: flex;
    justify-content: space-between;
 }
-
-.hidden {
-   width: 0px;
-   height: 0px;
-   padding: 0px;
-   margin: 0px;
-   opacity: 0;
-   overflow: hidden;
-   line-height: 0px;
+.tablet-files-picker {
+   display: none;
 }
 .editImg {
-   height: 188px;
-   width: 177px;
+   height: 121px;
+   width: 188px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.editImg-default {
+   display: block;
+   height: 121px;
+   width: 188px;
    object-fit: cover;
 }
-.active-drop {
-   background: #f4fbff;
-}
+// .active-drop {
+//    background: red;
+// }
 .liable-piker {
    margin: 0px;
    padding: 0px;
 }
-
+.label-icon-blok {
+   width: 208px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: -20px;
+}
 .edit-button-icon {
-   position: absolute;
-   right: 0;
-   z-index: 40000;
-   top: 250px;
    cursor: pointer;
    width: 24px;
    height: 24px;
 }
+.partner-file-blok {
+   // margin: 38px 0;
+}
 .drag {
-   height: 188px;
-   width: 177px;
    position: relative;
-   margin-bottom: 24px;
-   cursor: pointer;
 }
 .drag-input {
    display: flex;
    align-items: center;
-   height: 188px;
-   width: 177px;
+   justify-content: center;
+   height: 141px;
+   width: 208px;
    border: dashed 3px var(--admin-table-header-background);
    overflow: hidden;
+   cursor: pointer;
+   transition: var(--transition);
+   &:hover {
+      background-color: var(--admin-secondary-accent);
+   }
    & label {
-      width: 177px;
       text-align: center;
       overflow: hidden;
       display: block;
@@ -102,33 +151,57 @@
       cursor: pointer;
    }
 }
+.file-placeholder {
+   width: 153px;
+   height: 48px;
+   font-size: 14px;
+   line-height: 16.5px;
+   margin: 0 auto;
+}
 
 @media screen and (max-width: 1280px) {
-   .edit-button-icon {
-      top: 200px;
-      right: -46px;
+   .desc-files-picker {
+      display: none;
    }
-   .right-input-blok {
-      width: 498px;
+   .tablet-files-picker {
+      display: block;
    }
+   .form-input-container {
+      width: 100%;
+   }
+
+   .label-icon-blok {
+      width: 100%;
+   }
+   .drag-input {
+      margin: 38px auto;
+   }
+   .text-area-blok {
+      // margin-bottom: 0px;
+   }
+   .input-blok {
+      display: none;
+   }
+
    .added-form {
       flex-direction: column;
       justify-content: center;
       width: 100%;
-      gap: 40px;
       margin: 0 auto;
+      padding: 0 24px;
    }
-   // .addButton {
-   //    margin: 40px 0;
-   // }
+   .input-liable {
+      margin-bottom: 10px;
+   }
 }
 @media (max-width: 768px) {
    .right-input-blok {
       width: 384px;
    }
-   // .addButton {
-   //    margin: 40px 0;
-   // }
+   .drag-input {
+      width: 100%;
+      height: 244px;
+   }
 }
 @media (max-width: 480px) {
    .form-container {
@@ -139,6 +212,6 @@
       font-size: 16px;
    }
    .added-form {
-      padding: 0 24px;
+      padding: 0px;
    }
 }
