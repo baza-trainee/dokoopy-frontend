@@ -1,12 +1,6 @@
 export const AdminProjectsIcon = () => {
    return (
-      <svg
-         width="28"
-         height="28"
-         viewBox="0 0 28 28"
-         fill="none"
-         xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
          <path
             d="M21.0013 11.6667H15.168"
             stroke="#646464"

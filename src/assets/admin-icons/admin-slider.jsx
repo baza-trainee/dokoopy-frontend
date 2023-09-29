@@ -1,12 +1,6 @@
 export const AdminSliderIcon = () => {
    return (
-      <svg
-         width="28"
-         height="28"
-         viewBox="0 0 28 28"
-         fill="none"
-         xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
          <path
             d="M24.5007 3.5H3.50065C2.85632 3.5 2.33398 4.02233 2.33398 4.66667V19.8333C2.33398 20.4777 2.85632 21 3.50065 21H24.5007C25.145 21 25.6673 20.4777 25.6673 19.8333V4.66667C25.6673 4.02233 25.145 3.5 24.5007 3.5Z"
             stroke="#646464"

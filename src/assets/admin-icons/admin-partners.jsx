@@ -1,12 +1,6 @@
 export const AdminPartnersIcon = () => {
    return (
-      <svg
-         width="28"
-         height="28"
-         viewBox="0 0 28 28"
-         fill="none"
-         xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
          <path
             d="M23.334 8.16666H4.66732C3.37865 8.16666 2.33398 9.21133 2.33398 10.5V22.1667C2.33398 23.4553 3.37865 24.5 4.66732 24.5H23.334C24.6227 24.5 25.6673 23.4553 25.6673 22.1667V10.5C25.6673 9.21133 24.6227 8.16666 23.334 8.16666Z"
             stroke="#646464"
