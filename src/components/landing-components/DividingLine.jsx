@@ -13,6 +13,12 @@ export const DividingLine = ({ mainColor }) => {
                <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
                <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
                <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
+               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
+               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
+               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
             </div>
          </div>
       );
@@ -46,6 +52,13 @@ export const DividingLine = ({ mainColor }) => {
                   <img src={icon} alt="icon" />
                </div>
                <div className="contentHeshteg">#МАЙБУТНЄ</div>
+               <div className="contentHeshteg">#СВОБОДА</div>
+               <div className="contentHeshteg">#ЗЕМЛЯ</div>
+               <div className="contentHeshteg">#РОДИНА</div>
+               <div className="contentHeshteg">#СИЛА</div>
+               <div className="contentHeshteg">#ЗАХИСТ</div>
+               <div className="contentHeshteg">#ВОЛЯ</div>
+               <div className="contentHeshteg">#НАЦІЯ</div>
             </div>
          </div>
       );
