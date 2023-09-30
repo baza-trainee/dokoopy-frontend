@@ -42,10 +42,12 @@
 }
 
 .admin-sub-title {
-   font-size: 20px;
+   font-size: 18px;
    font-weight: 500;
    color: var(--admin-title-color);
-
+   @media (min-width: 480px) {
+      font-size: 20px;
+   }
    @media (min-width: 768px) {
       font-size: 24px;
    }
@@ -68,7 +70,7 @@
    display: flex;
    justify-content: center;
    align-items: center;
-
+   transition: var(--transition);
    width: 100%;
    // margin: 40px 0;
    padding: 15px;
@@ -82,19 +84,18 @@
    cursor: pointer;
    @media (min-width: 480px) {
       // width: 384px;
-      
    }
 
    @media (min-width: 768px) {
-      // width: 494px;    
+      // width: 494px;
       font-size: 18px;
    }
 
    @media (min-width: 1280px) {
-      font-size: 20px;      
+      font-size: 20px;
    }
-        &:hover, 
-        &:focus {
-         background-color: var(--admin-button-accent);
-        }
+   &:hover,
+   &:focus {
+      background-color: var(--admin-button-accent);
+   }
 }

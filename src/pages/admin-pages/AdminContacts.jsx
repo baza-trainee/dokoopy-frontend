@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import { EditIcon } from "../../assets/icon/EditIcon";
 
 export const AdminContacts = () => {
@@ -10,7 +12,6 @@ export const AdminContacts = () => {
       },
       { id: 1, name: "Telegram", contact: "telegram_link", link: "https://t.me/+CBXkAJlsCy83ZDYy" },
    ];
-
 
    return (
       <div className="admin-contacts">
@@ -30,7 +31,9 @@ export const AdminContacts = () => {
                         <div className="contacts-li-group">
                            <a href={contacts.link}>{contacts.contact}</a>
                            <button className="edit-contcts">
-                              <EditIcon />
+                              <Link to="edit">
+                                 <EditIcon />
+                              </Link>
                            </button>
                         </div>
                      </div>

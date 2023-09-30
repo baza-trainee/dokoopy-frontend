@@ -2,6 +2,7 @@ import { AdminApi } from "../../../api/api";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
+
 export const AddProject = () => {
    const { data, eventLoading } = useLoadingData(AdminApi.addProject, true);
 
@@ -16,8 +17,8 @@ export const AddProject = () => {
       <section className="page-container">
          <PageHeader title={"Додати новий проєкт"} />
          <AddForm
-            smPlaceholder={"Введіть назву проєкту"}
-            lgPlaceholder={"Додайте опис проєкту"}
+            // smPlaceholder={"Введіть назву проєкту"}
+            // lgPlaceholder={"Додайте опис проєкту"}
             lgLiable={"Опис проєкту*"}
             smLiable={"Назва проєкту*"}
             nameButton={"Додати проєкт"}

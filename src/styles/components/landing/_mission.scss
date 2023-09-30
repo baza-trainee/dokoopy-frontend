@@ -73,14 +73,6 @@
        gap: 24px;
        align-self: stretch;
    }
-   .title-mission {
-      font-family: PT Sans;
-      font-size: 28px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
-      text-transform: uppercase;
-   }
    .mission-block-box-img::before {
       content: ""; 
       width: 28px;
@@ -140,6 +132,7 @@
 
 
  .title-mission {
+   color: var(--title-main);
    font-family: PT Sans;
    font-size: 28px;
    font-style: normal;
