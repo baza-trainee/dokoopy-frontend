@@ -7,7 +7,7 @@ import { BurgerMenuIcon } from "../../assets/icon/burger-menu";
 export const AdminHeader = () => {
    const [menuOpen, setMenuOpen] = useState(false);
 
-   function openMenu(e) {
+   function openMenu() {
       setMenuOpen(!menuOpen);
    }
 
@@ -17,7 +17,7 @@ export const AdminHeader = () => {
          <div onClick={openMenu} className="admin-mobile-menu">
             <BurgerMenuIcon />
          </div>
-         {menuOpen ? <AdminMobileMenu /> : null}
+         {menuOpen ? <AdminMobileMenu openMenu={openMenu} /> : null}
       </header>
    );
 };

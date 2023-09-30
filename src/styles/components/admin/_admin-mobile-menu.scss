@@ -10,6 +10,10 @@
    width: 94%;
    height: 100vh;
    padding: 10px;
+
+   @media screen and (min-width: 480px) {
+      width: 300px;
+   }
 }
 
 .admin-mobile-close-icon {
@@ -24,13 +28,35 @@
    justify-content: flex-start;
    align-items: center;
    padding: 12px 5px;
+   width: 100%;
    font-size: 16px;
+   transition: var(--transition);
+
+   @media screen and (min-width: 480px) {
+      padding-left: 24px;
+   }
+
+   &:hover {
+      color: var(--admin-main-accent);
+      background-color: var(--background-admin-hover);
+      &::after {
+         content: "";
+         padding: 5px;
+         margin-left: auto;
+         margin-right: 20px;
+         display: inline-block;
+         width: 24px;
+         height: 24px;
+         background-image: url("../../../../public/arrow-right-icon.svg");
+      }
+   }
 }
 
 .admin-mobile-list-icon {
    height: 24px;
    width: 24px;
    margin-right: 20px;
+   fill: currentColor;
 }
 
 .admin-mobile-logout {
@@ -40,4 +66,17 @@
    margin-top: auto;
    padding: 12px 5px;
    font-size: 16px;
+   &:hover {
+      color: var(--admin-main-accent);
+      background-color: var(--background-admin-hover);
+      &::after {
+         content: "";
+         margin-left: auto;
+         margin-right: 20px;
+         display: inline-block;
+         width: 24px;
+         height: 24px;
+         background-image: url("../../../../public/arrow-right-icon.svg");
+      }
+   }
 }

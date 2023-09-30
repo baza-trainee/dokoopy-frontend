@@ -43,7 +43,9 @@ export const AdminAside = () => {
                <div className="admin-list-icon">
                   <AdminBankIcon />
                </div>
-               <Link to="bank-account">Банківські реквізити</Link>
+               <Link to="bank-account">
+                  <span className="bank-account-text">Банківські реквізити</span>
+               </Link>
             </li>
             <li className="admin-list-item">
                <div className="admin-list-icon">
