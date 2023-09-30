@@ -17,6 +17,9 @@ export const lendingData = {
    getContact() {
       return axios.get("contacts");
    },
+   getReport() {
+      return axios.get("reports");
+   },
 };
 
 export const AdminApi = {

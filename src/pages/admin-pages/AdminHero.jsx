@@ -1,6 +1,8 @@
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import defaultImage from "../../assets/images/default-image.jpg";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
+// import { useLoadingData } from "../../hook/useLoadingData";
+// import { AdminApi } from "../../api/api";
 
 const dataSlider = [
    {
@@ -32,6 +34,8 @@ const dataSlider = [
    },
 ];
 export const AdminHero = () => {
+   // const { data, isLoading, error } = useLoadingData(AdminApi.getHerosAdmin);
+   // console.log(data);
    return (
    <div className="admin-hero">
       <AdminMainHeader title={"Слайдер"} />

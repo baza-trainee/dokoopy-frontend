@@ -1,7 +1,17 @@
 import PropTypes from 'prop-types';
 import { EditIcon } from "../../assets/icon/EditIcon";
+import { useEffect, useRef } from 'react';
 
 export const AdminMainInnerPart = ({name, photo, date, link, data}) => {
+   const gridContainerRef = useRef(null);
+
+   useEffect(() => {
+      const numberOfRows = data.length;
+      if (gridContainerRef.current) {
+        gridContainerRef.current.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
+      }
+    }, [data]);
+
     return (
         <div className="admin-main-wrapper">
             <div className="admin-main-header">
@@ -12,7 +22,7 @@ export const AdminMainInnerPart = ({name, photo, date, link, data}) => {
                <div className="admin-main-header-title"></div>
                </div>
             </div>
-            <ul className="admin-main-content"> 
+            <ul className="admin-main-content" ref={gridContainerRef}> 
                {data.map(contentData => {
                   return (
                      <li key={contentData.id} 

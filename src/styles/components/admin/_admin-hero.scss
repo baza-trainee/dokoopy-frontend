@@ -22,35 +22,105 @@
    flex-direction: row;
    justify-content: space-between;
    width: 100%;
-   padding: 0 24px;
+   padding: 0 5px;
+   @media screen and (min-width: 480px) {
+     padding: 0 24px;
+   }
    @media screen and (min-width: 768px) {
-      padding: 0 40px;
+      padding: 0 20px;
+   }
+   @media screen and (min-width: 1280px) {
+      padding: 0 24px;
+   }
+}
+.admin-hero-header-title-box {
+   display: flex;
+   flex-direction: row;
+   gap: 5px;
+   @media (min-width: 480px) {
+      gap: 6px;
+   }
+   @media (min-width: 768px) {
+      gap: 10px;
+   }
+}
+.admin-hero-header-title {
+   font-size: 18px;
+   font-weight: 500;
+   line-height: 21.09px;
+   color: var(--admin-title-color);
+   @media (min-width: 480px) {
+      font-size: 20px;
+      line-height: 23.44px;
+   }
+   @media (min-width: 768px) {
+      font-size: 28px;
+      line-height: 28.13px;
+   }
+   @media (min-width: 1280px) {
+      font-size: 24px;
+   }
+}
+.admin-hero-header-arrow-box {
+   width: 20px;
+   height: 20px;
+   @media (min-width: 768px) {
+      width: 30px;
+      height: 30px;
    }
 }
 .admin-hero-add-icon-box {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   width: 65px;
+   width: 61px;
    height: 24px;
    cursor: pointer;
+@media screen and (min-width: 480px)  {
+   width: 65px;
+   height: 24px;
+   }
 @media screen and (min-width: 768px)  {
-   width: 78px;
+   width: 73px;
    height: 32px;
+   }
+}
+.arrow-icon {
+   width: 100%;
+   height: 100%;
+}
+.add-icon {
+   fill: var(--white);
+   width: 100%;
+   height: 100%;
+}
+.add-icon:hover {
+   fill: var(--admin-secondary-accent);
+}
+.admin-hero-add-icon-box:hover {
+   background-color: var(--admin-secondary-accent);
+}
+.admin-hero-add-icon-wrapper {
+   width: 24px;
+   height: 24px;
+   @media screen and (min-width: 768px) {
+      width: 32px;
+      height: 32px;
    }
 }
 .admin-hero-add-icon-box p {
    color: var(--admin-button-accent);
-   width: 33px;
-   height: 21px;
-   font-size: 18px;
-   line-height: 21.09px;
-   @media screen and (min-width: 1280px)  {
-      width: 36px;
-      height: 23px;
-      font-size: 20px;
-      line-height: 23.44px;
-      }
+   width: 29px;
+   height: 19px;
+   font-size: 16px;
+   font-weight: 400;
+   line-height: 18.75px;
+   @media screen and (min-width: 480px) {
+      width: 33px;
+      height: 21px;
+      font-size: 18px;
+      line-height: 21.09px;
+   }
 }
 .admin-main-header {
    display: flex;

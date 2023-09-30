@@ -2,8 +2,11 @@ import { LogoFooterIcon } from "../../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
 import policy from "../../assets/documents/policy.pdf";
 import rules from "../../assets/documents/rules.pdf";
+import { useLoadingData } from "../../hook/useLoadingData";
+import { lendingData } from "../../api/api";
 
 export const Footer = () => {
+   const { data, isLoading, error } = useLoadingData(lendingData.getReport);
    return (
       <footer className="footer">
          <div className="container">
@@ -24,9 +27,16 @@ export const Footer = () => {
                   <a href={rules} target="_blank" className="footer-policy-link" rel="noreferrer">
                      Правила користування сайтом
                   </a>
-                  <a className="footer-policy-link" href="/not-found">
+                  {/* <a className="footer-policy-link" href="/not-found">
                      Звітність
-                  </a>
+                  </a> */}
+                   {!isLoading && (data.reports.map(report => {
+                     return (
+                        <a key={report.id} href={error ? "/not-found" : `https://dokoopy.onrender.com/${report.reportURL}`}
+                        className="footer-policy-link" target="_blank" rel="noreferrer" 
+                        >Звітність</a>
+                     );
+                  }))}
                </div>
                <p className="footer-policy-text">
                   Розробка Baza Trainee Ukraine 2023 © Всі права захищені

@@ -1,28 +1,22 @@
 import PropTypes from 'prop-types';
 import { AdminAddIcon } from '../../assets/icon/AdminAddIcon';
-import { useState } from 'react';
-import { AdminAddIconFocus } from '../../assets/icon/AdminAddIconFocus';
+import { AdminArrowIcon } from '../../assets/admin-icons/admin-arrow';
 
 export const AdminMainHeader = ({title}) => {
-    const [isFocused, setIsFocused] = useState(false);
-
-    const handleMouseEnter = () => {
-        setIsFocused(true);
-      };
-    
-      const handleMouseLeave = () => {
-        setIsFocused(false);
-      };
-
     return (
         <div className="admin-hero-header">
         <div className="admin-hero-header-wrapper">
-          <h2 className="admin-sub-title">{title}</h2>
-        <div className="admin-hero-add-icon-box"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        >
-        {isFocused ? <AdminAddIconFocus /> : <AdminAddIcon />}
+          <div className="admin-hero-header-title-box">
+            <div className="admin-hero-header-arrow-box">
+              <AdminArrowIcon />
+            </div>
+            <h2 className="admin-hero-header-title">{title}</h2>
+          </div>
+        <div className="admin-hero-add-icon-box">
+        <div className="admin-hero-add-icon-wrapper">
+          <AdminAddIcon />
+        </div>
+        
             <p>Add</p>
         </div>
         </div>
