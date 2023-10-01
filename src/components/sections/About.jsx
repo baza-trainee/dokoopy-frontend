@@ -8,7 +8,6 @@ import aboutPhoto from "../../assets/images/about_img.jpg";
 
 export const About = () => {
    const { language } = useLandingContext();
-   console.log(language);
 
    return (
       <section id="about" className="about-section">
