@@ -98,4 +98,8 @@
    &:focus {
       background-color: var(--admin-button-accent);
    }
+   &:disabled {
+      background-color: var(--admin-button-disabled);        
+      cursor: not-allowed;           
+   }
 }

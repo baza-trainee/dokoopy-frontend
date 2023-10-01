@@ -71,57 +71,15 @@
     }
 }
 
-.edit-report-container {
-display: flex;
-    padding-bottom: 0px;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-    padding-bottom: 40px;
-    border: 1px solid var(--light_grey, #EBEBEB);
-    background: var(--white, #FFF);
-}
 
-.edit-report-form{
-    display: flex;
-    width: 494px;
-    flex-direction: column;
-    align-items: center;
-    gap: 48px;
-   
-}
 
-.edit-reporting-title-wrap{
+.edit-reportin-form-wrap {   
+    margin: 24px 24px 44px 24px;   
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
+    align-items: flex-end;   
 }
 
-.edit-content-wrap{ 
-    display: flex;        
-    flex-direction: column;
-    align-items: center;
-    gap: 48px;   
-}
-
-.edit-reporting-container{
-    display: flex;
-    padding: 38px 213px;
-    align-items: center;   
-    align-self: stretch;
-}
-
-.edit-reporting-cards{
-    display: flex;
-    flex-direction: column;
-    padding: 38px 213px;
-    align-items: center;
-    gap: 12px;
-    align-self: stretch;
-    border: 1px dashed var(--inputs_color, #ACACAC);
-}
-
-.edit-icon-btn{
-    cursor: pointer;
+.edit-reportin-btn{
+    width: 430px;
 }

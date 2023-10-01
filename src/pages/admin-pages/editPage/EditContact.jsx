@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { InputLink } from '../../../components/admin-components/formElememt/InputLink'
 
 export const EditContact = () => {
    const contactsData = [
@@ -23,33 +24,30 @@ export const EditContact = () => {
    const handleSaveChanges = () => {
       console.log("Email:", email);
       console.log("Telegram:", telegram);
-      navigate(-1);
+      
    };
+
+   const isSaveButtonDisabled = email.trim() === '' || telegram.trim() === '';
 
    return (
       <section className="edit-contact-container">      
          <PageHeader title={"Редагувати контакти"} />   
-         <div className='edit-contact-form'>
-            <div>
-               <p className="input-liable">Email:</p>
-               <input
-                  placeholder="Введіть Email"
-                  className="sm-input edit-contact-input-email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-               />
-            </div>         
-            <div>
-               <p className="input-liable">Telegram:</p>
-               <input
-                  placeholder="Введіть Telegram"
-                  className="sm-input edit-contact-input-telegram"
-                  value={telegram}
-                  onChange={(e) => setTelegram(e.target.value)}
-               />
+         <div className='edit-contact-form-wrap'>
+            <div className='edit-contact-form'>          
+               <InputLink                  
+                  setSmInput={setEmail}
+                  label={"Email:"}
+                  value={email} 
+               /> 
+               <InputLink                  
+                  setSmInput={setTelegram}
+                  label={"Telegram:"}
+                  value={telegram} 
+               /> 
             </div>        
-            <button className="admin-button" onClick={handleSaveChanges}>Внести зміни</button>  
+            <button className="admin-button" onClick={handleSaveChanges} disabled={isSaveButtonDisabled}>Внести зміни</button>  
          </div>     
       </section>
    );
 };
+
