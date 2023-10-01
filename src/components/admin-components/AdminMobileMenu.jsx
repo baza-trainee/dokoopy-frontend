@@ -44,7 +44,7 @@ export const AdminMobileMenu = ({ openMenu }) => {
                   <div className="admin-mobile-list-icon">
                      <AdminSliderIcon />
                   </div>
-                  <Link to="/admin">Hero</Link>
+                  <Link to="/admin">Слайдер</Link>
                </li>
                <li className="admin-mobile-list-item">
                   <div className="admin-mobile-list-icon">

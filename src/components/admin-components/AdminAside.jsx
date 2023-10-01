@@ -7,6 +7,7 @@ import { AdminPartnersIcon } from "../../assets/admin-icons/admin-partners";
 import { AdminContactsIcon } from "../../assets/admin-icons/admin-contacts";
 import { AdminBankIcon } from "../../assets/admin-icons/admin-bank";
 import { AdminReportIcon } from "../../assets/admin-icons/admin-report";
+import { AdminChangePasswordIcon } from "../../assets/admin-icons/admin-password";
 import { AdminLogoutIcon } from "../../assets/admin-icons/admin-logout";
 
 export const AdminAside = () => {
@@ -19,7 +20,7 @@ export const AdminAside = () => {
                <div className="admin-list-icon">
                   <AdminSliderIcon />
                </div>
-               <Link to="/admin">Hero</Link>
+               <Link to="/admin">Слайдер</Link>
             </li>
             <li className="admin-list-item">
                <div className="admin-list-icon">
@@ -52,6 +53,12 @@ export const AdminAside = () => {
                   <AdminReportIcon />
                </div>
                <Link to="reporting">Звітність</Link>
+            </li>
+            <li className="admin-list-item">
+               <div className="admin-list-icon">
+                  <AdminChangePasswordIcon />
+               </div>
+               <Link to="reporting">Зміна пароля</Link>
             </li>
          </ul>
          <Link to="/admin" className="admin-logout">
