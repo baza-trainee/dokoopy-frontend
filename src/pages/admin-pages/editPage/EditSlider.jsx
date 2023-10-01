@@ -14,20 +14,22 @@ export const EditSlider = () => {
    const defaultInfo = {
       img: foto,
       name: "",
-      link: "Збір на 57 бригаду, котрі беруть участь в найзапекліших боях",
+      description: "Збір на 57 бригаду, котрі беруть участь в найзапекліших боях",
+      descriptionENG: "Gathering for the 57th brigade participating in the fiercest battles",
    };
 
    return (
       <section className="page-container">
-         <PageHeader edit={true} title={"Додати новий блок"} />
+         <PageHeader edit={true} title={"Редагувати слайдер"} />
          <AddForm
-            smPlaceholder={"Введіть назву блоку"}
-            lgPlaceholder={"Додайте опис блоку"}
-            lgLiable={"Опис блоку*"}
-            smLiable={"Назва блоку*"}
-            nameButton={"Додати блок"}
+            // smPlaceholder={"Введіть назву блоку"}
+            // lgPlaceholder={"Додайте опис блоку"}
+            lgLiable={"Опис слайдеру*"}
+            smLiable={"Назва слайдеру*"}
+            nameButton={"Внести зміни"}
             submitClick={submitClick}
             defaultInfo={defaultInfo}
+            hiddenInputENG={true}
          />
       </section>
    );

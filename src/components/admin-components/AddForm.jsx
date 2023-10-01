@@ -7,56 +7,89 @@ export const AddForm = ({
    lgPlaceholder,
    lgLiable,
    smLiable,
-   textArea = true,
    nameButton,
    submitClick = () => {},
    defaultInfo,
+   hiddenInputENG = false,
 }) => {
-   const [smInput, setSmInput] = useState(defaultInfo?.name || "");
-   const [lgInput, setLgInput] = useState(defaultInfo?.link || "");
+   const [inputName, setInputName] = useState(defaultInfo?.name || "");
+   const [inputNameENG, setInputNameENG] = useState(defaultInfo?.nameENG || "");
+   const [inputDescription, setInputDescription] = useState(defaultInfo?.description || "");
+   const [inputDescriptionENG, setInputDescriptionENG] = useState(
+      defaultInfo?.descriptionENG || ""
+   );
+   // const [lgInput, setLgInput] = useState(defaultInfo?.description || "");
+   // const [lgInput, setLgInput] = useState(defaultInfo?.description || "");
    const [selectedFile, setSelectedFile] = useState(defaultInfo?.img && null);
 
    const submitClickEvent = e => {
       e.preventDefault();
       submitClick({
-         smInput,
-         lgInput,
+         inputName,
+         inputNameENG,
+         inputDescription,
+         inputDescriptionENG,
          selectedFile,
       });
    };
    return (
       <div className="form-container">
          <form onSubmit={submitClickEvent} className="added-form">
-            <FilesPicker
-               selectedFile={selectedFile}
-               setSelectedFile={setSelectedFile}
-               defaultInfo={defaultInfo}
-            />
-            <div className="right-input-blok">
+            <div className="form-input-container">
+               <div className="tablet-files-picker">
+                  <FilesPicker
+                     selectedFile={selectedFile}
+                     setSelectedFile={setSelectedFile}
+                     defaultInfo={defaultInfo}
+                  />
+               </div>
+               <div className="language-liable">UA</div>
                <InputSm
                   placeholder={smPlaceholder}
-                  value={smInput}
-                  setSmInput={setSmInput}
+                  value={inputName}
+                  setSmInput={setInputName}
                   label={smLiable}
                />
 
-               {textArea ? (
-                  <TextArea
-                     placeholder={lgPlaceholder}
-                     setLgInput={setLgInput}
-                     label={lgLiable}
-                     value={lgInput}
+               <TextArea
+                  placeholder={lgPlaceholder}
+                  setLgInput={setInputDescription}
+                  label={lgLiable}
+                  value={inputDescription}
+               />
+
+               <div className="desc-files-picker">
+                  <FilesPicker
+                     selectedFile={selectedFile}
+                     setSelectedFile={setSelectedFile}
+                     defaultInfo={defaultInfo}
                   />
+               </div>
+            </div>
+            <div className="form-input-container">
+               <div className="language-liable">ENG</div>
+
+               {hiddenInputENG ? (
+                  <div className="input-blok"> </div>
                ) : (
                   <InputSm
-                     placeholder={lgPlaceholder}
-                     setSmInput={setLgInput}
-                     label={lgLiable}
-                     value={lgInput}
+                     placeholder={smPlaceholder}
+                     value={inputNameENG}
+                     setSmInput={setInputNameENG}
+                     label={smLiable}
                   />
                )}
 
-               <button className="admin-button">{nameButton}</button>
+               <TextArea
+                  placeholder={lgPlaceholder}
+                  setLgInput={setInputDescriptionENG}
+                  label={lgLiable}
+                  value={inputDescriptionENG}
+               />
+
+               <div className="form-button-blok">
+                  <button className="admin-button">{nameButton}</button>
+               </div>
             </div>
          </form>
       </div>

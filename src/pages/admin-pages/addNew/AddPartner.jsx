@@ -1,6 +1,6 @@
 import { AdminApi } from "../../../api/api";
-import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { PartnersForm } from "../../../components/admin-components/PartnersForm";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const AddPartner = () => {
@@ -16,12 +16,11 @@ export const AddPartner = () => {
    return (
       <section className="page-container">
          <PageHeader title={"Додати нового партнера"} />
-         <AddForm
+         <PartnersForm
             smPlaceholder={"Введіть назву партнера"}
             lgPlaceholder={"https://partnerlink/ua"}
             lgLiable={"Назва партнера*"}
             smLiable={"Назва партнера*"}
-            textArea={false}
             nameButton={"Додати партнера"}
             submitClick={submitClick}
          />
