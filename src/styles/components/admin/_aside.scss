@@ -1,25 +1,73 @@
 .aside {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
-   width: 300px;
-   height: 100vh;
-   padding-left: 36px;
-   padding-top: 50px;
-   padding-bottom: 41px;
-   font-size: 20px;
+   display: none;
+
+   @media screen and (min-width: 768px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 186px;
+      height: 100vh;
+      padding-left: 0px;
+      padding-top: 105px;
+      padding-bottom: 41px;
+      font-size: 17px;
+      border-right: 1px solid var(--admin-table-header-background);
+   }
+
+   @media screen and (min-width: 1280px) {
+      width: 300px;
+      height: 100vh;
+      padding-top: 105px;
+      padding-bottom: 40px;
+      font-size: 18px;
+   }
 }
 
 .admin-list-item {
    display: flex;
    align-items: center;
+   position: relative;
 
    padding-top: 20px;
+   padding-left: 20px;
+   padding-right: 32px;
    padding-bottom: 20px;
+   &:hover {
+      color: var(--admin-main-accent);
+      background-color: var(--background-admin-hover);
+      &::after {
+         content: "";
+         position: absolute;
+         right: 5px;
+         display: inline-block;
+         width: 24px;
+         height: 24px;
+         background-image: url("../../../../public/arrow-right-icon.svg");
+         background-repeat: no-repeat;
+         @media screen and (min-width: 1280px) {
+            right: 4px;
+         }
+      }
+   }
 }
 
 .admin-list-icon {
-   margin-right: 20px;
+   width: 24px;
+   height: 24px;
+   margin-right: 14px;
+   @media screen and (min-width: 1280px) {
+      width: 28px;
+      height: 28px;
+      margin-right: 20px;
+   }
+}
+
+.bank-account-text {
+   display: block;
+   width: 88px;
+   @media screen and (min-width: 1280px) {
+      width: 188px;
+   }
 }
 
 .admin-logout {
@@ -27,4 +75,9 @@
    align-items: center;
    padding-top: 20px;
    padding-bottom: 20px;
+   padding-left: 20px;
+   &:hover {
+      color: var(--admin-main-accent);
+      background-color: var(--background-admin-hover);
+   }
 }

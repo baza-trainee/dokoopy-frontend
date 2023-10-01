@@ -1,12 +1,6 @@
 export const CloseModal = () => {
    return (
-      <svg
-         width="28"
-         height="28"
-         viewBox="0 0 28 28"
-         fill="currentColor"
-         xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 28 28" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
          <path
             d="M21 7L7 21"
             stroke="currentColor"
