@@ -1,7 +1,8 @@
+import { AdminApi } from "../../../api/api.js";
 import foto from "../../../assets/images/default-image.jpg";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
-
+import { useLoadingData } from "../../../hook/useLoadingData.js";
 export const EditProject = () => {
    const defaultInfo = {
       img: foto,
@@ -12,6 +13,8 @@ export const EditProject = () => {
       descriptionENG:
          "We are the 57th brigade and participate in the fiercest battles. Therefore, the need for consumables is simply veeleetenskaya - these are walkie-talkies, car repairs, tires on wheels, etc.",
    };
+   const { data } = useLoadingData(AdminApi.getHerosAdmin);
+   console.log(data);
    const submitClick = data => {
       console.log(data);
    };

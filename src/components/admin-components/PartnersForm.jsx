@@ -1,8 +1,7 @@
 import { useState } from "react";
 
-import { FilesPicker } from "./formElememt/FilesPicker";
-import { InputLink } from "./formElememt/InputLink";
-import { InputSm } from "./formElememt/InputSm";
+import { FilesPicker } from "./formElement/FilesPicker";
+import { InputSm } from "./formElement/InputSm";
 export const PartnersForm = ({
    smPlaceholder,
    lgPlaceholder,
@@ -43,11 +42,12 @@ export const PartnersForm = ({
                   label={smLiable}
                />
 
-               <InputLink
+               <InputSm
                   placeholder={lgPlaceholder}
                   setSmInput={setLgInput}
                   label={lgLiable}
                   value={lgInput}
+                  isLink={true}
                />
 
                <div className="form-button-blok">

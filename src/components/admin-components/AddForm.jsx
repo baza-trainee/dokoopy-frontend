@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FilesPicker } from "./formElememt/FilesPicker";
-import { InputSm } from "./formElememt/InputSm";
-import { TextArea } from "./formElememt/TextArea";
+import { FilesPicker } from "./formElement/FilesPicker";
+import { InputSm } from "./formElement/InputSm";
+import { TextArea } from "./formElement/TextArea";
 export const AddForm = ({
    smPlaceholder,
    lgPlaceholder,
