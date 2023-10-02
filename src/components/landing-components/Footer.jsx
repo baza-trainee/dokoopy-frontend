@@ -1,3 +1,5 @@
+import localization from "../../assets/language-switcher/localization";
+
 import { LogoFooterIcon } from "../../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
 import policy from "../../assets/documents/policy.pdf";

@@ -1,9 +1,11 @@
+import localization from "../../assets/language-switcher/localization";
+
 export const Mission = () => {
    return (
       <div id="mission" className="mission">
          <div className="container">
             <div className="mission-box">
-               <h2 className="title-mission">Наша мета</h2>
+               <h2 className="title-mission">{localization.mission.title}</h2>
 
                <div className="mission-block">
                   <div className="mission-block-box">

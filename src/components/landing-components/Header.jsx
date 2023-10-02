@@ -25,7 +25,7 @@ export const Header = () => {
    const missionElementId = "mission";
 
    const { language, switchToEnglish, switchToUkraine } = useLandingContext();
-   console.log("28", localization.getLanguage());
+   // console.log("28", language, localization.getLanguage());
 
    useEffect(() => {
       const handler = event => {
@@ -41,10 +41,6 @@ export const Header = () => {
          document.removeEventListener("click", handler);
       };
    }, []);
-
-   useEffect(() => {
-      localization.setLanguage(language);
-   }, [language]);
 
    function toggleLanguageMenu() {
       setLanguageMenuOpen(!languageMenuOpen);
@@ -70,13 +66,11 @@ export const Header = () => {
 
    function setLanguageUkraine() {
       switchToUkraine();
-
       setLanguageMenuOpen(!languageMenuOpen);
    }
 
    function setLanguageEnglish() {
       switchToEnglish();
-
       setLanguageMenuOpen(!languageMenuOpen);
    }
 
@@ -93,17 +87,17 @@ export const Header = () => {
                   <ul className="navigation-list">
                      <li className="navigation-list-item">
                         <Link to={`/#${missionElementId}`} className="navigaton-link">
-                           {localization.mission}
+                           {localization.header.mission}
                         </Link>
                      </li>
                      <li className="navigation-list-item">
                         <Link to={`/#${aboutElementId}`} className="navigaton-link">
-                           {localization.about}
+                           {localization.header.about}
                         </Link>
                      </li>
                      <li className="navigation-list-item">
                         <Link to="allprojects/1" className="navigaton-link">
-                           {localization.projects}
+                           {localization.header.projects}
                         </Link>
                      </li>
                   </ul>
@@ -112,7 +106,7 @@ export const Header = () => {
                   <DonateButton buttonClass={"headerButton"}></DonateButton>
                   <div className="language-selector-wrapper">
                      <p className="language-selector" onClick={toggleLanguageMenu}>
-                        UA
+                        {localization.currentLanguage}
                         <Chevron />
                      </p>
                      {languageMenuOpen ? (

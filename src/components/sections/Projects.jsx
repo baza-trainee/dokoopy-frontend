@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+import localization from "../../assets/language-switcher/localization";
+
 import defImg from "../../assets/images/default-image.jpg";
 
 import photo1 from "../../assets/mockProject/photo_1.jpg";
@@ -74,7 +77,7 @@ export const Projects = () => {
    return (
       <div className="projects">
          <div className="container">
-            <h2 className="title   title-dark">Наші проєкти</h2>
+            <h2 className="title   title-dark">{localization.projects.title}</h2>
             <ul className="projects-block-desktop">
                {projectsData.slice(0, 4).map(project => (
                   <li key={project.id} className="project-cart">
