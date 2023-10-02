@@ -1,18 +1,18 @@
 .admin-contacts {
    display: flex;
-   width: 100%;
-   padding-bottom: 0px;
+   padding: 24px 24px 0px 24px;
    flex-direction: column;
-   align-items: flex-start;
-   background: #fff;
+   align-items: center;
 }
 .admin-contacts-header {
    display: flex;
    width: 100%;
-   height: 102px;
-   padding: 40px 40px;
+   height: 112px;
+   padding: 40px 24px;
    justify-content: space-between;
    align-items: center;
+   border-bottom: 1px solid var(--light_grey, #EBEBEB);
+   background: #FFF;
 }
 .admin-contacts-header h2 {
    flex: 1 0 0;
@@ -32,13 +32,18 @@
 .admin-contacts-list-title {
    display: flex;
    width: 100%;
-   padding: 26px 40px;
-   align-items: center;
-   gap: 439px;
+   padding: 26px 24px;
+   justify-content: space-between;
+   align-items: flex-start;
    background: var(--light_grey, #ebebeb);
 }
 .admin-contacts-list-title p {
-   width: 71px;
+   width: 240px;
+   flex-shrink: 0;
+}
+.admin-contacts-list-title span{
+   width: 28px;
+   height: 28px;
    flex-shrink: 0;
 }
 .admin-contacts-list-ul {
@@ -53,46 +58,44 @@
 .contacts-li {
    display: flex;
    width: 100%;
-   height: 99px;
-   max-width: 100%;
-   padding: 12px 40px;
+   height: 74px;
+   padding: 8px 24px;
+   justify-content: space-between;
    align-items: center;
-   gap: 439px;
-   border-bottom: 1px solid var(--light_grey, #ebebeb);
-   background: #fff;
+   border-bottom: 1px solid var(--light_grey, #EBEBEB);
+   background: #FFF;
+}
+.contacts-li:hover{
+   border-bottom: 1px solid var(--light_grey, #EBEBEB);
+   background: var(--lightblue_admin, #F4FBFF);
 }
 .contacts-li p {
-   width: 71px;
+   width: 240px;
    flex-shrink: 0;
 }
-.contacts-li-group {
-   display: flex;
-   width: 100%;
-   justify-content: space-between;
-}
-.contacts-li-group a{
-    width: 210px;
+.contacts-li a{
+    width: 240px;
     color: #2672E4;
 }
-.contacts-li-group button {
-   width: 20px;
-   height: 20px;
+.contacts-li button {
+   width: 18px;
+   height: 18px;
    background: none;
    border: none;
    cursor: pointer;
 }
-@media (min-width: 481px) and (max-width: 768px) {
+
+@media (min-width: 768px) and (max-width: 1279px) {
    .admin-contacts {
       display: flex;
-      width: 100%;
-      padding-bottom: 0px;
-      flex-direction: column;
+      padding: 24px 24px 0px 24px;
       align-items: flex-start;
+      flex: 1 0 0;
    }
    .admin-contacts-header {
       display: flex;
       width: 100%;
-      height: 102px;
+      height: 106px;
       padding: 37px 24px;
       justify-content: space-between;
       align-items: center;
@@ -116,12 +119,12 @@
       display: flex;
       width: 100%;
       padding: 26px 24px;
-      align-items: center;
-      gap: 120px;
+      justify-content: space-between;
+      align-items: flex-start;
       background: var(--light_grey, #ebebeb);
    }
    .admin-contacts-list-title p {
-      width: 71px;
+      width: 135px;
       flex-shrink: 0;
       color: var(--text-color, #212121);
       font-family: Roboto;
@@ -129,6 +132,11 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+   }
+   .admin-contacts-list-title span{
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
    }
    .admin-contacts-list-ul {
       display: flex;
@@ -142,14 +150,14 @@
       display: flex;
       width: 100%;
       height: 99px;
-      padding: 12px 24px;
+      padding: 8px 24px;
+      justify-content: space-between;
       align-items: center;
-      gap: 120px;
       border-bottom: 1px solid var(--light_grey, #ebebeb);
       background: #fff;
    }
    .contacts-li p {
-      width: 71px;
+      width: 135px;
       flex-shrink: 0;
       color: var(--text-color, #212121);
       font-family: Roboto;
@@ -158,14 +166,8 @@
       font-weight: 400;
       line-height: normal;
    }
-   .contacts-li-group {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-   }
-   .contacts-li-group a {
-      width: 295px;
-      flex: 1 0 0;
+   .contacts-li a {
+      width: 135px;
       color: #2672e4;
       font-family: Roboto;
       font-size: 18px;
@@ -174,33 +176,31 @@
       line-height: normal;
       text-decoration-line: underline;
    }
-   .contacts-li-group button {
-      width: 20px;
-      height: 20px;
+   .contacts-li button {
+      width: 18px;
+      height: 18px;
       background: none;
       border: none;
       cursor: pointer;
-      display: none;
    }
 }
-@media (max-width: 480px) {
+@media (min-width: 480px) and (max-width: 767px) {
    .admin-contacts {
       display: flex;
       width: 100%;
-      padding: 109px 0px 60px 1px;
+      padding: 0px 24px;
       flex-direction: column;
-      justify-content: flex-end;
       align-items: flex-start;
-      gap: 1px;
    }
    .admin-contacts-header {
       display: flex;
       width: 100%;
-      height: 50px;
-      padding: 13px 24px;
-      justify-content: center;
+      height: 45px;
+      padding: 12px 24px;
+      justify-content: space-between;
       align-items: center;
       flex-shrink: 0;
+      background: #FFF;
    }
    .admin-contacts-header h2 {
       flex: 1 0 0;
@@ -217,8 +217,16 @@
       align-items: flex-start;
       width: 100%;
    }
+   .admin-contacts-list-title {
+      display: flex;
+      width: 100%;
+      padding: 18px 24px;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: var(--light_grey, #EBEBEB);
+   }
    .admin-contacts-list-title p {
-      width: 71px;
+      width: 106px;
       flex-shrink: 0;
       color: var(--text-color, #212121);
       font-family: Roboto;
@@ -226,6 +234,11 @@
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+   }
+   .admin-contacts-list-title span{
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
    }
    .admin-contacts-list-ul {
       display: flex;
@@ -237,41 +250,141 @@
    }
    .contacts-li {
       display: flex;
-      height: 58px;
-      padding: 18px 36px 19px 24px;
-      align-items: flex-end;
-      border-bottom: 1px solid var(--light_grey, #ebebeb);
-      background: #fff;
-      overflow: hidden;
-      gap: 153px;
+      width: 100%;
+      padding: 8px 24px;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--light_grey, #EBEBEB);
+      background: #FFF;
    }
    .contacts-li p {
-      width: 71px;
+      width: 106px;
+      flex-shrink: 0;
+      color: var(--text-color, #212121);
+      font-family: Roboto;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+   }
+   .contacts-li a {
+      width: 106px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      color: #2672e4;
+      text-overflow: ellipsis;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+   }
+   .contacts-li button {
+      display: flex;
+      width: 18px;
+      height: 18px;
+   }
+}
+@media screen and (max-width: 479px){
+   .admin-contacts {
+      display: flex;
+      width: 100%;
+      padding: 0px 10px;
+      flex-direction: column;
+      align-items: flex-start;
+   }
+   .admin-contacts-header {
+      display: flex;
+      width: 100%;
+      height: 45px;
+      padding: 12px 24px;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      background: #FFF;
+   }
+   .admin-contacts-header h2 {
+      color: var(--text-color, #212121);
+      font-family: Roboto;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+   }
+   .admin-contacts-list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+   }
+   .admin-contacts-list-title {
+      display: flex;
+      width: 100%;
+      padding: 18px 24px;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: var(--light_grey, #EBEBEB);
+   }
+   .admin-contacts-list-title p {
+      width: 70px;
       flex-shrink: 0;
       color: var(--text-color, #212121);
       font-family: Roboto;
       font-size: 18px;
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       line-height: normal;
    }
-   .contacts-li-group a {
+   .admin-contacts-list-title span{
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+   }
+   .admin-contacts-list-ul {
+      display: flex;
+      flex-direction: column;
+   }
+   .contacts-card {
+      display: flex;
       width: 100%;
-      flex: 1 0 0;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-      color: #2672e4;
-      text-overflow: ellipsis;
+   }
+   .contacts-li {
+      display: flex;
+      width: 100%;
+      padding: 8px 24px;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--light_grey, #EBEBEB);
+      background: #FFF;
+   }
+   .contacts-li p {
+      width: 70px;
+      flex-shrink: 0;
+      color: var(--text-color, #212121);
       font-family: Roboto;
-      font-size: 18px;
+      font-size: 15px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
    }
-   .contacts-li-group button {
-      display: none;
+   .contacts-li a {
+      width: 70px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 1;
+      color: #2672e4;
+      text-overflow: ellipsis;
+      font-family: Roboto;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+   }
+   .contacts-li button {
+      display: flex;
+      width: 18px;
+      height: 18px;
    }
 }
 

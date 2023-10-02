@@ -20,22 +20,21 @@ export const AdminContacts = () => {
          </div>
          <div className="admin-contacts-list">
             <div className="admin-contacts-list-title">
-               <p>Name</p>
-               <p>Data</p>
+               <p>Назва</p>
+               <p>URL</p>
+               <span></span>
             </div>
             <ul className="admin-contacts-list-ul">
                {contactsData.map(contacts => (
                   <li className="contacts-card" key={contacts.id}>
                      <div className="contacts-li">
                         <p>{contacts.name}</p>
-                        <div className="contacts-li-group">
                            <a href={contacts.link}>{contacts.contact}</a>
                            <button className="edit-contcts">
                               <Link to="edit">
                                  <EditIcon />
                               </Link>
                            </button>
-                        </div>
                      </div>
                   </li>
                ))}

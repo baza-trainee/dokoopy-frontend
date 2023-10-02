@@ -19,20 +19,15 @@ export const AdminReporting = () => {
             <div className="reporting-container-title">
                <h2>Звітність</h2>
             </div>
-            <div className="reporting-container-button">
-               <button className="edit-icon-btn">
-                  <Link to="edit">
-                     <EditIcon />
-                  </Link>
-               </button>
-            </div>
          </div>
          <ul className="reporting-files">
             {reportingData.map(files => (
                <li className="reporting-cards" key={files.id}>
                   <div className="card-reporting">
+                  <Link to="edit">
                      <img src={files.imgIcon} />
                      <p>{files.name}</p>
+                  </Link>
                   </div>
                </li>
             ))}

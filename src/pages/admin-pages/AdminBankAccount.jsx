@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import { EditIcon } from "../../assets/icon/EditIcon";
-import { EditBankAccount } from "./editPage/EditBankAccount";
 
 export const AdminBankAccount = () => {
    const bankAccountData = [
@@ -19,26 +18,28 @@ export const AdminBankAccount = () => {
                <h2>Банківські реквізити</h2>
             </div>
             <div className="bank-contacts-list">
+            <div className="bank-contacts-list-title">
+               <p>Назва</p>
+               <p>URL</p>
+               <span></span>
+            </div>
                <ul className="bank-contacts-list-ul">
                   {bankAccountData.map(monobank => (
                      <li className="bank-card" key={monobank.id}>
                         <div className="bank-li">
                            <p>{monobank.name}</p>
-                           <div className="bank-li-group">
                               <a href={monobank.link}>{monobank.contact}</a>
                               <button>
                                  <Link to="edit">
                                     <EditIcon />
                                  </Link>
                               </button>
-                           </div>
                         </div>
                      </li>
                   ))}
                </ul>
             </div>
          </div>
-         {/* <EditBankAccount /> */}
       </div>
    );
 };
