@@ -12,6 +12,9 @@
    flex-direction: column;
    justify-content: space-between;
    width: 100%;
+   background-color: var(--admin-background);
+   @media screen and (min-width: 480px) {
+   }
 }
 
 .admin-backdrop {
@@ -98,4 +101,19 @@
    &:focus {
       background-color: var(--admin-button-accent);
    }
+}
+
+// ***mobile styles
+
+.mobile-admin-backdrop {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+
+   background-color: var(--admin-backdrop);
+
+   opacity: 1;
+   transition: var(--transition);
 }
