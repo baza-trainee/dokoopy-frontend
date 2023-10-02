@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import defaultImage from "../../assets/images/default-image.jpg";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
+import { useLoadingData } from "../../hook/useLoadingData";
+import { AdminApi } from "../../api/api";
 
 const dataSlider = [
    {
@@ -30,6 +32,7 @@ const dataSlider = [
 ];
 export const AdminHero = () => {
    const { pathname } = useLocation();
+   const { data, isLoading, error } = useLoadingData(AdminApi.getHerosAdmin);
    return (
       <div className="admin-hero">
          <AdminMainHeader title={"Слайдер"} previousPage={pathname} />

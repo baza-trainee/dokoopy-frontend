@@ -150,8 +150,20 @@
   
 }
 .wrapper-img-box-svg {
-   width: 54px;
-   height: 50px;
+   width: 70px;
+   height: 43px;
+   @media screen and (min-width: 480px) {
+      width: 106px;
+      height: 62px;
+   }
+   @media screen and (min-width: 768px) {
+      width: 135px;
+     height: 79px;
+   }
+   @media screen and (min-width: 1280px) {
+      width: 80px;
+      height: 50px;
+   }
 }
 .content-element-img {
    width: 100%;
@@ -183,22 +195,23 @@
 .content-element-name-partners {
    display: flex;
    align-items: center;
-   width: 100px;
-   height: 38px;
+   width: 70px;
+   height: 54px;
    color: var(--text-main);
-   font-size: 16px;
-   line-height: 18.75px;
-   color: var(--admin-main-font);
+   font-size: 15px;
+   line-height: 17.58px;
+   color: var(--admin-title-color);
+   @media screen and (min-width: 480px) {
+      width: 106px;
+   }
    @media screen and (min-width: 768px) {
-      width: 71px;
-      height: 63px;
+      width: 135px;
+      // height: 62px;
       font-size: 18px;
       line-height: 21.09px;
    }
    @media screen and (min-width: 1280px) {
-      width: 187px;
-      font-size: 20px;
-      line-height: 23.44px;
+      width: 240px;
    }
 }
 .content-element-data {
@@ -228,23 +241,33 @@
    }
 }
 .content-element-link {
-   width: 83px;
-   height: auto;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   // flex-wrap: wrap;
+   width: 70px;
+   height: 62px;
    color: var(--text-main);
-   font-size: 16px;
-   line-height: 18.75px;
+   font-size: 12px;
+   line-height: 14.06px;
    color: var(--admin-main-accent);
-   white-space: nowrap; 
-   overflow: hidden; 
-   text-overflow: ellipsis;
+   word-break: break-all;
    text-decoration: underline;
+   @media screen and (min-width: 480px) {
+      width: 106px;
+      font-size: 12px;
+      line-height: 14.06px;
+      word-break:normal;
+   }
    @media screen and (min-width: 768px) {
-      display: block;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
       overflow-wrap: break-word;
       white-space: normal; 
-      overflow: visible;
-      width: 110px;
-      height: auto;
+      // overflow: visible;
+      width: 135px;
+      height: 62px;
       font-size: 18px;
       line-height: 21.09px;
    }
@@ -256,6 +279,12 @@
    }
 
 }
+// .admin-edit-icon {
+//    fill: blue;
+// }
+// .admin-edit-icon:hover{
+//    fill: red;
+// }
 
 
 

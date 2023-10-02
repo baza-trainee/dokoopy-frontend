@@ -27,16 +27,17 @@ export const Footer = () => {
                   <a href={rules} target="_blank" className="footer-policy-link" rel="noreferrer">
                      Правила користування сайтом
                   </a>
-                  {/* <a className="footer-policy-link" href="/not-found">
-                     Звітність
-                  </a> */}
-                   {!isLoading && (data.reports.map(report => {
+                   {!isLoading && !error && (data.reports.map(report => {
                      return (
-                        <a key={report.id} href={error ? "/not-found" : `https://dokoopy.onrender.com/${report.reportURL}`}
+                        <a key={report.id} href={`https://dokoopy.onrender.com/${report.reportURL}`}
                         className="footer-policy-link" target="_blank" rel="noreferrer" 
                         >Звітність</a>
                      );
                   }))}
+                  {!isLoading && error && (
+                  <a className="footer-policy-link" href="/not-found">
+                     Звітність
+                  </a> )}
                </div>
                <p className="footer-policy-text">
                   Розробка Baza Trainee Ukraine 2023 © Всі права захищені

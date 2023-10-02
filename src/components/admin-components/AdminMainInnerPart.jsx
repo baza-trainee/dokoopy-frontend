@@ -1,16 +1,14 @@
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
-
-import { EditIcon } from "../../assets/icon/EditIcon";
-import { useEffect, useRef } from 'react';
+import { AdminEditIcon } from "../../assets/admin-icons/admin-edit";
 
 export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
    return (
       <div className="admin-main-wrapper">
          <div className="admin-main-header">
-            <div
-               className={date ? "admin-main-header-wrapper" : "admin-main-header-partners-wrapper"}
+            <div className="admin-main-header-wrapper"
+               // className={date ? "admin-main-header-wrapper" : "admin-main-header-partners-wrapper"}
             >
                <div className="admin-main-header-title">{name}</div>
                <div className="admin-main-header-title">{photo}</div>
@@ -60,7 +58,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                      {/* <div className="content-edit-icon-box"> */}
                        
                            {/* <div className="wrapper-edit-icon-box"> */}
-                              <EditIcon />
+                              <AdminEditIcon />
                            {/* </div> */}
                         
                      {/* </div> */}
