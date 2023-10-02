@@ -1,3 +1,5 @@
+import localization from "../../assets/language-switcher/localization";
+
 import icon from "../../assets/icon/Logo_Ukraine_Defense.svg";
 
 export const DividingLine = ({ mainColor }) => {
@@ -5,20 +7,20 @@ export const DividingLine = ({ mainColor }) => {
       return (
          <div className="outerContainer">
             <div className={mainColor + " containerHeshteg "}>
-               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
-               <div className="contentHeshteg">#ХОЛОД У ЖИЛАХ</div>
-               <div className="contentHeshteg">#ЗАПАЛ У СЕРЦЯХ</div>
+               <div className="contentHeshteg">{localization.dividingLine.ice}</div>
+               <div className="contentHeshteg">{localization.dividingLine.fire}</div>
+               <div className="contentHeshteg">{localization.dividingLine.ice}</div>
+               <div className="contentHeshteg">{localization.dividingLine.fire}</div>
+               <div className="contentHeshteg">{localization.dividingLine.ice}</div>
+               <div className="contentHeshteg">{localization.dividingLine.fire}</div>
+               <div className="contentHeshteg">{localization.dividingLine.ice}</div>
+               <div className="contentHeshteg">{localization.dividingLine.fire}</div>
+               <div className="contentHeshteg">{localization.dividingLine.ice}</div>
+               <div className="contentHeshteg">{localization.dividingLine.fire}</div>
+               <div className="contentHeshteg">{localization.dividingLine.ice}</div>
+               <div className="contentHeshteg">{localization.dividingLine.fire}</div>
+               <div className="contentHeshteg">{localization.dividingLine.ice}</div>
+               <div className="contentHeshteg">{localization.dividingLine.fire}</div>
             </div>
          </div>
       );
