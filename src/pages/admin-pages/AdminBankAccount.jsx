@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
-
 import { EditIcon } from "../../assets/icon/EditIcon";
+// import { useLoadingData } from "../../hook/useLoadingData";
+// import { AdminApi } from "../../api/api";
 
 export const AdminBankAccount = () => {
+   // const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getBankAdmin);
+
+   // if (isLoading) {
+   //    return <p>Loading...</p>;
+   // }
+   // if (error) {
+   //    return <p>Error: {error.message}</p>;
+   // }
+   // const bankAccountData = data.result || [];
    const bankAccountData = [
       {
          id: 1,
