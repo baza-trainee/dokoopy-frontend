@@ -9,44 +9,21 @@ import contentChameleonLogo from "../../assets/images/content-chameleon-logo.svg
 import dontPanicLogo from "../../assets/images/dont-panic-logo.svg";
 import juniverseLogo from "../../assets/images/juniverse-logo.svg";
 import logoBaza from "../../assets/images/logo-baza.svg";
-// import { useLoadingData } from "../../hook/useLoadingData";
-// import { lendingData } from "../../api/api";
+import { useLoadingData } from "../../hook/useLoadingData";
+import { lendingData } from "../../api/api";
 
 export const Partners = () => {
-   // const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getPartners);
+   const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getPartners);
 
-   // if (isLoading) {
-   //    return <p>Loading...</p>;
-   // }
+   if (isLoading) {
+      return <p>Loading...</p>;
+   }
 
-   // if (error) {
-   //    return <p>Error: {error.message}</p>;
-   // }
-   // const partnerData = data.result || [];
-   const partnerData = [
-      {
-         id: 1,
-         link: "https://baza-trainee.tech/",
-         linkImg: logoBaza,
-      },
-
-      {
-         id: 2,
-         link: "https://juniverse.com.ua/",
-         linkImg: juniverseLogo,
-      },
-      {
-         id: 3,
-         link: "https://www.linkedin.com/company/content-chameleon-sales-agency/",
-         linkImg: contentChameleonLogo,
-      },
-      {
-         id: 4,
-         link: "https://dontpanic.team/",
-         linkImg: dontPanicLogo,
-      },
-   ];
-
+   if (error) {
+      return <p>Error: {error.message}</p>;
+   }
+   const partnerData = data.partners || [];
+ 
    const settings = {
       dots: false,
       arrows: false,
@@ -110,7 +87,7 @@ export const Partners = () => {
                   <li className="partner-card" key={partner.id}>
                      <div className="card">
                         <a className="partner_img" href={partner.link} target="_blank">
-                           <img src={partner.linkImg} />
+                        <img src={`https://dokoopy.onrender.com/${partner.imageURL}`} />
                         </a>
                      </div>
                   </li>
