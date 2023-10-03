@@ -12,7 +12,8 @@ export const Login = () => {
    const [typeName, setTypeName] = useState("password");
    const {logIn} = useAdminContext();
 
-   function click() {
+   function click(e) {
+      console.log(e)
       setType(!type);
       if (type) {
          setTypeName("text");

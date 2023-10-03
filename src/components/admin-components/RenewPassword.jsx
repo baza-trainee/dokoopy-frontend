@@ -1,23 +1,86 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { LoginEyeOpened } from "../../assets/admin-icons/login-eye-opened";
+import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
+
 export const RenewPassword = () => {
    const navigate = useNavigate();
+   const [type, setType] = useState(true);
+   const [typeName, setTypeName] = useState("password");
+   const token = window.location.pathname;
+
+   function click() {
+      setType(!type);
+      if (type) {
+         setTypeName("text");
+      } else {
+         setTypeName("password");
+      }
+   }
+
+   let userSchema = yup.object({
+      password: yup
+    .string()
+    .required('Введіть пароль'),
+  confirmPassword: yup
+    .string()
+    .required('Введіть пароль')
+    .oneOf([yup.ref("password")], "Паролі не співпадають"),
+   });
+
+   const {
+      register,
+      reset,
+      handleSubmit,
+      formState: { errors },
+   } = useForm({ resolver: yupResolver(userSchema) });
+
+   function onSubmit(e) {
+      fetch(`https://dokoopy.onrender.com/api/auth/admin/reset-password/${token}`, {
+         method: "POST",
+         headers: {
+            "Content-Type": "application/json",
+         },
+         body: JSON.stringify({password: e.password})
+      })
+      reset({ password: "", confirmPassword: "" });
+      navigate("/successful-renew");
+   }
 
    return (
       <div className="renew-content">
          <div className="login-content forget-h2">
             <h2>Завершення відновлення пароля</h2>
-            <form className="login-form">
-               <p className="login-text renew-text">Новий пароль</p>
+            <form onSubmit={handleSubmit(onSubmit)} className="login-form">
+            <label className={errors.password ? "login-input pass errorText" : "login-input pass"}>
+               Новий пароль*
                <input
-                  className="login-input renew-input"
-                  type="password"
-                  placeholder="Введіть новий пароль"
+                  {...register("password")}
+                  type={typeName}
+                  placeholder={errors.password ? errors.password?.message : "************"}
                />
-               <p className="login-text renew-text">Повторіть новий пароль</p>
+               {!type ? (
+                  <LoginEyeClosed onClick={() => click()} />
+               ) : (
+                  <LoginEyeOpened onClick={() => click()} />
+               )}
+            </label>
+            <label className={errors.confirmPassword ? "login-input pass errorText" : "login-input pass"}>
+               Повторити новий пароль*
                <input
-                  className="login-input renew-input"
-                  type="password"
-                  placeholder="Повторіть новий пароль"
+                  {...register("confirmPassword")}
+                  type={typeName}
+                  placeholder={errors.confirmPassword ? errors.confirmPassword?.message : "************"}
                />
+               {!type ? (
+                  <LoginEyeClosed onClick={() => click()} />
+               ) : (
+                  <LoginEyeOpened onClick={() => click()} />
+               )}
+            </label>
                <button type="submit">Змінити пароль</button>
             </form>
          </div>
