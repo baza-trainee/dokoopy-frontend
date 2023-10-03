@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PageHeader } from "../../../components/admin-components/PageHeader";
-import { InputLink } from '../../../components/admin-components/formElememt/InputLink'
+import { InputSm } from '../../../components/admin-components/formElememt/InputSm';
 
 export const EditContact = () => {
    const contactsData = [
@@ -34,12 +34,12 @@ export const EditContact = () => {
          <PageHeader title={"Редагувати контакти"} />   
          <div className='edit-contact-form-wrap'>
             <div className='edit-contact-form'>          
-               <InputLink                  
+               <InputSm                  
                   setSmInput={setEmail}
                   label={"Email:"}
                   value={email} 
                /> 
-               <InputLink                  
+               <InputSm                  
                   setSmInput={setTelegram}
                   label={"Telegram:"}
                   value={telegram} 
