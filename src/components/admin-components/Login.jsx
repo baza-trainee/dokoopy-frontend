@@ -10,9 +10,10 @@ import { useAdminContext } from "../provider-components/admin-provider";
 export const Login = () => {
    const [type, setType] = useState(true);
    const [typeName, setTypeName] = useState("password");
-   const {logIn} = useAdminContext();
+   // const {logIn} = useAdminContext();
 
-   function click() {
+   function click(e) {
+      console.log(e)
       setType(!type);
       if (type) {
          setTypeName("text");
@@ -42,7 +43,7 @@ export const Login = () => {
          body: JSON.stringify(e)
       })
          .then(res => res.json())
-         .then(res => logIn(res))
+         // .then(res => logIn(res))
          .catch(e => console.warn(e));
       reset({ email: "", password: "" });
    }
