@@ -9,35 +9,29 @@
 }
 .language-liable {
    color: var(--admin-title-color);
-   font-style: normal;
    font-weight: 500;
-   line-height: normal;
+   font-size: 18px;
 }
 
 .input-liable {
    margin-bottom: 14px;
    color: var(--admin-title-color);
    font-size: 18px;
-   font-style: normal;
    font-weight: 500;
-   line-height: normal;
 }
 .sm-input {
    font-family: Roboto;
    width: 100%;
-   height: 47px;
+   height: 45px;
    border-radius: 6px;
    font-size: 18px;
    padding-left: 10px;
-   border: solid 1px#EBEBEB;
+   border: solid 1px var(--admin-table-header-background);
+   &:focus {
+      outline: none;
+   }
 }
 .input-link {
-   font-family: Roboto;
-   width: 100%;
-   height: 47px;
-   border-radius: 6px;
-   font-size: 18px;
-   padding-left: 10px;
    border: solid 1px#EBEBEB;
    color: var(--admin-button-accent);
    text-decoration: underline;
@@ -46,7 +40,7 @@
    }
 }
 .input-blok {
-   height: 84px;
+   height: 80px;
 }
 .text-area-blok {
    position: relative;
@@ -63,6 +57,9 @@
    resize: none;
    line-height: 21.09px;
    border: solid 1px var(--admin-table-header-background);
+   &:focus {
+      outline: none;
+   }
 }
 .counter-input {
    position: absolute;
@@ -98,15 +95,13 @@
    align-items: center;
    justify-content: center;
 }
+
 .editImg-default {
    display: block;
    height: 121px;
    width: 188px;
    object-fit: cover;
 }
-// .active-drop {
-//    background: red;
-// }
 .liable-piker {
    margin: 0px;
    padding: 0px;
@@ -122,6 +117,12 @@
    cursor: pointer;
    width: 24px;
    height: 24px;
+   border-radius: 5px;
+   transition: var(--transition);
+   &:hover {
+      color: var(--admin-button-accent);
+      background-color: var(--admin-secondary-accent);
+   }
 }
 .partner-file-blok {
    // margin: 38px 0;
@@ -159,7 +160,7 @@
    margin: 0 auto;
 }
 
-@media screen and (max-width: 1280px) {
+@media (max-width: 1279px) {
    .desc-files-picker {
       display: none;
    }
@@ -174,7 +175,7 @@
       width: 100%;
    }
    .drag-input {
-      margin: 38px auto;
+      margin: 28px auto;
    }
    .text-area-blok {
       // margin-bottom: 0px;
@@ -194,24 +195,23 @@
       margin-bottom: 10px;
    }
 }
-@media (max-width: 768px) {
-   .right-input-blok {
-      width: 384px;
-   }
+@media (max-width: 767px) {
    .drag-input {
       width: 100%;
       height: 244px;
    }
-}
-@media (max-width: 480px) {
-   .form-container {
-      margin: 40px auto;
+   .sm-input {
+      height: 38px;
    }
-   .right-input-blok {
-      width: 250px;
+   .lg-input {
+      height: 135px;
+   }
+   .counter-input {
       font-size: 16px;
    }
+}
+@media (max-width: 480px) {
    .added-form {
-      padding: 0px;
+      padding: 0 10px;
    }
 }

@@ -1,12 +1,28 @@
 import Slider from "react-slick";
+
+import localization from "../../assets/language-switcher/localization";
+
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+
 import contentChameleonLogo from "../../assets/images/content-chameleon-logo.svg";
 import dontPanicLogo from "../../assets/images/dont-panic-logo.svg";
 import juniverseLogo from "../../assets/images/juniverse-logo.svg";
 import logoBaza from "../../assets/images/logo-baza.svg";
+// import { useLoadingData } from "../../hook/useLoadingData";
+// import { lendingData } from "../../api/api";
 
 export const Partners = () => {
+   // const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getPartners);
+
+   // if (isLoading) {
+   //    return <p>Loading...</p>;
+   // }
+
+   // if (error) {
+   //    return <p>Error: {error.message}</p>;
+   // }
+   // const partnerData = data.result || [];
    const partnerData = [
       {
          id: 1,
@@ -86,7 +102,7 @@ export const Partners = () => {
    return (
       <div className="partner">
          <div className="container">
-            <h2 className="title">Наші партнери</h2>
+            <h2 className="title">{localization.partners.title}</h2>
          </div>
          <ul className="partners_list">
             <Slider {...settings}>

@@ -5,10 +5,13 @@ import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useAdminContext } from "../provider-components/admin-provider";
 
 export const Login = () => {
    const [type, setType] = useState(true);
    const [typeName, setTypeName] = useState("password");
+   const {logIn} = useAdminContext();
+
    function click() {
       setType(!type);
       if (type) {
@@ -33,10 +36,13 @@ export const Login = () => {
    function onSubmit(e) {
       fetch("https://dokoopy.onrender.com/api/auth/admin/login", {
          method: "POST",
-         body: e,
+         headers: {
+            "Content-Type": "application/json",
+         },
+         body: JSON.stringify(e)
       })
          .then(res => res.json())
-         .then(res => console.log(res))
+         .then(res => logIn(res))
          .catch(e => console.warn(e));
       reset({ email: "", password: "" });
    }

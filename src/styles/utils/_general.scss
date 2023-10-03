@@ -126,3 +126,14 @@ body {
    justify-content: flex-end;
    align-items: center;
 }
+.edit-icon path {
+   stroke: var(--admin-main-font);
+   stroke-width: 1.5;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+   transition: stroke 0.3s ease;
+ }
+
+ .edit-icon:hover path {
+   stroke: var(--admin-main-accent);
+ }

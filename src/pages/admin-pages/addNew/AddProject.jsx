@@ -4,12 +4,14 @@ import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
 
 export const AddProject = () => {
-   const { data, eventLoading } = useLoadingData(AdminApi.addProject, true);
+   const { eventLoading } = useLoadingData(AdminApi.addProject, true);
 
    const submitClick = data => {
       const formData = new FormData();
-      formData.append("title", data.smInput);
-      formData.append("description", data.lgInput);
+      formData.append("title", data.title);
+      formData.append("title_eng", data.titleEN);
+      formData.append("description", data.description);
+      formData.append("description_eng", data.descriptionEN);
       formData.append("imageURL", data.selectedFile);
       eventLoading(formData);
    };
@@ -17,8 +19,6 @@ export const AddProject = () => {
       <section className="page-container">
          <PageHeader title={"Додати новий проєкт"} />
          <AddForm
-            // smPlaceholder={"Введіть назву проєкту"}
-            // lgPlaceholder={"Додайте опис проєкту"}
             lgLiable={"Опис проєкту*"}
             smLiable={"Назва проєкту*"}
             nameButton={"Додати проєкт"}

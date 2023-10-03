@@ -1,22 +1,21 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import leftArow from "../../assets/icon/Vector.svg";
 import removeIcon from "../../assets/icon/remove-icon.svg";
 import { AdminModal } from "../admin-components/AdminModal";
-import { useState } from "react";
 
-
-export const PageHeader = ({ title, edit }) => {
+export const PageHeader = ({ title, edit, removeClick }) => {
    const navigate = useNavigate();
 
    const [isModalOpen, setIsModalOpen] = useState(false);
 
    const handleOpenModal = () => {
       setIsModalOpen(true);
-    };
-  
-    const handleCloseModal = () => {
+   };
+
+   const handleCloseModal = () => {
       setIsModalOpen(false);
-    };
+   };
 
    return (
       <>
@@ -28,14 +27,14 @@ export const PageHeader = ({ title, edit }) => {
             {edit && (
                <button className="remove-btn" onClick={handleOpenModal}>
                   <div>
-                     <p className="remove-btn-text" >Видалити</p>
+                     <p className="remove-btn-text">Видалити</p>
                      <img src={removeIcon}></img>
                   </div>
                </button>
             )}
          </div>
          <div className="divider"></div>
-         {isModalOpen && <AdminModal onClose={handleCloseModal}/>}
+         {isModalOpen && <AdminModal removeItem={removeClick} onClose={handleCloseModal} />}
       </>
    );
 };
