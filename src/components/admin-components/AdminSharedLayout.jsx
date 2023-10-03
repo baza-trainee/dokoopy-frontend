@@ -16,7 +16,7 @@ export const AdminSharedLayout = () => {
                <main className="admin-backdrop">
                   <Outlet />
                </main>
-               <AdminFooter></AdminFooter>
+               {/* <AdminFooter></AdminFooter> */}
             </div>
          </div>
       </AdminProvider>

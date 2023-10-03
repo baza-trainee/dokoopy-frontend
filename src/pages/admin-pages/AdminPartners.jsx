@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import defaultIcon from "../../assets/icon/baza_trainee.svg";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
+// import { useLoadingData } from "../../hook/useLoadingData";
+// import { AdminApi } from "../../api/api";
 
 const dataPartners = [
    {
@@ -37,46 +39,14 @@ const dataPartners = [
 
 export const AdminPartners = () => {
    const { pathname } = useLocation();
+   // const { token } = useAdminContext();
+   // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGFzanVrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjMyMjk1NCwiZXhwIjoxNjk2MzI2NTU0fQ.Wg-a2jPrXNkvKpqd0MT4JE_teE87-l7dhHOcMsm3BtA";
+//   const { data, isLoading, error } = useLoadingData(() => AdminApi.getPartnersAdmin(token));
+
    return (
       <div className="admin-hero">
          <AdminMainHeader title={"Партнери"} previousPage={pathname} />
-         <AdminMainInnerPart name="Name" photo="Photo" link="Link" data={dataPartners} />
-         {/* <div className="admin-hero-main">
-            <div className="admin-hero-main-header">
-               <div className="admin-hero-main-header-wrapper">
-               <div className="admin-hero-main-header-title">Name</div>
-               <div className="admin-hero-main-header-title">Photo</div>
-               <div className="admin-hero-main-header-title">Date</div>
-               <div className="admin-hero-main-header-title"></div>
-               </div>
-            </div>
-            <ul className="admin-hero-main-content"> 
-               {dataPartners.map(slider => {
-                  return (
-                     <li key={slider.id} className="admin-hero-main-content-element">
-                        <div className="content-element-wrapper">
-                        <div className="content-element-name">{slider.name}</div>
-                        <div className="content-element-img-box">
-                           <div className="wrapper-img-box">
-                              <img src={slider.link} alt={slider.alt}
-                              className="content-element-img">
-                              </img>
-                           </div>
-                        </div>
-                        <div className="content-element-data">{slider.date}</div>
-                        <div className="content-edit-icon-box">
-                           <div className="wrapper-edit-icon-box">
-                              <div className="content-edit-icon"></div>
-                           </div>
-                        </div>
-                        </div>
-
-                     </li>
-
-                  );
-               })}
-            </ul>
-         </div> */}
+         <AdminMainInnerPart name="Назва" photo="Фото" link="URL" data={dataPartners} />
       </div>
    );
 };

@@ -4,8 +4,11 @@ import { LogoFooterIcon } from "../../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
 import policy from "../../assets/documents/policy.pdf";
 import rules from "../../assets/documents/rules.pdf";
+import { useLoadingData } from "../../hook/useLoadingData";
+import { lendingData } from "../../api/api";
 
 export const Footer = () => {
+   const { data, isLoading, error } = useLoadingData(lendingData.getReport);
    return (
       <footer className="footer">
          <div className="container">
@@ -26,6 +29,14 @@ export const Footer = () => {
                   <a href={rules} target="_blank" className="footer-policy-link" rel="noreferrer">
                      {localization.conditionsOfUse}
                   </a>
+                   {!isLoading && !error && (data.reports.map(report => {
+                     return (
+                        <a key={report.id} href={`https://dokoopy.onrender.com/${report.reportURL}`}
+                        className="footer-policy-link" target="_blank" rel="noreferrer" 
+                        >{localization.report}</a>
+                     );
+                  }))}
+                  {!isLoading && error && (
                   <a className="footer-policy-link" href="/not-found">
                      {localization.report}
                   </a>
