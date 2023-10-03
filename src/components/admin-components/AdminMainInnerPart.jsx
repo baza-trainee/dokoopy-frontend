@@ -3,12 +3,11 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { AdminEditIcon } from "../../assets/admin-icons/admin-edit";
 
-export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
+export const AdminMainInnerPart = ({ name, photo, date, link, data, heroes, isLoading }) => {
    return (
       <div className="admin-main-wrapper">
          <div className="admin-main-header">
             <div className="admin-main-header-wrapper"
-               // className={date ? "admin-main-header-wrapper" : "admin-main-header-partners-wrapper"}
             >
                <div className="admin-main-header-title">{name}</div>
                <div className="admin-main-header-title">{photo}</div>
@@ -17,6 +16,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
             </div>
          </div>
          <ul className="admin-main-content">
+            {/* {!isLoading && (heroes.heroes.map(contentData => { */}
             {data.map(contentData => {
                return (
                   <li
@@ -76,4 +76,5 @@ AdminMainInnerPart.propTypes = {
    date: PropTypes.string,
    link: PropTypes.string,
    data: PropTypes.array,
+   heroes: PropTypes.array
 };

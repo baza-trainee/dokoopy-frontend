@@ -8,13 +8,13 @@
    align-items: center;
    width: 100%;
    background-color: var(--white);
-   height: 50px;
+   height: 45px;
 
 @media screen and (min-width: 768px) {
    height: 106px;
 }
 @media screen and (min-width: 1280px) {
-   height: 109px; 
+   height: 112px; 
 }
 }
 .admin-hero-header-wrapper {
@@ -25,12 +25,6 @@
    padding: 0 5px;
    @media screen and (min-width: 480px) {
      padding: 0 24px;
-   }
-   @media screen and (min-width: 768px) {
-      padding: 0 20px;
-   }
-   @media screen and (min-width: 1280px) {
-      padding: 0 24px;
    }
 }
 .admin-hero-header-title-box {
@@ -91,28 +85,14 @@
 .admin-hero-add-icon-box:hover {
    background-color: var(--admin-secondary-accent);
 }
-// .admin-hero-add-icon-wrapper {
-//    width: 24px;
-//    height: 24px;
-//    @media screen and (min-width: 768px) {
-//       width: 32px;
-//       height: 32px;
-//    }
-// }
 .admin-hero-add-icon-box p {
-   // width: 29px;
-   // height: 19px;
    margin-right: 5px;
-   // font-size: 16px;
    font-weight: 400;
-   // line-height: 18.75px;
    color: var(--admin-button-accent);
-   // @media screen and (min-width: 480px) {
       width: 36px;
       height: 23px;
       font-size: 20px;
       line-height: 23.44px;
-   // }
 }
 .admin-main-header {
    display: flex;
@@ -128,11 +108,8 @@
 }
 .content-element-img-box {
    display: block;
-   // width: 135px;
-   // height: 79px;
 }
 .wrapper-img-box {
-   // display: block;
    width: 70px;
    height: 43px;
    @media screen and (min-width: 480px) {
@@ -147,7 +124,6 @@
       width: 80px;
       height: 50px;
    }
-  
 }
 .wrapper-img-box-svg {
    width: 70px;
@@ -170,34 +146,15 @@
    height: 100%;
 }
 .content-element-name {
-   display: flex;
-   align-items: center;
-   width: 70px;
    height: 56px;
-   font-size: 15px;
-   line-height: 17.58px;
-   color: var(--admin-title-color);
-   @media screen and (min-width: 480px) {
-      width: 106px;
-   }
-   @media screen and (min-width: 768px) {
-      width: 135px;
-      font-size: 18px;
-      line-height: 21.09px;
-   }
-   
-   @media screen and (min-width: 1280px) {
-      width: 240px;
-      // font-size: 20px;
-      // line-height: 23.44px;
-   }
 }
 .content-element-name-partners {
+   height: 54px;
+}
+.content-element-name, .content-element-name-partners {
    display: flex;
    align-items: center;
    width: 70px;
-   height: 54px;
-   color: var(--text-main);
    font-size: 15px;
    line-height: 17.58px;
    color: var(--admin-title-color);
@@ -206,7 +163,6 @@
    }
    @media screen and (min-width: 768px) {
       width: 135px;
-      // height: 62px;
       font-size: 18px;
       line-height: 21.09px;
    }
@@ -219,7 +175,6 @@
    align-items: center;
    width: 70px;
    height: 34px;
-   // width: 71px;
    color: var(--text-main);
    font-size: 12px;
    line-height: 14.06px;
@@ -236,18 +191,14 @@
    }
    @media screen and (min-width: 1280px) {
       width: 240px;
-      // font-size: 20px;
-      // line-height: 23.44px;
    }
 }
 .content-element-link {
    display: flex;
    flex-direction: row;
    align-items: center;
-   // flex-wrap: wrap;
    width: 70px;
    height: 62px;
-   color: var(--text-main);
    font-size: 12px;
    line-height: 14.06px;
    color: var(--admin-main-accent);
@@ -265,7 +216,6 @@
       align-items: center;
       overflow-wrap: break-word;
       white-space: normal; 
-      // overflow: visible;
       width: 135px;
       height: 62px;
       font-size: 18px;
@@ -274,18 +224,20 @@
    @media screen and (min-width: 1280px) {
       width: 249px;
       height: 23px;
-      font-size: 20px;
-      line-height: 23.44px;
    }
-
 }
-// .admin-edit-icon {
-//    fill: blue;
-// }
-// .admin-edit-icon:hover{
-//    fill: red;
-// }
-
+.admin-edit-icon path {
+   stroke: #646464;
+   stroke-width: 1.5;
+   stroke-linecap: round;
+   stroke-linejoin: round;
+   transition: stroke 0.3s ease;
+ }
+ 
+ .admin-main-content-element:hover .admin-edit-icon path,
+ .admin-main-content-element-partners:hover .admin-edit-icon path {
+   stroke: var( --admin-button-accent);
+ }
 
 
 

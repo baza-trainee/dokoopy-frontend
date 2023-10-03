@@ -15,6 +15,7 @@ export const useLoadingData = (dataFetcher, event = false) => {
          setIsLoading(false);
       }
    };
+
    useEffect(() => {
       if (!event) {
          fetchData();
