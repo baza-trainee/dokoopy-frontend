@@ -4,7 +4,7 @@ import { PartnersForm } from "../../../components/admin-components/PartnersForm"
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const AddPartner = () => {
-   const { data, eventLoading } = useLoadingData(AdminApi.addPartners, true);
+   const { eventLoading } = useLoadingData(AdminApi.addPartners, true);
 
    const submitClick = data => {
       const formData = new FormData();
@@ -17,8 +17,6 @@ export const AddPartner = () => {
       <section className="page-container">
          <PageHeader title={"Додати нового партнера"} />
          <PartnersForm
-            smPlaceholder={"Введіть назву партнера"}
-            lgPlaceholder={"https://partnerlink/ua"}
             lgLiable={"Назва партнера*"}
             smLiable={"Назва партнера*"}
             nameButton={"Додати партнера"}

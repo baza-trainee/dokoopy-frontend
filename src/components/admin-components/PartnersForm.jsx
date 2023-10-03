@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FilesPicker } from "./formElement/FilesPicker";
 import { InputSm } from "./formElement/InputSm";
@@ -12,17 +12,25 @@ export const PartnersForm = ({
    submitClick = () => {},
    defaultInfo,
 }) => {
-   const [smInput, setSmInput] = useState(defaultInfo?.name || "");
-   const [lgInput, setLgInput] = useState(defaultInfo?.link || "");
-   const [selectedFile, setSelectedFile] = useState(defaultInfo?.img && null);
-
+   const [smInput, setSmInput] = useState("");
+   const [lgInput, setLgInput] = useState("");
+   const [selectedFile, setSelectedFile] = useState(() => null);
+   useEffect(() => {
+      if (defaultInfo) {
+         setSmInput(defaultInfo.title);
+         setLgInput(defaultInfo.description);
+         setSelectedFile(defaultInfo.imageURL);
+      }
+   }, [defaultInfo]);
    const submitClickEvent = e => {
       e.preventDefault();
-      submitClick({
-         smInput,
-         lgInput,
-         selectedFile,
-      });
+      if (smInput.length || lgInput.length || selectedFile) {
+         submitClick({
+            smInput,
+            lgInput,
+            selectedFile,
+         });
+      }
    };
    return (
       <div className="form-container">

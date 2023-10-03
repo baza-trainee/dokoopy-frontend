@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FilesPicker } from "./formElement/FilesPicker";
 import { InputSm } from "./formElement/InputSm";
 import { TextArea } from "./formElement/TextArea";
@@ -12,25 +12,32 @@ export const AddForm = ({
    defaultInfo,
    hiddenInputENG = false,
 }) => {
-   const [inputName, setInputName] = useState(defaultInfo?.name || "");
-   const [inputNameENG, setInputNameENG] = useState(defaultInfo?.nameENG || "");
-   const [inputDescription, setInputDescription] = useState(defaultInfo?.description || "");
-   const [inputDescriptionENG, setInputDescriptionENG] = useState(
-      defaultInfo?.descriptionENG || ""
-   );
-   // const [lgInput, setLgInput] = useState(defaultInfo?.description || "");
-   // const [lgInput, setLgInput] = useState(defaultInfo?.description || "");
-   const [selectedFile, setSelectedFile] = useState(defaultInfo?.img && null);
+   const [title, setTitle] = useState("");
+   const [titleEN, setTitleEn] = useState("");
+   const [description, setDescription] = useState("");
+   const [descriptionEN, setDescriptionEN] = useState("");
+   const [selectedFile, setSelectedFile] = useState(() => null);
+   useEffect(() => {
+      if (defaultInfo) {
+         setTitle(defaultInfo.title);
+         setTitleEn(defaultInfo.title_eng);
+         setDescription(defaultInfo.description);
+         setDescriptionEN(defaultInfo.description_eng);
+         setSelectedFile(defaultInfo.imageURL);
+      }
+   }, [defaultInfo]);
 
    const submitClickEvent = e => {
       e.preventDefault();
-      submitClick({
-         inputName,
-         inputNameENG,
-         inputDescription,
-         inputDescriptionENG,
-         selectedFile,
-      });
+      if (title.length && description.length && descriptionEN.length && selectedFile) {
+         submitClick({
+            title,
+            titleEN,
+            description,
+            descriptionEN,
+            selectedFile,
+         });
+      }
    };
    return (
       <div className="form-container">
@@ -46,16 +53,16 @@ export const AddForm = ({
                <div className="language-liable">UA</div>
                <InputSm
                   placeholder={smPlaceholder}
-                  value={inputName}
-                  setSmInput={setInputName}
+                  value={title}
+                  setSmInput={setTitle}
                   label={smLiable}
                />
 
                <TextArea
                   placeholder={lgPlaceholder}
-                  setLgInput={setInputDescription}
+                  setLgInput={setDescription}
                   label={lgLiable}
-                  value={inputDescription}
+                  value={description}
                />
 
                <div className="desc-files-picker">
@@ -74,17 +81,17 @@ export const AddForm = ({
                ) : (
                   <InputSm
                      placeholder={smPlaceholder}
-                     value={inputNameENG}
-                     setSmInput={setInputNameENG}
+                     value={titleEN}
+                     setSmInput={setTitleEn}
                      label={smLiable}
                   />
                )}
 
                <TextArea
                   placeholder={lgPlaceholder}
-                  setLgInput={setInputDescriptionENG}
+                  setLgInput={setDescriptionEN}
                   label={lgLiable}
-                  value={inputDescriptionENG}
+                  value={descriptionEN}
                />
 
                <div className="form-button-blok">
