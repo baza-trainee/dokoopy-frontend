@@ -3,9 +3,10 @@ import { useLocation } from "react-router-dom";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import defaultImage from "../../assets/images/default-image.jpg";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
-// import { useLoadingData } from "../../hook/useLoadingData";
-// import { AdminApi } from "../../api/api";
-// import { AdminProvider, useAdminContext } from "../../components/provider-components/admin-provider";
+import { useLoadingData } from "../../hook/useLoadingData";
+import { AdminApi } from "../../api/api";
+import { useEffect, useState } from "react";
+// import { useAdminContext } from "../../components/provider-components/admin-provider";
 
 const dataSlider = [
    {
@@ -32,25 +33,26 @@ const dataSlider = [
    },
 ];
 export const AdminHero = () => {
+   const [sliders, setSliders] = useState();
+   const data = useLoadingData(AdminApi.getHerosAdmin);
    const { pathname } = useLocation();
+
+
+   useEffect(() => {
+      if (data.data) {
+         setSliders(data);
+      }
+   }, []);
    // const { token } = useAdminContext();
-   // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGFzanVrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjMyNjE4NSwiZXhwIjoxNjk2MzI5Nzg1fQ.VC4-pCuwpVVovD2qa1fawalTMWYL6RFYbArf-4RU-9k";
-   // const headers = {
-   //    "Content-Type": "application/json",
-   //    Authorization: `Bearer ${token}`,
-   // };
-   // const { data, isLoading, error } = useLoadingData(() => AdminApi.getHerosAdmin(token));
-   // let dataFromBack;
-   // if(data !== null) {
-   //    console.log(data);
-   //    dataFromBack = data;
-   // }
-   // !isLoading ? console.log(data) : null;
+
+   console.log(data);
+   console.log(sliders);
+   // sliders.data.heroes;
    
    return (
       <div className="admin-hero">
          <AdminMainHeader title={"Слайдер"} previousPage={pathname} />
-         <AdminMainInnerPart name="Назва" photo="Фото" date="Дата" data={dataSlider} />
+         <AdminMainInnerPart name="Назва" photo="Фото" date="Дата" data={data.data.heroes} />
       </div>
    );
 };

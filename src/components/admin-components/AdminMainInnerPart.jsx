@@ -42,7 +42,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                            className={contentData.date ? "wrapper-img-box" : "wrapper-img-box-svg"}
                         >
                            <img
-                              src={contentData.img}
+                              src={`"https://dokoopy.onrender.com/api/${contentData.imageURL}`}
                               alt={contentData.alt}
                               className="content-element-img"
                            ></img>
