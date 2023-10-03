@@ -9,8 +9,20 @@ import contentChameleonLogo from "../../assets/images/content-chameleon-logo.svg
 import dontPanicLogo from "../../assets/images/dont-panic-logo.svg";
 import juniverseLogo from "../../assets/images/juniverse-logo.svg";
 import logoBaza from "../../assets/images/logo-baza.svg";
+// import { useLoadingData } from "../../hook/useLoadingData";
+// import { lendingData } from "../../api/api";
 
 export const Partners = () => {
+   // const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getPartners);
+
+   // if (isLoading) {
+   //    return <p>Loading...</p>;
+   // }
+
+   // if (error) {
+   //    return <p>Error: {error.message}</p>;
+   // }
+   // const partnerData = data.result || [];
    const partnerData = [
       {
          id: 1,

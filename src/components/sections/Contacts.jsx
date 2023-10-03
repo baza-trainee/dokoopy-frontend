@@ -1,8 +1,14 @@
+
 import localization from "../../assets/language-switcher/localization";
 
+import { lendingData } from "../../api/api";
+import { useLoadingData } from "../../hook/useLoadingData";
+
 export const Contacts = () => {
+
+   const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getContact);
    return (
-      <div className="contact">
+      <section className="contact">
          <div className="container">
             <div className="contact-box">
                <div className="contact-box-title">
@@ -10,20 +16,16 @@ export const Contacts = () => {
                   <p className="contact-box-title-p">{localization.contacts.appeal}</p>
                </div>
                <div className="contact-link ">
-                  <a className="navigation-list-item" href="mailto:eugene@dontpanic.team">
+                 <a className="navigation-list-item" href={`mailto:${data?.contacts?.email}`}>
                      email
                   </a>
-                  <a
-                     className="navigation-list-item"
-                     href="https://t.me/Boooble_boo"
-                     target="_blanck"
-                  >
+                  <a className="navigation-list-item" href={`${data?.contacts?.telegram}`} target="_blank">
                      telegram
                   </a>
                </div>
             </div>
          </div>
-      </div>
+      </section>
    );
 };
 

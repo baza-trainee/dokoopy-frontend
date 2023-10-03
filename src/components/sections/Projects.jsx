@@ -5,74 +5,28 @@ import localization from "../../assets/language-switcher/localization";
 
 import defImg from "../../assets/images/default-image.jpg";
 
-import photo1 from "../../assets/mockProject/photo_1.jpg";
-import photo2 from "../../assets/mockProject/photo_2.png";
-import photo3 from "../../assets/mockProject/photo_3.jpg";
-import photo4 from "../../assets/mockProject/photo_4.jpg";
+import { lendingData } from "../../api/api";
+import { formatData, sortData } from "../../assets/helpers";
+import { useLoadingData } from "../../hook/useLoadingData";
 
-// import { lendingData } from "../../api/api";
-// import { formatData, sortData } from "../../assets/helpers";
-// import { useLoadingData } from "../../hook/useLoadingData";
 import ProjectSlider from "./ProjectSlider";
-export const Projects = () => {
-   const [projectsData, setProjectsData] = useState([]);
 
-   // const { data, isLoading } = useLoadingData(lendingData.getProject);
+export const Projects = () => {
+   const { data, error, isLoading, eventLoading } = useLoadingData(lendingData.getProject);
 
    useEffect(() => {
-      // if (data) {
-      //    setProjectsData(sortData(data.projects));
-      // }
+      if (error) {
+         console.error(error);
+      }
+      
+      if (data) {         
+         setProjectsData(sortData(data.projects));
+         console.log(data); 
+      }
 
-      const dataFromBackend = [
-         {
-            id: 1,
-            imageSrc: photo1,
-            date: "31 серпня 2023",
-            title: "Збір на 57 бригаду",
-            description:
-               "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-            alt: "Зображення проекту 1",
-         },
-         {
-            id: 2,
-            imageSrc: photo2,
-            date: "15 серпня 2023",
-            title: "Збір на 57 бригаду",
-            description:
-               "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-            alt: "Зображення проекту 2",
-         },
-         {
-            id: 3,
-            imageSrc: photo3,
-            date: "15 серпня 2023",
-            title: "Збір на 57 бригаду",
-            description: "Ми – 57 бригада та беремо участь у найзапекліших боях. ",
-            alt: "Зображення проекту 2",
-         },
-         {
-            id: 4,
-            imageSrc: photo4,
-            date: "05 серпня 2023",
-            title: "Збір на 57 бригаду",
-            description:
-               "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-            alt: "Зображення проекту 4",
-         },
-         {
-            id: 5,
-            imageSrc: "",
-            date: "31 серпня 2023",
-            title: "Збір на 57 бригаду",
-            description:
-               "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-            alt: "Зображення проекту 5",
-         },
-      ];
+   }, [data, error]);
 
-      setProjectsData(dataFromBackend);
-   }, []);
+   const [projectsData, setProjectsData] = useState([]);
 
    return (
       <div className="projects">
@@ -83,8 +37,8 @@ export const Projects = () => {
                   <li key={project.id} className="project-cart">
                      <img
                         className="projects-block-box-img"
-                        // src={`https://dokoopy.onrender.com/${project.imageURL}`}
-                        src={project.imageSrc || defImg}
+                        src={`https://dokoopy.onrender.com/${project.imageURL}` || defImg }
+                       
                         alt={project.title}
                      />
 
