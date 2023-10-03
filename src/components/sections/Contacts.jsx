@@ -1,6 +1,6 @@
 export const Contacts = () => {
    return (
-      <div className="contact">
+      <section className="contact">
          <div className="container">
             <div className="contact-box">
             <div className="contact-box-title">
@@ -21,6 +21,6 @@ export const Contacts = () => {
                
             </div>
          </div>
-      </div>
+      </section>
    );
 };
