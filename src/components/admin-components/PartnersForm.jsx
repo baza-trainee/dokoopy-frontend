@@ -3,11 +3,9 @@ import { useEffect, useState } from "react";
 import { FilesPicker } from "./formElement/FilesPicker";
 import { InputSm } from "./formElement/InputSm";
 export const PartnersForm = ({
-   smPlaceholder,
-   lgPlaceholder,
    lgLiable,
    smLiable,
-
+   isEdit,
    nameButton,
    submitClick = () => {},
    defaultInfo,
@@ -40,23 +38,13 @@ export const PartnersForm = ({
                   selectedFile={selectedFile}
                   setSelectedFile={setSelectedFile}
                   defaultInfo={defaultInfo}
+                  isEdit={isEdit}
                />
             </div>
             <div className="form-input-container">
-               <InputSm
-                  placeholder={smPlaceholder}
-                  value={smInput}
-                  setSmInput={setSmInput}
-                  label={smLiable}
-               />
+               <InputSm value={smInput} setSmInput={setSmInput} label={smLiable} />
 
-               <InputSm
-                  placeholder={lgPlaceholder}
-                  setSmInput={setLgInput}
-                  label={lgLiable}
-                  value={lgInput}
-                  isLink={true}
-               />
+               <InputSm setSmInput={setLgInput} label={lgLiable} value={lgInput} isLink={true} />
 
                <div className="form-button-blok">
                   <button className="admin-button">{nameButton}</button>

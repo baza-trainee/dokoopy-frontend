@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { EditIcon } from "../../../assets/icon/EditIcon";
 import successIcon from "../../../assets/icon/success-icon.svg";
 
-export const FilesPicker = ({ defaultInfo, selectedFile, setSelectedFile }) => {
+export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile }) => {
    const [onLeave, setOnLeave] = useState(false);
    const [isSuccessFile, setSuccessFile] = useState(false);
    const filePicker = useRef(null);
@@ -38,7 +38,7 @@ export const FilesPicker = ({ defaultInfo, selectedFile, setSelectedFile }) => {
       >
          <div className="label-icon-blok">
             <p className="input-liable">Фото*</p>
-            {defaultInfo && (
+            {isEdit && (
                <div onClick={handelPick} className="edit-button-icon">
                   <EditIcon />
                </div>

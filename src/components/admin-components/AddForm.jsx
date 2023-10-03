@@ -3,8 +3,7 @@ import { FilesPicker } from "./formElement/FilesPicker";
 import { InputSm } from "./formElement/InputSm";
 import { TextArea } from "./formElement/TextArea";
 export const AddForm = ({
-   smPlaceholder,
-   lgPlaceholder,
+   isEdit,
    lgLiable,
    smLiable,
    nameButton,
@@ -48,28 +47,20 @@ export const AddForm = ({
                      selectedFile={selectedFile}
                      setSelectedFile={setSelectedFile}
                      defaultInfo={defaultInfo}
+                     isEdit={isEdit}
                   />
                </div>
                <div className="language-liable">UA</div>
-               <InputSm
-                  placeholder={smPlaceholder}
-                  value={title}
-                  setSmInput={setTitle}
-                  label={smLiable}
-               />
+               <InputSm value={title} setSmInput={setTitle} label={smLiable} />
 
-               <TextArea
-                  placeholder={lgPlaceholder}
-                  setLgInput={setDescription}
-                  label={lgLiable}
-                  value={description}
-               />
+               <TextArea setLgInput={setDescription} label={lgLiable} value={description} />
 
                <div className="desc-files-picker">
                   <FilesPicker
                      selectedFile={selectedFile}
                      setSelectedFile={setSelectedFile}
                      defaultInfo={defaultInfo}
+                     isEdit={isEdit}
                   />
                </div>
             </div>
@@ -79,20 +70,10 @@ export const AddForm = ({
                {hiddenInputENG ? (
                   <div className="input-blok"> </div>
                ) : (
-                  <InputSm
-                     placeholder={smPlaceholder}
-                     value={titleEN}
-                     setSmInput={setTitleEn}
-                     label={smLiable}
-                  />
+                  <InputSm value={titleEN} setSmInput={setTitleEn} label={smLiable} />
                )}
 
-               <TextArea
-                  placeholder={lgPlaceholder}
-                  setLgInput={setDescriptionEN}
-                  label={lgLiable}
-                  value={descriptionEN}
-               />
+               <TextArea setLgInput={setDescriptionEN} label={lgLiable} value={descriptionEN} />
 
                <div className="form-button-blok">
                   <button className="admin-button">{nameButton}</button>
