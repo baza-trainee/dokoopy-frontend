@@ -18,7 +18,6 @@ export const Partners = () => {
    // if (error) {
    //    return <p>Error: {error.message}</p>;
    // }
-
    // const partnerData = data.result || [];
    const partnerData = [
       {
