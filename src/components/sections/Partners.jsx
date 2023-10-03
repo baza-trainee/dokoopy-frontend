@@ -1,6 +1,10 @@
 import Slider from "react-slick";
+
+import localization from "../../assets/language-switcher/localization";
+
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
+
 import contentChameleonLogo from "../../assets/images/content-chameleon-logo.svg";
 import dontPanicLogo from "../../assets/images/dont-panic-logo.svg";
 import juniverseLogo from "../../assets/images/juniverse-logo.svg";
@@ -98,7 +102,7 @@ export const Partners = () => {
    return (
       <div className="partner">
          <div className="container">
-            <h2 className="title">Наші партнери</h2>
+            <h2 className="title">{localization.partners.title}</h2>
          </div>
          <ul className="partners_list">
             <Slider {...settings}>
