@@ -40,7 +40,9 @@ export const Footer = () => {
                   <a className="footer-policy-link" href="/not-found">
                      {localization.report}
                   </a>
+                  )}
                </div>
+                  
                <p className="footer-policy-text">{localization.footerText}</p>
             </div>
          </div>

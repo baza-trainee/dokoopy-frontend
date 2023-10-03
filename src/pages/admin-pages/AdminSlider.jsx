@@ -52,7 +52,7 @@ export const AdminHero = () => {
    return (
       <div className="admin-hero">
          <AdminMainHeader title={"Слайдер"} previousPage={pathname} />
-         <AdminMainInnerPart name="Назва" photo="Фото" date="Дата" data={data.data.heroes} />
+         <AdminMainInnerPart name="Назва" photo="Фото" date="Дата" data={dataSlider} />
       </div>
    );
 };
