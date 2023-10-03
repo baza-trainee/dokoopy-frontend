@@ -1,21 +1,6 @@
 export const EditIcon = () => {
   return (
     <div className="edit-icon">
-      <style>
-        {`
-          .edit-icon path {
-            stroke: #646464;
-            stroke-width: 1.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            transition: stroke 0.3s ease;
-          }
-
-          .edit-icon:hover path {
-            stroke: #2672E4;
-          }
-        `}
-      </style>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
