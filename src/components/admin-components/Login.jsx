@@ -4,6 +4,7 @@ import { LoginEyeOpened } from "../../assets/admin-icons/login-eye-opened";
 import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Cookies from 'universal-cookie';
 import * as yup from "yup";
 
 export const Login = () => {
@@ -30,13 +31,18 @@ export const Login = () => {
       formState: { errors },
    } = useForm({ resolver: yupResolver(userSchema) });
 
+   const cookies = new Cookies();
+
    function onSubmit(e) {
       fetch("https://dokoopy.onrender.com/api/auth/admin/login", {
          method: "POST",
-         body: e,
+         headers: {
+            "Content-Type": "application/json",
+         },
+         body: JSON.stringify(e)
       })
          .then(res => res.json())
-         .then(res => console.log(res))
+         .then(res => cookies.set('authKey', res, { path: '/' }))
          .catch(e => console.warn(e));
       reset({ email: "", password: "" });
    }
