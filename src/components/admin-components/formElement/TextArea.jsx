@@ -10,7 +10,7 @@ export const TextArea = ({ setLgInput, label, placeholder, value }) => {
             placeholder={placeholder}
             onChange={e => setLgInput(e.target.value)}
          ></textarea>
-         <p className="counter-input">{`${value.length}/300`}</p>
+         <p className="counter-input">{`${value?.length}/300`}</p>
       </div>
    );
 };

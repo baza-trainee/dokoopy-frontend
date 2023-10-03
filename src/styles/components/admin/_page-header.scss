@@ -5,12 +5,12 @@
    display: flex;
    justify-content: space-between;
    align-items: center;
-   padding: 0 40px;
+   padding: 0 24px;
    position: relative;
 }
 .title-icon {
    display: flex;
-   gap: 8px;
+   gap: 10px;
    & img {
       cursor: pointer;
    }
@@ -53,4 +53,10 @@
    //    width: 20px;
    //    height: 20px;
    // }
+}
+
+@media (max-width: 480px) {
+   .sub-title-container {
+      padding: 0 10px;
+   }
 }

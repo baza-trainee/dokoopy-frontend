@@ -1,29 +1,34 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { FilesPicker } from "./formElememt/FilesPicker";
-import { InputLink } from "./formElememt/InputLink";
-import { InputSm } from "./formElememt/InputSm";
+import { FilesPicker } from "./formElement/FilesPicker";
+import { InputSm } from "./formElement/InputSm";
 export const PartnersForm = ({
-   smPlaceholder,
-   lgPlaceholder,
    lgLiable,
    smLiable,
-
+   isEdit,
    nameButton,
    submitClick = () => {},
    defaultInfo,
 }) => {
-   const [smInput, setSmInput] = useState(defaultInfo?.name || "");
-   const [lgInput, setLgInput] = useState(defaultInfo?.link || "");
-   const [selectedFile, setSelectedFile] = useState(defaultInfo?.img && null);
-
+   const [smInput, setSmInput] = useState("");
+   const [lgInput, setLgInput] = useState("");
+   const [selectedFile, setSelectedFile] = useState(() => null);
+   useEffect(() => {
+      if (defaultInfo) {
+         setSmInput(defaultInfo.title);
+         setLgInput(defaultInfo.description);
+         setSelectedFile(defaultInfo.imageURL);
+      }
+   }, [defaultInfo]);
    const submitClickEvent = e => {
       e.preventDefault();
-      submitClick({
-         smInput,
-         lgInput,
-         selectedFile,
-      });
+      if (smInput.length || lgInput.length || selectedFile) {
+         submitClick({
+            smInput,
+            lgInput,
+            selectedFile,
+         });
+      }
    };
    return (
       <div className="form-container">
@@ -33,22 +38,13 @@ export const PartnersForm = ({
                   selectedFile={selectedFile}
                   setSelectedFile={setSelectedFile}
                   defaultInfo={defaultInfo}
+                  isEdit={isEdit}
                />
             </div>
             <div className="form-input-container">
-               <InputSm
-                  placeholder={smPlaceholder}
-                  value={smInput}
-                  setSmInput={setSmInput}
-                  label={smLiable}
-               />
+               <InputSm value={smInput} setSmInput={setSmInput} label={smLiable} />
 
-               <InputLink
-                  placeholder={lgPlaceholder}
-                  setSmInput={setLgInput}
-                  label={lgLiable}
-                  value={lgInput}
-               />
+               <InputSm setSmInput={setLgInput} label={lgLiable} value={lgInput} isLink={true} />
 
                <div className="form-button-blok">
                   <button className="admin-button">{nameButton}</button>

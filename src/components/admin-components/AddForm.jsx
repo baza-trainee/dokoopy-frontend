@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { FilesPicker } from "./formElememt/FilesPicker";
-import { InputSm } from "./formElememt/InputSm";
-import { TextArea } from "./formElememt/TextArea";
+import { useEffect, useState } from "react";
+import { FilesPicker } from "./formElement/FilesPicker";
+import { InputSm } from "./formElement/InputSm";
+import { TextArea } from "./formElement/TextArea";
 export const AddForm = ({
-   smPlaceholder,
-   lgPlaceholder,
+   isEdit,
    lgLiable,
    smLiable,
    nameButton,
@@ -12,25 +11,32 @@ export const AddForm = ({
    defaultInfo,
    hiddenInputENG = false,
 }) => {
-   const [inputName, setInputName] = useState(defaultInfo?.name || "");
-   const [inputNameENG, setInputNameENG] = useState(defaultInfo?.nameENG || "");
-   const [inputDescription, setInputDescription] = useState(defaultInfo?.description || "");
-   const [inputDescriptionENG, setInputDescriptionENG] = useState(
-      defaultInfo?.descriptionENG || ""
-   );
-   // const [lgInput, setLgInput] = useState(defaultInfo?.description || "");
-   // const [lgInput, setLgInput] = useState(defaultInfo?.description || "");
-   const [selectedFile, setSelectedFile] = useState(defaultInfo?.img && null);
+   const [title, setTitle] = useState("");
+   const [titleEN, setTitleEn] = useState("");
+   const [description, setDescription] = useState("");
+   const [descriptionEN, setDescriptionEN] = useState("");
+   const [selectedFile, setSelectedFile] = useState(() => null);
+   useEffect(() => {
+      if (defaultInfo) {
+         setTitle(defaultInfo.title);
+         setTitleEn(defaultInfo.title_eng);
+         setDescription(defaultInfo.description);
+         setDescriptionEN(defaultInfo.description_eng);
+         setSelectedFile(defaultInfo.imageURL);
+      }
+   }, [defaultInfo]);
 
    const submitClickEvent = e => {
       e.preventDefault();
-      submitClick({
-         inputName,
-         inputNameENG,
-         inputDescription,
-         inputDescriptionENG,
-         selectedFile,
-      });
+      if (title.length && description.length && descriptionEN.length && selectedFile) {
+         submitClick({
+            title,
+            titleEN,
+            description,
+            descriptionEN,
+            selectedFile,
+         });
+      }
    };
    return (
       <div className="form-container">
@@ -41,28 +47,20 @@ export const AddForm = ({
                      selectedFile={selectedFile}
                      setSelectedFile={setSelectedFile}
                      defaultInfo={defaultInfo}
+                     isEdit={isEdit}
                   />
                </div>
                <div className="language-liable">UA</div>
-               <InputSm
-                  placeholder={smPlaceholder}
-                  value={inputName}
-                  setSmInput={setInputName}
-                  label={smLiable}
-               />
+               <InputSm value={title} setSmInput={setTitle} label={smLiable} />
 
-               <TextArea
-                  placeholder={lgPlaceholder}
-                  setLgInput={setInputDescription}
-                  label={lgLiable}
-                  value={inputDescription}
-               />
+               <TextArea setLgInput={setDescription} label={lgLiable} value={description} />
 
                <div className="desc-files-picker">
                   <FilesPicker
                      selectedFile={selectedFile}
                      setSelectedFile={setSelectedFile}
                      defaultInfo={defaultInfo}
+                     isEdit={isEdit}
                   />
                </div>
             </div>
@@ -72,20 +70,10 @@ export const AddForm = ({
                {hiddenInputENG ? (
                   <div className="input-blok"> </div>
                ) : (
-                  <InputSm
-                     placeholder={smPlaceholder}
-                     value={inputNameENG}
-                     setSmInput={setInputNameENG}
-                     label={smLiable}
-                  />
+                  <InputSm value={titleEN} setSmInput={setTitleEn} label={smLiable} />
                )}
 
-               <TextArea
-                  placeholder={lgPlaceholder}
-                  setLgInput={setInputDescriptionENG}
-                  label={lgLiable}
-                  value={inputDescriptionENG}
-               />
+               <TextArea setLgInput={setDescriptionEN} label={lgLiable} value={descriptionEN} />
 
                <div className="form-button-blok">
                   <button className="admin-button">{nameButton}</button>

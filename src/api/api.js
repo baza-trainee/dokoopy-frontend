@@ -35,10 +35,10 @@ export const AdminApi = {
       return axios.post("project/admin", body);
    },
    updateProject({ id, body }) {
-      return axios.put(`project/admin${id}`, body);
+      return axios.put(`project/admin/${id}`, body);
    },
    deleteProject(id) {
-      return axios.delete(`projects/admin${id}`);
+      return axios.delete(`projects/admin/${id}`);
    },
 
    //Bank
@@ -57,10 +57,10 @@ export const AdminApi = {
       return axios.post("hero/admin", body);
    },
    updateHero({ id, body }) {
-      return axios.put(`hero/admin${id}`, body);
+      return axios.put(`hero/admin/${id}`, body);
    },
    deleteHero(id) {
-      return axios.delete(`hero/admin${id}`);
+      return axios.delete(`hero/admin/${id}`);
    },
 
    //Reports
@@ -71,7 +71,7 @@ export const AdminApi = {
       return axios.get("reports/admin");
    },
    updateReports({ id, body }) {
-      return axios.put(`reports/admin${id}`, body);
+      return axios.put(`reports/admin/${id}`, body);
    },
 
    //Contacts
@@ -90,9 +90,9 @@ export const AdminApi = {
       return axios.get("partners/admin");
    },
    updatePartners({ id, body }) {
-      return axios.put(`partners/admin${id}`, body);
+      return axios.put(`partners/admin/${id}`, body);
    },
    deletePartners(id) {
-      return axios.delete(`partners/admin${id}`);
+      return axios.delete(`partners/admin/${id}`);
    },
 };
