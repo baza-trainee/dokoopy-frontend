@@ -109,7 +109,7 @@ export const Projects = () => {
                   }}
                   className="projects-btn"
                >
-                  Більше проєктів
+                  {localization.projects.button}
                </div>
             </Link>
          )}

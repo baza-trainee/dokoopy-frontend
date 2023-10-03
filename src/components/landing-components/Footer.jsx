@@ -1,4 +1,4 @@
-import localization from "../../assets/language-switcher/localization";
+import localization from "../../assets/language-switcher/localization.js";
 
 import { LogoFooterIcon } from "../../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
@@ -21,18 +21,16 @@ export const Footer = () => {
             <div className="footer-policy-container">
                <div className="footer-policy-link-container">
                   <a href={policy} target="_blank" className="footer-policy-link" rel="noreferrer">
-                     Політика конфіденційності
+                     {localization.privacyPolicy}
                   </a>
                   <a href={rules} target="_blank" className="footer-policy-link" rel="noreferrer">
-                     Правила користування сайтом
+                     {localization.conditionsOfUse}
                   </a>
                   <a className="footer-policy-link" href="/not-found">
-                     Звітність
+                     {localization.report}
                   </a>
                </div>
-               <p className="footer-policy-text">
-                  Розробка Baza Trainee Ukraine 2023 © Всі права захищені
-               </p>
+               <p className="footer-policy-text">{localization.footerText}</p>
             </div>
          </div>
       </footer>

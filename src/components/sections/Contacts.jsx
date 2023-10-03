@@ -7,10 +7,7 @@ export const Contacts = () => {
             <div className="contact-box">
                <div className="contact-box-title">
                   <h2 className="contact-box-title-h2">{localization.contacts.title}</h2>
-                  <p className="contact-box-title-p">
-                     Якщо готові скластись dokoopy і долучитись до хорошої справи – пишіть прямо
-                     зараз ось сюди:
-                  </p>
+                  <p className="contact-box-title-p">{localization.contacts.appeal}</p>
                </div>
                <div className="contact-link ">
                   <a className="navigation-list-item" href="mailto:eugene@dontpanic.team">
@@ -29,3 +26,6 @@ export const Contacts = () => {
       </div>
    );
 };
+
+// Якщо готові скластись dokoopy і долучитись до хорошої справи – пишіть прямо
+//                      зараз ось сюди:

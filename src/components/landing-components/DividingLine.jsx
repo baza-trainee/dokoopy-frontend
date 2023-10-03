@@ -31,36 +31,36 @@ export const DividingLine = ({ mainColor }) => {
                <div className="contentHeshteg">
                   <img src={icon} alt="icon" />
                </div>
-               <div className="contentHeshteg">#МАЙБУТНЄ</div>
-               <div className="contentHeshteg">#СВОБОДА</div>
-               <div className="contentHeshteg">#ЗЕМЛЯ</div>
-               <div className="contentHeshteg">#РОДИНА</div>
-               <div className="contentHeshteg">#СИЛА</div>
-               <div className="contentHeshteg">#ЗАХИСТ</div>
-               <div className="contentHeshteg">#ВОЛЯ</div>
-               <div className="contentHeshteg">#НАЦІЯ</div>
+               <div className="contentHeshteg">{localization.dividingLine.future}</div>
+               <div className="contentHeshteg">{localization.dividingLine.liberty}</div>
+               <div className="contentHeshteg">{localization.dividingLine.land}</div>
+               <div className="contentHeshteg">{localization.dividingLine.family}</div>
+               <div className="contentHeshteg">{localization.dividingLine.force}</div>
+               <div className="contentHeshteg">{localization.dividingLine.defend}</div>
+               <div className="contentHeshteg">{localization.dividingLine.liberty}</div>
+               <div className="contentHeshteg">{localization.dividingLine.nation}</div>
                <div className="contentHeshteg">
                   <img src={icon} alt="icon" />
                </div>
-               <div className="contentHeshteg">#МАЙБУТНЄ</div>
-               <div className="contentHeshteg">#СВОБОДА</div>
-               <div className="contentHeshteg">#ЗЕМЛЯ</div>
-               <div className="contentHeshteg">#РОДИНА</div>
-               <div className="contentHeshteg">#СИЛА</div>
-               <div className="contentHeshteg">#ЗАХИСТ</div>
-               <div className="contentHeshteg">#ВОЛЯ</div>
-               <div className="contentHeshteg">#НАЦІЯ</div>
+               <div className="contentHeshteg">{localization.dividingLine.future}</div>
+               <div className="contentHeshteg">{localization.dividingLine.liberty}</div>
+               <div className="contentHeshteg">{localization.dividingLine.land}</div>
+               <div className="contentHeshteg">{localization.dividingLine.family}</div>
+               <div className="contentHeshteg">{localization.dividingLine.force}</div>
+               <div className="contentHeshteg">{localization.dividingLine.defend}</div>
+               <div className="contentHeshteg">{localization.dividingLine.liberty}</div>
+               <div className="contentHeshteg">{localization.dividingLine.nation}</div>
                <div className="contentHeshteg">
                   <img src={icon} alt="icon" />
                </div>
-               <div className="contentHeshteg">#МАЙБУТНЄ</div>
-               <div className="contentHeshteg">#СВОБОДА</div>
-               <div className="contentHeshteg">#ЗЕМЛЯ</div>
-               <div className="contentHeshteg">#РОДИНА</div>
-               <div className="contentHeshteg">#СИЛА</div>
-               <div className="contentHeshteg">#ЗАХИСТ</div>
-               <div className="contentHeshteg">#ВОЛЯ</div>
-               <div className="contentHeshteg">#НАЦІЯ</div>
+               <div className="contentHeshteg">{localization.dividingLine.future}</div>
+               <div className="contentHeshteg">{localization.dividingLine.liberty}</div>
+               <div className="contentHeshteg">{localization.dividingLine.land}</div>
+               <div className="contentHeshteg">{localization.dividingLine.family}</div>
+               <div className="contentHeshteg">{localization.dividingLine.force}</div>
+               <div className="contentHeshteg">{localization.dividingLine.defend}</div>
+               <div className="contentHeshteg">{localization.dividingLine.liberty}</div>
+               <div className="contentHeshteg">{localization.dividingLine.nation}</div>
             </div>
          </div>
       );
