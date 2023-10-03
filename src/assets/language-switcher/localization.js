@@ -47,7 +47,7 @@ const localization = new LocalizedStrings({
       mission: {
          title: "Our purpose",
          purpose1:
-            "Fundrising for the 57th brigade, which fights in the fiercest battles. This is why needs for consumables is enormous - these includes radio sets, car repairs, tires on wheels, etc. That is why we do not have a request for a specific amount of money - something is always needed at the military front, financial requests are always open.",
+            "Fundrising for the 57th brigade, which fights in the fiercest battles. This is why needs for consumables is enormous - these includes radio sets, car repairs, tires etc. That is why we do not have a request for a specific amount of money - something is always needed at the military front, financial requests are always open.",
          purpose2:
             "We strongly believe: as soon as commercial businesses, people and corporations take on financial support for even one soldier, the needs of the front will be closed faster. On this web-site, we, the Don't Panic Group, and everyone who shares the idea, are getting together to support the 57th Brigade.",
       },
@@ -66,14 +66,13 @@ const localization = new LocalizedStrings({
       about: {
          title: "About the brigade",
          mainText:
-            "The 57th Motorized Brigade named after Koshovyi Otaman Kost Hordiienko, was formed after the beginning of the Russian aggression, in fall of 2014. There are three battalions, which were also formed after the beginning of the war: the 17th, 34th and 42nd motorized battalions. In winter of 2015, units of the brigade fought near Debaltseve.",
+            "The 57th Motorized Brigade named after Koshovyi Otaman Kost Hordiienko, was formed after the beginning of the Russian aggression, in fall of 2014. The Brigade consists of three battalions, which were also formed after the beginning of the war: the 17th, 34th and 42nd motorized battalions. In winter of 2015, units of the brigade fought near Debaltseve.",
       },
       projects: { title: "Our projects", button: "More projects" },
       partners: { title: "Our partners" },
       contacts: {
          title: "contacts info",
-         appeal:
-            "If you are ready to join the crowd and join a good business - approach right here right now:",
+         appeal: "If you are ready to join the crowdfund and make charity deed - contact us via:",
       },
       donate: "Make a donation",
       privacyPolicy: "Privacy Policy",
