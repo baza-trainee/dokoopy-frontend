@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
-import { InputLink } from '../../../components/admin-components/formElememt/InputLink'
+import { InputSm } from '../../../components/admin-components/formElememt/InputSm';
 
 export const EditBankAccount = () => {
    const bankAccountData = [
@@ -26,7 +26,7 @@ export const EditBankAccount = () => {
          <PageHeader title={"Редагувати банківські реквізити"} />   
          <div className='edit-contact-form-wrap'>
             <div className='edit-contact-form'>            
-               <InputLink                  
+               <InputSm                 
                   setSmInput={setBankLink}
                   label={"Посилання на банку*"}
                   value={bankLink} 
