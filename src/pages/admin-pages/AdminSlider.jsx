@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import defaultImage from "../../assets/images/default-image.jpg";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
-import { useLoadingData } from "../../hook/useLoadingData";
-import { AdminApi } from "../../api/api";
-import { AdminProvider, useAdminContext } from "../../components/provider-components/admin-provider";
+// import { useLoadingData } from "../../hook/useLoadingData";
+// import { AdminApi } from "../../api/api";
+// import { AdminProvider, useAdminContext } from "../../components/provider-components/admin-provider";
 
 const dataSlider = [
    {
@@ -34,13 +34,18 @@ const dataSlider = [
 export const AdminHero = () => {
    const { pathname } = useLocation();
    // const { token } = useAdminContext();
-   const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2OTYyNjkwMDgsImV4cCI6MTY5NjI3MjYwOH0.mTnPkQHGfEzqiB9-7GAwPkX-dGqaEhf2Lqg6fCpNkMQ";
-  
+   // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGFzanVrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjMyNjE4NSwiZXhwIjoxNjk2MzI5Nzg1fQ.VC4-pCuwpVVovD2qa1fawalTMWYL6RFYbArf-4RU-9k";
+   // const headers = {
+   //    "Content-Type": "application/json",
+   //    Authorization: `Bearer ${token}`,
+   // };
    // const { data, isLoading, error } = useLoadingData(() => AdminApi.getHerosAdmin(token));
-   // console.log(!isLoading ? console.log(data) : null);
-   
+   // let dataFromBack;
+   // if(data !== null) {
+   //    console.log(data);
+   //    dataFromBack = data;
+   // }
    // !isLoading ? console.log(data) : null;
-   // console.log(isLoading);
    
    return (
       <div className="admin-hero">

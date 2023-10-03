@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import defaultImage from "../../assets/images/default-image.jpg";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
-import { useLoadingData } from "../../hook/useLoadingData";
-import { AdminApi } from "../../api/api";
+// import { useLoadingData } from "../../hook/useLoadingData";
+// import { AdminApi } from "../../api/api";
 
 const dataProjects = [
    {
@@ -34,7 +34,7 @@ const dataProjects = [
 export const AdminProjects = () => {
    const { pathname } = useLocation();
     // const { token } = useAdminContext();
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdC5jb20iLCJpYXQiOjE2OTYyNjkwMDgsImV4cCI6MTY5NjI3MjYwOH0.mTnPkQHGfEzqiB9-7GAwPkX-dGqaEhf2Lqg6fCpNkMQ";
+   //  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGFzanVrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjMyMjk1NCwiZXhwIjoxNjk2MzI2NTU0fQ.Wg-a2jPrXNkvKpqd0MT4JE_teE87-l7dhHOcMsm3BtA";
    // const { data, isLoading, error } = useLoadingData(() => AdminApi.getProjectAdmin(token));
 
    return (

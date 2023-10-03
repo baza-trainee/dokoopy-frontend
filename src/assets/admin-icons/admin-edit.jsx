@@ -1,16 +1,11 @@
-import { useState } from "react";
-
 export const AdminEditIcon = () => {
-    const [isHovered, setHovered] = useState(false);
     return (
+        <div className="admin-edit-icon">
         <svg width="29" 
         height="28" 
         viewBox="0 0 29 28" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg" 
-        className={`admin-edit-icon ${isHovered ? 'hovered' : ''}`}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
         >
         <path d="M14.5 22.5607H23.5" 
         stroke="#646464" 
@@ -25,6 +20,7 @@ export const AdminEditIcon = () => {
         strokeLinecap="round" 
         strokeLinejoin="round"
         />
-        </svg>  
+        </svg>
+        </div>
     );
  };
