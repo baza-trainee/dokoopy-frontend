@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
-import { InputSm } from '../../../components/admin-components/formElememt/InputSm';
+import { InputSm } from "../../../components/admin-components/formElement/InputSm";
 
 export const EditBankAccount = () => {
    const bankAccountData = [
@@ -19,21 +19,23 @@ export const EditBankAccount = () => {
       navigate(-1);
    };
 
-   const isSaveButtonDisabled = bankLink.trim() === '';
+   const isSaveButtonDisabled = bankLink.trim() === "";
 
    return (
-      <section className="page-container">      
-         <PageHeader title={"Редагувати банківські реквізити"} />   
-         <div className='edit-contact-form-wrap'>
-            <div className='edit-contact-form'>            
-               <InputSm                 
-                  setSmInput={setBankLink}
-                  label={"Посилання на банку*"}
-                  value={bankLink} 
-               />
-            </div>        
-            <button className="admin-button" onClick={handleSaveChanges} disabled={isSaveButtonDisabled}>Внести зміни</button>  
-         </div>     
+      <section className="page-container">
+         <PageHeader title={"Редагувати банківські реквізити"} />
+         <div className="edit-contact-form-wrap">
+            <div className="edit-contact-form">
+               <InputSm setSmInput={setBankLink} label={"Посилання на банку*"} value={bankLink} />
+            </div>
+            <button
+               className="admin-button"
+               onClick={handleSaveChanges}
+               disabled={isSaveButtonDisabled}
+            >
+               Внести зміни
+            </button>
+         </div>
       </section>
    );
 };
