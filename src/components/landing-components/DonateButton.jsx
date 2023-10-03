@@ -19,7 +19,7 @@ export const DonateButton = ({ buttonClass, onClick, href, currentLanguage }) =>
    const handleCloseModal = () => {
       setModalOpen(false);
    };
-
+   // console.log(localization.donate);
    return (
       <>
          <a

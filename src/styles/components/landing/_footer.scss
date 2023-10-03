@@ -3,19 +3,19 @@
    flex-direction: column;
    background-color: rgba(37, 37, 37, 1);
    @media screen and (min-width: 320px) {
-      height: 544px; 
+      height: 544px;
    }
    @media screen and (min-width: 390px) {
-      height: 516px; 
+      height: 516px;
    }
    @media screen and (min-width: 480px) {
-      height: 492px; 
+      height: 492px;
    }
    @media (min-width: 768px) {
-      height: 518px; 
+      height: 518px;
    }
    @media screen and (min-width: 1280px) {
-      height: 559px; 
+      height: 559px;
    }
 }
 @media screen and (max-width: 479px) {
@@ -50,7 +50,7 @@
 @media (min-width: 768px) {
    .logo-svg-container {
       width: 64px;
-      height: 64px; 
+      height: 64px;
    }
 }
 .logo-svg {
@@ -68,7 +68,7 @@
    line-height: 58.23px;
 }
 @media (min-width: 768px) {
-   .logo-text  {
+   .logo-text {
       font-size: 56px;
       line-height: 72.46px;
    }
@@ -103,37 +103,38 @@
    gap: 8px;
    justify-content: space-between;
    margin-bottom: 12px;
-@media screen and (min-width: 390px) {
-   justify-content: center;
-   flex-direction: row;
-   gap: 12px;
-   margin-bottom: 12px;
-   width: 314px;
-   height: auto;
-}
-@media screen and (min-width: 480px) {
-   flex-direction: row;
-   justify-content: center;
-   gap: 12px;
-   margin-bottom: 12px;
-   width: auto;
-}
-@media (min-width: 768px) {
-   flex-direction: row;
-   justify-content: center;
-   gap: 16px;
-   margin-bottom: 16px;
-   width: auto;
-}
-@media (min-width: 1280px) {
-   flex-direction: row;
-   justify-content: center;
-   gap: 16px;
-   margin-bottom: 16px;
-   width: auto;
+   @media screen and (min-width: 390px) {
+      justify-content: center;
+      flex-direction: row;
+      gap: 12px;
+      margin-bottom: 12px;
+      width: 314px;
+      height: auto;
+   }
+   @media screen and (min-width: 480px) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      width: auto;
+   }
+   @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      width: auto;
+   }
+   @media (min-width: 1280px) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      width: auto;
    }
 }
-.footer-policy-link, .footer-policy-text {
+.footer-policy-link,
+.footer-policy-text {
    display: flex;
    margin: 0;
    color: var(--white);
@@ -143,31 +144,31 @@
    line-height: 15.53px;
 }
 @media (min-width: 768px) {
-   .footer-policy-link, .footer-policy-text {
+   .footer-policy-link,
+   .footer-policy-text {
       font-size: 22px;
       line-height: 28.47px;
    }
 }
 .footer-policy-link {
-   position: relative; 
+   position: relative;
    cursor: pointer;
    &:hover {
       color: var(--accent-color);
-
    }
 }
 .footer-policy-link::after {
-   content: ""; 
-   position: absolute; 
-   left: 0; 
-   right: 0; 
-   bottom: 1.5px; 
-   height: 1px; 
-   background-color: var(--white); 
+   content: "";
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 1.5px;
+   height: 1px;
+   background-color: var(--white);
 }
 @media screen and (min-width: 768px) {
    .footer-policy-link::after {
-      bottom: 3.3px; 
+      bottom: 3.3px;
    }
 }
 .footer-policy-link:hover::after {
@@ -178,21 +179,14 @@
    justify-content: center;
    text-align: center;
    width: 272px;
-@media screen and (min-width: 390px) {
-   width: 307px;
-}
-@media screen and (min-width: 768px) {
-   width: 562px;
-}
+   @media screen and (min-width: 390px) {
+      width: 307px;
+   }
+   @media screen and (min-width: 768px) {
+      width: 562px;
+   }
 }
 .logo-icon {
    width: 100%;
    height: 100%;
 }
-
-
-
-
-
-
-

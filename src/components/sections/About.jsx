@@ -1,4 +1,4 @@
-// import { useLandingContext } from "../../hook/useLandingContext";
+import localization from "../../assets/language-switcher/localization";
 
 import { useLandingContext } from "../provider-components/landing-provider";
 
@@ -8,7 +8,6 @@ import aboutPhoto from "../../assets/images/about_img.jpg";
 
 export const About = () => {
    const { language } = useLandingContext();
-   console.log(language);
 
    return (
       <section id="about" className="about-section">
@@ -17,15 +16,9 @@ export const About = () => {
                <div className="about-photo-container">
                   <img className="about-photo" src={aboutPhoto} alt="flag_military"></img>
                </div>
-               <h1 className="about-title">Про бригаду</h1>
+               <h1 className="about-title">{localization.about.title}</h1>
                <div className="about-description-container">
-                  <p className="about-description-text">
-                     57-ма окрема мотопіхотна бригада імені кошового отамана Костя Гордієнка була
-                     сформована вже після початку російської агресії, восени 2014 року. До її складу
-                     увійшли три батальйони, які також були сформовані вже після початку війни:
-                     17-й, 34-й та 42-й мотопіхотні. Взимку 2015 року підрозділи бригади воювали під
-                     Дебальцевим.
-                  </p>
+                  <p className="about-description-text">{localization.about.mainText}</p>
                   <div className="about-btn-container">
                      <DonateButton buttonClass={"mainButton"} />
                   </div>
@@ -35,3 +28,9 @@ export const About = () => {
       </section>
    );
 };
+
+// 57-ма окрема мотопіхотна бригада імені кошового отамана Костя Гордієнка була
+//                      сформована вже після початку російської агресії, восени 2014 року. До її складу
+//                      увійшли три батальйони, які також були сформовані вже після початку війни:
+//                      17-й, 34-й та 42-й мотопіхотні. Взимку 2015 року підрозділи бригади воювали під
+//                      Дебальцевим.

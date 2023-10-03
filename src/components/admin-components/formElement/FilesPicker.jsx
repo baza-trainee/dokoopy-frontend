@@ -2,21 +2,23 @@ import { useRef, useState } from "react";
 import { EditIcon } from "../../../assets/icon/EditIcon";
 import successIcon from "../../../assets/icon/success-icon.svg";
 
-export const FilesPicker = ({ defaultInfo, selectedFile, setSelectedFile }) => {
+export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile }) => {
    const [onLeave, setOnLeave] = useState(false);
+   const [isSuccessFile, setSuccessFile] = useState(false);
    const filePicker = useRef(null);
 
    const handleFileChange = e => {
       e.preventDefault();
       const file = e.target.files[0];
       setSelectedFile(file);
+      setSuccessFile(true);
    };
 
    const handleDrop = e => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-
-      setSelectedFile(file);
+      setFile(true);
+      setSuccessFile(file);
    };
 
    const handleDragOver = e => {
@@ -36,7 +38,7 @@ export const FilesPicker = ({ defaultInfo, selectedFile, setSelectedFile }) => {
       >
          <div className="label-icon-blok">
             <p className="input-liable">Фото*</p>
-            {defaultInfo && (
+            {isEdit && (
                <div onClick={handelPick} className="edit-button-icon">
                   <EditIcon />
                </div>
@@ -55,15 +57,18 @@ export const FilesPicker = ({ defaultInfo, selectedFile, setSelectedFile }) => {
             className={onLeave ? "active-drop" : "drag-input"}
          >
             <label>
-               {selectedFile ? (
+               {isSuccessFile ? (
                   <div className="success-icon">
                      <img src={successIcon}></img>
-                     <label>{selectedFile.name}</label>
+                     <label>{selectedFile?.name}</label>
                   </div>
                ) : (
                   <div className="editImg">
                      {defaultInfo ? (
-                        <img src={defaultInfo.img} className="editImg-default"></img>
+                        <img
+                           src={`https://dokoopy.onrender.com/${defaultInfo.imageURL}`}
+                           className="editImg-default"
+                        ></img>
                      ) : (
                         <p className="file-placeholder">
                            Перетягніть або натисніть тут, щоб завантажити файл
