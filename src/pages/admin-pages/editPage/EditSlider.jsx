@@ -26,6 +26,7 @@ export const EditSlider = () => {
       formData.append("description", data.description);
       formData.append("description_eng", data.descriptionEN);
       formData.append("imageURL", data.selectedFile);
+      formData.append("date", data.date);
 
       const params = {
          id: slideId,
@@ -56,6 +57,7 @@ export const EditSlider = () => {
             submitClick={submitClick}
             defaultInfo={currentHero}
             hiddenInputENG={true}
+            counter={110}
          />
       </section>
    );

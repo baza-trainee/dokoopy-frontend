@@ -33,13 +33,13 @@ const dataProjects = [
 
 export const AdminProjects = () => {
    const { pathname } = useLocation();
-    // const { token } = useAdminContext();
+   // const { token } = useAdminContext();
    //  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGFzanVrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjMyMjk1NCwiZXhwIjoxNjk2MzI2NTU0fQ.Wg-a2jPrXNkvKpqd0MT4JE_teE87-l7dhHOcMsm3BtA";
    // const { data, isLoading, error } = useLoadingData(() => AdminApi.getProjectAdmin(token));
 
    return (
       <div className="admin-hero">
-         <AdminMainHeader title={"Проекти"} previousPage={pathname} />
+         <AdminMainHeader title={"Проєкти"} previousPage={pathname} />
          <AdminMainInnerPart name="Назва" photo="Фото" date="Дата" data={dataProjects} />
       </div>
    );
