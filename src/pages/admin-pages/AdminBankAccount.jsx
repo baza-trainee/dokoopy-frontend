@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { EditIcon } from "../../assets/icon/EditIcon";
+import { PageHeader } from "../../components/admin-components/PageHeader";
 // import { useLoadingData } from "../../hook/useLoadingData";
 // import { AdminApi } from "../../api/api";
 
@@ -25,7 +26,7 @@ export const AdminBankAccount = () => {
       <div>
          <div className="bank-contacts">
             <div className="bank-contacts-header">
-               <h2>Банківські реквізити</h2>
+            <PageHeader title={"Банківські реквізити"} />
             </div>
             <div className="bank-contacts-list">
             <div className="bank-contacts-list-title">
