@@ -24,7 +24,9 @@ export const lendingData = {
 
 export const AdminApi = {
    loginAdmin(body) {
-      return axios.post("auth/admin/login", body);
+      return axios.post("auth/admin/login", body, {headers: {
+               "Content-Type": "application/json",
+            }})
    },
    logoutAdmin(body) {
       return axios.get("auth/admin/logout", body);

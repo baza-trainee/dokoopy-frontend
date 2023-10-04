@@ -5,12 +5,11 @@ import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useAdminContext } from "../provider-components/admin-provider";
+import { AdminApi } from "../../api/api";
 
 export const Login = () => {
    const [type, setType] = useState(true);
    const [typeName, setTypeName] = useState("password");
-   const {logIn} = useAdminContext();
 
    function click() {
       setType(!type);
@@ -34,15 +33,8 @@ export const Login = () => {
    } = useForm({ resolver: yupResolver(userSchema) });
 
    function onSubmit(e) {
-      fetch("https://dokoopy.onrender.com/api/auth/admin/login", {
-         method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-         },
-         body: JSON.stringify(e)
-      })
-         .then(res => res.json())
-         .then(res => logIn(res))
+      AdminApi.loginAdmin(e)
+         .then(res => localStorage.setItem('token', res.data))
          .catch(e => console.warn(e));
       reset({ email: "", password: "" });
    }
