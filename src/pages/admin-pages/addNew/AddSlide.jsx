@@ -23,6 +23,7 @@ export const AddSlide = () => {
             nameButton={"Додати слайдер"}
             submitClick={submitClick}
             hiddenInputENG={true}
+            counter={110}
          />
       </section>
    );
