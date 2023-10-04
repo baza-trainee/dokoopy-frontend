@@ -21,10 +21,32 @@ export const Hero = () => {
       }
    }, [data?.heroes, language]);
    console.log(slides);
+   const slidess = [
+      {
+         id: 1,
+         imageURL: foto1,
+         description: "Збір для воїнів 57 бригади, які беруть участь в найзапекліших боях!",
+      },
 
+      {
+         id: 3,
+         imageURL: foto3,
+         description: "Наш внесок - це шлях до перемоги наших військових!",
+      },
+      {
+         id: 4,
+         imageURL: foto4,
+         description: "Захистимо разом наших Героїв! ",
+      },
+      {
+         id: 5,
+         imageURL: foto5,
+         description: "Об'єднаймо зусилля для підтримки 57-ї бригади!",
+      },
+   ];
    return (
       <section className="hero">
-         <MySlider slides={slides} />
+         <MySlider slides={slidess} />
       </section>
    );
 };
