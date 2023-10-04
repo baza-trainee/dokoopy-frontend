@@ -17,6 +17,13 @@
     border-bottom: 1px solid var(--light_grey, #EBEBEB);
     background: #FFF;
 }
+.reporting-container-title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
 .reporting-container-title h2{
     width: 115px;
     color: var(--text-color, #212121);

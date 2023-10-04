@@ -2,10 +2,12 @@ import { useLoadingData } from "../../hook/useLoadingData";
 import { AdminApi } from "../../api/api";
 import { Link } from "react-router-dom";
 import { EditIcon } from "../../assets/icon/EditIcon";
-import { PageHeader } from "../../components/admin-components/PageHeader";
+import lefticon from "../../assets/icon/Vector.svg";
+import { useNavigate } from "react-router-dom";
 
 export const AdminContacts = () => {
   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin);
+  const navigate = useNavigate();
 
   const defaultContactsData = [
       {
@@ -37,8 +39,9 @@ export const AdminContacts = () => {
 
   return (
     <div className="admin-contacts">
-      <div className="admin-contacts-header">
-        <PageHeader title={"Контакти"} />
+      <div className="admin-contacts-header" onClick={() => navigate(-1)}>
+         <img src={lefticon} />
+          <h2>Контакти</h2>
       </div>
       <div className="admin-contacts-list">
         <div className="admin-contacts-list-title">

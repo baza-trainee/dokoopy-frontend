@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import fileText from "../../assets/icon/filetext.svg";
-import { PageHeader } from "../../components/admin-components/PageHeader";
+import lefticon from "../../assets/icon/Vector.svg";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { AdminApi } from "../../api/api";
+import { useNavigate } from "react-router-dom";
 
 export const AdminReporting = () => {
   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
+  const navigate = useNavigate();
 
   const defaultReportingData = [
     {
@@ -36,8 +38,9 @@ export const AdminReporting = () => {
   return (
     <div className="admin-reporting">
       <div className="reporting-container">
-        <div className="reporting-container-title">
-          <PageHeader title={"Звітність"} />
+        <div className="reporting-container-title" onClick={() => navigate(-1)}>
+         <img src={lefticon} />
+          <h2>Звітність</h2>
         </div>
       </div>
       <ul className="reporting-files">

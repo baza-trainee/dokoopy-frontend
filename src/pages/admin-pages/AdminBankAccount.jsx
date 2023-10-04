@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { EditIcon } from "../../assets/icon/EditIcon";
-import { PageHeader } from "../../components/admin-components/PageHeader";
+import lefticon from "../../assets/icon/Vector.svg";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { AdminApi } from "../../api/api";
+import { useNavigate } from "react-router-dom";
+
 
 export const AdminBankAccount = () => {
   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getBankAdmin);
+  const navigate = useNavigate();
 
   const defaultBankAccountData = [
     {
@@ -38,8 +41,9 @@ export const AdminBankAccount = () => {
   return (
     <div>
       <div className="bank-contacts">
-        <div className="bank-contacts-header">
-          <PageHeader title={"Банківські реквізити"} />
+        <div className="bank-contacts-header" onClick={() => navigate(-1)}>
+         <img src={lefticon} />
+          <h2>Банківські реквізити</h2>
         </div>
         <div className="bank-contacts-list">
           <div className="bank-contacts-list-title">
