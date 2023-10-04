@@ -19,6 +19,7 @@
    font-size: 18px;
    font-weight: 500;
 }
+
 .sm-input {
    font-family: Roboto;
    width: 100%;
@@ -39,8 +40,12 @@
       color: var(--admin-button-accent);
    }
 }
+
 .input-blok {
    height: 80px;
+}
+.input-blok-err {
+   height: 28px;
 }
 .text-area-blok {
    position: relative;
@@ -61,11 +66,22 @@
       outline: none;
    }
 }
+.error-input {
+   border: solid 1px var(--admin-red-accent);
+}
+.error-message {
+   margin-top: 12px;
+   border-radius: 5px;
+   background: var(--admin-red-background);
+   color: var(--admin-red-accent);
+   padding: 10px;
+   font-size: 18px;
+   height: 40px;
+}
 .counter-input {
    position: absolute;
    bottom: -30px;
    right: 10px;
-   // z-index: 3;
    color: var(--text-gray);
 }
 .form-input-container {
@@ -114,18 +130,17 @@
    margin-bottom: -20px;
 }
 .edit-button-icon {
+   margin-bottom: 14px;
    cursor: pointer;
    width: 24px;
    height: 24px;
    border-radius: 5px;
    transition: var(--transition);
+
    &:hover {
       color: var(--admin-button-accent);
       background-color: var(--admin-secondary-accent);
    }
-}
-.partner-file-blok {
-   // margin: 38px 0;
 }
 .drag {
    position: relative;
@@ -177,9 +192,7 @@
    .drag-input {
       margin: 28px auto;
    }
-   .text-area-blok {
-      // margin-bottom: 0px;
-   }
+
    .input-blok {
       display: none;
    }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import * as yup from "yup";
 import { AdminApi } from "../../../api/api.js";
-import foto from "../../../assets/images/default-image.jpg";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
@@ -20,28 +20,31 @@ export const EditProject = () => {
 
    const submitClick = data => {
       const formData = new FormData();
-      formData.append("title", data.title);
-      formData.append("title_eng", data.titleEN);
-      formData.append("description", data.description);
-      formData.append("description_eng", data.descriptionEN);
+      formData.append("title", data.e.title);
+      formData.append("title_eng", data.e.titleEN);
+      formData.append("description", data.e.description);
+      formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      formData.append("date", data.date);
+      formData.append("date", currentProject?.date);
       const params = {
          id: projectId,
          body: formData,
       };
       updateProject.eventLoading(params);
    };
-   const defaultInfo = {
-      img: foto,
-      title: "Збір на 57 бригаду",
-      title_eng: "Donation for the 57th brigade",
-      description:
-         "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-      description_eng:
-         "We are the 57th brigade and participate in the fiercest battles. Therefore, the need for consumables is simply veeleetenskaya - these are walkie-talkies, car repairs, tires on wheels, etc.",
-   };
 
+   const schema = {
+      title: yup.string().required("Поле обов'язкове для заповнення"),
+      titleEN: yup.string().required("Поле обов'язкове для заповнення"),
+      description: yup
+         .string()
+         .required("Поле обов'язкове для заповнення")
+         .max(300, "Ви ввели забагато символів"),
+      descriptionEN: yup
+         .string()
+         .required("Поле обов'язкове для заповнення")
+         .max(300, "Ви ввели забагато символів"),
+   };
    return (
       <section className="page-container">
          <PageHeader
@@ -57,6 +60,7 @@ export const EditProject = () => {
             defaultInfo={currentProject}
             submitClick={submitClick}
             counter={300}
+            schema={schema}
          />
       </section>
    );

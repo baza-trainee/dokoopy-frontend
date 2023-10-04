@@ -1,8 +1,7 @@
-import { useParams } from "react-router-dom";
-
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import * as yup from "yup";
 import { AdminApi } from "../../../api/api";
-import foto from "../../../assets/images/hero_example.jpg";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { useLoadingData } from "../../../hook/useLoadingData";
@@ -22,11 +21,11 @@ export const EditSlider = () => {
 
    const submitClick = data => {
       const formData = new FormData();
-      formData.append("title", data.title);
-      formData.append("description", data.description);
-      formData.append("description_eng", data.descriptionEN);
+      formData.append("title", data.e.title);
+      formData.append("description", data.e.description);
+      formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      formData.append("date", data.date);
+      formData.append("date", currentHero?.date);
 
       const params = {
          id: slideId,
@@ -34,12 +33,18 @@ export const EditSlider = () => {
       };
       updateHeros.eventLoading(params);
    };
-
-   const defaultInfo = {
-      imageURL: foto,
-      title: "",
-      description: "Збір на 57 бригаду, котрі беруть участь в найзапекліших боях",
-      description_eng: "Gathering for the 57th brigade participating in the fiercest battles",
+   const schema = {
+      title: yup.string().trim().required("Поле обов'язкове для заповнення"),
+      description: yup
+         .string()
+         .trim()
+         .required("Поле обов'язкове для заповнення")
+         .max(110, "Ви ввели забагато символів"),
+      descriptionEN: yup
+         .string()
+         .trim()
+         .required("Поле обов'язкове для заповнення")
+         .max(110, "Ви ввели забагато символів"),
    };
 
    return (
@@ -58,6 +63,7 @@ export const EditSlider = () => {
             defaultInfo={currentHero}
             hiddenInputENG={true}
             counter={110}
+            schema={schema}
          />
       </section>
    );

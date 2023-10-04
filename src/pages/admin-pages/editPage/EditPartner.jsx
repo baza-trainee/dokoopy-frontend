@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import * as yup from "yup";
 import { AdminApi } from "../../../api/api";
-import foto from "../../../assets/images/baza.png";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { PartnersForm } from "../../../components/admin-components/PartnersForm";
 import { useLoadingData } from "../../../hook/useLoadingData";
@@ -21,8 +21,8 @@ export const EditPartner = () => {
 
    const submitClick = data => {
       const formData = new FormData();
-      formData.append("title", data.smInput);
-      formData.append("description", data.lgInput);
+      formData.append("title", data.e.title);
+      formData.append("description", data.e.link);
       formData.append("imageURL", data.selectedFile);
       const params = {
          id: partnerId,
@@ -30,10 +30,9 @@ export const EditPartner = () => {
       };
       updatePartner.eventLoading(params);
    };
-   const defaultInfo = {
-      img: foto,
-      name: "baza-trainee",
-      link: "https://baza-trainee.tech/ua",
+   const schema = {
+      title: yup.string().required("Поле обов'язкове для заповнення").trim(),
+      link: yup.string().required("Поле обов'язкове для заповнення").trim(),
    };
    return (
       <section className="page-container">
@@ -49,6 +48,7 @@ export const EditPartner = () => {
             nameButton={"Внести зміни"}
             submitClick={submitClick}
             defaultInfo={currentPartner}
+            schema={schema}
          />
       </section>
    );
