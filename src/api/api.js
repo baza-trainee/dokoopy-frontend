@@ -31,12 +31,8 @@ export const AdminApi = {
    },
 
    //Project
-   getProjectAdmin(token) {
-      const headers = {
-         "Content-Type": "application/json",
-         Authorization: `Bearer ${token}`,
-      };
-      return axios.get("projects/admin", { headers });
+   getProjectAdmin() {
+      return axios.get("projects/admin");
    },
    addProject(body) {
       return axios.post("project/admin", body);
@@ -57,12 +53,8 @@ export const AdminApi = {
    },
 
    //Heros
-   getHerosAdmin(token) {
-      const headers = {
-         "Content-Type": "application/json",
-         Authorization: `Bearer ${token}`,
-      };
-      return axios.get("hero/admin", { headers });
+   getHerosAdmin() {
+      return axios.get("hero/admin");
    },
    addHero(body) {
       return axios.post("hero/admin", body);
@@ -97,12 +89,8 @@ export const AdminApi = {
    addPartners(body) {
       return axios.post("partners/admin", body);
    },
-   getPartnersAdmin(token) {
-      const headers = {
-         "Content-Type": "application/json",
-         Authorization: `Bearer ${token}`,
-      };
-      return axios.get("partners/admin", { headers });
+   getPartnersAdmin() {
+      return axios.get("partners/admin");
    },
    updatePartners({ id, body }) {
       return axios.put(`partners/admin/${id}`, body);

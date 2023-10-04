@@ -1,11 +1,11 @@
 import { useLocation } from "react-router-dom";
-
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
-import defaultImage from "../../assets/images/default-image.jpg";
+import defaultImage from "../../assets/images/admin-heroes-projects.png";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
-import { useLoadingData } from "../../hook/useLoadingData";
-import { AdminApi } from "../../api/api";
-import { useEffect, useState } from "react";
+// import { useLoadingData } from "../../hook/useLoadingData";
+// import { AdminApi } from "../../api/api";
+// import { useEffect, useState } from "react";
+// import { useAdminContext } from "../../components/provider-components/admin-provider";
 // import { useAdminContext } from "../../components/provider-components/admin-provider";
 
 const dataSlider = [
@@ -33,21 +33,21 @@ const dataSlider = [
    },
 ];
 export const AdminHero = () => {
-   const [sliders, setSliders] = useState();
-   const data = useLoadingData(AdminApi.getHerosAdmin);
+   // const [sliders, setSliders] = useState();
+   // const { token, loggedIn } = useAdminContext();
+   // console.log(token);
+   // const data= useLoadingData(AdminApi.getHerosAdmin);
    const { pathname } = useLocation();
+   // useEffect(() => {
+   //    if (loggedIn) {
+   //       setSliders(data);
+   //    }
+   // }, []);
 
 
-   useEffect(() => {
-      if (data.data) {
-         setSliders(data);
-      }
-   }, []);
-   // const { token } = useAdminContext();
+   // console.log(data);
+   // console.log(sliders);
 
-   console.log(data);
-   console.log(sliders);
-   // sliders.data.heroes;
    
    return (
       <div className="admin-hero">

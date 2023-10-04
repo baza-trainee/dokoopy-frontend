@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 
-import defaultImage from "../../assets/images/default-image.jpg";
+import defaultImage from "../../assets/images/admin-heroes-projects.png";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
 // import { useLoadingData } from "../../hook/useLoadingData";
@@ -34,7 +34,6 @@ const dataProjects = [
 export const AdminProjects = () => {
    const { pathname } = useLocation();
     // const { token } = useAdminContext();
-   //  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGFzanVrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjMyMjk1NCwiZXhwIjoxNjk2MzI2NTU0fQ.Wg-a2jPrXNkvKpqd0MT4JE_teE87-l7dhHOcMsm3BtA";
    // const { data, isLoading, error } = useLoadingData(() => AdminApi.getProjectAdmin(token));
 
    return (
