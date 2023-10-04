@@ -8,10 +8,12 @@
    width: 100%;
    height: 112px;
    padding: 40px 24px;
-   justify-content: space-between;
+   justify-content: start;
    align-items: center;
    border-bottom: 1px solid var(--light_grey, #EBEBEB);
    background: #FFF;
+   gap: 10px;
+   cursor: pointer;
 }
 .admin-contacts-header h2 {
    flex: 1 0 0;

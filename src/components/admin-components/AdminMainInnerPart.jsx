@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { AdminEditIcon } from "../../assets/admin-icons/admin-edit";
 
 export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
-   console.log(data);
+   // console.log(data);
    return (
       <div className="admin-main-wrapper">
          <div className="admin-main-header">
@@ -42,7 +42,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                            className={contentData.date ? "wrapper-img-box" : "wrapper-img-box-svg"}
                         >
                            <img
-                              src={`"https://dokoopy.onrender.com/api/${contentData.imageURL}`}
+                              src={contentData.img}
                               alt={contentData.alt}
                               className="content-element-img"
                            ></img>
