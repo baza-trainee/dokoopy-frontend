@@ -56,6 +56,7 @@ export const EditSlider = () => {
             submitClick={submitClick}
             defaultInfo={currentHero}
             hiddenInputENG={true}
+            counter={110}
          />
       </section>
    );
