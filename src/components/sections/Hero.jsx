@@ -14,12 +14,13 @@ export const Hero = () => {
          setSlides(
             data?.heroes.map(item => ({
                ...item,
-               url: `https://dokoopy.onrender.com/${item.imageURL}`,
+               imageURL: `https://dokoopy.onrender.com/${item.imageURL}`,
                description: language === "ua" ? item.description : item.description_eng,
             }))
          );
       }
    }, [data?.heroes, language]);
+   console.log(slides);
 
    return (
       <section className="hero">

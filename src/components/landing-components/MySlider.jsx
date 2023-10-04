@@ -48,12 +48,12 @@ export const MySlider = ({ slides }) => {
                   <div
                      className="slider"
                      // style={{
-                     //    backgroundImage: `url(${item.url})`,
+                     //    backgroundImage: `url(${item.imageURL})`,
                      //    backgroundSize: "cover",
                      //    backgroundPositionX: "center",
                      // }}
                   >
-                     <img src={item.url}></img>
+                     <img loading="lazy" src={item.imageURL}></img>
                   </div>
                   <div className="container">
                      <div className="slider-title">
