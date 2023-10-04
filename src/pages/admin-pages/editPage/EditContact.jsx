@@ -29,12 +29,12 @@ export const EditContact = () => {
    const isSaveButtonDisabled = email.trim() === "" || telegram.trim() === "";
 
    return (
-      <section className="edit-contact-container">
+      <section className="page-container">
          <PageHeader title={"Редагувати контакти"} />
-         <div className="edit-contact-form-wrap">
-            <div className="edit-contact-form">
-               <InputSm setSmInput={setEmail} label={"Email:"} value={email} />
-               <InputSm setSmInput={setTelegram} label={"Telegram:"} value={telegram} />
+         <div className="edit-contact-payment-form-wrap">
+            <div className="edit-contact-payment-form">
+               <InputSm setSmInput={setEmail} label={"Email:"} value={email} isLink={true}  />
+               <InputSm setSmInput={setTelegram} label={"Telegram:"} value={telegram} isLink={true}  />
             </div>
             <button
                className="admin-button"
