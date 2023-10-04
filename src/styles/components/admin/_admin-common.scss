@@ -55,7 +55,7 @@
       font-size: 24px;
    }
    @media (min-width: 1280px) {
-      font-size: 26px;
+      font-size: 28px;
    }
 }
 
@@ -100,6 +100,10 @@
    &:hover,
    &:focus {
       background-color: var(--admin-button-accent);
+   }
+   &:disabled {
+      background-color: var(--admin-button-disabled);        
+      cursor: not-allowed;           
    }
 }
 

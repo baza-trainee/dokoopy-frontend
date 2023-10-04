@@ -1,9 +1,14 @@
+import localization from "../../assets/language-switcher/localization.js";
+
 import { LogoFooterIcon } from "../../assets/icon/LogoFooterIcon";
 import { DonateButton } from "./DonateButton";
 import policy from "../../assets/documents/policy.pdf";
 import rules from "../../assets/documents/rules.pdf";
+import { useLoadingData } from "../../hook/useLoadingData";
+import { lendingData } from "../../api/api";
 
 export const Footer = () => {
+   const { data, isLoading, error } = useLoadingData(lendingData.getReport);
    return (
       <footer className="footer">
          <div className="container">
@@ -19,18 +24,26 @@ export const Footer = () => {
             <div className="footer-policy-container">
                <div className="footer-policy-link-container">
                   <a href={policy} target="_blank" className="footer-policy-link" rel="noreferrer">
-                     Політика конфіденційності
+                     {localization.privacyPolicy}
                   </a>
                   <a href={rules} target="_blank" className="footer-policy-link" rel="noreferrer">
-                     Правила користування сайтом
+                     {localization.conditionsOfUse}
                   </a>
+                   {!isLoading && !error && (data.reports.map(report => {
+                     return (
+                        <a key={report.id} href={`https://dokoopy.onrender.com/${report.reportURL}`}
+                        className="footer-policy-link" target="_blank" rel="noreferrer" 
+                        >{localization.report}</a>
+                     );
+                  }))}
+                  {!isLoading && error && (
                   <a className="footer-policy-link" href="/not-found">
-                     Звітність
+                     {localization.report}
                   </a>
+                  )}
                </div>
-               <p className="footer-policy-text">
-                  Розробка Baza Trainee Ukraine 2023 © Всі права захищені
-               </p>
+                  
+               <p className="footer-policy-text">{localization.footerText}</p>
             </div>
          </div>
       </footer>

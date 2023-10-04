@@ -1,15 +1,14 @@
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
-
-import { EditIcon } from "../../assets/icon/EditIcon";
+import { AdminEditIcon } from "../../assets/admin-icons/admin-edit";
 
 export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
+   console.log(data);
    return (
       <div className="admin-main-wrapper">
          <div className="admin-main-header">
-            <div
-               className={date ? "admin-main-header-wrapper" : "admin-main-header-partners-wrapper"}
+            <div className="admin-main-header-wrapper"
             >
                <div className="admin-main-header-title">{name}</div>
                <div className="admin-main-header-title">{photo}</div>
@@ -18,6 +17,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
             </div>
          </div>
          <ul className="admin-main-content">
+            {/* {!isLoading && (heroes.heroes.map(contentData => { */}
             {data.map(contentData => {
                return (
                   <li
@@ -42,7 +42,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                            className={contentData.date ? "wrapper-img-box" : "wrapper-img-box-svg"}
                         >
                            <img
-                              src={contentData.img}
+                              src={`"https://dokoopy.onrender.com/api/${contentData.imageURL}`}
                               alt={contentData.alt}
                               className="content-element-img"
                            ></img>
@@ -55,14 +55,9 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                      >
                         {contentData.date ? contentData.date : contentData.link}
                      </p>
-
-                     <div className="content-edit-icon-box">
-                        <Link to={`edit/${contentData.id}`}>
-                           <div className="wrapper-edit-icon-box">
-                              <EditIcon />
-                           </div>
-                        </Link>
-                     </div>
+                     <Link to={`edit/${contentData.id}`}>
+                              <AdminEditIcon />
+                     </Link>
                   </li>
                );
             })}

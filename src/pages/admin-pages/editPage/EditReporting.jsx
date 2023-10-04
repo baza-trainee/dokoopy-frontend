@@ -1,30 +1,46 @@
-import React from 'react';
+import React, { useState } from "react";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import fileText from "../../../assets/icon/filetext.svg";
-import { EditIcon } from "../../../assets/icon/EditIcon";
+import { FilesPicker } from "../../../components/admin-components/formElement/FilesPicker";
 
 export const EditReporting = () => {
    const reportingData = {
-      id: 1,
-      name: '57_.pdf',
-      imgIcon: fileText
+      name: "57_.pdf",
+      imgIcon: fileText,
+   };
+
+   const [selectedFile, setSelectedFile] = useState(null);
+
+   useState(() => {
+      const previousFileData = {
+         name: reportingData.name,
+         img: reportingData.imgIcon,
+      };
+      setSelectedFile(previousFileData);
+   }, [reportingData]);
+
+   const handleFileSelect = file => {
+      setSelectedFile(file);
+   };
+
+   const handleFormSubmit = () => {
+      console.log("Selected File:", selectedFile);
    };
 
    return (
-      <section className="edit-report-container">
+      <section className="page-container">
          <PageHeader title={"Редагувати звітність"} />
-         <div className='edit-report-form'>
-            <div className='edit-reporting-title-wrap'>
-               <h2>Файл*</h2>
-               <div className="reporting-container-button">
-                  <button className="edit-icon-btn"><EditIcon /></button>
-               </div>
+         <div className="edit-reportin-form-wrap">
+            <FilesPicker
+               defaultInfo={reportingData}
+               selectedFile={selectedFile}
+               setSelectedFile={handleFileSelect}
+            />
+            <div className="edit-reportin-btn">
+               <button className="admin-button" onClick={handleFormSubmit}>
+                  Внести зміни
+               </button>
             </div>
-            <div className="edit-reporting-cards">
-               <img src={reportingData.imgIcon} alt={reportingData.name} style={{ cursor: 'pointer' }}/>
-               <p>{reportingData.name}</p>
-            </div>
-            <button className="admin-button" onClick={reportingData}>Внести зміни</button>
          </div>
       </section>
    );

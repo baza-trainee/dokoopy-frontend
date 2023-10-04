@@ -1,14 +1,10 @@
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
-
 import { AdminAddIcon } from "../../assets/icon/AdminAddIcon";
-import { useState } from "react";
-import { AdminAddIconFocus } from "../../assets/icon/AdminAddIconFocus";
+import { AdminArrowIcon } from "../../assets/admin-icons/admin-arrow";
 
 export const AdminMainHeader = ({ title, previousPage }) => {
-   const [isFocused, setIsFocused] = useState(false);
-
    const redirectToAddNew = () => {
       switch (previousPage) {
          case "/admin":
@@ -20,29 +16,24 @@ export const AdminMainHeader = ({ title, previousPage }) => {
       }
    };
 
-   const handleMouseEnter = () => {
-      setIsFocused(true);
-   };
-
-   const handleMouseLeave = () => {
-      setIsFocused(false);
-   };
-
    return (
       <div className="admin-hero-header">
-         <div className="admin-hero-header-wrapper">
-            <h2 className="admin-sub-title">{title}</h2>
-            <div
-               className="admin-hero-add-icon-box"
-               onMouseEnter={handleMouseEnter}
-               onMouseLeave={handleMouseLeave}
-            >
-               <Link to={redirectToAddNew()}>
-                  {isFocused ? <AdminAddIconFocus /> : <AdminAddIcon />}
-                  <p>Add</p>
-               </Link>
+        <div className="admin-hero-header-wrapper">
+          <div className="admin-hero-header-title-box">
+            <div className="admin-hero-header-arrow-box">
+              <AdminArrowIcon />
             </div>
-         </div>
+              <h2 className="admin-hero-header-title">{title}</h2>
+            </div>
+            <Link to={redirectToAddNew()}>
+          <div className="admin-hero-add-icon-box">
+            {/* <div className="admin-hero-add-icon-wrapper"> */}
+              <AdminAddIcon />
+            {/* </div>  */}
+            <p>Add</p>
+          </div>
+          </Link>
+        </div>
       </div>
    );
 };
