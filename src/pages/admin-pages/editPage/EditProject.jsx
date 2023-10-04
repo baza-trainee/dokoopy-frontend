@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import * as yup from "yup";
 import { AdminApi } from "../../../api/api.js";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema.js";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
 export const EditProject = () => {
    const { projectId } = useParams();
@@ -32,19 +32,6 @@ export const EditProject = () => {
       };
       updateProject.eventLoading(params);
    };
-
-   const schema = {
-      title: yup.string().required("Поле обов'язкове для заповнення"),
-      titleEN: yup.string().required("Поле обов'язкове для заповнення"),
-      description: yup
-         .string()
-         .required("Поле обов'язкове для заповнення")
-         .max(300, "Ви ввели забагато символів"),
-      descriptionEN: yup
-         .string()
-         .required("Поле обов'язкове для заповнення")
-         .max(300, "Ви ввели забагато символів"),
-   };
    return (
       <section className="page-container">
          <PageHeader
@@ -60,7 +47,7 @@ export const EditProject = () => {
             defaultInfo={currentProject}
             submitClick={submitClick}
             counter={300}
-            schema={schema}
+            schema={validSchema.project}
          />
       </section>
    );

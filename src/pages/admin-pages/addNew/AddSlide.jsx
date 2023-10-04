@@ -1,8 +1,9 @@
-import * as yup from "yup";
 import { AdminApi } from "../../../api/api";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
+
 export const AddSlide = () => {
    const { eventLoading } = useLoadingData(AdminApi.addHero, true);
 
@@ -14,19 +15,7 @@ export const AddSlide = () => {
       formData.append("imageURL", data.selectedFile);
       eventLoading(formData);
    };
-   const schema = {
-      title: yup.string().required("Поле обов'язкове для заповнення").trim(),
-      description: yup
-         .string()
-         .trim()
-         .required("Поле обов'язкове для заповнення")
-         .max(110, "Ви ввели забагато символів"),
-      descriptionEN: yup
-         .string()
-         .trim()
-         .required("Поле обов'язкове для заповнення")
-         .max(110, "Ви ввели забагато символів"),
-   };
+
    return (
       <section className="page-container">
          <PageHeader title={"Додати новий слайдер"} />
@@ -37,7 +26,7 @@ export const AddSlide = () => {
             submitClick={submitClick}
             hiddenInputENG={true}
             counter={110}
-            schema={schema}
+            schema={validSchema.heros}
          />
       </section>
    );

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import * as yup from "yup";
 import { AdminApi } from "../../../api/api";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const EditSlider = () => {
@@ -33,19 +33,6 @@ export const EditSlider = () => {
       };
       updateHeros.eventLoading(params);
    };
-   const schema = {
-      title: yup.string().trim().required("Поле обов'язкове для заповнення"),
-      description: yup
-         .string()
-         .trim()
-         .required("Поле обов'язкове для заповнення")
-         .max(110, "Ви ввели забагато символів"),
-      descriptionEN: yup
-         .string()
-         .trim()
-         .required("Поле обов'язкове для заповнення")
-         .max(110, "Ви ввели забагато символів"),
-   };
 
    return (
       <section className="page-container">
@@ -63,7 +50,7 @@ export const EditSlider = () => {
             defaultInfo={currentHero}
             hiddenInputENG={true}
             counter={110}
-            schema={schema}
+            schema={validSchema.heros}
          />
       </section>
    );

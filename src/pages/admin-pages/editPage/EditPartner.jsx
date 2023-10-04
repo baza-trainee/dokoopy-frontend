@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import * as yup from "yup";
 import { AdminApi } from "../../../api/api";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { PartnersForm } from "../../../components/admin-components/PartnersForm";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const EditPartner = () => {
@@ -30,10 +30,7 @@ export const EditPartner = () => {
       };
       updatePartner.eventLoading(params);
    };
-   const schema = {
-      title: yup.string().required("Поле обов'язкове для заповнення").trim(),
-      link: yup.string().required("Поле обов'язкове для заповнення").trim(),
-   };
+
    return (
       <section className="page-container">
          <PageHeader
@@ -48,7 +45,7 @@ export const EditPartner = () => {
             nameButton={"Внести зміни"}
             submitClick={submitClick}
             defaultInfo={currentPartner}
-            schema={schema}
+            schema={validSchema.partner}
          />
       </section>
    );

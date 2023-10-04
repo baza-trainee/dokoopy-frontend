@@ -1,7 +1,7 @@
-import * as yup from "yup";
 import { AdminApi } from "../../../api/api";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { PartnersForm } from "../../../components/admin-components/PartnersForm";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 export const AddPartner = () => {
    const { eventLoading } = useLoadingData(AdminApi.addPartners, true);
@@ -13,10 +13,7 @@ export const AddPartner = () => {
       formData.append("imageURL", data.selectedFile);
       eventLoading(formData);
    };
-   const schema = {
-      title: yup.string().required("Поле обов'язкове для заповнення").trim(),
-      link: yup.string().required("Поле обов'язкове для заповнення").trim(),
-   };
+
    return (
       <section className="page-container">
          <PageHeader title={"Додати нового партнера"} />
@@ -25,7 +22,7 @@ export const AddPartner = () => {
             smLiable={"Назва партнера*"}
             nameButton={"Додати партнера"}
             submitClick={submitClick}
-            schema={schema}
+            schema={validSchema.partner}
          />
       </section>
    );

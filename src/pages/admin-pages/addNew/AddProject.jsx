@@ -3,6 +3,7 @@ import { AdminApi } from "../../../api/api";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 export const AddProject = () => {
    const { eventLoading } = useLoadingData(AdminApi.addProject, true);
 
@@ -15,20 +16,7 @@ export const AddProject = () => {
       formData.append("imageURL", data.selectedFile);
       eventLoading(formData);
    };
-   const schema = {
-      title: yup.string().required("Поле обов'язкове для заповнення").trim(),
-      titleEN: yup.string().required("Поле обов'язкове для заповнення").trim(),
-      description: yup
-         .string()
-         .required("Поле обов'язкове для заповнення")
-         .max(300, "Ви ввели забагато символів")
-         .trim(),
-      descriptionEN: yup
-         .string()
-         .required("Поле обов'язкове для заповнення")
-         .max(300, "Ви ввели забагато символів")
-         .trim(),
-   };
+
    return (
       <section className="page-container">
          <PageHeader title={"Додати новий проєкт"} />
@@ -38,7 +26,7 @@ export const AddProject = () => {
             nameButton={"Додати проєкт"}
             submitClick={submitClick}
             counter={300}
-            schema={schema}
+            schema={validSchema.project}
          />
       </section>
    );
