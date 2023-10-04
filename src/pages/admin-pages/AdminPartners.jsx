@@ -40,7 +40,6 @@ const dataPartners = [
 export const AdminPartners = () => {
    const { pathname } = useLocation();
    // const { token } = useAdminContext();
-   // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGFzanVrQGdtYWlsLmNvbSIsImlhdCI6MTY5NjMyMjk1NCwiZXhwIjoxNjk2MzI2NTU0fQ.Wg-a2jPrXNkvKpqd0MT4JE_teE87-l7dhHOcMsm3BtA";
 //   const { data, isLoading, error } = useLoadingData(() => AdminApi.getPartnersAdmin(token));
 
    return (
