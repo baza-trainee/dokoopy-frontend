@@ -28,15 +28,15 @@
    color: var(--text-gray);
 }
 .page-project-cart-title {
-   font-size: 18px;
+   font-size: 24px;
    line-height: 31px;
    font-weight: 700;
    padding-right: 10px;
 }
 .page-data-title-blok {
    display: flex;
-   flex-direction: row-reverse;
-   align-items: center;
+   gap: 16px;
+   flex-direction: column;
    justify-content: space-between;
    width: 100%;
    margin: 20px 0px;
@@ -53,9 +53,13 @@
    font-size: 20px;
    line-height: 25px;
 }
-@media screen and (min-width: 380px) {
+@media screen and (min-width: 390px) {
    .page-project-cart-title {
       font-size: 24px;
+   }
+   .page-data-title-blok {
+      flex-direction: row-reverse;
+      align-items: center;
    }
 }
 
