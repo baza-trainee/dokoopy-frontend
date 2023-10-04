@@ -51,6 +51,7 @@ export const EditProject = () => {
             nameButton={"Внести зміни"}
             defaultInfo={currentProject}
             submitClick={submitClick}
+            counter={300}
          />
       </section>
    );
