@@ -6,41 +6,46 @@ import lefticon from "../../assets/icon/Vector.svg";
 import { useNavigate } from "react-router-dom";
 
 export const AdminContacts = () => {
-  const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin);
+  const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin
+    // AdminApi.getContactsAdmin,
+    // true
+  );
   const navigate = useNavigate();
-
+  // const token = localStorage.getItem("token");
   const defaultContactsData = [
-      {
-         id: 1,
-         name: "Email",
-         contact: "info@baza-trainee.tech",
-         link: "mailto:info@baza-trainee.tech",
-      },
-      { id: 1, name: "Telegram", contact: "telegram_link", link: "https://t.me/+CBXkAJlsCy83ZDYy" },
-   ];
+    {
+       id: 1,
+       name: "Email",
+       contact: "info@baza-trainee.tech",
+       link: "mailto:info@baza-trainee.tech",
+    },
+    { id: 1, name: "Telegram", contact: "telegram_link", link: "https://t.me/+CBXkAJlsCy83ZDYy" },
+ ];
 
-  const contactsData = data || defaultContactsData;
+const contactsData = data || defaultContactsData;
 
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
-  if (error && error.data) {
-    return (
-      <p>
-        Error: {error.message}
-        <br />
-        Код помилки: {error.code}
-        <br />
-        URL-адреса: {error.url}
-      </p>
-    );
-  }
+if (isLoading) {
+  return <p>Loading...</p>;
+}
+
+if (error && error.data) {
+  return (
+    <p>
+      Error: {error.message}
+      <br />
+      Код помилки: {error.code}
+      <br />
+      URL-адреса: {error.url}
+    </p>
+  );
+}
+
 
   return (
     <div className="admin-contacts">
       <div className="admin-contacts-header" onClick={() => navigate(-1)}>
          <img src={lefticon} />
-          <h2>Контакти</h2>
+         <h2>Контакти</h2>
       </div>
       <div className="admin-contacts-list">
         <div className="admin-contacts-list-title">

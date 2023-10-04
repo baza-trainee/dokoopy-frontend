@@ -69,6 +69,10 @@
 .contacts-li:hover{
    border-bottom: 1px solid var(--light_grey, #EBEBEB);
    background: var(--lightblue_admin, #F4FBFF);
+
+   .edit-icon path {
+      stroke: var(--admin-main-accent);
+    }
 }
 .contacts-li p {
    width: 240px;
