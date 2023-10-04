@@ -20,9 +20,5 @@ export const Hero = () => {
       }
    }, [data?.heroes, language]);
 
-   return (
-      <section className="hero">
-         <MySlider slides={slides} />
-      </section>
-   );
+   return <section className="hero">{isLoading ? <></> : <MySlider slides={slides} />}</section>;
 };

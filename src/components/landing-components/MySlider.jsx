@@ -45,14 +45,7 @@ export const MySlider = ({ slides }) => {
          <Slider ref={slideRef} {...settings}>
             {slides.map(item => (
                <div key={item.id} className="slider-container">
-                  <div
-                     className="slider"
-                     // style={{
-                     //    backgroundImage: `url(${item.imageURL})`,
-                     //    backgroundSize: "cover",
-                     //    backgroundPositionX: "center",
-                     // }}
-                  >
+                  <div className="slider">
                      <img loading="lazy" src={item.imageURL}></img>
                   </div>
                   <div className="container">
