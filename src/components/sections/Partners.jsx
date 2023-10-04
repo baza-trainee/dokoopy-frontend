@@ -4,11 +4,6 @@ import localization from "../../assets/language-switcher/localization";
 
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-
-import contentChameleonLogo from "../../assets/images/content-chameleon-logo.svg";
-import dontPanicLogo from "../../assets/images/dont-panic-logo.svg";
-import juniverseLogo from "../../assets/images/juniverse-logo.svg";
-import logoBaza from "../../assets/images/logo-baza.svg";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { lendingData } from "../../api/api";
 
