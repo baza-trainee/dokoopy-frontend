@@ -23,6 +23,7 @@ export const AddProject = () => {
             smLiable={"Назва проєкту*"}
             nameButton={"Додати проєкт"}
             submitClick={submitClick}
+            counter={300}
          />
       </section>
    );

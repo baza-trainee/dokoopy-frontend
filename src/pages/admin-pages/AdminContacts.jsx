@@ -24,7 +24,6 @@ export const AdminContacts = () => {
   if (isLoading) {
     return <p>Loading...</p>;
   }
-
   if (error && error.data) {
     return (
       <p>

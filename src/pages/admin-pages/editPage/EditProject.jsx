@@ -25,7 +25,12 @@ export const EditProject = () => {
       formData.append("description", data.description);
       formData.append("description_eng", data.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      updateProject.eventLoading(formData);
+      formData.append("date", data.date);
+      const params = {
+         id: projectId,
+         body: formData,
+      };
+      updateProject.eventLoading(params);
    };
    const defaultInfo = {
       img: foto,
@@ -51,6 +56,7 @@ export const EditProject = () => {
             nameButton={"Внести зміни"}
             defaultInfo={currentProject}
             submitClick={submitClick}
+            counter={300}
          />
       </section>
    );

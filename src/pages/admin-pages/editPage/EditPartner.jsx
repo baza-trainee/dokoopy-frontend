@@ -24,7 +24,11 @@ export const EditPartner = () => {
       formData.append("title", data.smInput);
       formData.append("description", data.lgInput);
       formData.append("imageURL", data.selectedFile);
-      updatePartner.eventLoading(formData);
+      const params = {
+         id: partnerId,
+         body: formData,
+      };
+      updatePartner.eventLoading(params);
    };
    const defaultInfo = {
       img: foto,

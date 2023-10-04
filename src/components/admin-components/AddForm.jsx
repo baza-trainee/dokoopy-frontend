@@ -10,6 +10,7 @@ export const AddForm = ({
    submitClick = () => {},
    defaultInfo,
    hiddenInputENG = false,
+   counter,
 }) => {
    const [title, setTitle] = useState("");
    const [titleEN, setTitleEn] = useState("");
@@ -53,7 +54,12 @@ export const AddForm = ({
                <div className="language-liable">UA</div>
                <InputSm value={title} setSmInput={setTitle} label={smLiable} />
 
-               <TextArea setLgInput={setDescription} label={lgLiable} value={description} />
+               <TextArea
+                  counter={counter}
+                  setLgInput={setDescription}
+                  label={lgLiable}
+                  value={description}
+               />
 
                <div className="desc-files-picker">
                   <FilesPicker
@@ -73,7 +79,12 @@ export const AddForm = ({
                   <InputSm value={titleEN} setSmInput={setTitleEn} label={smLiable} />
                )}
 
-               <TextArea setLgInput={setDescriptionEN} label={lgLiable} value={descriptionEN} />
+               <TextArea
+                  counter={counter}
+                  setLgInput={setDescriptionEN}
+                  label={lgLiable}
+                  value={descriptionEN}
+               />
 
                <div className="form-button-blok">
                   <button className="admin-button">{nameButton}</button>
