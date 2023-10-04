@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import fileText from "../../assets/icon/filetext.svg";
+import { PageHeader } from "../../components/admin-components/PageHeader";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { AdminApi } from "../../api/api";
 
@@ -32,7 +33,7 @@ export const AdminReporting = () => {
       <div className="admin-reporting">
          <div className="reporting-container">
             <div className="reporting-container-title">
-               <h2>Звітність</h2>
+            <PageHeader title={"Звітність"} />
             </div>
          </div>
          <ul className="reporting-files">
@@ -47,7 +48,6 @@ export const AdminReporting = () => {
                </li>
             ))}
          </ul>
-         {/* <EditReporting /> */}
       </div>
    );
 };

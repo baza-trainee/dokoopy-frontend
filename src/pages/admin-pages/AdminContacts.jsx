@@ -2,6 +2,7 @@
 // import { AdminApi } from "../../api/api";
 import { Link } from "react-router-dom";
 import { EditIcon } from "../../assets/icon/EditIcon";
+import { PageHeader } from "../../components/admin-components/PageHeader";
 
 export const AdminContacts = () => {
    // const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin);
@@ -30,7 +31,7 @@ export const AdminContacts = () => {
    return (
       <div className="admin-contacts">
          <div className="admin-contacts-header">
-            <h2>Контакти</h2>
+         <PageHeader title={"Контакти"} />
          </div>
          <div className="admin-contacts-list">
             <div className="admin-contacts-list-title">
