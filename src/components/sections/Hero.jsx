@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { lendingData } from "../../api/api";
+import foto3 from "../../assets/images/8.jpg";
+import foto4 from "../../assets/images/about_img.jpg";
+import foto1 from "../../assets/images/hero_example.jpg";
+import foto5 from "../../assets/images/photo5.jpeg";
 import { useLoadingData } from "../../hook/useLoadingData";
-
 import { MySlider } from "../landing-components/MySlider";
 import { useLandingContext } from "../provider-components/landing-provider";
 
