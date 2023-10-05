@@ -196,6 +196,13 @@
    .input-blok {
       display: none;
    }
+   .error-file {
+      margin-top: -15px;
+      margin-bottom: 15px;
+   }
+   .input-blok-err {
+      display: none;
+   }
 
    .added-form {
       flex-direction: column;

@@ -39,7 +39,6 @@ export const EditPartner = () => {
             title={"Редагувати партнера"}
          />
          <PartnersForm
-            isEdit={true}
             smLiable={"Назва партнера*"}
             lgLiable={"Посилання на сайт партнера*"}
             nameButton={"Внести зміни"}

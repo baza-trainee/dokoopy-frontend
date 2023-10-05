@@ -25,9 +25,11 @@ export const lendingData = {
 
 export const AdminApi = {
    loginAdmin(body) {
-      return axios.post("auth/admin/login", body, {headers: {
-               "Content-Type": "application/json",
-            }})
+      return axios.post("auth/admin/login", body, {
+         headers: {
+            "Content-Type": "application/json",
+         },
+      });
    },
    logoutAdmin(body) {
       return axios.get("auth/admin/logout", body);
@@ -38,10 +40,10 @@ export const AdminApi = {
       return axios.get("projects/admin");
    },
    addProject(body) {
-      return axios.post("project/admin", body);
+      return axios.post("projects/admin", body);
    },
    updateProject({ id, body }) {
-      return axios.put(`project/admin/${id}`, body);
+      return axios.put(`projects/admin/${id}`, body);
    },
    deleteProject(id) {
       return axios.delete(`projects/admin/${id}`);

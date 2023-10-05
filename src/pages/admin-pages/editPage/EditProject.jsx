@@ -40,7 +40,6 @@ export const EditProject = () => {
             title={"Редагувати проєкт"}
          />
          <AddForm
-            isEdit={true}
             lgLiable={"Опис проєкту*"}
             smLiable={"Назва проєкту*"}
             nameButton={"Внести зміни"}

@@ -6,7 +6,6 @@ import { FilesPicker } from "./formElement/FilesPicker";
 import { TextArea } from "./formElement/TextArea";
 import { InputForm } from "./formElement/inputForm";
 export const AddForm = ({
-   isEdit,
    lgLiable,
    smLiable,
    nameButton,
@@ -17,6 +16,7 @@ export const AddForm = ({
    schema,
 }) => {
    const [selectedFile, setSelectedFile] = useState(() => null);
+   const [error, setError] = useState(null);
 
    useEffect(() => {
       if (defaultInfo) {
@@ -47,17 +47,22 @@ export const AddForm = ({
          reset();
       }
    };
-   console.log(errors.title);
+   const handlerSubmitButton = () => {
+      if (!selectedFile) {
+         setError("Поле обов'язкове для заповнення");
+      }
+   };
    return (
       <div className="form-container">
          <form onSubmit={handleSubmit(submitClickEvent)} className="added-form">
             <div className="form-input-container">
                <div className="tablet-files-picker">
                   <FilesPicker
+                     errors={error}
+                     setError={setError}
                      selectedFile={selectedFile}
                      setSelectedFile={setSelectedFile}
                      defaultInfo={defaultInfo}
-                     isEdit={isEdit}
                   />
                </div>
                <div className="language-liable">UA</div>
@@ -73,10 +78,11 @@ export const AddForm = ({
                />
                <div className="desc-files-picker">
                   <FilesPicker
+                     errors={error}
+                     setError={setError}
                      selectedFile={selectedFile}
                      setSelectedFile={setSelectedFile}
                      defaultInfo={defaultInfo}
-                     isEdit={isEdit}
                   />
                </div>
             </div>
@@ -106,7 +112,9 @@ export const AddForm = ({
                />
 
                <div className="form-button-blok">
-                  <button className="admin-button">{nameButton}</button>
+                  <button onClick={handlerSubmitButton} className="admin-button">
+                     {nameButton}
+                  </button>
                </div>
             </div>
          </form>
