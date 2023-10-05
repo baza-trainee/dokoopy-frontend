@@ -3,7 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { Link } from "react-router-dom";
-import { useLandingContext } from "../provider-components/landing-provider.jsx";
+// import { useAppContext } from "../provider-components/landing-provider.jsx";
+import { useAppContext } from "../provider-components/app-provider.jsx";
 
 import { BurgerMenuIcon } from "../../assets/icon/burger-menu.jsx";
 import { DonateButton } from "./DonateButton.jsx";
@@ -24,7 +25,7 @@ export const Header = () => {
    const aboutElementId = "about";
    const missionElementId = "mission";
 
-   const { language, switchToEnglish, switchToUkraine } = useLandingContext();
+   const { language, switchToEnglish, switchToUkraine } = useAppContext();
    // console.log("28", language, localization.getLanguage());
 
    useEffect(() => {
