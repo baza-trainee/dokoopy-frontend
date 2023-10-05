@@ -7,13 +7,13 @@ import { InputForm } from "./formElement/inputForm";
 export const PartnersForm = ({
    lgLiable,
    smLiable,
-   isEdit,
    nameButton,
    submitClick,
    defaultInfo,
    schema,
 }) => {
    const [selectedFile, setSelectedFile] = useState(() => null);
+   const [error, setError] = useState(null);
    useEffect(() => {
       if (defaultInfo) {
          setSelectedFile(defaultInfo.imageURL);
@@ -40,16 +40,22 @@ export const PartnersForm = ({
          reset();
       }
    };
+   const handlerSubmitButton = () => {
+      if (!selectedFile) {
+         setError("Поле обов'язкове для заповнення");
+      }
+   };
 
    return (
       <div className="form-container">
          <form onSubmit={handleSubmit(submitClickEvent)} className="added-form">
             <div className="partner-file-blok">
                <FilesPicker
+                  errors={error}
+                  setError={setError}
                   selectedFile={selectedFile}
                   setSelectedFile={setSelectedFile}
                   defaultInfo={defaultInfo}
-                  isEdit={isEdit}
                />
             </div>
             <div className="form-input-container">
@@ -63,7 +69,9 @@ export const PartnersForm = ({
                   isLink={true}
                />
                <div className="form-button-blok">
-                  <button className="admin-button">{nameButton}</button>
+                  <button onClick={handlerSubmitButton} type="submit" className="admin-button">
+                     {nameButton}
+                  </button>
                </div>
             </div>
          </form>

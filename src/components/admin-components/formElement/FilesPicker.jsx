@@ -2,28 +2,36 @@ import { useRef, useState } from "react";
 import { EditIcon } from "../../../assets/admin-icons/EditIcon";
 import successIcon from "../../../assets/icon/success-icon.svg";
 
-export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile }) => {
-   const [onLeave, setOnLeave] = useState(false);
+export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSelectedFile }) => {
    const [isSuccessFile, setSuccessFile] = useState(false);
    const filePicker = useRef(null);
 
    const handleFileChange = e => {
       e.preventDefault();
       const file = e.target.files[0];
-      setSelectedFile(file);
-      setSuccessFile(true);
+      if (file.size > 5 * 1024 * 1024) {
+         setError("Максимальний розмір файлу 5Мб");
+      } else {
+         setError(null);
+         setSelectedFile(file);
+         setSuccessFile(true);
+      }
    };
 
    const handleDrop = e => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-      setFile(true);
-      setSuccessFile(file);
+      if (file.size > 5 * 1024 * 1024) {
+         setError("Максимальний розмір файлу 5Мб");
+      } else {
+         setError(null);
+         setSelectedFile(file);
+         setSuccessFile(true);
+      }
    };
 
    const handleDragOver = e => {
       e.preventDefault();
-      setOnLeave(true);
    };
    const handelPick = () => {
       filePicker.current.click();
@@ -34,7 +42,6 @@ export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile
          onDrop={handleDrop}
          onDragOver={handleDragOver}
          onDragStart={handleDragOver}
-         onDragLeave={() => setOnLeave(false)}
       >
          <div className="label-icon-blok">
             <p className="input-liable">Фото*</p>
@@ -50,11 +57,7 @@ export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile
             accept=".pdf, .jpg, .png, .gif"
             onChange={handleFileChange}
          />
-         <div
-            htmlFor="drag-input"
-            onClick={handelPick}
-            className={onLeave ? "active-drop" : "drag-input"}
-         >
+         <div htmlFor="drag-input" onClick={handelPick} className={"drag-input"}>
             <label>
                {isSuccessFile && selectedFile ? (
                   <div className="success-icon">
@@ -77,6 +80,7 @@ export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile
                )}
             </label>
          </div>
+         {!!errors && <p className="error-message error-file">{errors}</p>}
       </div>
    );
 };

@@ -42,7 +42,6 @@ export const EditSlider = () => {
             title={"Редагувати слайдер"}
          />
          <AddForm
-            isEdit={true}
             lgLiable={"Опис слайдеру*"}
             smLiable={"Назва слайдеру*"}
             nameButton={"Внести зміни"}
