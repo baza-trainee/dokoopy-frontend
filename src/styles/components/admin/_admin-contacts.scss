@@ -389,36 +389,3 @@
       height: 18px;
    }
 }
-
-
-.edit-contact-container{
-   width: 100%;   
-   background: var(--white, #FFF);   
-}
-
-.edit-contact-form-wrap{
-   width: 430px;
-   margin-top: 24px;
-   margin-left: 24px;
-   padding-bottom: 44px;
-   display: flex;
-   flex-direction: column;
-   gap: 72px;
-}
-
-.edit-contact-form{
-   display: flex;
-   flex-direction: column;
-   gap: 24px;
-   
-}
-
-.edit-contact-input{
-      color: var(--blue_admin, #2672E4);      
-      font-size: 20px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-      text-decoration-line: underline;
-      cursor: pointer;
-}
