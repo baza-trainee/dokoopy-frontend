@@ -1,5 +1,6 @@
 import axios from "axios";
 axios.defaults.baseURL = "https://dokoopy.onrender.com/api/";
+const token = localStorage.getItem('token');
 
 export const lendingData = {
    getHero() {
