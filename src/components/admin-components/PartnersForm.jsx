@@ -1,38 +1,49 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
-
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
 import { FilesPicker } from "./formElement/FilesPicker";
-import { InputSm } from "./formElement/InputSm";
+import { InputForm } from "./formElement/inputForm";
 export const PartnersForm = ({
    lgLiable,
    smLiable,
    isEdit,
    nameButton,
-   submitClick = () => {},
+   submitClick,
    defaultInfo,
+   schema,
 }) => {
-   const [smInput, setSmInput] = useState("");
-   const [lgInput, setLgInput] = useState("");
    const [selectedFile, setSelectedFile] = useState(() => null);
    useEffect(() => {
       if (defaultInfo) {
-         setSmInput(defaultInfo.title);
-         setLgInput(defaultInfo.description);
          setSelectedFile(defaultInfo.imageURL);
       }
    }, [defaultInfo]);
+   const userSchema = yup.object(schema);
+   const {
+      control,
+      reset,
+      handleSubmit,
+      formState: { errors },
+   } = useForm({
+      mode: "onBlur",
+      defaultValues: {
+         title: defaultInfo?.title || "",
+         link: defaultInfo?.link || "",
+      },
+      resolver: yupResolver(userSchema),
+   });
    const submitClickEvent = e => {
-      e.preventDefault();
-      if (smInput.length || lgInput.length || selectedFile) {
-         submitClick({
-            smInput,
-            lgInput,
-            selectedFile,
-         });
+      if (selectedFile) {
+         submitClick({ e, selectedFile });
+         setSelectedFile(null);
+         reset();
       }
    };
+
    return (
       <div className="form-container">
-         <form onSubmit={submitClickEvent} className="added-form">
+         <form onSubmit={handleSubmit(submitClickEvent)} className="added-form">
             <div className="partner-file-blok">
                <FilesPicker
                   selectedFile={selectedFile}
@@ -42,10 +53,15 @@ export const PartnersForm = ({
                />
             </div>
             <div className="form-input-container">
-               <InputSm value={smInput} setSmInput={setSmInput} label={smLiable} />
+               <InputForm errors={errors.title} control={control} name={"title"} label={smLiable} />
 
-               <InputSm setSmInput={setLgInput} label={lgLiable} value={lgInput} isLink={true} />
-
+               <InputForm
+                  errors={errors.link}
+                  control={control}
+                  name={"link"}
+                  label={lgLiable}
+                  isLink={true}
+               />
                <div className="form-button-blok">
                   <button className="admin-button">{nameButton}</button>
                </div>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import leftArow from "../../assets/icon/Vector.svg";
+import { AdminArrowLeft } from "../../assets/admin-icons/admin-arrow-left";
 import removeIcon from "../../assets/icon/remove-icon.svg";
 import { AdminModal } from "../admin-components/AdminModal";
 
@@ -21,7 +21,9 @@ export const PageHeader = ({ title, edit, removeClick }) => {
       <>
          <div className="sub-title-container">
             <div className="title-icon">
-               <img className="title-icon-arrow" onClick={() => navigate(-1)} src={leftArow}></img>
+               <div className="heder-icon-arrow" onClick={() => navigate(-1)}>
+                  <AdminArrowLeft></AdminArrowLeft>
+               </div>
                <h3 className="admin-sub-title">{title}</h3>
             </div>
             {edit && (

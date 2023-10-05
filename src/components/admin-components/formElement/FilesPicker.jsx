@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { EditIcon } from "../../../assets/icon/EditIcon";
+import { EditIcon } from "../../../assets/admin-icons/EditIcon";
 import successIcon from "../../../assets/icon/success-icon.svg";
 
 export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile }) => {
@@ -38,11 +38,10 @@ export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile
       >
          <div className="label-icon-blok">
             <p className="input-liable">Фото*</p>
-            {isEdit && (
-               <div onClick={handelPick} className="edit-button-icon">
-                  <EditIcon />
-               </div>
-            )}
+
+            <div onClick={handelPick} className="edit-button-icon">
+               <EditIcon />
+            </div>
          </div>
          <input
             ref={filePicker}
@@ -57,7 +56,7 @@ export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile
             className={onLeave ? "active-drop" : "drag-input"}
          >
             <label>
-               {isSuccessFile ? (
+               {isSuccessFile && selectedFile ? (
                   <div className="success-icon">
                      <img src={successIcon}></img>
                      <label>{selectedFile?.name}</label>
