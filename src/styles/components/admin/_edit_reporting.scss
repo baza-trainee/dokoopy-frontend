@@ -1,0 +1,58 @@
+.page-container-reporting {
+   align-items: center;
+}
+
+.edit-reporting-form-wrap {
+   width: 290px;
+   padding: 24px 5px 44px 5px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.edit-reporting-btn {
+   width: 290px;
+}
+
+@media (min-width: 480px) {
+   .edit-reporting-form-wrap {
+      width: 384px;
+      padding: 24px 24px 44px 24px;
+   }
+
+   .edit-reporting-btn {
+      width: 384px;
+   }
+
+}
+
+@media (min-width: 768px) {
+   .edit-reporting-form-wrap {
+      width: 494px;
+      padding: 24px 20px 44px 20px;
+   }
+
+   .edit-reporting-btn {
+      width: 494px;
+   }
+
+}
+
+@media (min-width: 1280px) {
+   .page-container-reporting {
+      align-items: start;
+   }
+
+   .edit-reporting-form-wrap {
+      padding: 24px 24px 44px 24px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      width: 100%;
+   }
+
+   .edit-reporting-btn {
+      width: 430px;
+   }
+}

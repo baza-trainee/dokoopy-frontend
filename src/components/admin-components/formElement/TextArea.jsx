@@ -1,16 +1,24 @@
-export const TextArea = ({ counter = 0, setLgInput, label, placeholder, value }) => {
+import { Controller } from "react-hook-form";
+
+export const TextArea = ({ errors, name, control, counter, label, length }) => {
    return (
       <div className="text-area-blok">
          <p className="input-liable">{label}</p>
-         <textarea
-            value={value}
-            rows="1"
-            className={"lg-input"}
-            cols="10"
-            placeholder={placeholder}
-            onChange={e => setLgInput(e.target.value)}
-         ></textarea>
-         <p className="counter-input">{`${value?.length}/${counter}`}</p>
+
+         <Controller
+            name={name}
+            control={control}
+            render={({ field }) => (
+               <textarea
+                  {...field}
+                  rows="1"
+                  className={errors ? "lg-input error-input" : "lg-input"}
+                  cols="10"
+               ></textarea>
+            )}
+         />
+         <p className="counter-input">{`${length}/${counter}`}</p>
+         {!!errors && <p className="error-message">{errors.message}</p>}
       </div>
    );
 };

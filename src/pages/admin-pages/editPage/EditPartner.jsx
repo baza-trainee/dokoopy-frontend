@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AdminApi } from "../../../api/api";
-import foto from "../../../assets/images/baza.png";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { PartnersForm } from "../../../components/admin-components/PartnersForm";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const EditPartner = () => {
@@ -21,8 +21,8 @@ export const EditPartner = () => {
 
    const submitClick = data => {
       const formData = new FormData();
-      formData.append("title", data.smInput);
-      formData.append("description", data.lgInput);
+      formData.append("title", data.e.title);
+      formData.append("description", data.e.link);
       formData.append("imageURL", data.selectedFile);
       const params = {
          id: partnerId,
@@ -30,11 +30,7 @@ export const EditPartner = () => {
       };
       updatePartner.eventLoading(params);
    };
-   const defaultInfo = {
-      img: foto,
-      name: "baza-trainee",
-      link: "https://baza-trainee.tech/ua",
-   };
+
    return (
       <section className="page-container">
          <PageHeader
@@ -43,12 +39,12 @@ export const EditPartner = () => {
             title={"Редагувати партнера"}
          />
          <PartnersForm
-            isEdit={true}
             smLiable={"Назва партнера*"}
             lgLiable={"Посилання на сайт партнера*"}
             nameButton={"Внести зміни"}
             submitClick={submitClick}
             defaultInfo={currentPartner}
+            schema={validSchema.partner}
          />
       </section>
    );

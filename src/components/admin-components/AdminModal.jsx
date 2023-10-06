@@ -25,6 +25,7 @@ export const AdminModal = ({ onClose, removeItem }) => {
                   <br />
                   видалити проєкт?
                </h2>
+               
                <div className="admin-modal-button">
                   <button className="admin-modal-no" onClick={handleCloseClick}>
                      <h4>Ні</h4>

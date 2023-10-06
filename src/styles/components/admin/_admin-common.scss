@@ -102,8 +102,8 @@
       background-color: var(--admin-button-accent);
    }
    &:disabled {
-      background-color: var(--admin-button-disabled);        
-      cursor: not-allowed;           
+      background-color: var(--admin-button-disabled);
+      cursor: not-allowed;
    }
 }
 
@@ -115,7 +115,7 @@
    left: 0;
    width: 100%;
    height: 100%;
-
+   z-index: 2;
    background-color: var(--admin-backdrop);
 
    opacity: 1;

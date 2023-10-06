@@ -1,38 +1,24 @@
-import foto3 from "../../assets/images/8.jpg";
-import foto4 from "../../assets/images/about_img.jpg";
-import foto1 from "../../assets/images/hero_example.jpg";
-import foto5 from "../../assets/images/photo5.jpeg";
-
+import { useEffect, useState } from "react";
+import { lendingData } from "../../api/api";
+import { useLoadingData } from "../../hook/useLoadingData";
 import { MySlider } from "../landing-components/MySlider";
+import { useLandingContext } from "../provider-components/landing-provider";
 
 export const Hero = () => {
-   const slides = [
-      {
-         id: 1,
-         url: foto1,
-         title: "Збір для воїнів 57 бригади, які беруть участь в найзапекліших боях!",
-      },
+   const { language } = useLandingContext();
+   const [slides, setSlides] = useState([]);
+   const { data, error, isLoading } = useLoadingData(lendingData.getHero);
+   useEffect(() => {
+      if (data?.heroes) {
+         setSlides(
+            data?.heroes.map(item => ({
+               ...item,
+               imageURL: `https://dokoopy.onrender.com/${item.imageURL}`,
+               description: language === "ua" ? item.description : item.description_eng,
+            }))
+         );
+      }
+   }, [data?.heroes, language]);
 
-      {
-         id: 3,
-         url: foto3,
-         title: "Наш внесок - це шлях до перемоги наших військових!",
-      },
-      {
-         id: 4,
-         url: foto4,
-         title: "Захистимо разом наших Героїв! ",
-      },
-      {
-         id: 5,
-         url: foto5,
-         title: "Об'єднаймо зусилля для підтримки 57-ї бригади!",
-      },
-   ];
-
-   return (
-      <section className="hero">
-         <MySlider slides={slides} />
-      </section>
-   );
+   return <section className="hero">{isLoading ? <></> : <MySlider slides={slides} />}</section>;
 };

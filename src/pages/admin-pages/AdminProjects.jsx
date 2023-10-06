@@ -38,7 +38,7 @@ export const AdminProjects = () => {
 
    return (
       <div className="admin-hero">
-         <AdminMainHeader title={"Проекти"} previousPage={pathname} />
+         <AdminMainHeader title={"Проєкти"} previousPage={pathname} />
          <AdminMainInnerPart name="Назва" photo="Фото" date="Дата" data={dataProjects} />
       </div>
    );

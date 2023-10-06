@@ -1,9 +1,12 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
 import { FilesPicker } from "./formElement/FilesPicker";
-import { InputSm } from "./formElement/InputSm";
 import { TextArea } from "./formElement/TextArea";
+import { InputForm } from "./formElement/inputForm";
 export const AddForm = ({
-   isEdit,
    lgLiable,
    smLiable,
    nameButton,
@@ -11,83 +14,110 @@ export const AddForm = ({
    defaultInfo,
    hiddenInputENG = false,
    counter,
+   schema,
 }) => {
-   const [title, setTitle] = useState("");
-   const [titleEN, setTitleEn] = useState("");
-   const [description, setDescription] = useState("");
-   const [descriptionEN, setDescriptionEN] = useState("");
    const [selectedFile, setSelectedFile] = useState(() => null);
+   const [error, setError] = useState(null);
+   const navigation = useNavigate();
+
    useEffect(() => {
       if (defaultInfo) {
-         setTitle(defaultInfo.title);
-         setTitleEn(defaultInfo.title_eng);
-         setDescription(defaultInfo.description);
-         setDescriptionEN(defaultInfo.description_eng);
          setSelectedFile(defaultInfo.imageURL);
       }
    }, [defaultInfo]);
-
+   const userSchema = yup.object(schema);
+   const {
+      control,
+      reset,
+      watch,
+      handleSubmit,
+      formState: { errors },
+   } = useForm({
+      mode: "onBlur",
+      defaultValues: {
+         title: defaultInfo?.title || "",
+         titleEN: defaultInfo?.title_eng || "",
+         description: defaultInfo?.description || "",
+         descriptionEN: defaultInfo?.description_eng || "",
+      },
+      resolver: yupResolver(userSchema),
+   });
    const submitClickEvent = e => {
-      e.preventDefault();
-      if (title.length && description.length && descriptionEN.length && selectedFile) {
-         submitClick({
-            title,
-            titleEN,
-            description,
-            descriptionEN,
-            selectedFile,
-         });
+      if (selectedFile) {
+         submitClick({ e, selectedFile });
+         setSelectedFile(null);
+         reset();
+         navigation(-1);
+      }
+   };
+   const handlerSubmitButton = () => {
+      if (!selectedFile) {
+         setError("Поле обов'язкове для заповнення");
       }
    };
    return (
       <div className="form-container">
-         <form onSubmit={submitClickEvent} className="added-form">
+         <form onSubmit={handleSubmit(submitClickEvent)} className="added-form">
             <div className="form-input-container">
                <div className="tablet-files-picker">
                   <FilesPicker
+                     errors={error}
+                     setError={setError}
                      selectedFile={selectedFile}
                      setSelectedFile={setSelectedFile}
                      defaultInfo={defaultInfo}
-                     isEdit={isEdit}
                   />
                </div>
                <div className="language-liable">UA</div>
-               <InputSm value={title} setSmInput={setTitle} label={smLiable} />
+               <InputForm errors={errors.title} control={control} name={"title"} label={smLiable} />
 
                <TextArea
+                  errors={errors.description}
+                  control={control}
+                  name={"description"}
                   counter={counter}
-                  setLgInput={setDescription}
                   label={lgLiable}
-                  value={description}
+                  length={watch().description.length}
                />
-
                <div className="desc-files-picker">
                   <FilesPicker
+                     errors={error}
+                     setError={setError}
                      selectedFile={selectedFile}
                      setSelectedFile={setSelectedFile}
                      defaultInfo={defaultInfo}
-                     isEdit={isEdit}
                   />
                </div>
             </div>
             <div className="form-input-container">
                <div className="language-liable">ENG</div>
-
                {hiddenInputENG ? (
-                  <div className="input-blok"> </div>
+                  <>
+                     <div className="input-blok"></div>
+                     {!!errors.title && <div className="input-blok-err"></div>}
+                  </>
                ) : (
-                  <InputSm value={titleEN} setSmInput={setTitleEn} label={smLiable} />
+                  <InputForm
+                     errors={errors.titleEN}
+                     control={control}
+                     name={"titleEN"}
+                     label={smLiable}
+                  />
                )}
 
                <TextArea
+                  errors={errors.descriptionEN}
+                  control={control}
+                  name={"descriptionEN"}
                   counter={counter}
-                  setLgInput={setDescriptionEN}
                   label={lgLiable}
-                  value={descriptionEN}
+                  length={watch().descriptionEN.length}
                />
 
                <div className="form-button-blok">
-                  <button className="admin-button">{nameButton}</button>
+                  <button onClick={handlerSubmitButton} className="admin-button">
+                     {nameButton}
+                  </button>
                </div>
             </div>
          </form>

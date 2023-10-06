@@ -28,15 +28,15 @@ export const EditReporting = () => {
    };
 
    return (
-      <section className="page-container">
+      <section className="page-container page-container-reporting">
          <PageHeader title={"Редагувати звітність"} />
-         <div className="edit-reportin-form-wrap">
+         <div className="edit-reporting-form-wrap">
             <FilesPicker
                defaultInfo={reportingData}
                selectedFile={selectedFile}
                setSelectedFile={handleFileSelect}
             />
-            <div className="edit-reportin-btn">
+            <div className="edit-reporting-btn">
                <button className="admin-button" onClick={handleFormSubmit}>
                   Внести зміни
                </button>

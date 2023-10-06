@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import arrowLeft from "../../assets/icon/arrow-left-icon.svg";
-import arrowRight from "../../assets/icon/arrow-right-icon.svg";
+import arrowRight from "../../assets/icon/right-icon.svg";
 
 const Pagination = ({ totalPosts, postsPerPage, setCurrentPage, currentPage }) => {
    let pages = [];
