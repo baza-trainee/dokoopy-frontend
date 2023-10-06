@@ -27,19 +27,22 @@
      padding: 0 24px;
    }
 }
-.admin-hero-header-title-box {
+// .admin-hero-header-title-box {
+//    display: flex;
+//    flex-direction: row;
+//    align-items: center;
+//    gap: 5px;
+//    @media (min-width: 480px) {
+//       gap: 6px;
+//    }
+//    @media (min-width: 768px) {
+//       gap: 10px;
+//    }
+// }
+.admin-hero-header-title {
    display: flex;
    flex-direction: row;
    align-items: center;
-   gap: 5px;
-   @media (min-width: 480px) {
-      gap: 6px;
-   }
-   @media (min-width: 768px) {
-      gap: 10px;
-   }
-}
-.admin-hero-header-title {
    font-size: 18px;
    font-weight: 500;
    line-height: 21.09px;

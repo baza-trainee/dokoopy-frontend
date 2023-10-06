@@ -2,9 +2,18 @@ import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 import { AdminEditIcon } from "../../assets/admin-icons/admin-edit";
+import { useEffect, useRef } from "react";
 
 export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
-   // console.log(data);
+   const gridContainerRef = useRef(null);
+
+   useEffect(() => {
+      const numberOfRows = data.length;
+      if (gridContainerRef.current) {
+        gridContainerRef.current.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
+      }
+    }, [data]);
+
    return (
       <div className="admin-main-wrapper">
          <div className="admin-main-header">
@@ -16,18 +25,19 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                <div className="admin-main-header-title"></div>
             </div>
          </div>
-         <ul className="admin-main-content">
+         <ul className="admin-main-content" ref={gridContainerRef}>
             {/* {!isLoading && (heroes.heroes.map(contentData => { */}
             {data.map(contentData => {
                return (
                   <li
                      key={contentData.id}
-                     className={
+                     
+                  >
+                     <Link to={`edit/${contentData.id}`} className={
                         contentData.date
                            ? "admin-main-content-element"
                            : "admin-main-content-element-partners"
-                     }
-                  >
+                     }>
                      <p
                         className={
                            contentData.date
@@ -35,7 +45,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                               : "content-element-name-partners"
                         }
                      >
-                        {contentData.name}
+                        {contentData.title}
                      </p>
                      <div className="content-element-img-box">
                         <div
@@ -55,10 +65,12 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                      >
                         {contentData.date ? contentData.date : contentData.link}
                      </p>
-                     <Link to={`edit/${contentData.id}`}>
-                              <AdminEditIcon />
+                     <div>
+                        <AdminEditIcon />
+                     </div>
                      </Link>
                   </li>
+                  
                );
             })}
          </ul>
@@ -72,3 +84,4 @@ AdminMainInnerPart.propTypes = {
    link: PropTypes.string,
    data: PropTypes.array,
 };
+{/* <Link to={`edit/${contentData.id}`}></Link> */}

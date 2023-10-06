@@ -24,6 +24,11 @@ export const lendingData = {
 };
 
 export const AdminApi = {
+   setTokenApi(token) {
+      let tokenFromLocStorage = localStorage.getItem("token");
+      token ? axios.defaults.headers.common["Authorization"] = `Bearer ${token}` : 
+      axios.defaults.headers.common["Authorization"] = `Bearer ${tokenFromLocStorage}`
+   },
    loginAdmin(body) {
       return axios.post("auth/admin/login", body, {
          headers: {

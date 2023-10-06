@@ -116,15 +116,16 @@ body {
       height: 74px;
    }
 }
-.admin-main-content-element > a:last-child, .admin-main-content-element-partners > a:last-child  {
+.admin-main-content-element > div:last-child, .admin-main-content-element-partners > div:last-child  {
    width: 28px;
    height: 27.12px;
 }
-.admin-main-content-element > a:last-child,
-.admin-main-content-element-partners > a:last-child {
+.admin-main-content-element > div:last-child,
+.admin-main-content-element-partners > div:last-child {
    display: flex;
    justify-content: flex-end;
    align-items: center;
+   width: auto;
 }
 .edit-icon path {
    stroke: var(--admin-main-font);

@@ -2,50 +2,46 @@ import { useLocation } from "react-router-dom";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import defaultImage from "../../assets/images/admin-heroes-projects.png";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
-// import { useLoadingData } from "../../hook/useLoadingData";
-// import { AdminApi } from "../../api/api";
-// import { useEffect, useState } from "react";
-// import { useAdminContext } from "../../components/provider-components/admin-provider";
-// import { useAdminContext } from "../../components/provider-components/admin-provider";
+import { useLoadingData } from "../../hook/useLoadingData";
+import { AdminApi } from "../../api/api";
+import { useEffect, useState } from "react";
 
 const dataSlider = [
    {
       id: 1,
-      name: "Назва слайдеру",
+      title: "Назва слайдеру",
       img: defaultImage,
       date: "21.07.2023",
       alt: "slider_photo",
    },
    {
       id: 2,
-      name: "Назва слайдеру",
+      title: "Назва слайдеру",
       img: defaultImage,
       date: "21.07.2023",
       alt: "slider_photo",
    },
-   { id: 3, name: "Назва слайдеру", img: defaultImage, date: "21.07.2023", alt: "slider_photo" },
+   { id: 3, title: "Назва слайдеру", img: defaultImage, date: "21.07.2023", alt: "slider_photo" },
    {
       id: 4,
-      name: "Назва слайдеру",
+      title: "Назва слайдеру",
       img: defaultImage,
       date: "21.07.2023",
       alt: "slider_photo",
    },
 ];
 export const AdminHero = () => {
-   // const [sliders, setSliders] = useState();
-   // const { token, loggedIn } = useAdminContext();
-   // console.log(token);
-   // const data= useLoadingData(AdminApi.getHerosAdmin);
+   const [sliders, setSliders] = useState([]);
+   const dataFromBack= useLoadingData(AdminApi.getHerosAdmin);
    const { pathname } = useLocation();
-   // useEffect(() => {
-   //    if (loggedIn) {
-   //       setSliders(data);
-   //    }
-   // }, []);
+   useEffect(() => {
+      if (dataFromBack.data?.heroes) {
+         setSliders(sliders.data.heroes);
+      }
+   }, [dataFromBack.data?.heroes]);
 
 
-   // console.log(data);
+   console.log(sliders);
    // console.log(sliders);
 
    

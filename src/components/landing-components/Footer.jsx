@@ -42,7 +42,6 @@ export const Footer = () => {
                   </a>
                   )}
                </div>
-                  
                <p className="footer-policy-text">{localization.footerText}</p>
             </div>
          </div>
