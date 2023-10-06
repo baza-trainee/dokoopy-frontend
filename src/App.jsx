@@ -44,9 +44,9 @@ function App() {
          </Route>
          <Route path="/login" element={<LoginLayout />}>
             <Route index element={<Login />} />
-            <Route path="forget" element={<ForgetPassword />} />
+            <Route path="forget-password" element={<ForgetPassword />} />
             <Route path="renew" element={<RenewPassword />} />
-            <Route path="success" element={<SuccessfullRenew />} />
+            <Route path="successful-renew" element={<SuccessfullRenew />} />
          </Route>
          <Route
             path="/admin"
