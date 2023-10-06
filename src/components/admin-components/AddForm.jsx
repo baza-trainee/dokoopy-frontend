@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { FilesPicker } from "./formElement/FilesPicker";
 import { TextArea } from "./formElement/TextArea";
@@ -17,6 +18,7 @@ export const AddForm = ({
 }) => {
    const [selectedFile, setSelectedFile] = useState(() => null);
    const [error, setError] = useState(null);
+   const navigation = useNavigate();
 
    useEffect(() => {
       if (defaultInfo) {
@@ -45,6 +47,7 @@ export const AddForm = ({
          submitClick({ e, selectedFile });
          setSelectedFile(null);
          reset();
+         navigation(-1);
       }
    };
    const handlerSubmitButton = () => {
