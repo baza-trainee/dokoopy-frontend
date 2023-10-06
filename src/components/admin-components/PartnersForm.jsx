@@ -1,6 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { FilesPicker } from "./formElement/FilesPicker";
 import { InputForm } from "./formElement/inputForm";
@@ -14,6 +15,7 @@ export const PartnersForm = ({
 }) => {
    const [selectedFile, setSelectedFile] = useState(() => null);
    const [error, setError] = useState(null);
+   const navigation = useNavigate();
    useEffect(() => {
       if (defaultInfo) {
          setSelectedFile(defaultInfo.imageURL);
@@ -38,6 +40,7 @@ export const PartnersForm = ({
          submitClick({ e, selectedFile });
          setSelectedFile(null);
          reset();
+         navigation(-1);
       }
    };
    const handlerSubmitButton = () => {
