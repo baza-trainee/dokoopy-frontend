@@ -16,7 +16,7 @@ export const AdminModal = ({ onClose, removeItem }) => {
          <div className="admin-modal-window">
             <div className="admin-modal-button-x">
                <button className="admin-button-close" onClick={handleCloseClick}>
-                  <img src={iconx} className="iconx" alt="Закрити" />
+                  <img src={iconx} className="iconx-img" alt="Закрити" />
                </button>
             </div>
             <div className="admin-modal-text">

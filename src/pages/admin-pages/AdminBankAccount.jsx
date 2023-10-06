@@ -1,12 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AdminApi } from "../../api/api";
-import { EditIcon } from "../../assets/admin-icons/EditIcon";
-import lefticon from "../../assets/icon/Vector.svg";
+import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit"
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminBankAccount = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getBankAdmin);
-   const navigate = useNavigate();
 
    const defaultBankAccountData = [
       {
@@ -38,8 +36,7 @@ export const AdminBankAccount = () => {
    return (
       <div>
          <div className="bank-contacts">
-            <div className="bank-contacts-header" onClick={() => navigate(-1)}>
-               <img src={lefticon} />
+            <div className="bank-contacts-header">
                <h2>Банківські реквізити</h2>
             </div>
             <div className="bank-contacts-list">
@@ -50,17 +47,17 @@ export const AdminBankAccount = () => {
                </div>
                <ul className="bank-contacts-list-ul">
                   {bankAccountData.map(monobank => (
+                     <Link to="edit">
                      <li className="bank-card" key={monobank.id}>
                         <div className="bank-li">
                            <p>{monobank.name}</p>
                            <a href={monobank.link}>{monobank.contact}</a>
                            <button>
-                              <Link to="edit">
-                                 <EditIcon />
-                              </Link>
+                                 <AdminIconEdit/>
                            </button>
                         </div>
                      </li>
+                     </Link>
                   ))}
                </ul>
             </div>
