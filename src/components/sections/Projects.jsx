@@ -9,11 +9,11 @@ import { lendingData } from "../../api/api";
 import { formatData, formatDataEN } from "../../assets/helpers";
 import { useLoadingData } from "../../hook/useLoadingData";
 
-import { useLandingContext } from "../provider-components/landing-provider";
+import { useAppContext } from "../provider-components/app-provider";
 import ProjectSlider from "./ProjectSlider";
 
 export const Projects = () => {
-   const { language } = useLandingContext();
+   const { language } = useAppContext();
    const [project, setProject] = useState([]);
    const { isLoading, error, data } = useLoadingData(lendingData.getProject);
 
