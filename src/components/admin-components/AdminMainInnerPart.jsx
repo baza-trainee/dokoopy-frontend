@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { AdminEditIcon } from "../../assets/admin-icons/admin-edit";
 import { useEffect, useRef } from "react";
+import { formatData } from "../../assets/helpers";
 
 export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
    const gridContainerRef = useRef(null);
@@ -26,7 +27,6 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
             </div>
          </div>
          <ul className="admin-main-content" ref={gridContainerRef}>
-            {/* {!isLoading && (heroes.heroes.map(contentData => { */}
             {data.map(contentData => {
                return (
                   <li
@@ -52,7 +52,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                            className={contentData.date ? "wrapper-img-box" : "wrapper-img-box-svg"}
                         >
                            <img
-                              src={contentData.img}
+                              src={`https://dokoopy.onrender.com/${contentData.imageURL}`}
                               alt={contentData.alt}
                               className="content-element-img"
                            ></img>
@@ -63,7 +63,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                            contentData.date ? "content-element-data" : "content-element-link"
                         }
                      >
-                        {contentData.date ? contentData.date : contentData.link}
+                        {contentData.date ? formatData(contentData.date) : contentData.link}
                      </p>
                      <div>
                         <AdminEditIcon />
@@ -84,4 +84,3 @@ AdminMainInnerPart.propTypes = {
    link: PropTypes.string,
    data: PropTypes.array,
 };
-{/* <Link to={`edit/${contentData.id}`}></Link> */}

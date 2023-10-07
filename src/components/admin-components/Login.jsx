@@ -47,6 +47,8 @@ export const Login = () => {
       AdminApi.loginAdmin(e)
          .then(res => {
             localStorage.setItem("token", res.data);
+            // res.data ? AdminApi.setToken(res.data) :
+            // AdminApi.setToken(localStorage.getItem("token"))
             logIn(res.data);
          })
          .then(() => {
