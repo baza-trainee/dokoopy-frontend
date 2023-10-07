@@ -48,7 +48,25 @@ function App() {
             <Route path="renew" element={<RenewPassword />} />
             <Route path="successful-renew" element={<SuccessfullRenew />} />
          </Route>
-         <Route
+         <Route path="/admin" element={<AdminSharedLayout />}>
+            <Route index element={<AdminHero />} />
+            <Route path="add-new-slide" element={<AddSlide />} />
+            <Route path="edit/:slideId" element={<EditSlider />} />
+            <Route path="projects" element={<AdminProjects />} />
+            <Route path="projects/add-new-project" element={<AddProject />} />
+            <Route path="projects/edit/:projectId" element={<EditProject />} />
+            <Route path="partners" element={<AdminPartners />} />
+            <Route path="partners/add-new-partner" element={<AddPartner />} />
+            <Route path="partners/edit/:partnerId" element={<EditPartner />} />
+            <Route path="contacts" element={<AdminContacts />} />
+            <Route path="contacts/edit" element={<EditContact />} />
+            <Route path="bank-account" element={<AdminBankAccount />} />
+            <Route path="bank-account/edit" element={<EditBankAccount />} />
+            <Route path="reporting" element={<AdminReporting />} />
+            <Route path="reporting/edit" element={<EditReporting />} />
+            <Route path="*" element={<AdminNotFound />} />
+         </Route>
+         {/* <Route
             path="/admin"
             element={<PrivateRoute redirectTo="/login" component={<AdminSharedLayout />} />}
          >
@@ -113,7 +131,7 @@ function App() {
                path="*"
                element={<PrivateRoute redirectTo="/login" component={<AdminNotFound />} />}
             />
-         </Route>
+         </Route> */}
       </Routes>
    );
 }
@@ -127,21 +145,21 @@ export default App;
             <Route path="*" element={<NotFound />} />
          </Route>
          <Route path="/admin" element={<AdminSharedLayout />}>
-           * <Route index element={<AdminHero />} />
-           * <Route path="add-new-slide" element={<AddSlide />} />
-           * <Route path="edit/:slideId" element={<EditSlider />} />
-           * <Route path="projects" element={<AdminProjects />} />
-           * <Route path="projects/add-new-project" element={<AddProject />} />
-           * <Route path="projects/edit/:projectId" element={<EditProject />} />
-           * <Route path="partners" element={<AdminPartners />} />
-           * <Route path="partners/add-new-partner" element={<AddPartner />} />
-           * <Route path="partners/edit/:partnerId" element={<EditPartner />} />
-           * <Route path="contacts" element={<AdminContacts />} />
-           * <Route path="contacts/edit" element={<EditContact />} />
-           * <Route path="bank-account" element={<AdminBankAccount />} />
-           * <Route path="bank-account/edit" element={<EditBankAccount />} />
-           * <Route path="reporting" element={<AdminReporting />} />
-           * <Route path="reporting/edit" element={<EditReporting />} />
-           * <Route path="*" element={<AdminNotFound />} />
+           <Route index element={<AdminHero />} />
+           <Route path="add-new-slide" element={<AddSlide />} />
+           <Route path="edit/:slideId" element={<EditSlider />} />
+            <Route path="projects" element={<AdminProjects />} />
+           <Route path="projects/add-new-project" element={<AddProject />} />
+           <Route path="projects/edit/:projectId" element={<EditProject />} />
+           <Route path="partners" element={<AdminPartners />} />
+           <Route path="partners/add-new-partner" element={<AddPartner />} />
+           <Route path="partners/edit/:partnerId" element={<EditPartner />} />
+           <Route path="contacts" element={<AdminContacts />} />
+           <Route path="contacts/edit" element={<EditContact />} />
+           <Route path="bank-account" element={<AdminBankAccount />} />
+          <Route path="bank-account/edit" element={<EditBankAccount />} />
+           <Route path="reporting" element={<AdminReporting />} />
+            <Route path="reporting/edit" element={<EditReporting />} />
+            <Route path="*" element={<AdminNotFound />} />
          </Route> */
 }
