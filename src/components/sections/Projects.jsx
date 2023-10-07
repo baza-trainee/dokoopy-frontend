@@ -16,7 +16,6 @@ export const Projects = () => {
    const { language } = useAppContext();
    const [project, setProject] = useState([]);
    const { isLoading, error, data } = useLoadingData(lendingData.getProject);
-
    useEffect(() => {
       if (data?.projects) {
          setProject(

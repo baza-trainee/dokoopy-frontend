@@ -1,11 +1,10 @@
-import * as yup from "yup";
 import { AdminApi } from "../../../api/api";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
-import { useLoadingData } from "../../../hook/useLoadingData.js";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema";
+import { useLoadingData } from "../../../hook/useLoadingData.js";
 export const AddProject = () => {
-   const { eventLoading } = useLoadingData(AdminApi.addProject, true);
+   const { eventLoading, data } = useLoadingData(AdminApi.addProject, true);
 
    const submitClick = data => {
       const formData = new FormData();
@@ -27,6 +26,7 @@ export const AddProject = () => {
             submitClick={submitClick}
             counter={300}
             schema={validSchema.project}
+            success={data?.code === 201 ? true : false}
          />
       </section>
    );

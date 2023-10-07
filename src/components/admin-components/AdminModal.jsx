@@ -1,14 +1,19 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import iconx from "../../assets/images/iconx.svg";
 
-export const AdminModal = ({ onClose, removeItem }) => {
+export const AdminModal = ({ onClose, removeItem, success }) => {
    const navigate = useNavigate();
+   useEffect(() => {
+      if (success) {
+         navigate(-1);
+      }
+   }, [success]);
    const handleCloseClick = () => {
       onClose();
    };
    const handlerRemove = () => {
       removeItem();
-      navigate(-1);
    };
 
    return (
@@ -25,7 +30,7 @@ export const AdminModal = ({ onClose, removeItem }) => {
                   <br />
                   видалити проєкт?
                </h2>
-               
+
                <div className="admin-modal-button">
                   <button className="admin-modal-no" onClick={handleCloseClick}>
                      <h4>Ні</h4>

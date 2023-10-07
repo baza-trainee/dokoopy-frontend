@@ -7,6 +7,9 @@
    align-items: center;
    padding: 0 24px;
    position: relative;
+   font-size: 24px;
+}
+.heder-icon-arrow {
 }
 .title-icon {
    display: flex;
@@ -16,7 +19,8 @@
 .heder-icon-arrow {
    width: 24px;
    height: 24px;
-   padding: 4px 2px;
+   display: block;
+   // padding: 4px 2px;
    transition: var(--transition);
    border-radius: 5px;
    cursor: pointer;
@@ -63,12 +67,10 @@
       }
    }
    .heder-icon-arrow {
-      padding: 1px;
-      width: 20px;
-      height: 20px;
       & svg {
          width: 14px;
          height: 14px;
+         margin-bottom: 2.5px;
       }
    }
 }
