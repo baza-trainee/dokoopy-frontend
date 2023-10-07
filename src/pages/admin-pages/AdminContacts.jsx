@@ -1,7 +1,6 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AdminApi } from "../../api/api";
-import { EditIcon } from "../../assets/admin-icons/EditIcon";
-import lefticon from "../../assets/icon/Vector.svg";
+import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit"
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminContacts = () => {
@@ -10,7 +9,6 @@ export const AdminContacts = () => {
       // AdminApi.getContactsAdmin,
       // true
    );
-   const navigate = useNavigate();
    // const token = localStorage.getItem("token");
    const defaultContactsData = [
       {
@@ -42,8 +40,7 @@ export const AdminContacts = () => {
 
    return (
       <div className="admin-contacts">
-         <div className="admin-contacts-header" onClick={() => navigate(-1)}>
-            <img src={lefticon} />
+         <div className="admin-contacts-header">
             <h2>Контакти</h2>
          </div>
          <div className="admin-contacts-list">
@@ -54,17 +51,17 @@ export const AdminContacts = () => {
             </div>
             <ul className="admin-contacts-list-ul">
                {contactsData.map(contact => (
+                  <Link to="edit">
                   <li className="contacts-card" key={contact.id}>
                      <div className="contacts-li">
                         <p>{contact.name}</p>
                         <a href={contact.link}>{contact.contact}</a>
                         <button className="edit-contcts">
-                           <Link to="edit">
-                              <EditIcon />
-                           </Link>
+                              <AdminIconEdit />
                         </button>
                      </div>
                   </li>
+                  </Link>
                ))}
             </ul>
          </div>
