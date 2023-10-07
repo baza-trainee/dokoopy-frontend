@@ -35,13 +35,17 @@ import { AdminApi } from "../../api/api";
 export const AdminProjects = () => {
    const { pathname } = useLocation();
    const [projects, setProjects] = useState([]);
-   let dataFromBack=useLoadingData(AdminApi.getProjectAdmin);
+   const {data, isLoading} = useLoadingData(AdminApi.getProjectAdmin);
  
    useEffect(() => {
-      if (dataFromBack.data!==null) {
-         setProjects(dataFromBack.data.projects);
+      if (data!==null) {
+         setProjects(data.projects);
       }
-   }, [dataFromBack.data]);
+   }, [data]);
+
+   if (isLoading) {
+      return <p>Loading...</p>;
+   }
 
    return (
       <div className="admin-hero">

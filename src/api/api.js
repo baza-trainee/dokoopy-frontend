@@ -24,9 +24,6 @@ export const lendingData = {
 };
 
 export const AdminApi = {
-   // setToken(token) {
-   //    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-   // },
    loginAdmin(body) {
       return axios.post("auth/admin/login", body, {
          headers: {

@@ -32,14 +32,18 @@ import { useEffect, useState } from "react";
 // ];
 export const AdminHero = () => {
    const [sliders, setSliders] = useState([]);
-   let dataFromBack=useLoadingData(AdminApi.getHerosAdmin);
+   const {data, isLoading} = useLoadingData(AdminApi.getHerosAdmin);
    const { pathname } = useLocation();
 
    useEffect(() => {
-      if (dataFromBack.data!==null) {
-         setSliders(dataFromBack.data.heroes);
+      if (data!==null) {
+         setSliders(data.heroes);
       }
-   }, [dataFromBack.data]);
+   }, [data]);
+
+   if (isLoading) {
+      return <p>Loading...</p>;
+   }
 
    return (
       <div className="admin-hero">

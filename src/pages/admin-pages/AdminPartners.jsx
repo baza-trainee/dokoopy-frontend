@@ -41,13 +41,17 @@ import { AdminApi } from "../../api/api";
 export const AdminPartners = () => {
    const { pathname } = useLocation();
    const [partners, setPartners] = useState([]);
-   let dataFromBack=useLoadingData(AdminApi.getPartnersAdmin);
+   const {data, isLoading} = useLoadingData(AdminApi.getPartnersAdmin);
  
    useEffect(() => {
-      if (dataFromBack.data!==null) {
-         setPartners(dataFromBack.data.partners);
+      if (data!==null) {
+         setPartners(data.partners);
       }
-   }, [dataFromBack.data]);
+   }, [data]);
+
+   if (isLoading) {
+      return <p>Loading...</p>;
+   }
 
    return (
       <div className="admin-hero">

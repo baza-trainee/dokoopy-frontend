@@ -10,16 +10,10 @@ import { AdminBankIcon } from "../../assets/admin-icons/admin-bank";
 import { AdminReportIcon } from "../../assets/admin-icons/admin-report";
 import { AdminChangePasswordIcon } from "../../assets/admin-icons/admin-password";
 import { AdminLogoutIcon } from "../../assets/admin-icons/admin-logout";
-// import { useEffect } from "react";
-// import { AdminApi } from "../../api/api";
 
 export const AdminAside = () => {
    const { loggedIn } = useAppContext();
    console.log(loggedIn);
-   // useEffect(() => {
-   //    const token = localStorage.getItem("token");
-   //    AdminApi.setToken(token);
-   // }, []);
    return (
       <aside className="aside">
          <ul>
