@@ -35,7 +35,7 @@
    width: 100%;
    padding: 26px 24px;
    justify-content: space-between;
-   align-items: flex-start;
+   align-items: center;
    background: var(--light_grey, #ebebeb);
 }
 .admin-contacts-list-title p {
@@ -88,6 +88,8 @@
    background: none;
    border: none;
    cursor: pointer;
+   align-items: center;
+   justify-content: center;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
@@ -124,7 +126,7 @@
       width: 100%;
       padding: 26px 24px;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       background: var(--light_grey, #ebebeb);
    }
    .admin-contacts-list-title p {
@@ -225,7 +227,7 @@
       width: 100%;
       padding: 18px 24px;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       background: var(--light_grey, #EBEBEB);
    }
    .admin-contacts-list-title p {
@@ -325,7 +327,7 @@
       width: 100%;
       padding: 18px 24px;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       background: var(--light_grey, #EBEBEB);
    }
    .admin-contacts-list-title p {

@@ -1,7 +1,5 @@
 import Slider from "react-slick";
-
 import localization from "../../assets/language-switcher/localization";
-
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { useLoadingData } from "../../hook/useLoadingData";
