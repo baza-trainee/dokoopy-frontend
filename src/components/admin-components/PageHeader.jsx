@@ -4,7 +4,7 @@ import { AdminArrowLeft } from "../../assets/admin-icons/admin-arrow-left";
 import removeIcon from "../../assets/icon/remove-icon.svg";
 import { AdminModal } from "../admin-components/AdminModal";
 
-export const PageHeader = ({ title, edit, removeClick }) => {
+export const PageHeader = ({ title, edit, removeClick, success }) => {
    const navigate = useNavigate();
 
    const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,7 +36,9 @@ export const PageHeader = ({ title, edit, removeClick }) => {
             )}
          </div>
          <div className="divider"></div>
-         {isModalOpen && <AdminModal removeItem={removeClick} onClose={handleCloseModal} />}
+         {isModalOpen && (
+            <AdminModal success={success} removeItem={removeClick} onClose={handleCloseModal} />
+         )}
       </>
    );
 };

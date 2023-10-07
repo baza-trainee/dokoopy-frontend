@@ -40,17 +40,21 @@ export const EditSlider = () => {
             removeClick={() => deleteHeros.eventLoading(slideId)}
             edit={true}
             title={"Редагувати слайдер"}
+            success={deleteHeros.data?.code === 200 ? true : false}
          />
-         <AddForm
-            lgLiable={"Опис слайдеру*"}
-            smLiable={"Назва слайдеру*"}
-            nameButton={"Внести зміни"}
-            submitClick={submitClick}
-            defaultInfo={currentHero}
-            hiddenInputENG={true}
-            counter={110}
-            schema={validSchema.heros}
-         />
+         {currentHero && (
+            <AddForm
+               lgLiable={"Опис слайдеру*"}
+               smLiable={"Назва слайдеру*"}
+               nameButton={"Внести зміни"}
+               submitClick={submitClick}
+               defaultInfo={currentHero}
+               hiddenInputENG={true}
+               counter={110}
+               schema={validSchema.heros}
+               success={updateHeros.data?.code === 200 ? true : false}
+            />
+         )}
       </section>
    );
 };

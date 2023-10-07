@@ -5,8 +5,7 @@ import { validSchema } from "../../../components/admin-components/formElement/va
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const AddSlide = () => {
-   const { eventLoading } = useLoadingData(AdminApi.addHero, true);
-
+   const { eventLoading, data } = useLoadingData(AdminApi.addHero, true);
    const submitClick = data => {
       const formData = new FormData();
       formData.append("title", data.e.title);
@@ -26,6 +25,7 @@ export const AddSlide = () => {
             submitClick={submitClick}
             hiddenInputENG={true}
             counter={110}
+            success={data?.code === 201 ? true : false}
             schema={validSchema.heros}
          />
       </section>
