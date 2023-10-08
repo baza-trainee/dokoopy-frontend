@@ -2,14 +2,22 @@ import { useRef, useState } from "react";
 import { EditIcon } from "../../../assets/admin-icons/EditIcon";
 import successIcon from "../../../assets/icon/success-icon.svg";
 
-export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSelectedFile }) => {
+export const FilesPicker = ({
+   errors,
+   setError,
+   defaultInfo,
+   selectedFile,
+   setSelectedFile,
+   filesType = ".png, .jpeg, .webp",
+   title = "Фото",
+}) => {
    const [isSuccessFile, setSuccessFile] = useState(false);
    const filePicker = useRef(null);
 
    const handleFileChange = e => {
       e.preventDefault();
       const file = e.target.files[0];
-      if (file.size > 5 * 1024 * 1024) {
+      if (file.size > 4.8 * 1024 * 1024) {
          setError("Максимальний розмір файлу 5Мб");
       } else {
          setError(null);
@@ -21,7 +29,7 @@ export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSe
    const handleDrop = e => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-      if (file.size > 5 * 1024 * 1024) {
+      if (file.size > 4.8 * 1024 * 1024) {
          setError("Максимальний розмір файлу 5Мб");
       } else {
          setError(null);
@@ -44,7 +52,7 @@ export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSe
          onDragStart={handleDragOver}
       >
          <div className="label-icon-blok">
-            <p className="input-liable">Фото*</p>
+            <p className="input-liable">{title}*</p>
 
             <div onClick={handelPick} className="edit-button-icon">
                <EditIcon />
@@ -54,7 +62,7 @@ export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSe
             ref={filePicker}
             className="hidden"
             type="file"
-            accept=".pdf, .jpg, .png, .gif"
+            accept={filesType}
             onChange={handleFileChange}
          />
          <div htmlFor="drag-input" onClick={handelPick} className={"drag-input"}>

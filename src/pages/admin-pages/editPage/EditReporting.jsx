@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { PageHeader } from "../../../components/admin-components/PageHeader";
 import fileText from "../../../assets/icon/filetext.svg";
+import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { FilesPicker } from "../../../components/admin-components/formElement/FilesPicker";
 
 export const EditReporting = () => {
@@ -35,6 +35,8 @@ export const EditReporting = () => {
                defaultInfo={reportingData}
                selectedFile={selectedFile}
                setSelectedFile={handleFileSelect}
+               filesType={".pdf"}
+               title={"Файл"}
             />
             <div className="edit-reporting-btn">
                <button className="admin-button" onClick={handleFormSubmit}>
