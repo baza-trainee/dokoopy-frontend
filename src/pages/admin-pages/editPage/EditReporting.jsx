@@ -5,12 +5,12 @@ import { FilesPicker } from "../../../components/admin-components/formElement/Fi
 
 export const EditReporting = () => {
    const reportingData = {
-      name: "57_.pdf",
-      imgIcon: fileText,
+      title: "57_.pdf",
+      imageURL: fileText,
    };
 
    const [selectedFile, setSelectedFile] = useState(null);
-
+   const [error, setError] = useState(null);
    useState(() => {
       const previousFileData = {
          name: reportingData.name,
@@ -37,6 +37,8 @@ export const EditReporting = () => {
                setSelectedFile={handleFileSelect}
                filesType={".pdf"}
                title={"Файл"}
+               errors={error}
+               setError={setError}
             />
             <div className="edit-reporting-btn">
                <button className="admin-button" onClick={handleFormSubmit}>
