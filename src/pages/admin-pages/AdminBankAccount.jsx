@@ -6,17 +6,7 @@ import { useLoadingData } from "../../hook/useLoadingData";
 export const AdminBankAccount = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getBankAdmin);
 
-   const defaultBankAccountData = [
-      {
-         id: 1,
-         name: "Link",
-         contact: "monobank_link",
-         link: "https://send.monobank.ua/jar/4B1mQWmGVS",
-      },
-   ];
-
-   const bankAccountData = data || defaultBankAccountData;
-
+   const bankAccountData = data || [];
    if (isLoading) {
       return <p>Loading...</p>;
    }
@@ -46,19 +36,17 @@ export const AdminBankAccount = () => {
                   <span></span>
                </div>
                <ul className="bank-contacts-list-ul">
-                  {bankAccountData.map(monobank => (
                      <Link to="edit">
-                     <li className="bank-card" key={monobank.id}>
+                     <li className="bank-card">
                         <div className="bank-li">
-                           <p>{monobank.name}</p>
-                           <a href={monobank.link}>{monobank.contact}</a>
+                           <p>Реквізити</p>
+                           <a href={`mailto:${data?.bank?.link}`}>{data?.bank?.link}</a>
                            <button>
                                  <AdminIconEdit/>
                            </button>
                         </div>
                      </li>
                      </Link>
-                  ))}
                </ul>
             </div>
          </div>

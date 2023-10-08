@@ -1,21 +1,13 @@
 import { Link } from "react-router-dom";
 import fileText from "../../assets/icon/filetext.svg";
-import lefticon from "../../assets/icon/Vector.svg";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { AdminApi } from "../../api/api";
 
 export const AdminReporting = () => {
   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
 
-  const defaultReportingData = [
-    {
-      id: 1,
-      name: "57_.pdf",
-      imgIcon: fileText,
-    },
-  ];
-
-  const reportingData = data || defaultReportingData;
+  const reportingData = data || []
+  console.log(data);
 
   if (isLoading) {
    return <p>Loading...</p>;
@@ -41,16 +33,14 @@ export const AdminReporting = () => {
         </div>
       </div>
       <ul className="reporting-files">
-        {reportingData.map((files) => (
-          <li className="reporting-cards" key={files.id}>
+          <li className="reporting-cards" key={data?.reports?.id}>
             <div className="card-reporting">
               <Link to="edit">
-                <img src={files.imgIcon} />
-                <p>{files.name}</p>
+                <img src={fileText} />
+                <a href={`https://dokoopy.onrender.com/${data?.reports?.reportURL}`}>{data?.reports?.reportURL}</a>
               </Link>
             </div>
           </li>
-        ))}
       </ul>
     </div>
   );
