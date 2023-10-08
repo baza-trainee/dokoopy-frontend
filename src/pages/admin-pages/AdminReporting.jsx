@@ -6,24 +6,23 @@ import { AdminApi } from "../../api/api";
 export const AdminReporting = () => {
   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
 
-  const reportingData = data || []
-  console.log(data);
-
   if (isLoading) {
-   return <p>Loading...</p>;
- }
+    return <p>Loading...</p>;
+  }
 
- if (error && error.data) {
-   return (
-     <p>
-       Error: {error.message}
-       <br />
-       Код помилки: {error.code}
-       <br />
-       URL-адреса: {error.url}
-     </p>
-   );
- }
+  if (error && error.data) {
+    return (
+      <p>
+        Error: {error.message}
+        <br />
+        Код помилки: {error.code}
+        <br />
+        URL-адреса: {error.url}
+      </p>
+    );
+  }
+
+  const reports = data?.reports || [];
 
   return (
     <div className="admin-reporting">
@@ -33,14 +32,18 @@ export const AdminReporting = () => {
         </div>
       </div>
       <ul className="reporting-files">
-          <li className="reporting-cards" key={data?.reports?.id}>
+        {reports.map((report) => (
+          <li className="reporting-cards" key={report.id}>
             <div className="card-reporting">
-              <Link to="edit">
-                <img src={fileText} />
-                <a href={`https://dokoopy.onrender.com/${data?.reports?.reportURL}`}>{data?.reports?.reportURL}</a>
+              <Link to={`/edit/${report.id}`}> {/* Зміни шлях, якщо необхідно передавати ідентифікатор репорту у URL */}
+                <img src={fileText} alt="File" /> {/* Додайте альтернативний текст для зображення */}
+                <a href={`https://dokoopy.onrender.com/${report.reportURL}`} target="_blank" rel="noopener noreferrer">
+                  {report.reportURL}
+                </a>
               </Link>
             </div>
           </li>
+        ))}
       </ul>
     </div>
   );
