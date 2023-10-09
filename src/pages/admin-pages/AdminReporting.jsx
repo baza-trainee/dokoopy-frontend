@@ -32,20 +32,22 @@ export const AdminReporting = () => {
           <h2>Звітність</h2>
         </div>
       </div>
+      <div className="reporting-container-card">
       <ul className="reporting-files">
         {reports.map((report) => (
           <li className="reporting-cards" key={report.id}>
             <div className="card-reporting">
-              <Link to="edit">
+              <Link to="edit" className="card-reporting">
                 <img src={fileText} alt="File" /> 
                 <a href={`https://dokoopy.onrender.com/${report.reportURL}`} target="_blank" rel="noopener noreferrer">
-                  {report.reportURL}
+                  Звітність
                 </a>
               </Link>
             </div>
           </li>
         ))}
       </ul>
+      </div>
     </div>
   );
 };
