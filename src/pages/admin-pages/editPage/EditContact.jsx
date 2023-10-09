@@ -30,7 +30,7 @@ export const EditContact = () => {
 
    return (
       <section className="page-container">
-         <PageHeader currentModal={"контакт"} title={"Редагувати контакти"} />
+         <PageHeader title={"Редагувати контакти"} />
          <div className="edit-contact-payment-form-wrap">
             <div className="edit-contact-payment-form">
                <InputSm setSmInput={setEmail} label={"Email:"} value={email} isLink={true} />

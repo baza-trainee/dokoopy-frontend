@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import iconx from "../../assets/images/iconx.svg";
 import { Spinner } from "./Spinner";
 
-export const AdminModal = ({ onClose, removeItem, success, currentModal }) => {
+export const AdminModal = ({ onClose, removeItem, success }) => {
    const [isLoading, setLoading] = useState(false);
    const navigate = useNavigate();
    useEffect(() => {
@@ -37,7 +37,7 @@ export const AdminModal = ({ onClose, removeItem, success, currentModal }) => {
                      <h2>
                         Ви впевнені, що хочете
                         <br />
-                        видалити {currentModal}?
+                        видалити проєкт?
                      </h2>
 
                      <div className="admin-modal-button">

@@ -38,7 +38,6 @@ export const EditPartner = () => {
             removeClick={() => deletePartner.eventLoading(partnerId)}
             edit={true}
             title={"Редагувати партнера"}
-            currentModal={"партнера"}
             success={deletePartner?.data?.code === 200 ? true : false}
          />
          {!currentPartner ? (

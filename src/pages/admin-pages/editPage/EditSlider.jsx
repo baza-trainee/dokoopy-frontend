@@ -42,7 +42,6 @@ export const EditSlider = () => {
             edit={true}
             title={"Редагувати слайдер"}
             success={deleteHeros.data?.code === 200 ? true : false}
-            currentModal={"слайдер"}
          />
          {!currentHero ? (
             <Spinner size={300} color={"#2672e4"} />

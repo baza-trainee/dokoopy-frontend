@@ -39,7 +39,6 @@ export const EditProject = () => {
             removeClick={() => deleteProject.eventLoading(projectId)}
             edit={true}
             title={"Редагувати проєкт"}
-            currentModal={"проєкт"}
             success={deleteProject.data?.code === 200 ? true : false}
          />
          {!currentProject ? (
