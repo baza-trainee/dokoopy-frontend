@@ -4,10 +4,11 @@ import { createPortal } from "react-dom";
 
 import { Link } from "react-router-dom";
 import { useAppContext } from "../provider-components/app-provider.jsx";
+import { DonateButton } from "./DonateButton.jsx";
+import { BurgerMenu } from "./header/BurgerMenu.jsx";
+import { LanguageSelector } from "./header/LanguageSelector.jsx";
 
 import { BurgerMenuIcon } from "../../assets/icon/burger-menu.jsx";
-import { DonateButton } from "./DonateButton.jsx";
-
 import { Chevron, ChevronMobile } from "../../assets/icon/chevron-down.jsx";
 import { CloseModal } from "../../assets/icon/close-modal.jsx";
 
@@ -17,7 +18,7 @@ const mobileMenuPortal = document.getElementById("mobile-menu");
 
 export const Header = () => {
    const [menuOpen, setMenuOpen] = useState(false);
-   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+   // const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
    const [languageMobile, setLanguageMobile] = useState(false);
 
    const mobileMenuRef = useRef(null);
@@ -41,9 +42,9 @@ export const Header = () => {
       };
    }, []);
 
-   function toggleLanguageMenu() {
-      setLanguageMenuOpen(!languageMenuOpen);
-   }
+   // function toggleLanguageMenu() {
+   //    setLanguageMenuOpen(!languageMenuOpen);
+   // }
 
    function toggleLanguageMobile() {
       setLanguageMobile(!languageMobile);
@@ -63,15 +64,15 @@ export const Header = () => {
       setMenuOpen(false);
    }
 
-   function setLanguageUkraine() {
-      switchToUkraine();
-      setLanguageMenuOpen(!languageMenuOpen);
-   }
+   // function setLanguageUkraine() {
+   //    switchToUkraine();
+   //    setLanguageMenuOpen(!languageMenuOpen);
+   // }
 
-   function setLanguageEnglish() {
-      switchToEnglish();
-      setLanguageMenuOpen(!languageMenuOpen);
-   }
+   // function setLanguageEnglish() {
+   //    switchToEnglish();
+   //    setLanguageMenuOpen(!languageMenuOpen);
+   // }
 
    return (
       <header className="wrapper-header">
@@ -103,7 +104,8 @@ export const Header = () => {
                </nav>
                <div className="icon-button-block">
                   <DonateButton buttonClass={"headerButton"}></DonateButton>
-                  <div className="language-selector-wrapper">
+                  <LanguageSelector></LanguageSelector>
+                  {/* <div className="language-selector-wrapper">
                      <p className="language-selector" onClick={toggleLanguageMenu}>
                         {localization.currentLanguage}
                         <Chevron />
@@ -122,7 +124,7 @@ export const Header = () => {
                            </li>
                         </ul>
                      ) : null}
-                  </div>
+                  </div> */}
                   <div className="burger-menu" onClick={openMenuHandler}>
                      <BurgerMenuIcon />
                   </div>
