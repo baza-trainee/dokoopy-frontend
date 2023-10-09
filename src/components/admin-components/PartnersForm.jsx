@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { Spinner } from "./Spinner";
 import { FilesPicker } from "./formElement/FilesPicker";
 import { InputForm } from "./formElement/inputForm";
 export const PartnersForm = ({
@@ -15,6 +16,7 @@ export const PartnersForm = ({
    success,
 }) => {
    const [selectedFile, setSelectedFile] = useState(() => null);
+   const [isLoading, setLoading] = useState(false);
    const [error, setError] = useState(null);
    const navigation = useNavigate();
    useEffect(() => {
@@ -42,6 +44,7 @@ export const PartnersForm = ({
    });
    const submitClickEvent = e => {
       if (selectedFile) {
+         setLoading(true);
          submitClick({ e, selectedFile });
       }
    };
@@ -53,6 +56,7 @@ export const PartnersForm = ({
 
    return (
       <div className="form-container">
+         {isLoading && <Spinner size={300} color={"#2672e4"} />}
          <form onSubmit={handleSubmit(submitClickEvent)} className="added-form">
             <div className="partner-file-blok">
                <FilesPicker

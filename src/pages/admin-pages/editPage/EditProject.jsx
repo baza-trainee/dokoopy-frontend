@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AdminApi } from "../../../api/api.js";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { Spinner } from "../../../components/admin-components/Spinner.jsx";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema.js";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
 export const EditProject = () => {
@@ -40,7 +41,9 @@ export const EditProject = () => {
             title={"Редагувати проєкт"}
             success={deleteProject.data?.code === 200 ? true : false}
          />
-         {currentProject && (
+         {!currentProject ? (
+            <Spinner size={300} color={"#2672e4"} />
+         ) : (
             <AddForm
                lgLiable={"Опис проєкту*"}
                smLiable={"Назва проєкту*"}

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AdminApi } from "../../../api/api";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { Spinner } from "../../../components/admin-components/Spinner";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
@@ -42,7 +43,9 @@ export const EditSlider = () => {
             title={"Редагувати слайдер"}
             success={deleteHeros.data?.code === 200 ? true : false}
          />
-         {currentHero && (
+         {!currentHero ? (
+            <Spinner size={300} color={"#2672e4"} />
+         ) : (
             <AddForm
                lgLiable={"Опис слайдеру*"}
                smLiable={"Назва слайдеру*"}
