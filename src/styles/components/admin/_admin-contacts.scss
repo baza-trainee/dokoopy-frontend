@@ -13,7 +13,7 @@
    border-bottom: 1px solid var(--light_grey, #EBEBEB);
    background: #FFF;
    gap: 10px;
-   cursor: pointer;
+
 }
 .admin-contacts-header h2 {
    flex: 1 0 0;
@@ -384,6 +384,7 @@
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+      overflow: hidden;
    }
    .contacts-li button {
       display: flex;
