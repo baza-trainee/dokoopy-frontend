@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AdminApi } from "../../api/api";
-import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit"
+import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit";
+import { Spinner } from "../../components/admin-components/Spinner";
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminBankAccount = () => {
@@ -18,7 +19,7 @@ export const AdminBankAccount = () => {
    const bankAccountData = data || defaultBankAccountData;
 
    if (isLoading) {
-      return <p>Loading...</p>;
+      return <Spinner size={300} color={"#2672e4"} />;
    }
 
    if (error && error.data) {
@@ -48,15 +49,15 @@ export const AdminBankAccount = () => {
                <ul className="bank-contacts-list-ul">
                   {bankAccountData.map(monobank => (
                      <Link to="edit">
-                     <li className="bank-card" key={monobank.id}>
-                        <div className="bank-li">
-                           <p>{monobank.name}</p>
-                           <a href={monobank.link}>{monobank.contact}</a>
-                           <button>
-                                 <AdminIconEdit/>
-                           </button>
-                        </div>
-                     </li>
+                        <li className="bank-card" key={monobank.id}>
+                           <div className="bank-li">
+                              <p>{monobank.name}</p>
+                              <a href={monobank.link}>{monobank.contact}</a>
+                              <button>
+                                 <AdminIconEdit />
+                              </button>
+                           </div>
+                        </li>
                      </Link>
                   ))}
                </ul>

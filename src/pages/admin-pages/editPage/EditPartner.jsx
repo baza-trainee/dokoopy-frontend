@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { AdminApi } from "../../../api/api";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { PartnersForm } from "../../../components/admin-components/PartnersForm";
+import { Spinner } from "../../../components/admin-components/Spinner";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
@@ -19,7 +20,6 @@ export const EditPartner = () => {
       }
    }, [getPartner.data]);
 
-   console.log(deletePartner?.data?.code);
    const submitClick = data => {
       const formData = new FormData();
       formData.append("title", data.e.title);
@@ -38,9 +38,12 @@ export const EditPartner = () => {
             removeClick={() => deletePartner.eventLoading(partnerId)}
             edit={true}
             title={"Редагувати партнера"}
+            currentModal={"партнера"}
             success={deletePartner?.data?.code === 200 ? true : false}
          />
-         {currentPartner && (
+         {!currentPartner ? (
+            <Spinner size={300} color={"#2672e4"} />
+         ) : (
             <PartnersForm
                smLiable={"Назва партнера*"}
                lgLiable={"Посилання на сайт партнера*"}

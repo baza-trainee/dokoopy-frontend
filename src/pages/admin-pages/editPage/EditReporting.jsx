@@ -29,7 +29,7 @@ export const EditReporting = () => {
 
    return (
       <section className="page-container page-container-reporting">
-         <PageHeader title={"Редагувати звітність"} />
+         <PageHeader currentModal={"звітність"} title={"Редагувати звітність"} />
          <div className="edit-reporting-form-wrap">
             <FilesPicker
                defaultInfo={reportingData}

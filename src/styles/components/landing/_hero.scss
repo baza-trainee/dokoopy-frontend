@@ -8,9 +8,10 @@
 }
 @keyframes move {
    0% {
-      transform: translateY(-50px);
+      transform: translateY(-100px);
    }
    100% {
+      // opacity: 1;
       transform: translateY(0);
    }
 }
@@ -106,6 +107,7 @@ li.slick-active button:before {
       opacity: 0.6;
       max-height: 160px;
       overflow: hidden;
+      animation: move 2s;
    }
    .slider-title p {
       -webkit-box-decoration-break: clone;
@@ -124,7 +126,7 @@ li.slick-active button:before {
       line-height: 48px;
       max-height: 170px;
       overflow: hidden;
-      animation: move 1s;
+      animation: move 2s;
    }
 }
 

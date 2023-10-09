@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AdminApi } from "../../api/api";
-import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit"
+import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit";
+import { Spinner } from "../../components/admin-components/Spinner";
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminContacts = () => {
@@ -23,7 +24,7 @@ export const AdminContacts = () => {
    const contactsData = data || defaultContactsData;
 
    if (isLoading) {
-      return <p>Loading...</p>;
+      return <Spinner size={300} color={"#2672e4"} />;
    }
 
    if (error && error.data) {
@@ -52,15 +53,15 @@ export const AdminContacts = () => {
             <ul className="admin-contacts-list-ul">
                {contactsData.map(contact => (
                   <Link to="edit">
-                  <li className="contacts-card" key={contact.id}>
-                     <div className="contacts-li">
-                        <p>{contact.name}</p>
-                        <a href={contact.link}>{contact.contact}</a>
-                        <button className="edit-contcts">
+                     <li className="contacts-card" key={contact.id}>
+                        <div className="contacts-li">
+                           <p>{contact.name}</p>
+                           <a href={contact.link}>{contact.contact}</a>
+                           <button className="edit-contcts">
                               <AdminIconEdit />
-                        </button>
-                     </div>
-                  </li>
+                           </button>
+                        </div>
+                     </li>
                   </Link>
                ))}
             </ul>

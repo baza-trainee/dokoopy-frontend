@@ -6,7 +6,7 @@ import { AdminMainInnerPart } from "../../components/admin-components/AdminMainI
 import { useEffect, useState } from "react";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { AdminApi } from "../../api/api";
-
+import { Spinner } from "../../components/admin-components/Spinner";
 // const dataPartners = [
 //    {
 //       id: 1,
@@ -41,16 +41,16 @@ import { AdminApi } from "../../api/api";
 export const AdminPartners = () => {
    const { pathname } = useLocation();
    const [partners, setPartners] = useState([]);
-   const {data, isLoading} = useLoadingData(AdminApi.getPartnersAdmin);
- 
+   const { data, isLoading } = useLoadingData(AdminApi.getPartnersAdmin);
+
    useEffect(() => {
-      if (data!==null) {
+      if (data !== null) {
          setPartners(data.partners);
       }
    }, [data]);
 
    if (isLoading) {
-      return <p>Loading...</p>;
+      return <Spinner size={300} color={"#2672e4"} />;
    }
 
    return (

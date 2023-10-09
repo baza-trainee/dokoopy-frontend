@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { AdminApi } from "../../api/api";
 import fileText from "../../assets/icon/filetext.svg";
 import { useLoadingData } from "../../hook/useLoadingData";
+import { Spinner } from "../../components/admin-components/Spinner";
 
 export const AdminReporting = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
@@ -17,7 +18,7 @@ export const AdminReporting = () => {
    const reportingData = defaultReportingData;
 
    if (isLoading) {
-      return <p>Loading...</p>;
+      return <Spinner size={300} color={"#2672e4"} />;
    }
 
    if (error && error.data) {
