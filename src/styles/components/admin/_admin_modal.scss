@@ -166,6 +166,13 @@
         gap: 34px;
         flex-shrink: 0;
     }
+    .admin-modal-button-x{
+        width: 100%;
+        padding-top: 12px;
+        padding-right: 12px;
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 @media (max-width: 479px){
     .admin-modal-window{
@@ -176,14 +183,21 @@
         display: flex;
     }
     .admin-modal-text{
-        margin-top: 12px;    
+        margin: 12px 10px 0 10px;      
         width: auto;
         height: 228px;
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 42px;
+        gap: 70px;
+    }
+    .admin-modal-button-x{
+        width: 100%;
+        padding-top: 12px;
+        padding-right: 12px;
+        display: flex;
+        justify-content: flex-end;
     }
     .admin-modal-text h2{
         color: #111;
@@ -192,8 +206,8 @@
         font-size: 32px;
         font-style: normal;
         font-weight: 700;
-        line-height: 130%;
-        text-transform: uppercase;
+        line-height: normal;
+
     }
     .admin-modal-button{
         display: flex;
@@ -226,14 +240,14 @@
 }
 @media (max-height: 650px){
     .admin-modal-window{
-        width: 665px;
-        height: 358px;
+        width: 550px;
+        height: 300px;
         background-color: var(--background-about);
         flex-direction: column;
         display: flex;
     }
     .admin-modal-text{
-        margin: 66px auto 169px;    
+        margin: 25px auto 0пше;    
         width: auto;
         height: 228px;
         flex-shrink: 0;
