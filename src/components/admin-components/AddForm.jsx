@@ -48,7 +48,7 @@ export const AddForm = ({
       resolver: yupResolver(userSchema),
    });
    const submitClickEvent = e => {
-      if (selectedFile) {
+      if (!error) {
          submitClick({ e, selectedFile });
       }
    };

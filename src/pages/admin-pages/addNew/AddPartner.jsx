@@ -19,7 +19,7 @@ export const AddPartner = () => {
       <section className="page-container">
          <PageHeader title={"Додати нового партнера"} />
          <PartnersForm
-            lgLiable={"Назва партнера*"}
+            lgLiable={"Посилання на сайт партнера*"}
             smLiable={"Назва партнера*"}
             nameButton={"Додати партнера"}
             submitClick={submitClick}

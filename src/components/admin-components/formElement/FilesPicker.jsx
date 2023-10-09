@@ -8,16 +8,20 @@ export const FilesPicker = ({
    defaultInfo,
    selectedFile,
    setSelectedFile,
-   filesType = ".png, .jpeg, .webp",
+   filesType = ".png, .jpeg, .webp .jpg",
    title = "Фото",
 }) => {
    const [isSuccessFile, setSuccessFile] = useState(false);
    const filePicker = useRef(null);
 
-   const handleFileChange = e => {
-      e.preventDefault();
-      const file = e.target.files[0];
-      if (file.size > 4.8 * 1024 * 1024) {
+   const fileValidator = file => {
+      const valFilesPattern = filesType.split(" ");
+      const matchFile = file?.type.split("/")[1];
+      const isMath = valFilesPattern.find(item => item.includes(matchFile));
+
+      if (!isMath) {
+         setError("Вибраний файл не підримується");
+      } else if (file.size > 4.8 * 1024 * 1024) {
          setError("Максимальний розмір файлу 5Мб");
       } else {
          setError(null);
@@ -25,17 +29,16 @@ export const FilesPicker = ({
          setSuccessFile(true);
       }
    };
+   const handleFileChange = e => {
+      e.preventDefault();
+      const file = e.target.files[0];
+      fileValidator(file);
+   };
 
    const handleDrop = e => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-      if (file.size > 4.8 * 1024 * 1024) {
-         setError("Максимальний розмір файлу 5Мб");
-      } else {
-         setError(null);
-         setSelectedFile(file);
-         setSuccessFile(true);
-      }
+      fileValidator(file);
    };
 
    const handleDragOver = e => {
@@ -76,7 +79,11 @@ export const FilesPicker = ({
                   <div className="editImg">
                      {defaultInfo ? (
                         <img
-                           src={`https://dokoopy.onrender.com/${defaultInfo.imageURL}`}
+                           src={
+                              title === "Фото"
+                                 ? `https://dokoopy.onrender.com/${defaultInfo.imageURL}`
+                                 : defaultInfo.imageURL
+                           }
                            className="editImg-default"
                         ></img>
                      ) : (
