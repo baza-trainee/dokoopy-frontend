@@ -10,6 +10,7 @@ import { useLoadingData } from "../../../hook/useLoadingData";
 export const EditSlider = () => {
    const { slideId } = useParams();
    const [currentHero, setCurrentHero] = useState(null);
+   const [minLength, setMinLength] = useState(false);
    const deleteHeros = useLoadingData(AdminApi.deleteHero, true);
    const updateHeros = useLoadingData(AdminApi.updateHero, true);
    const getHeros = useLoadingData(AdminApi.getHerosAdmin);
@@ -17,6 +18,9 @@ export const EditSlider = () => {
    useEffect(() => {
       if (getHeros.data?.heroes) {
          setCurrentHero(getHeros.data.heroes.find(({ id }) => id === slideId));
+         if (getHeros.data?.heroes.length <= 2) {
+            setMinLength(true);
+         }
       }
    }, [getHeros.data?.heroes]);
 
@@ -36,28 +40,32 @@ export const EditSlider = () => {
    };
 
    return (
-      <section className="page-container">
-         <PageHeader
-            removeClick={() => deleteHeros.eventLoading(slideId)}
-            edit={true}
-            title={"Редагувати слайдер"}
-            success={deleteHeros.data?.code === 200 ? true : false}
-         />
+      <>
          {!currentHero ? (
             <Spinner size={300} color={"#2672e4"} />
          ) : (
-            <AddForm
-               lgLiable={"Опис слайдеру*"}
-               smLiable={"Назва слайдеру*"}
-               nameButton={"Внести зміни"}
-               submitClick={submitClick}
-               defaultInfo={currentHero}
-               hiddenInputENG={true}
-               counter={110}
-               schema={validSchema.heros}
-               success={updateHeros.data?.code === 200 ? true : false}
-            />
+            <section className="page-container">
+               <PageHeader
+                  removeClick={() => deleteHeros.eventLoading(slideId)}
+                  edit={true}
+                  title={"Редагувати слайдер"}
+                  success={deleteHeros.data?.code === 200 ? true : false}
+                  minLength={minLength}
+               />
+
+               <AddForm
+                  lgLiable={"Опис слайдеру*"}
+                  smLiable={"Назва слайдеру*"}
+                  nameButton={"Внести зміни"}
+                  submitClick={submitClick}
+                  defaultInfo={currentHero}
+                  hiddenInputENG={true}
+                  counter={110}
+                  schema={validSchema.heros}
+                  success={updateHeros.data?.code === 200 ? true : false}
+               />
+            </section>
          )}
-      </section>
+      </>
    );
 };

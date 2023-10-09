@@ -33,26 +33,29 @@ export const EditPartner = () => {
    };
 
    return (
-      <section className="page-container">
-         <PageHeader
-            removeClick={() => deletePartner.eventLoading(partnerId)}
-            edit={true}
-            title={"Редагувати партнера"}
-            success={deletePartner?.data?.code === 200 ? true : false}
-         />
+      <>
          {!currentPartner ? (
             <Spinner size={300} color={"#2672e4"} />
          ) : (
-            <PartnersForm
-               smLiable={"Назва партнера*"}
-               lgLiable={"Посилання на сайт партнера*"}
-               nameButton={"Внести зміни"}
-               submitClick={submitClick}
-               defaultInfo={currentPartner}
-               schema={validSchema.partner}
-               success={updatePartner.data?.code === 200 ? true : false}
-            />
+            <section className="page-container">
+               <PageHeader
+                  removeClick={() => deletePartner.eventLoading(partnerId)}
+                  edit={true}
+                  title={"Редагувати партнера"}
+                  success={deletePartner?.data?.code === 200 ? true : false}
+               />
+
+               <PartnersForm
+                  smLiable={"Назва партнера*"}
+                  lgLiable={"Посилання на сайт партнера*"}
+                  nameButton={"Внести зміни"}
+                  submitClick={submitClick}
+                  defaultInfo={currentPartner}
+                  schema={validSchema.partner}
+                  success={updatePartner.data?.code === 200 ? true : false}
+               />
+            </section>
          )}
-      </section>
+      </>
    );
 };
