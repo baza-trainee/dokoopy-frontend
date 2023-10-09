@@ -8,7 +8,7 @@ export const FilesPicker = ({
    defaultInfo,
    selectedFile,
    setSelectedFile,
-   filesType = ".png, .jpeg, .webp .jpg",
+   filesType = ".png, .jpeg, .webp, .jpg",
    title = "Фото",
 }) => {
    const [isSuccessFile, setSuccessFile] = useState(false);
@@ -21,7 +21,7 @@ export const FilesPicker = ({
 
       if (!isMath) {
          setError("Вибраний файл не підримується");
-      } else if (file.size > 4.8 * 1024 * 1024) {
+      } else if (file.size > 5 * 1024 * 1024) {
          setError("Максимальний розмір файлу 5Мб");
       } else {
          setError(null);
@@ -32,13 +32,17 @@ export const FilesPicker = ({
    const handleFileChange = e => {
       e.preventDefault();
       const file = e.target.files[0];
-      fileValidator(file);
+      if (file) {
+         fileValidator(file);
+      }
    };
 
    const handleDrop = e => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-      fileValidator(file);
+      if (file) {
+         fileValidator(file);
+      }
    };
 
    const handleDragOver = e => {

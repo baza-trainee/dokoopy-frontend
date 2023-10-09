@@ -6,6 +6,14 @@
       object-fit: cover;
    }
 }
+@keyframes move {
+   0% {
+      transform: translateY(-50px);
+   }
+   100% {
+      transform: translateY(0);
+   }
+}
 
 .arrow-slider {
    position: absolute;
@@ -31,7 +39,9 @@
    margin-top: 24px;
    font-size: 24px;
    line-height: 34px;
+   animation: move;
 }
+
 .slider-title p {
    height: auto;
    display: block;
@@ -103,35 +113,18 @@ li.slick-active button:before {
       padding: 3px;
    }
 }
-// @media (min-width: 1080px) {
-//    .hero {
-//       height: 675px;
-//    }
-//    .arrow-slider {
-//       width: 38px;
-//       height: 38px;
-//       top: 47%;
-//    }
-//    .slider {
-//       height: 675px;
-//    }
-//    .slider-title {
-//       font-size: 40px;
-//       top: 380px;
-//       line-height: 55px;
-//    }
-// }
 
 @media (min-width: 1280px) {
    .slider {
-      height: 735px;
+      height: calc(100vh - 100px);
    }
    .slider-title {
-      top: 420px;
+      top: 56%;
       max-width: 920px;
       line-height: 48px;
       max-height: 170px;
       overflow: hidden;
+      animation: move 1s;
    }
 }
 
