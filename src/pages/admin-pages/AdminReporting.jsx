@@ -36,8 +36,8 @@ export const AdminReporting = () => {
         {reports.map((report) => (
           <li className="reporting-cards" key={report.id}>
             <div className="card-reporting">
-              <Link to={`/edit/${report.id}`}> {/* Зміни шлях, якщо необхідно передавати ідентифікатор репорту у URL */}
-                <img src={fileText} alt="File" /> {/* Додайте альтернативний текст для зображення */}
+              <Link to="edit">
+                <img src={fileText} alt="File" /> 
                 <a href={`https://dokoopy.onrender.com/${report.reportURL}`} target="_blank" rel="noopener noreferrer">
                   {report.reportURL}
                 </a>
