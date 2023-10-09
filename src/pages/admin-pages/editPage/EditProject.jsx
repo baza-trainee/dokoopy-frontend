@@ -9,6 +9,7 @@ import { useLoadingData } from "../../../hook/useLoadingData.js";
 export const EditProject = () => {
    const { projectId } = useParams();
    const [currentProject, setCurrentProject] = useState(null);
+   const [minLength, setMinLength] = useState(false);
    const deleteProject = useLoadingData(AdminApi.deleteProject, true);
    const updateProject = useLoadingData(AdminApi.updateProject, true);
    const getProject = useLoadingData(AdminApi.getProjectAdmin);
@@ -16,6 +17,9 @@ export const EditProject = () => {
    useEffect(() => {
       if (getProject.data?.projects) {
          setCurrentProject(getProject.data.projects.find(({ id }) => id === projectId));
+         if (getProject.data?.projects.length <= 2) {
+            setMinLength(true);
+         }
       }
    }, [getProject.data]);
 
@@ -34,27 +38,31 @@ export const EditProject = () => {
       updateProject.eventLoading(params);
    };
    return (
-      <section className="page-container">
-         <PageHeader
-            removeClick={() => deleteProject.eventLoading(projectId)}
-            edit={true}
-            title={"Редагувати проєкт"}
-            success={deleteProject.data?.code === 200 ? true : false}
-         />
+      <>
          {!currentProject ? (
             <Spinner size={300} color={"#2672e4"} />
          ) : (
-            <AddForm
-               lgLiable={"Опис проєкту*"}
-               smLiable={"Назва проєкту*"}
-               nameButton={"Внести зміни"}
-               defaultInfo={currentProject}
-               submitClick={submitClick}
-               counter={300}
-               schema={validSchema.project}
-               success={updateProject.data?.code === 200 ? true : false}
-            />
+            <section className="page-container">
+               <PageHeader
+                  removeClick={() => deleteProject.eventLoading(projectId)}
+                  edit={true}
+                  title={"Редагувати проєкт"}
+                  success={deleteProject.data?.code === 200 ? true : false}
+                  minLength={minLength}
+               />
+
+               <AddForm
+                  lgLiable={"Опис проєкту*"}
+                  smLiable={"Назва проєкту*"}
+                  nameButton={"Внести зміни"}
+                  defaultInfo={currentProject}
+                  submitClick={submitClick}
+                  counter={300}
+                  schema={validSchema.project}
+                  success={updateProject.data?.code === 200 ? true : false}
+               />
+            </section>
          )}
-      </section>
+      </>
    );
 };
