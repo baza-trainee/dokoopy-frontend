@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
 import { Link } from "react-router-dom";
-// import { useAppContext } from "../provider-components/landing-provider.jsx";
 import { useAppContext } from "../provider-components/app-provider.jsx";
 
 import { BurgerMenuIcon } from "../../assets/icon/burger-menu.jsx";
@@ -26,7 +25,6 @@ export const Header = () => {
    const missionElementId = "mission";
 
    const { language, switchToEnglish, switchToUkraine } = useAppContext();
-   // console.log("28", language, localization.getLanguage());
 
    useEffect(() => {
       const handler = event => {
@@ -147,34 +145,34 @@ export const Header = () => {
                           <ul className="navigation-list_mobile-menu">
                              <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
                                 <Link to={`/#${missionElementId}`} className="navigaton-link">
-                                   {localization.mission}
+                                   {localization.header.mission}
                                 </Link>
                              </li>
                              <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
                                 <Link to={`/#${aboutElementId}`} className="navigaton-link">
-                                   {localization.about}
+                                   {localization.header.about}
                                 </Link>
                              </li>
                              <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
-                                <Link to="allprojects/1">{localization.projects}</Link>
+                                <Link to="allprojects/1">{localization.header.projects}</Link>
                              </li>
                           </ul>
                        </nav>
                        <div className="language-selector-container">
                           <p className="language-selector_mobile" onClick={toggleLanguageMobile}>
-                             UA <ChevronMobile />
+                             {localization.currentLanguage} <ChevronMobile />
                           </p>
                           {languageMobile ? (
                              <ul className="language-menu-list-mobile">
                                 <li
-                                   onClick={toggleLanguageMobile}
+                                   onClick={setLanguageUkraine}
                                    className="language-menu-item-mobile"
                                 >
                                    <Link to="/" className="selected-language-mobile">
                                       UA
                                    </Link>
                                 </li>
-                                <li onClick={toggleLanguageMobile} className="language-menu-item">
+                                <li onClick={setLanguageEnglish} className="language-menu-item">
                                    <Link to="en" className="selected-language-mobile">
                                       EN
                                    </Link>
