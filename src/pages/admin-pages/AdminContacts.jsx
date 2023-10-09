@@ -4,23 +4,11 @@ import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit"
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminContacts = () => {
-   const { data, isLoading, error, eventLoading } = useLoadingData(
-      AdminApi.getContactsAdmin
-      // AdminApi.getContactsAdmin,
-      // true
-   );
-   // const token = localStorage.getItem("token");
-   const defaultContactsData = [
-      {
-         id: 1,
-         name: "Email",
-         contact: "info@baza-trainee.tech",
-         link: "mailto:info@baza-trainee.tech",
-      },
-      { id: 1, name: "Telegram", contact: "telegram_link", link: "https://t.me/+CBXkAJlsCy83ZDYy" },
-   ];
+   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin);
 
-   const contactsData = data || defaultContactsData;
+
+   const contactsData = data || [];
+
 
    if (isLoading) {
       return <p>Loading...</p>;
@@ -50,19 +38,28 @@ export const AdminContacts = () => {
                <span></span>
             </div>
             <ul className="admin-contacts-list-ul">
-               {contactsData.map(contact => (
                   <Link to="edit">
-                  <li className="contacts-card" key={contact.id}>
+                  <li className="contacts-card">
                      <div className="contacts-li">
-                        <p>{contact.name}</p>
-                        <a href={contact.link}>{contact.contact}</a>
+                        <p>Email</p>
+                        <a href={`mailto:${data?.contacts?.email}`}>{data?.contacts?.email}</a>
                         <button className="edit-contcts">
                               <AdminIconEdit />
                         </button>
                      </div>
                   </li>
                   </Link>
-               ))}
+                  <Link to="edit">
+                  <li className="contacts-card">
+                     <div className="contacts-li">
+                        <p>Telegram</p>
+                        <a href={`${data?.contacts?.telegram}`}>{data?.contacts?.telegram}</a>
+                        <button className="edit-contcts">
+                              <AdminIconEdit />
+                        </button>
+                     </div>
+                  </li>
+                  </Link>
             </ul>
          </div>
       </div>
