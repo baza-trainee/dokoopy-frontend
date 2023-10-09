@@ -28,7 +28,7 @@ export const AdminModal = ({ onClose, removeItem, success, elementType }) => {
                <h2>
                   Ви впевнені, що хочете
                   <br />
-                  видалити {elementType}?
+                  видалити?
                </h2>
 
                <div className="admin-modal-button">
