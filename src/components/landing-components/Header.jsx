@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, forwardRef, useState } from "react";
 
 import { createPortal } from "react-dom";
 
@@ -9,8 +9,8 @@ import { BurgerMenu } from "./header/BurgerMenu.jsx";
 import { LanguageSelector } from "./header/LanguageSelector.jsx";
 
 import { BurgerMenuIcon } from "../../assets/icon/burger-menu.jsx";
-import { Chevron, ChevronMobile } from "../../assets/icon/chevron-down.jsx";
-import { CloseModal } from "../../assets/icon/close-modal.jsx";
+// import { Chevron, ChevronMobile } from "../../assets/icon/chevron-down.jsx";
+// import { CloseModal } from "../../assets/icon/close-modal.jsx";
 
 import localization from "../../assets/language-switcher/localization.js";
 
@@ -19,9 +19,9 @@ const mobileMenuPortal = document.getElementById("mobile-menu");
 export const Header = () => {
    const [menuOpen, setMenuOpen] = useState(false);
    // const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
-   const [languageMobile, setLanguageMobile] = useState(false);
+   // const [languageMobile, setLanguageMobile] = useState(false);
 
-   const mobileMenuRef = useRef(null);
+   const mobileMenuRef = forwardRef(null);
    const aboutElementId = "about";
    const missionElementId = "mission";
 
@@ -46,9 +46,9 @@ export const Header = () => {
    //    setLanguageMenuOpen(!languageMenuOpen);
    // }
 
-   function toggleLanguageMobile() {
-      setLanguageMobile(!languageMobile);
-   }
+   // function toggleLanguageMobile() {
+   //    setLanguageMobile(!languageMobile);
+   // }
 
    function openMenuHandler(e) {
       e.preventDefault();
@@ -133,58 +133,63 @@ export const Header = () => {
          </div>
          {menuOpen
             ? createPortal(
-                 <div className="mobile-menu" ref={mobileMenuRef}>
-                    <div className="container container_burger">
-                       <div className="close-modal" onClick={closeMenuHandler}>
-                          <CloseModal />
-                       </div>
-                       <div onClick={logoClickHandler}>
-                          <Link to="/" className="logo logo_mobile-menu">
-                             dokoopy
-                          </Link>
-                       </div>
-                       <nav className="navigation_mobile-menu">
-                          <ul className="navigation-list_mobile-menu">
-                             <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
-                                <Link to={`/#${missionElementId}`} className="navigaton-link">
-                                   {localization.header.mission}
-                                </Link>
-                             </li>
-                             <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
-                                <Link to={`/#${aboutElementId}`} className="navigaton-link">
-                                   {localization.header.about}
-                                </Link>
-                             </li>
-                             <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
-                                <Link to="allprojects/1">{localization.header.projects}</Link>
-                             </li>
-                          </ul>
-                       </nav>
-                       <div className="language-selector-container">
-                          <p className="language-selector_mobile" onClick={toggleLanguageMobile}>
-                             {localization.currentLanguage} <ChevronMobile />
-                          </p>
-                          {languageMobile ? (
-                             <ul className="language-menu-list-mobile">
-                                <li
-                                   onClick={setLanguageUkraine}
-                                   className="language-menu-item-mobile"
-                                >
-                                   <Link to="/" className="selected-language-mobile">
-                                      UA
-                                   </Link>
-                                </li>
-                                <li onClick={setLanguageEnglish} className="language-menu-item">
-                                   <Link to="en" className="selected-language-mobile">
-                                      EN
-                                   </Link>
-                                </li>
-                             </ul>
-                          ) : null}
-                       </div>
-                       <DonateButton buttonClass={"burger"}></DonateButton>
-                    </div>
-                 </div>,
+                 <BurgerMenu
+                    closeMenuHandler={closeMenuHandler}
+                    logoClickHandler={logoClickHandler}
+                    ref={mobileMenuRef}
+                 ></BurgerMenu>,
+                 // <div className="mobile-menu" ref={mobileMenuRef}>
+                 //    <div className="container container_burger">
+                 //       <div className="close-modal" onClick={closeMenuHandler}>
+                 //          <CloseModal />
+                 //       </div>
+                 //       <div onClick={logoClickHandler}>
+                 //          <Link to="/" className="logo logo_mobile-menu">
+                 //             dokoopy
+                 //          </Link>
+                 //       </div>
+                 //       <nav className="navigation_mobile-menu">
+                 //          <ul className="navigation-list_mobile-menu">
+                 //             <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
+                 //                <Link to={`/#${missionElementId}`} className="navigaton-link">
+                 //                   {localization.header.mission}
+                 //                </Link>
+                 //             </li>
+                 //             <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
+                 //                <Link to={`/#${aboutElementId}`} className="navigaton-link">
+                 //                   {localization.header.about}
+                 //                </Link>
+                 //             </li>
+                 //             <li className="navigation-item_mobile-menu" onClick={closeMenuHandler}>
+                 //                <Link to="allprojects/1">{localization.header.projects}</Link>
+                 //             </li>
+                 //          </ul>
+                 //       </nav>
+                 //       <div className="language-selector-container">
+                 //          <p className="language-selector_mobile" onClick={toggleLanguageMobile}>
+                 //             {localization.currentLanguage} <ChevronMobile />
+                 //          </p>
+                 //          {languageMobile ? (
+                 //             <ul className="language-menu-list-mobile">
+                 //                <li
+                 //                   onClick={setLanguageUkraine}
+                 //                   className="language-menu-item-mobile"
+                 //                >
+                 //                   <Link to="/" className="selected-language-mobile">
+                 //                      UA
+                 //                   </Link>
+                 //                </li>
+                 //                <li onClick={setLanguageEnglish} className="language-menu-item">
+                 //                   <Link to="en" className="selected-language-mobile">
+                 //                      EN
+                 //                   </Link>
+                 //                </li>
+                 //             </ul>
+                 //          ) : null}
+                 //       </div>
+                 //       <DonateButton buttonClass={"burger"}></DonateButton>
+                 //    </div>
+                 // </div>,
                  mobileMenuPortal
               )
             : null}
