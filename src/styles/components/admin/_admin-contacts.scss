@@ -83,8 +83,9 @@
     color: #2672E4;
 }
 .contacts-li button {
-   width: 18px;
-   height: 18px;
+   display: flex;
+   width: 28px;
+   height: 27px;
    background: none;
    border: none;
    cursor: pointer;
@@ -184,11 +185,8 @@
    }
    .contacts-li button {
       width: 18px;
-      height: 18px;
-      background: none;
-      border: none;
-      cursor: pointer;
-   }
+      height: 17px;
+}
 }
 @media (min-width: 480px) and (max-width: 767px) {
    .admin-contacts {
@@ -286,7 +284,6 @@
       line-height: normal;
    }
    .contacts-li button {
-      display: flex;
       width: 18px;
       height: 18px;
    }
@@ -387,7 +384,6 @@
       overflow: hidden;
    }
    .contacts-li button {
-      display: flex;
       width: 18px;
       height: 18px;
    }

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import iconx from "../../assets/images/iconx.svg";
 
-export const AdminModal = ({ onClose, removeItem, success }) => {
+export const AdminModal = ({ onClose, removeItem, success, elementType }) => {
    const navigate = useNavigate();
    useEffect(() => {
       if (success) {
@@ -28,7 +28,7 @@ export const AdminModal = ({ onClose, removeItem, success }) => {
                <h2>
                   Ви впевнені, що хочете
                   <br />
-                  видалити проєкт?
+                  видалити {elementType}?
                </h2>
 
                <div className="admin-modal-button">
