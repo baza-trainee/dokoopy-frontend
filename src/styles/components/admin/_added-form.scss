@@ -116,7 +116,6 @@
    display: block;
    height: 121px;
    width: 188px;
-   object-fit: cover;
 }
 .liable-piker {
    margin: 0px;
@@ -215,10 +214,10 @@
       margin-bottom: 10px;
    }
 }
-@media (max-width: 767px) {
+@media (max-width: 768px) {
    .drag-input {
-      width: 100%;
-      height: 244px;
+      width: 384px;
+      height: 194px;
    }
    .sm-input {
       height: 38px;
@@ -230,7 +229,11 @@
       font-size: 16px;
    }
 }
-@media (max-width: 480px) {
+@media (max-width: 479px) {
+   .drag-input {
+      width: 100%;
+      height: 194px;
+   }
    .added-form {
       padding: 0 10px;
    }

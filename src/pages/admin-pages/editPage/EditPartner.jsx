@@ -19,10 +19,11 @@ export const EditPartner = () => {
       }
    }, [getPartner.data]);
 
+   console.log(deletePartner?.data?.code);
    const submitClick = data => {
       const formData = new FormData();
       formData.append("title", data.e.title);
-      formData.append("description", data.e.link);
+      formData.append("link", data.e.link);
       formData.append("imageURL", data.selectedFile);
       const params = {
          id: partnerId,
@@ -37,15 +38,19 @@ export const EditPartner = () => {
             removeClick={() => deletePartner.eventLoading(partnerId)}
             edit={true}
             title={"Редагувати партнера"}
+            success={deletePartner?.data?.code === 200 ? true : false}
          />
-         <PartnersForm
-            smLiable={"Назва партнера*"}
-            lgLiable={"Посилання на сайт партнера*"}
-            nameButton={"Внести зміни"}
-            submitClick={submitClick}
-            defaultInfo={currentPartner}
-            schema={validSchema.partner}
-         />
+         {currentPartner && (
+            <PartnersForm
+               smLiable={"Назва партнера*"}
+               lgLiable={"Посилання на сайт партнера*"}
+               nameButton={"Внести зміни"}
+               submitClick={submitClick}
+               defaultInfo={currentPartner}
+               schema={validSchema.partner}
+               success={updatePartner.data?.code === 200 ? true : false}
+            />
+         )}
       </section>
    );
 };

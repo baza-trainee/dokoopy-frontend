@@ -38,16 +38,20 @@ export const EditProject = () => {
             removeClick={() => deleteProject.eventLoading(projectId)}
             edit={true}
             title={"Редагувати проєкт"}
+            success={deleteProject.data?.code === 200 ? true : false}
          />
-         <AddForm
-            lgLiable={"Опис проєкту*"}
-            smLiable={"Назва проєкту*"}
-            nameButton={"Внести зміни"}
-            defaultInfo={currentProject}
-            submitClick={submitClick}
-            counter={300}
-            schema={validSchema.project}
-         />
+         {currentProject && (
+            <AddForm
+               lgLiable={"Опис проєкту*"}
+               smLiable={"Назва проєкту*"}
+               nameButton={"Внести зміни"}
+               defaultInfo={currentProject}
+               submitClick={submitClick}
+               counter={300}
+               schema={validSchema.project}
+               success={updateProject.data?.code === 200 ? true : false}
+            />
+         )}
       </section>
    );
 };

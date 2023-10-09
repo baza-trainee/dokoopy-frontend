@@ -12,6 +12,7 @@ export const PartnersForm = ({
    submitClick,
    defaultInfo,
    schema,
+   success,
 }) => {
    const [selectedFile, setSelectedFile] = useState(() => null);
    const [error, setError] = useState(null);
@@ -21,10 +22,14 @@ export const PartnersForm = ({
          setSelectedFile(defaultInfo.imageURL);
       }
    }, [defaultInfo]);
+   useEffect(() => {
+      if (success) {
+         navigation(-1);
+      }
+   }, [success]);
    const userSchema = yup.object(schema);
    const {
       control,
-      reset,
       handleSubmit,
       formState: { errors },
    } = useForm({
@@ -38,9 +43,6 @@ export const PartnersForm = ({
    const submitClickEvent = e => {
       if (selectedFile) {
          submitClick({ e, selectedFile });
-         setSelectedFile(null);
-         reset();
-         navigation(-1);
       }
    };
    const handlerSubmitButton = () => {

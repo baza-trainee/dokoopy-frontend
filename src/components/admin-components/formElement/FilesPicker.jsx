@@ -2,14 +2,26 @@ import { useRef, useState } from "react";
 import { EditIcon } from "../../../assets/admin-icons/EditIcon";
 import successIcon from "../../../assets/icon/success-icon.svg";
 
-export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSelectedFile }) => {
+export const FilesPicker = ({
+   errors,
+   setError,
+   defaultInfo,
+   selectedFile,
+   setSelectedFile,
+   filesType = ".png, .jpeg, .webp .jpg",
+   title = "Фото",
+}) => {
    const [isSuccessFile, setSuccessFile] = useState(false);
    const filePicker = useRef(null);
 
-   const handleFileChange = e => {
-      e.preventDefault();
-      const file = e.target.files[0];
-      if (file.size > 5 * 1024 * 1024) {
+   const fileValidator = file => {
+      const valFilesPattern = filesType.split(" ");
+      const matchFile = file?.type.split("/")[1];
+      const isMath = valFilesPattern.find(item => item.includes(matchFile));
+
+      if (!isMath) {
+         setError("Вибраний файл не підримується");
+      } else if (file.size > 4.8 * 1024 * 1024) {
          setError("Максимальний розмір файлу 5Мб");
       } else {
          setError(null);
@@ -17,17 +29,16 @@ export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSe
          setSuccessFile(true);
       }
    };
+   const handleFileChange = e => {
+      e.preventDefault();
+      const file = e.target.files[0];
+      fileValidator(file);
+   };
 
    const handleDrop = e => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-      if (file.size > 5 * 1024 * 1024) {
-         setError("Максимальний розмір файлу 5Мб");
-      } else {
-         setError(null);
-         setSelectedFile(file);
-         setSuccessFile(true);
-      }
+      fileValidator(file);
    };
 
    const handleDragOver = e => {
@@ -44,7 +55,7 @@ export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSe
          onDragStart={handleDragOver}
       >
          <div className="label-icon-blok">
-            <p className="input-liable">Фото*</p>
+            <p className="input-liable">{title}*</p>
 
             <div onClick={handelPick} className="edit-button-icon">
                <EditIcon />
@@ -54,7 +65,7 @@ export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSe
             ref={filePicker}
             className="hidden"
             type="file"
-            accept=".pdf, .jpg, .png, .gif"
+            accept={filesType}
             onChange={handleFileChange}
          />
          <div htmlFor="drag-input" onClick={handelPick} className={"drag-input"}>
@@ -68,7 +79,11 @@ export const FilesPicker = ({ errors, setError, defaultInfo, selectedFile, setSe
                   <div className="editImg">
                      {defaultInfo ? (
                         <img
-                           src={`https://dokoopy.onrender.com/${defaultInfo.imageURL}`}
+                           src={
+                              title === "Фото"
+                                 ? `https://dokoopy.onrender.com/${defaultInfo.imageURL}`
+                                 : defaultInfo.imageURL
+                           }
                            className="editImg-default"
                         ></img>
                      ) : (

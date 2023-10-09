@@ -14,6 +14,7 @@ export const AddForm = ({
    defaultInfo,
    hiddenInputENG = false,
    counter,
+   success,
    schema,
 }) => {
    const [selectedFile, setSelectedFile] = useState(() => null);
@@ -25,10 +26,14 @@ export const AddForm = ({
          setSelectedFile(defaultInfo.imageURL);
       }
    }, [defaultInfo]);
+   useEffect(() => {
+      if (success) {
+         navigation(-1);
+      }
+   }, [success]);
    const userSchema = yup.object(schema);
    const {
       control,
-      reset,
       watch,
       handleSubmit,
       formState: { errors },
@@ -43,11 +48,8 @@ export const AddForm = ({
       resolver: yupResolver(userSchema),
    });
    const submitClickEvent = e => {
-      if (selectedFile) {
+      if (!error) {
          submitClick({ e, selectedFile });
-         setSelectedFile(null);
-         reset();
-         navigation(-1);
       }
    };
    const handlerSubmitButton = () => {

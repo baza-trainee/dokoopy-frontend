@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import { AdminApi } from "../../api/api";
 import fileText from "../../assets/icon/filetext.svg";
 import { useLoadingData } from "../../hook/useLoadingData";
-import { AdminApi } from "../../api/api";
 
 export const AdminReporting = () => {
-  const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
+   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
+
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -48,3 +49,4 @@ export const AdminReporting = () => {
     </div>
   );
 };
+
