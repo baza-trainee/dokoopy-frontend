@@ -9,13 +9,15 @@ import { Contacts } from "../sections/Contacts";
 export const SharedLayout = () => {
    const { language } = useAppContext();
    return (
-      <div>
+      <div className="wrapper-general">
          <div className="header-wrapper">
             <Header></Header>
          </div>
-         <Outlet testPropsShared={"testPropsShared"} />
+         <main className="wrapper-general-main">
+            <Outlet testPropsShared={"testPropsShared"} />
+         </main>
          <Contacts />
-         <Footer></Footer>
+         <Footer />
       </div>
    );
 };

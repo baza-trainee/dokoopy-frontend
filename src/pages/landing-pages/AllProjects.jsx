@@ -6,7 +6,6 @@ import { formatData, formatDataEN } from "../../assets/helpers";
 import Pagination from "../../components/landing-components/Pagination";
 // import { useLandingContext } from "../../components/provider-components/landing-provider";
 import { useAppContext } from "../../components/provider-components/app-provider";
-import { Contacts } from "../../components/sections/Contacts.jsx";
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AllProjects = () => {
