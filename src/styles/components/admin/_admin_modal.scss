@@ -73,17 +73,24 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    border: 2px solid var(--btn_defualt_login, #72A9FC);
+    border: 2px solid var(--admin-button-main);
     border-radius: 6px;
 }
 .admin-modal-no h4{
-    color: var(--dark_grey, #646464);
+    color: var(--admin-main-font);
     text-align: center;
     font-family: Roboto;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+.admin-modal-no:hover {
+    background-color: var(--admin-button-accent);
+    border: 2px solid var(--admin-button-accent);
+    h4{
+        color: var(--admin-button-title);
+    }
 }
 .admin-modal-yes{
     display: flex;
@@ -92,7 +99,7 @@
     padding: 16px 40px;
     justify-content: center;
     align-items: center;
-    background: var(--btn_defualt_login, #72A9FC);
+    background: var(--admin-button-main);
     border: none;
     border-radius: 6px;
 }
@@ -104,6 +111,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+.admin-modal-yes:hover{
+    background-color: var(--admin-button-accent);
+    border: 2px solid var(--admin-button-accent);
+    color: var(--admin-button-title);
 }
 
 @media (min-width: 768px) and (max-width: 1279px){
@@ -150,7 +162,7 @@
         gap: 70px;
     }
     .admin-modal-text h2{
-        color: #111;
+        color: var(--header-text);
         text-align: center;
         font-family: Roboto;
         font-size: 32px;
@@ -201,7 +213,7 @@
     }
     .admin-modal-text h2{
         width: 222pz;
-        color: #111;
+        color: var(--header-text);
         text-align: center;
         font-family: Roboto;
         font-size: 32px;
@@ -234,7 +246,6 @@
         height: 50px;
         justify-content: center;
         align-items: center;
-        background: var(--btn_defualt_login, #72A9FC);
         border: none;
         border-radius: 6px;
     }
@@ -248,7 +259,7 @@
         display: flex;
     }
     .admin-modal-text{
-        margin: 25px auto 0пше;    
+        margin: 25px auto 0px;    
         width: auto;
         height: 228px;
         flex-shrink: 0;
