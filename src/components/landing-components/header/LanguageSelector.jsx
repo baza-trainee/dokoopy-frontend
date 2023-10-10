@@ -35,14 +35,14 @@ export const LanguageSelector = () => {
          {languageMenuOpen ? (
             <ul className="language-menu-list">
                <li onClick={setLanguageUkraine} className="language-menu-item">
-                  <Link to="/" className="selected-language">
+                  <div to="/" className="selected-language">
                      UA
-                  </Link>
+                  </div>
                </li>
                <li onClick={setLanguageEnglish} className="language-menu-item">
-                  <Link to="/" className="selected-language">
+                  <div to="/" className="selected-language">
                      EN
-                  </Link>
+                  </div>
                </li>
             </ul>
          ) : null}

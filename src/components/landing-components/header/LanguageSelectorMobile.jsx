@@ -5,10 +5,6 @@ import { useAppContext } from "../../provider-components/app-provider";
 export const LanguageSelectorMobile = ({ toggleLanguageMobile }) => {
    const { language, switchToEnglish, switchToUkraine } = useAppContext();
 
-   // function toggleLanguageMenu() {
-   //    setLanguageMenuOpen(!languageMenuOpen);
-   // }
-
    function setLanguageUkraine() {
       switchToUkraine();
       toggleLanguageMobile();

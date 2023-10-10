@@ -35,6 +35,7 @@ const localization = new LocalizedStrings({
          appeal:
             "Якщо готові скластись dokoopy і долучитись до хорошої справи – пишіть прямо зараз ось сюди:",
       },
+      allProjects: "Наші проєкти",
       donate: "Зробити донат",
       privacyPolicy: "Політика конфіденційності",
       conditionsOfUse: "Правила користування сайтом",
@@ -74,6 +75,7 @@ const localization = new LocalizedStrings({
          title: "contacts info",
          appeal: "If you are ready to join the crowdfund and make charity deed - contact us via:",
       },
+      allProjects: "Our projects",
       donate: "Make a donation",
       privacyPolicy: "Privacy Policy",
       conditionsOfUse: "Conditions of Use",
