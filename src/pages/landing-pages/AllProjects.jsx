@@ -7,6 +7,8 @@ import Pagination from "../../components/landing-components/Pagination";
 import { useAppContext } from "../../components/provider-components/app-provider";
 import { useLoadingData } from "../../hook/useLoadingData";
 
+import { Contacts } from "../../components/sections/Contacts";
+
 import localization from "../../assets/language-switcher/localization";
 
 export const AllProjects = () => {
@@ -101,6 +103,7 @@ export const AllProjects = () => {
                />
             </div>
          </section>
+         <Contacts></Contacts>
       </>
    );
 };
