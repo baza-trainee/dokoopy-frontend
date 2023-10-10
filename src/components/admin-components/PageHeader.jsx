@@ -18,6 +18,21 @@ export const PageHeader = ({ title, edit, removeClick, success, minLength }) => 
    const handleCloseModal = () => {
       setIsModalOpen(false);
    };
+   let elementType = "";
+
+   switch (title) {
+      case "Редагувати проєкт":
+         elementType = "проєкт";
+         break;
+      case "Редагувати партнера":
+         elementType = "партнера";
+         break;
+      case "Редагувати слайдер":
+         elementType = "слайд";
+         break;
+      default:
+         elementType = "елемент";
+   }
 
    return (
       <>
@@ -42,7 +57,7 @@ export const PageHeader = ({ title, edit, removeClick, success, minLength }) => 
          </div>
          <div className="divider"></div>
          {isModalOpen && (
-            <AdminModal success={success} removeItem={removeClick} onClose={handleCloseModal} />
+            <AdminModal success={success} removeItem={removeClick} onClose={handleCloseModal}  elementType={elementType}/>
          )}
       </>
    );
