@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
-import { Spinner } from "./Spinner";
+import { ButtonSubmit } from "./formElement/ButtonSubmit";
 import { FilesPicker } from "./formElement/FilesPicker";
 import { InputForm } from "./formElement/inputForm";
 export const PartnersForm = ({
@@ -56,7 +56,6 @@ export const PartnersForm = ({
 
    return (
       <div className="form-container">
-         {isLoading && <Spinner size={300} color={"#2672e4"} />}
          <form onSubmit={handleSubmit(submitClickEvent)} className="added-form">
             <div className="partner-file-blok">
                <FilesPicker
@@ -78,9 +77,7 @@ export const PartnersForm = ({
                   isLink={true}
                />
                <div className="form-button-blok">
-                  <button onClick={handlerSubmitButton} type="submit" className="admin-button">
-                     {nameButton}
-                  </button>
+                  <ButtonSubmit />
                </div>
             </div>
          </form>

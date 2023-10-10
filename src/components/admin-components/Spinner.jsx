@@ -8,7 +8,7 @@ const override = {
 
 export const Spinner = ({ size, color }) => {
    return (
-      <div className="admin-modal">
+      <div className="admin-louder">
          <ClipLoader
             color={color}
             loading={true}
