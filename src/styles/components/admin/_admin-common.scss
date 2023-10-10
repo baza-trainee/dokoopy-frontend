@@ -77,9 +77,8 @@
    align-items: center;
    transition: var(--transition);
    width: 100%;
-   // margin: 40px 0;
+   height: 50px;
    padding: 15px;
-
    background-color: var(--admin-button-main);
    border: none;
    border-radius: 6px;
@@ -87,15 +86,10 @@
    color: var(--admin-button-title);
    font-size: 18px;
    cursor: pointer;
-   @media (min-width: 480px) {
-      // width: 384px;
-   }
 
    @media (min-width: 768px) {
-      // width: 494px;
       font-size: 18px;
    }
-
    @media (min-width: 1280px) {
       font-size: 20px;
    }
@@ -107,6 +101,15 @@
       background-color: var(--admin-button-disabled);
       cursor: not-allowed;
    }
+}
+.admin-louder {
+   display: flex;
+   width: 100%;
+   height: 100%;
+   flex-shrink: 0;
+   z-index: 40001;
+   justify-content: center;
+   align-items: center;
 }
 
 // ***mobile styles

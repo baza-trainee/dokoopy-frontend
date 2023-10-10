@@ -24,10 +24,10 @@ export const AdminModal = ({ onClose, removeItem, success, elementType }) => {
 
    return (
       <>
-         {isLoading ? (
-            <Spinner size={300} color={"#2672e4"} />
-         ) : (
-            <div className="admin-modal">
+         <div className="admin-modal">
+            {isLoading ? (
+               <Spinner size={300} color={"#2672e4"} />
+            ) : (
                <div className="admin-modal-window">
                   <div className="admin-modal-button-x">
                      <button className="admin-button-close" onClick={handleCloseClick}>
@@ -35,11 +35,11 @@ export const AdminModal = ({ onClose, removeItem, success, elementType }) => {
                      </button>
                   </div>
                   <div className="admin-modal-text">
-               <h2>
-                  Ви впевнені, що хочете
-                  <br />
-                  видалити {elementType}?
-               </h2>
+                     <h2>
+                        Ви впевнені, що хочете
+                        <br />
+                        видалити {elementType}?
+                     </h2>
 
                      <div className="admin-modal-button">
                         <button className="admin-modal-no" onClick={handleCloseClick}>
@@ -51,8 +51,8 @@ export const AdminModal = ({ onClose, removeItem, success, elementType }) => {
                      </div>
                   </div>
                </div>
-            </div>
-         )}
+            )}
+         </div>
       </>
    );
 };
