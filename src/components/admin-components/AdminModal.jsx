@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import iconx from "../../assets/images/iconx.svg";
 import { Spinner } from "./Spinner";
 
-export const AdminModal = ({ onClose, removeItem, success }) => {
+export const AdminModal = ({ onClose, removeItem, success, elementType }) => {
    const [isLoading, setLoading] = useState(false);
+
    const navigate = useNavigate();
    useEffect(() => {
       if (success) {
@@ -34,11 +35,11 @@ export const AdminModal = ({ onClose, removeItem, success }) => {
                      </button>
                   </div>
                   <div className="admin-modal-text">
-                     <h2>
-                        Ви впевнені, що хочете
-                        <br />
-                        видалити проєкт?
-                     </h2>
+               <h2>
+                  Ви впевнені, що хочете
+                  <br />
+                  видалити {elementType}?
+               </h2>
 
                      <div className="admin-modal-button">
                         <button className="admin-modal-no" onClick={handleCloseClick}>
