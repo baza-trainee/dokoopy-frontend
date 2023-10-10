@@ -1,8 +1,12 @@
+import { useAppContext } from "../provider-components/app-provider";
+
 import localization from "../../assets/language-switcher/localization";
 
 import icon from "../../assets/icon/Logo_Ukraine_Defense.svg";
 
 export const DividingLine = ({ mainColor }) => {
+   const AppContext = useAppContext();
+
    if (mainColor === "whiteContainer") {
       return (
          <div className="outerContainer">
