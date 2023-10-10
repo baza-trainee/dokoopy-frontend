@@ -101,7 +101,6 @@ export const AllProjects = () => {
                />
             </div>
          </section>
-         <Contacts></Contacts>
       </>
    );
 };

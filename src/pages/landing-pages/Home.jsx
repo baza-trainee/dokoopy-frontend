@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 import { DividingLine } from "../../components/landing-components/DividingLine";
 import { About } from "../../components/sections/About";
-import { Contacts } from "../../components/sections/Contacts";
 import { Hero } from "../../components/sections/Hero";
 import { Mission } from "../../components/sections/Mission";
 import { Partners } from "../../components/sections/Partners";
@@ -36,7 +35,6 @@ export const Home = () => {
          <Projects></Projects>
          <DividingLine mainColor={"greenContainer"}></DividingLine>
          <Partners></Partners>
-         <Contacts></Contacts>
       </>
    );
 };
