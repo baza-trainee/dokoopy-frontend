@@ -10,14 +10,14 @@
    padding: 40px 24px;
    justify-content: start;
    align-items: center;
-   border-bottom: 1px solid var(--light_grey, #EBEBEB);
+   border-bottom: 1px solid var(--admin-table-header-background);
    background: #FFF;
    gap: 10px;
 
 }
 .admin-contacts-header h2 {
    flex: 1 0 0;
-   color: var(--text-color, #212121);
+   color: var(--admin-title-color);
    font-family: Roboto;
    font-size: 24px;
    font-style: normal;
@@ -36,7 +36,7 @@
    padding: 26px 24px;
    justify-content: space-between;
    align-items: center;
-   background: var(--light_grey, #ebebeb);
+   background: var(--admin-table-header-background);
 }
 .admin-contacts-list-title p {
    width: 240px;
@@ -63,12 +63,12 @@
    padding: 8px 24px;
    justify-content: space-between;
    align-items: center;
-   border-bottom: 1px solid var(--light_grey, #EBEBEB);
+   border-bottom: 1px solid var(--admin-table-header-background);
    background: #FFF;
 }
 .contacts-li:hover{
-   border-bottom: 1px solid var(--light_grey, #EBEBEB);
-   background: var(--lightblue_admin, #F4FBFF);
+   border-bottom: 1px solid var(--admin-table-header-background);
+   background: var(--background-admin-hover);
 
    .edit-icon path {
       stroke: var(--admin-main-accent);
@@ -80,7 +80,7 @@
 }
 .contacts-li a{
     width: 240px;
-    color: #2672E4;
+    color: var(--admin-button-accent);
 }
 .contacts-li button {
    display: flex;
@@ -109,7 +109,7 @@
    }
    .admin-contacts-header h2 {
       flex: 1 0 0;
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 24px;
       font-style: normal;
@@ -128,12 +128,12 @@
       padding: 26px 24px;
       justify-content: space-between;
       align-items: center;
-      background: var(--light_grey, #ebebeb);
+      background: var(--admin-table-header-background);
    }
    .admin-contacts-list-title p {
       width: 135px;
       flex-shrink: 0;
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 18px;
       font-style: normal;
@@ -160,13 +160,13 @@
       padding: 8px 24px;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--light_grey, #ebebeb);
+      border-bottom: 1px solid var(--admin-table-header-background);
       background: #fff;
    }
    .contacts-li p {
       width: 135px;
       flex-shrink: 0;
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 18px;
       font-style: normal;
@@ -175,7 +175,7 @@
    }
    .contacts-li a {
       width: 135px;
-      color: #2672e4;
+      color: var(--admin-button-accent);
       font-family: Roboto;
       font-size: 18px;
       font-style: normal;
@@ -207,7 +207,7 @@
    }
    .admin-contacts-header h2 {
       flex: 1 0 0;
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 20px;
       font-style: normal;
@@ -226,12 +226,12 @@
       padding: 18px 24px;
       justify-content: space-between;
       align-items: center;
-      background: var(--light_grey, #EBEBEB);
+      background: var(--admin-table-header-background);
    }
    .admin-contacts-list-title p {
       width: 106px;
       flex-shrink: 0;
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 18px;
       font-style: normal;
@@ -257,13 +257,13 @@
       padding: 8px 24px;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--light_grey, #EBEBEB);
+      border-bottom: 1px solid var(--admin-table-header-background);
       background: #FFF;
    }
    .contacts-li p {
       width: 106px;
       flex-shrink: 0;
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 15px;
       font-style: normal;
@@ -275,7 +275,7 @@
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
-      color: #2672e4;
+      color: var(--admin-button-accent);
       text-overflow: ellipsis;
       font-family: Roboto;
       font-size: 12px;
@@ -306,7 +306,7 @@
       background: #FFF;
    }
    .admin-contacts-header h2 {
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 18px;
       font-style: normal;
@@ -325,12 +325,12 @@
       padding: 18px 24px;
       justify-content: space-between;
       align-items: center;
-      background: var(--light_grey, #EBEBEB);
+      background: var(--admin-table-header-background);
    }
    .admin-contacts-list-title p {
       width: 70px;
       flex-shrink: 0;
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 18px;
       font-style: normal;
@@ -356,13 +356,13 @@
       padding: 8px 24px;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--light_grey, #EBEBEB);
+      border-bottom: 1px solid var(--admin-table-header-background);
       background: #FFF;
    }
    .contacts-li p {
       width: 70px;
       flex-shrink: 0;
-      color: var(--text-color, #212121);
+      color: var(--admin-title-color);
       font-family: Roboto;
       font-size: 15px;
       font-style: normal;
@@ -374,7 +374,7 @@
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 1;
-      color: #2672e4;
+      color: var(--admin-button-accent);
       text-overflow: ellipsis;
       font-family: Roboto;
       font-size: 12px;
