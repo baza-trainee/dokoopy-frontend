@@ -1,12 +1,12 @@
 import { useLocation } from "react-router-dom";
 
 // import defaultImage from "../../assets/images/admin-heroes-projects.png";
+import { useEffect, useState } from "react";
+import { AdminApi } from "../../api/api";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
 import { useLoadingData } from "../../hook/useLoadingData";
-import { useEffect, useState } from "react";
-import { AdminApi } from "../../api/api";
-
+import { Spinner } from "../../components/admin-components/Spinner";
 // const dataProjects = [
 //    {
 //       id: 1,
@@ -35,16 +35,16 @@ import { AdminApi } from "../../api/api";
 export const AdminProjects = () => {
    const { pathname } = useLocation();
    const [projects, setProjects] = useState([]);
-   const {data, isLoading} = useLoadingData(AdminApi.getProjectAdmin);
- 
+   const { data, isLoading } = useLoadingData(AdminApi.getProjectAdmin);
+
    useEffect(() => {
-      if (data!==null) {
+      if (data !== null) {
          setProjects(data.projects);
       }
    }, [data]);
 
    if (isLoading) {
-      return <p>Loading...</p>;
+      return <Spinner size={300} color={"#2672e4"} />;
    }
 
    return (

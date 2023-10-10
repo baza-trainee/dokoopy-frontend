@@ -1,13 +1,18 @@
+
 import { useAppContext } from "../provider-components/app-provider";
+
 import localization from "../../assets/language-switcher/localization";
 
 import { lendingData } from "../../api/api";
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const Contacts = () => {
+
    const AppContext = useAppContext();
 
+
    const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getContact);
+
    return (
       <section className="contact">
          <div className="container">

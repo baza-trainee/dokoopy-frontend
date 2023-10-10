@@ -30,14 +30,13 @@ export const MySlider = ({ slides }) => {
    const settings = {
       dots: true,
       infinite: true,
-      speed: 1000,
+      speed: 2000,
       autoplay: true,
-      autoplaySpeed: 3000,
+      autoplaySpeed: 4000,
       slidesToShow: 1,
       slidesToScroll: 1,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
-      // adaptiveHeight: true,
    };
 
    return (
@@ -46,7 +45,7 @@ export const MySlider = ({ slides }) => {
             {slides.map(item => (
                <div key={item.id} className="slider-container">
                   <div className="slider">
-                     <img loading="lazy" src={item.imageURL}></img>
+                     <img alt={item.title} src={item.imageURL}></img>
                   </div>
                   <div className="container">
                      <div className="slider-title">

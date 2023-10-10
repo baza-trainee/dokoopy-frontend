@@ -56,7 +56,6 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    text-transform: uppercase;
 }
 .admin-modal-button{
     display: flex;
@@ -74,17 +73,24 @@
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    border: 2px solid var(--btn_defualt_login, #72A9FC);
+    border: 2px solid var(--admin-button-main);
     border-radius: 6px;
 }
 .admin-modal-no h4{
-    color: var(--dark_grey, #646464);
+    color: var(--admin-main-font);
     text-align: center;
     font-family: Roboto;
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+.admin-modal-no:hover {
+    background-color: var(--admin-button-accent);
+    border: 2px solid var(--admin-button-accent);
+    h4{
+        color: var(--admin-button-title);
+    }
 }
 .admin-modal-yes{
     display: flex;
@@ -93,7 +99,7 @@
     padding: 16px 40px;
     justify-content: center;
     align-items: center;
-    background: var(--btn_defualt_login, #72A9FC);
+    background: var(--admin-button-main);
     border: none;
     border-radius: 6px;
 }
@@ -105,6 +111,11 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+}
+.admin-modal-yes:hover{
+    background-color: var(--admin-button-accent);
+    border: 2px solid var(--admin-button-accent);
+    color: var(--admin-button-title);
 }
 
 @media (min-width: 768px) and (max-width: 1279px){
@@ -151,7 +162,7 @@
         gap: 70px;
     }
     .admin-modal-text h2{
-        color: #111;
+        color: var(--header-text);
         text-align: center;
         font-family: Roboto;
         font-size: 32px;
@@ -167,6 +178,13 @@
         gap: 34px;
         flex-shrink: 0;
     }
+    .admin-modal-button-x{
+        width: 100%;
+        padding-top: 12px;
+        padding-right: 12px;
+        display: flex;
+        justify-content: flex-end;
+    }
 }
 @media (max-width: 479px){
     .admin-modal-window{
@@ -177,24 +195,32 @@
         display: flex;
     }
     .admin-modal-text{
-        margin-top: 12px;    
+        margin: 12px 10px 0 10px;      
         width: auto;
         height: 228px;
         flex-shrink: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 42px;
+        gap: 70px;
+    }
+    .admin-modal-button-x{
+        width: 100%;
+        padding-top: 12px;
+        padding-right: 12px;
+        display: flex;
+        justify-content: flex-end;
     }
     .admin-modal-text h2{
-        color: #111;
+        width: 222pz;
+        color: var(--header-text);
         text-align: center;
         font-family: Roboto;
         font-size: 32px;
         font-style: normal;
         font-weight: 700;
-        line-height: 130%;
-        text-transform: uppercase;
+        line-height: normal;
+
     }
     .admin-modal-button{
         display: flex;
@@ -211,7 +237,7 @@
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
-        border: 2px solid var(--btn_defualt_login, #72A9FC);
+        border: 2px solid var(--admin-button-main);
         border-radius: 6px;
     }
     .admin-modal-yes{
@@ -220,21 +246,20 @@
         height: 50px;
         justify-content: center;
         align-items: center;
-        background: var(--btn_defualt_login, #72A9FC);
         border: none;
         border-radius: 6px;
     }
 }
 @media (max-height: 650px){
     .admin-modal-window{
-        width: 665px;
-        height: 358px;
+        width: 550px;
+        height: 300px;
         background-color: var(--background-about);
         flex-direction: column;
         display: flex;
     }
     .admin-modal-text{
-        margin: 66px auto 169px;    
+        margin: 25px auto 0px;    
         width: auto;
         height: 228px;
         flex-shrink: 0;

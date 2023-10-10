@@ -11,15 +11,13 @@
    @media screen and (min-width: 480px) {
       padding: 16px 24px;
       min-height: 82px;
-      // width: 95%;
       margin: 0 24px;
-      // margin-left: auto;
-      // margin-right: auto;
    }
 
    @media screen and (min-width: 768px) {
       width: 100%;
       border-bottom: none;
+      margin: 0;
    }
    @media screen and (min-width: 1280px) {
       min-height: 76px;

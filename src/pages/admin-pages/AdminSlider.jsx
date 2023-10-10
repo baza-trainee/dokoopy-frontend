@@ -1,10 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { AdminMainHeader } from "../../components/admin-components/AdminMainHeader";
 // import defaultImage from "../../assets/images/admin-heroes-projects.png";
-import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
-import { useLoadingData } from "../../hook/useLoadingData";
-import { AdminApi } from "../../api/api";
 import { useEffect, useState } from "react";
+import { AdminApi } from "../../api/api";
+import { AdminMainInnerPart } from "../../components/admin-components/AdminMainInnerPart";
+import { Spinner } from "../../components/admin-components/Spinner";
+import { useLoadingData } from "../../hook/useLoadingData";
 
 // const dataSlider = [
 //    {
@@ -32,17 +33,17 @@ import { useEffect, useState } from "react";
 // ];
 export const AdminHero = () => {
    const [sliders, setSliders] = useState([]);
-   const {data, isLoading} = useLoadingData(AdminApi.getHerosAdmin);
+   const { data, isLoading } = useLoadingData(AdminApi.getHerosAdmin);
    const { pathname } = useLocation();
 
    useEffect(() => {
-      if (data!==null) {
+      if (data !== null) {
          setSliders(data.heroes);
       }
    }, [data]);
 
    if (isLoading) {
-      return <p>Loading...</p>;
+      return <Spinner size={300} color={"#2672e4"} />;
    }
 
    return (

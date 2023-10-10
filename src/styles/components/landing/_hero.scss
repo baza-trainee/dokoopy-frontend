@@ -1,9 +1,19 @@
-.slider {
+.hero {
    height: 255px;
+}
+.slider {
    & img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+   }
+}
+@keyframes move {
+   0% {
+      transform: translateY(-100px);
+   }
+   100% {
+      transform: translateY(0);
    }
 }
 
@@ -31,7 +41,9 @@
    margin-top: 24px;
    font-size: 24px;
    line-height: 34px;
+   animation: move;
 }
+
 .slider-title p {
    height: auto;
    display: block;
@@ -67,13 +79,16 @@ li.slick-active button:before {
       height: 38px;
       top: 47%;
    }
-
+   .hero {
+      height: 665px;
+   }
    .slider {
       height: 665px;
    }
+
    .slick-dots {
       position: absolute;
-      bottom: 80px;
+      bottom: 60px;
    }
    .slick-dots li button:before {
       width: 16px;
@@ -96,6 +111,7 @@ li.slick-active button:before {
       opacity: 0.6;
       max-height: 160px;
       overflow: hidden;
+      animation: move 2s;
    }
    .slider-title p {
       -webkit-box-decoration-break: clone;
@@ -103,35 +119,22 @@ li.slick-active button:before {
       padding: 3px;
    }
 }
-// @media (min-width: 1080px) {
-//    .hero {
-//       height: 675px;
-//    }
-//    .arrow-slider {
-//       width: 38px;
-//       height: 38px;
-//       top: 47%;
-//    }
-//    .slider {
-//       height: 675px;
-//    }
-//    .slider-title {
-//       font-size: 40px;
-//       top: 380px;
-//       line-height: 55px;
-//    }
-// }
 
 @media (min-width: 1280px) {
    .slider {
-      height: 735px;
+      height: calc(100vh - 100px);
    }
+   .hero {
+      height: calc(100vh - 100px);
+   }
+
    .slider-title {
-      top: 420px;
+      top: 56%;
       max-width: 920px;
       line-height: 48px;
       max-height: 170px;
       overflow: hidden;
+      animation: move 2s;
    }
 }
 

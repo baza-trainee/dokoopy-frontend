@@ -42,7 +42,7 @@
    font-family: Roboto;
    background: var(--admin-red-background);
    &:hover {
-      border: solid 1px #ff6060;
+      border: solid 1px var(--admin-red-accent);
    }
    & div {
       display: flex;
@@ -52,13 +52,17 @@
       color: var(--admin-red-accent);
    }
 }
-@media (max-width: 768px) {
-   .sub-title-container {
-      height: 50px;
+.btn-disable {
+   background: var(--admin-button-disabled);
+   &:hover {
+      border: none;
+      cursor: no-drop;
    }
-   .title-icon {
-      gap: 5px;
+   & div {
+      color: white;
    }
+}
+@media (max-width: 1279px) {
    .remove-btn {
       width: 30px;
       height: 30px;
@@ -66,6 +70,21 @@
          display: none;
       }
    }
+}
+@media (max-width: 767px) {
+   .sub-title-container {
+      height: 50px;
+   }
+   .title-icon {
+      gap: 5px;
+   }
+   // .remove-btn {
+   //    width: 30px;
+   //    height: 30px;
+   //    & p {
+   //       display: none;
+   //    }
+   // }
    .heder-icon-arrow {
       & svg {
          width: 14px;
@@ -75,7 +94,7 @@
    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
    .sub-title-container {
       padding: 0 10px;
    }

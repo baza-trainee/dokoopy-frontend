@@ -1,24 +1,15 @@
 import { Link } from "react-router-dom";
 import { AdminApi } from "../../api/api";
-import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit"
+import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit";
+import { Spinner } from "../../components/admin-components/Spinner";
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminBankAccount = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getBankAdmin);
 
-   const defaultBankAccountData = [
-      {
-         id: 1,
-         name: "Link",
-         contact: "monobank_link",
-         link: "https://send.monobank.ua/jar/4B1mQWmGVS",
-      },
-   ];
-
-   const bankAccountData = data || defaultBankAccountData;
-
+   const bankAccountData = data || [];
    if (isLoading) {
-      return <p>Loading...</p>;
+      return <Spinner size={300} color={"#2672e4"} />;
    }
 
    if (error && error.data) {
@@ -46,19 +37,17 @@ export const AdminBankAccount = () => {
                   <span></span>
                </div>
                <ul className="bank-contacts-list-ul">
-                  {bankAccountData.map(monobank => (
-                     <Link to="edit">
-                     <li className="bank-card" key={monobank.id}>
+                  <Link to="edit">
+                     <li className="bank-card">
                         <div className="bank-li">
-                           <p>{monobank.name}</p>
-                           <a href={monobank.link}>{monobank.contact}</a>
+                           <p>Реквізити</p>
+                           <a href={`mailto:${data?.bank?.link}`}>{data?.bank?.link}</a>
                            <button>
-                                 <AdminIconEdit/>
+                              <AdminIconEdit />
                            </button>
                         </div>
                      </li>
-                     </Link>
-                  ))}
+                  </Link>
                </ul>
             </div>
          </div>
