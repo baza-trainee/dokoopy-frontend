@@ -8,6 +8,7 @@ import { Hero } from "../../components/sections/Hero";
 import { Mission } from "../../components/sections/Mission";
 import { Partners } from "../../components/sections/Partners";
 import { Projects } from "../../components/sections/Projects";
+import { Contacts } from "../../components/sections/Contacts";
 import { Footer } from "../../components/landing-components/Footer";
 
 export const Home = () => {
@@ -36,6 +37,7 @@ export const Home = () => {
          <Projects></Projects>
          <DividingLine mainColor={"greenContainer"}></DividingLine>
          <Partners></Partners>
+         <Contacts></Contacts>
       </>
    );
 };
