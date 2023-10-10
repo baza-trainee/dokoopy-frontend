@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { Spinner } from "./Spinner";
 import { FilesPicker } from "./formElement/FilesPicker";
 import { TextArea } from "./formElement/TextArea";
 import { InputForm } from "./formElement/inputForm";
@@ -19,6 +20,7 @@ export const AddForm = ({
 }) => {
    const [selectedFile, setSelectedFile] = useState(() => null);
    const [error, setError] = useState(null);
+   const [isLoading, setLoading] = useState(false);
    const navigation = useNavigate();
 
    useEffect(() => {
@@ -49,6 +51,7 @@ export const AddForm = ({
    });
    const submitClickEvent = e => {
       if (!error) {
+         setLoading(true);
          submitClick({ e, selectedFile });
       }
    };
@@ -59,6 +62,7 @@ export const AddForm = ({
    };
    return (
       <div className="form-container">
+         {isLoading && <Spinner size={300} color={"#2672e4"} />}
          <form onSubmit={handleSubmit(submitClickEvent)} className="added-form">
             <div className="form-input-container">
                <div className="tablet-files-picker">

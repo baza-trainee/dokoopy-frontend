@@ -42,7 +42,7 @@
    font-family: Roboto;
    background: var(--admin-red-background);
    &:hover {
-      border: solid 1px #ff6060;
+      border: solid 1px var(--admin-red-accent);
    }
    & div {
       display: flex;
@@ -50,6 +50,16 @@
       justify-content: center;
       align-items: center;
       color: var(--admin-red-accent);
+   }
+}
+.btn-disable {
+   background: var(--admin-button-disabled);
+   &:hover {
+      border: none;
+      cursor: no-drop;
+   }
+   & div {
+      color: white;
    }
 }
 @media (max-width: 768px) {

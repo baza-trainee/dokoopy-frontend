@@ -33,8 +33,13 @@ export const EditContact = () => {
          <PageHeader title={"Редагувати контакти"} />
          <div className="edit-contact-payment-form-wrap">
             <div className="edit-contact-payment-form">
-               <InputSm setSmInput={setEmail} label={"Email:"} value={email} isLink={true}  />
-               <InputSm setSmInput={setTelegram} label={"Telegram:"} value={telegram} isLink={true}  />
+               <InputSm setSmInput={setEmail} label={"Email:"} value={email} isLink={true} />
+               <InputSm
+                  setSmInput={setTelegram}
+                  label={"Telegram:"}
+                  value={telegram}
+                  isLink={true}
+               />
             </div>
             <button
                className="admin-button"

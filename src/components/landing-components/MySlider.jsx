@@ -37,7 +37,6 @@ export const MySlider = ({ slides }) => {
       slidesToScroll: 1,
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />,
-      // adaptiveHeight: true,
    };
 
    return (
@@ -46,7 +45,7 @@ export const MySlider = ({ slides }) => {
             {slides.map(item => (
                <div key={item.id} className="slider-container">
                   <div className="slider">
-                     <img loading="lazy" src={item.imageURL}></img>
+                     <img src={item.imageURL}></img>
                   </div>
                   <div className="container">
                      <div className="slider-title">
