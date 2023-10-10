@@ -62,13 +62,7 @@
       color: white;
    }
 }
-@media (max-width: 768px) {
-   .sub-title-container {
-      height: 50px;
-   }
-   .title-icon {
-      gap: 5px;
-   }
+@media (max-width: 1279px) {
    .remove-btn {
       width: 30px;
       height: 30px;
@@ -76,6 +70,21 @@
          display: none;
       }
    }
+}
+@media (max-width: 767px) {
+   .sub-title-container {
+      height: 50px;
+   }
+   .title-icon {
+      gap: 5px;
+   }
+   // .remove-btn {
+   //    width: 30px;
+   //    height: 30px;
+   //    & p {
+   //       display: none;
+   //    }
+   // }
    .heder-icon-arrow {
       & svg {
          width: 14px;
@@ -85,7 +94,7 @@
    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
    .sub-title-container {
       padding: 0 10px;
    }

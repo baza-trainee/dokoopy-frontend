@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { lendingData } from "../../api/api";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { MySlider } from "../landing-components/MySlider";
-// import { useLandingContext } from "../provider-components/landing-provider";
-
 import { useAppContext } from "../provider-components/app-provider";
 
 export const Hero = () => {

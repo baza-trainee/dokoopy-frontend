@@ -45,7 +45,7 @@ export const MySlider = ({ slides }) => {
             {slides.map(item => (
                <div key={item.id} className="slider-container">
                   <div className="slider">
-                     <img src={item.imageURL}></img>
+                     <img alt={item.title} src={item.imageURL}></img>
                   </div>
                   <div className="container">
                      <div className="slider-title">
