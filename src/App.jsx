@@ -68,6 +68,8 @@ function App() {
             <Route path="change-password" element={<AdminChangePassword />} />
             <Route path="*" element={<AdminNotFound />} />
          </Route>
+         <Route path="admin/*" element={<AdminNotFound />} />
+            
 
          {/* <Route
             path="/admin"
