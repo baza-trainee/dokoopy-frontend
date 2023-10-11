@@ -1,17 +1,34 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
+import { lendingData } from "../../api/api.js";
 import arrowLeft from "../../assets/icon/arrow-left-icon.svg";
 import arrowRight from "../../assets/icon/right-icon.svg";
-
-export const MySlider = ({ slides }) => {
+import { useLoadingData } from "../../hook/useLoadingData";
+import { useAppContext } from "../provider-components/app-provider";
+export const MySlider = () => {
+   const [slides, setSlides] = useState([]);
    const slideRef = useRef();
    const observer = useRef();
+   const { language } = useAppContext();
 
+   const { data, isLoading } = useLoadingData(lendingData.getHero);
+
+   useEffect(() => {
+      if (data?.heroes) {
+         setSlides(
+            data?.heroes.map(item => ({
+               ...item,
+               imageURL: `https://dokoopy.onrender.com/${item.imageURL}`,
+               description: language === "ua" ? item.description : item.description_eng,
+            }))
+         );
+      }
+   }, [data?.heroes, language]);
    const refSliderObserver = useCallback(node => {
       if (observer.current) {
          observer.current.disconnect();
@@ -42,22 +59,26 @@ export const MySlider = ({ slides }) => {
 
    return (
       <section>
-         <div className="hero" ref={refSliderObserver}>
-            <Slider ref={slideRef} {...settings}>
-               {slides.map(item => (
-                  <div key={item.id} className="slider-container">
-                     <div className="slider">
-                        <img alt={item.title} src={item.imageURL}></img>
-                     </div>
-                     <div className="container">
-                        <div className="slider-title">
-                           <p aria-label={item.title}>{item.description}</p>
+         {isLoading ? (
+            <div className="temp-div"></div>
+         ) : (
+            <div className="hero" ref={refSliderObserver}>
+               <Slider ref={slideRef} {...settings}>
+                  {slides.map(item => (
+                     <div key={item.id} className="slider-container">
+                        <div className="slider">
+                           <img alt={item.title} src={item.imageURL}></img>
+                        </div>
+                        <div className="container">
+                           <div className="slider-title">
+                              <p aria-label={item.title}>{item.description}</p>
+                           </div>
                         </div>
                      </div>
-                  </div>
-               ))}
-            </Slider>
-         </div>
+                  ))}
+               </Slider>
+            </div>
+         )}
       </section>
    );
 };
