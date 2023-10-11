@@ -63,9 +63,9 @@ function App() {
             <Route path="bank-account" element={<AdminBankAccount />} />
             <Route path="bank-account/edit" element={<EditBankAccount />} />
             <Route path="reporting" element={<AdminReporting />} />
-            <Route path="reporting/edit" element={<EditReporting />} />
-            <Route path="*" element={<AdminNotFound />} />
+            <Route path="reporting/edit" element={<EditReporting />} />            
          </Route>
+
          {/* <Route
             path="/admin"
             element={<PrivateRoute redirectTo="/login" component={<AdminSharedLayout />} />}
@@ -132,6 +132,7 @@ function App() {
                element={<PrivateRoute redirectTo="/login" component={<AdminNotFound />} />}
             />
          </Route> */}
+
       </Routes>
    );
 }
