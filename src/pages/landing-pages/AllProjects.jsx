@@ -94,14 +94,12 @@ export const AllProjects = () => {
                )}
             </ul>
 
-            <div className="pagination">
-               <Pagination
-                  totalPosts={project?.length}
-                  postsPerPage={postsPerPage}
-                  setCurrentPage={setCurrentPage}
-                  currentPage={currentPage}
-               />
-            </div>
+            <Pagination
+               totalPosts={project?.length}
+               postsPerPage={postsPerPage}
+               setCurrentPage={setCurrentPage}
+               currentPage={currentPage}
+            />
          </section>
          <Contacts></Contacts>
       </>

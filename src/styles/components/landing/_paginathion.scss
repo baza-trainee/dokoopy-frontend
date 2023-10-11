@@ -1,8 +1,10 @@
 .pagination {
    display: flex;
    justify-content: space-between;
+   align-items: center;
    width: 100%;
    height: 50px;
+   margin-bottom: 61px;
 }
 .pagination-numbers {
    display: flex;
@@ -41,6 +43,9 @@
    }
 }
 @media screen and (min-width: 768px) {
+   .pagination {
+      margin-bottom: 75px;
+   }
    .pagination-numbers {
       max-width: 100%;
       justify-content: center;
@@ -49,5 +54,10 @@
       font-size: 24px;
       width: 42px;
       height: 42px;
+   }
+}
+@media screen and (min-width: 1280px) {
+   .pagination {
+      margin-bottom: 115px;
    }
 }

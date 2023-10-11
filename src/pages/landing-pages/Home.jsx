@@ -2,24 +2,41 @@ import { useEffect, useState } from "react";
 
 import { useLocation } from "react-router-dom";
 
+import { lendingData } from "../../api/api";
 import { DividingLine } from "../../components/landing-components/DividingLine";
+import { useAppContext } from "../../components/provider-components/app-provider";
 import { About } from "../../components/sections/About";
-import { Hero } from "../../components/sections/Hero";
 import { Mission } from "../../components/sections/Mission";
+import { MySlider } from "../../components/sections/MySlider";
 import { Partners } from "../../components/sections/Partners";
 import { Projects } from "../../components/sections/Projects";
-import { Contacts } from "../../components/sections/Contacts";
-import { Footer } from "../../components/landing-components/Footer";
+import { useLoadingData } from "../../hook/useLoadingData";
 
 export const Home = () => {
-   const [modalActive, setModalActive] = useState(false);
-
+   const [slides, setSlides] = useState([]);
    const location = useLocation();
+   const { language } = useAppContext();
+
+   const { data } = useLoadingData(lendingData.getHero);
 
    useEffect(() => {
-      const elementId = location.hash.substring(1); // Remove the leading '#' from the URL hash
-      scrollToElement(elementId);
-   }, [location]);
+      if (slides.length) {
+         const elementId = location.hash.substring(1);
+         scrollToElement(elementId);
+      }
+   }, [location, slides]);
+
+   useEffect(() => {
+      if (data?.heroes) {
+         setSlides(
+            data?.heroes.map(item => ({
+               ...item,
+               imageURL: `https://dokoopy.onrender.com/${item.imageURL}`,
+               description: language === "ua" ? item.description : item.description_eng,
+            }))
+         );
+      }
+   }, [data?.heroes, language]);
 
    function scrollToElement(elementID) {
       const aboutElement = document.getElementById(elementID);
@@ -30,14 +47,13 @@ export const Home = () => {
 
    return (
       <>
-         <Hero></Hero>
+         <MySlider slides={slides} />
          <Mission></Mission>
          <DividingLine mainColor={"whiteContainer"}></DividingLine>
          <About></About>
          <Projects></Projects>
          <DividingLine mainColor={"greenContainer"}></DividingLine>
          <Partners></Partners>
-         <Contacts></Contacts>
       </>
    );
 };
