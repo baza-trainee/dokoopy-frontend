@@ -1,3 +1,6 @@
+.temp-div {
+   height: 488px;
+}
 .hero {
    height: 100%;
    padding-bottom: 70px;
@@ -69,6 +72,9 @@ li.slick-active button:before {
    background: #828282;
 }
 @media (min-width: 568px) {
+   .temp-div {
+      height: 660px;
+   }
    .slider {
       height: 455px;
    }
@@ -117,7 +123,7 @@ li.slick-active button:before {
       animation: move 2s;
    }
    .slider-title p {
-      -webkit-box-decoration-break: clone;
+      webkit-box-decoration-break: clone;
       display: inline;
       padding: 3px;
    }
