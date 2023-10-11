@@ -77,7 +77,11 @@ export const PartnersForm = ({
                   isLink={true}
                />
                <div className="form-button-blok">
-                  <ButtonSubmit />
+                  <ButtonSubmit
+                     nameButton={nameButton}
+                     isLoading={isLoading}
+                     handlerSubmitButton={handlerSubmitButton}
+                  />
                </div>
             </div>
          </form>
