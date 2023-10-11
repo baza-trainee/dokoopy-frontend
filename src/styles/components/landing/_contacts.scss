@@ -73,7 +73,19 @@
             font-weight: 700;
             line-height: normal;
             text-transform: uppercase;
-            }
+            }  
+            @media (min-width: 390px) {
+                .contact-box-title-h2{
+                    color: var(--title-main);
+                    text-align: center;
+                    font-family: PT Sans;
+                    font-size: 23px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: normal;
+                    text-transform: uppercase;
+                    }
+                }
             @media (min-width: 480px) {
             .contact-box-title-h2{
                 color: var(--title-main);
