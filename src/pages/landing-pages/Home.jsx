@@ -8,6 +8,7 @@ import { Mission } from "../../components/sections/Mission";
 import { MySlider } from "../../components/sections/MySlider";
 import { Partners } from "../../components/sections/Partners";
 import { Projects } from "../../components/sections/Projects";
+import { Contacts } from "../../components/sections/Contacts";
 
 export const Home = () => {
    const location = useLocation();
@@ -33,6 +34,7 @@ export const Home = () => {
          <Projects></Projects>
          <DividingLine mainColor={"greenContainer"}></DividingLine>
          <Partners></Partners>
+         <Contacts></Contacts>
       </>
    );
 };
