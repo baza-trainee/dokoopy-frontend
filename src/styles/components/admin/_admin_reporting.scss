@@ -116,6 +116,7 @@
     .admin-reporting{
         display: inline-flex;
         width: 100%;
+        height: 100%;
         flex-direction: column;
         align-items: flex-start;
         background: var(--background-light);
@@ -123,8 +124,8 @@
     .reporting-container{
         display: flex;
         width: 100%;
-        height: 106px;
-        padding: 37px 20px;
+        height: 45px;
+        padding: 0;
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid var(--admin-table-header-background);
@@ -154,5 +155,26 @@
         justify-content: center;
         align-items: center;
         align-self: stretch;
+    }
+}
+
+@media screen and (max-width: 479px){
+    .reporting-container{
+        display: flex;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--admin-table-header-background);
+        background: var(--background-light);
+    }
+    .reporting-container-title{
+        width: 100%;
+        height: 45px;
+        padding: 12px 5px;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
     }
 }
