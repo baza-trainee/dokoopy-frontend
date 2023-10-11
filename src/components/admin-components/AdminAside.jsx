@@ -59,7 +59,7 @@ export const AdminAside = () => {
                <div className="admin-list-icon">
                   <AdminChangePasswordIcon />
                </div>
-               <Link to="reporting">Зміна пароля</Link>
+               <Link to="change-password">Зміна пароля</Link>
             </li>
          </ul>
          <Link to="/admin" className="admin-logout">

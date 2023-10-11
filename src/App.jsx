@@ -22,6 +22,7 @@ import { AdminNotFound } from "./pages/admin-pages/AdminNotFound";
 import { AdminPartners } from "./pages/admin-pages/AdminPartners";
 import { AdminProjects } from "./pages/admin-pages/AdminProjects";
 import { AdminReporting } from "./pages/admin-pages/AdminReporting";
+import { AdminChangePassword } from "./pages/admin-pages/AdminChangePassword";
 
 import { AddSlide } from "./pages/admin-pages/addNew/AddSlide";
 import { AddProject } from "./pages/admin-pages/addNew/AddProject";
@@ -63,7 +64,9 @@ function App() {
             <Route path="bank-account" element={<AdminBankAccount />} />
             <Route path="bank-account/edit" element={<EditBankAccount />} />
             <Route path="reporting" element={<AdminReporting />} />
-            <Route path="reporting/edit" element={<EditReporting />} />            
+            <Route path="reporting/edit" element={<EditReporting />} />
+            <Route path="change-password" element={<AdminChangePassword />} />
+            <Route path="*" element={<AdminNotFound />} />
          </Route>
 
          {/* <Route
@@ -132,7 +135,6 @@ function App() {
                element={<PrivateRoute redirectTo="/login" component={<AdminNotFound />} />}
             />
          </Route> */}
-
       </Routes>
    );
 }
