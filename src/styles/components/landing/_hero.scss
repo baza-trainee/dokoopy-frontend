@@ -83,6 +83,9 @@ li.slick-active button:before {
    }
 }
 @media (min-width: 768px) {
+   .temp-div {
+      height: 665px;
+   }
    .arrow-slider {
       width: 38px;
       height: 38px;
@@ -130,6 +133,9 @@ li.slick-active button:before {
 }
 
 @media (min-width: 1280px) {
+   .temp-div {
+      height: calc(100vh - 100px);
+   }
    .slider {
       height: calc(100vh - 100px);
    }
