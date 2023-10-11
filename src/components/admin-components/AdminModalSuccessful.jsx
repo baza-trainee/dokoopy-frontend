@@ -17,7 +17,7 @@ export const AdminModalSuccessful = () => {
 
    return (
      <div className={`backdrop ${isModalOpen ? "" : "is-hidden"} data-modal`}>
-         <div className="modal">
+         <div className="modal-successful">
             <div className="modal-content">
          
                <div className="modal-close-btn">
