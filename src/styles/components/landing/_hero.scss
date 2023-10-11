@@ -1,3 +1,6 @@
+.temp-div {
+   height: 488px;
+}
 .hero {
    height: 100%;
    padding-bottom: 70px;
@@ -69,6 +72,9 @@ li.slick-active button:before {
    background: #828282;
 }
 @media (min-width: 568px) {
+   .temp-div {
+      height: 660px;
+   }
    .slider {
       height: 455px;
    }
@@ -77,6 +83,9 @@ li.slick-active button:before {
    }
 }
 @media (min-width: 768px) {
+   .temp-div {
+      height: 665px;
+   }
    .arrow-slider {
       width: 38px;
       height: 38px;
@@ -117,13 +126,16 @@ li.slick-active button:before {
       animation: move 2s;
    }
    .slider-title p {
-      -webkit-box-decoration-break: clone;
+      webkit-box-decoration-break: clone;
       display: inline;
       padding: 3px;
    }
 }
 
 @media (min-width: 1280px) {
+   .temp-div {
+      height: calc(100vh - 100px);
+   }
    .slider {
       height: calc(100vh - 100px);
    }
