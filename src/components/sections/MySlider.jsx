@@ -11,6 +11,7 @@ import arrowRight from "../../assets/icon/right-icon.svg";
 export const MySlider = ({ slides }) => {
    const slideRef = useRef();
    const observer = useRef();
+
    const refSliderObserver = useCallback(node => {
       if (observer.current) {
          observer.current.disconnect();
@@ -40,22 +41,24 @@ export const MySlider = ({ slides }) => {
    };
 
    return (
-      <div ref={refSliderObserver}>
-         <Slider ref={slideRef} {...settings}>
-            {slides.map(item => (
-               <div key={item.id} className="slider-container">
-                  <div className="slider">
-                     <img alt={item.title} src={item.imageURL}></img>
-                  </div>
-                  <div className="container">
-                     <div className="slider-title">
-                        <p aria-label={item.title}>{item.description}</p>
+      <section>
+         <div className="hero" ref={refSliderObserver}>
+            <Slider ref={slideRef} {...settings}>
+               {slides.map(item => (
+                  <div key={item.id} className="slider-container">
+                     <div className="slider">
+                        <img alt={item.title} src={item.imageURL}></img>
+                     </div>
+                     <div className="container">
+                        <div className="slider-title">
+                           <p aria-label={item.title}>{item.description}</p>
+                        </div>
                      </div>
                   </div>
-               </div>
-            ))}
-         </Slider>
-      </div>
+               ))}
+            </Slider>
+         </div>
+      </section>
    );
 };
 function NextArrow({ onClick }) {
