@@ -2,10 +2,16 @@ import { useEffect } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
+import { useAppContext } from "../provider-components/app-provider";
+
 import iconx from "../../assets/images/iconx.svg";
 import frameThanks from "../../assets/images/frameThanks.svg";
 
+import localization from "../../assets/language-switcher/localization";
+
 export const Modal = ({ onClose }) => {
+   const AppProvider = useAppContext();
+
    const handleModalClick = e => {
       if (e.target.classList.contains("modal")) {
          onClose();
@@ -49,10 +55,10 @@ export const Modal = ({ onClose }) => {
                </button>
             </div>
             <div className="modal-text">
-               <h2>Дякуємо за ваш внесок!</h2>
+               <h2>{localization.modal.title}</h2>
                <img src={frameThanks} className="imgthank" alt="Thanks" />
                <p className="backpage" onClick={goToHomePage}>
-                  Повернутись на головну
+                  {localization.modal.toMain}
                </p>
             </div>
          </div>
