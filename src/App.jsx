@@ -65,6 +65,8 @@ function App() {
             <Route path="reporting" element={<AdminReporting />} />
             <Route path="reporting/edit" element={<EditReporting />} />            
          </Route>
+         <Route path="admin/*" element={<AdminNotFound />} />
+            
 
          {/* <Route
             path="/admin"
