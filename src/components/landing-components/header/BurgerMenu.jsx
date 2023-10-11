@@ -24,7 +24,7 @@ export const BurgerMenu = forwardRef(function BurgerMenu(
 
    return (
       <div className="mobile-menu" ref={ref}>
-         <div className="container container_burger">
+         <div className="container">
             <div className="close-modal" onClick={closeMenuHandler}>
                <CloseModal />
             </div>
@@ -51,9 +51,9 @@ export const BurgerMenu = forwardRef(function BurgerMenu(
                </ul>
             </nav>
             <div className="language-selector-container">
-               <p className="language-selector_mobile" onClick={toggleLanguageMobile}>
+               <div className="language-selector_mobile" onClick={toggleLanguageMobile}>
                   {localization.currentLanguage} <ChevronMobile />
-               </p>
+               </div>
                {languageMobile ? (
                   <LanguageSelectorMobile toggleLanguageMobile={toggleLanguageMobile} />
                ) : null}

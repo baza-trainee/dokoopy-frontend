@@ -34,7 +34,6 @@ import { EditContact } from "./pages/admin-pages/editPage/EditContact";
 import { EditBankAccount } from "./pages/admin-pages/editPage/EditBankAccount";
 import { EditReporting } from "./pages/admin-pages/editPage/EditReporting";
 
-
 function App() {
    return (
       <Routes>
