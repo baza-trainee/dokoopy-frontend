@@ -10,13 +10,11 @@
       font-weight: 500;
    }
    @media (min-width: 768px) {
-      margin-top: 159px;
       h2 {
          font-size: 28px;
       }
    }
    @media (min-width: 768px) {
-      margin-top: 171px;
       h2 {
          margin-bottom: 48px;
       }
@@ -75,7 +73,7 @@
       margin-top: 10px;
 
       &::placeholder {
-         color: var(--admin-title-color);
+         color: var(--text-gray);
       }
    }
 }
@@ -109,9 +107,7 @@
    }
 }
 
-.errorText input {
-   background-color: #fde4e4;
-   &::placeholder {
-      color: #ff6060;
-   }
+.errorText {
+   color: #ff6060;
+   margin-top: 30px;
 }

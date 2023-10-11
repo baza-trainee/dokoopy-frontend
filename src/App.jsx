@@ -34,7 +34,6 @@ import { EditContact } from "./pages/admin-pages/editPage/EditContact";
 import { EditBankAccount } from "./pages/admin-pages/editPage/EditBankAccount";
 import { EditReporting } from "./pages/admin-pages/editPage/EditReporting";
 
-
 function App() {
    return (
       <Routes>
@@ -46,7 +45,7 @@ function App() {
          <Route path="/login" element={<LoginLayout />}>
             <Route index element={<Login />} />
             <Route path="forget-password" element={<ForgetPassword />} />
-            <Route path="renew" element={<RenewPassword />} />
+            <Route path="renew/*" element={<RenewPassword />} />
             <Route path="successful-renew" element={<SuccessfullRenew />} />
          </Route>
          <Route path="/admin" element={<AdminSharedLayout />}>

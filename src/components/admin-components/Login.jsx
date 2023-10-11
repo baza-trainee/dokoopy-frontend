@@ -48,6 +48,7 @@ export const Login = () => {
          .then(res => {
             localStorage.setItem("token", res.data);
             logIn(res.data);
+            console.log(res);
          })
          .then(() => {
             navigate("/admin");
@@ -61,20 +62,21 @@ export const Login = () => {
          <h2>Увійти в акаунт</h2>
          <p className="login-text">Введіть email і пароль від вашого акаунту</p>
          <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-            <label className={errors.email ? "login-input mail errorText" : "login-input mail"}>
+            <label className="login-input mail">
                Email*
                <input
                   {...register("email")}
                   type="text"
-                  placeholder={errors.email ? errors.email?.message : "name@company.com"}
+                  placeholder="name@company.com"
                />
             </label>
-            <label className={errors.password ? "login-input pass errorText" : "login-input pass"}>
+            <p className="errorText">{errors.email?.message}</p>
+            <label className="login-input pass">
                Пароль*
                <input
                   {...register("password")}
                   type={typeName}
-                  placeholder={errors.password ? errors.password?.message : "************"}
+                  placeholder="************"
                />
                {!type ? (
                   <LoginEyeClosed onClick={() => click()} />
@@ -82,6 +84,7 @@ export const Login = () => {
                   <LoginEyeOpened onClick={() => click()} />
                )}
             </label>
+            <p className="errorText">{errors.password?.message}</p>
             <button type="submit">Увійти</button>
          </form>
          <Link to={"forget-password"} className="forget-password">
