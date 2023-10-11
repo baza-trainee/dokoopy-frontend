@@ -1,19 +1,20 @@
 import { AdminApi } from "../../../api/api";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const AddSlide = () => {
-   const { eventLoading } = useLoadingData(AdminApi.addHero, true);
-
+   const { eventLoading, data } = useLoadingData(AdminApi.addHero, true);
    const submitClick = data => {
       const formData = new FormData();
-      formData.append("title", data.title);
-      formData.append("description", data.description);
-      formData.append("description_eng", data.descriptionEN);
+      formData.append("title", data.e.title);
+      formData.append("description", data.e.description);
+      formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
       eventLoading(formData);
    };
+
    return (
       <section className="page-container">
          <PageHeader title={"Додати новий слайдер"} />
@@ -24,6 +25,8 @@ export const AddSlide = () => {
             submitClick={submitClick}
             hiddenInputENG={true}
             counter={110}
+            success={data?.code === 201 ? true : false}
+            schema={validSchema.heros}
          />
       </section>
    );

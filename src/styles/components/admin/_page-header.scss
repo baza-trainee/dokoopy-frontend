@@ -1,21 +1,38 @@
 .sub-title-container {
    height: 108px;
    width: 100%;
-   border-bottom: solid 1px #ebebeb;
+   border-bottom: solid 1px var(--admin-table-header-background);
    display: flex;
    justify-content: space-between;
    align-items: center;
    padding: 0 24px;
    position: relative;
+   font-size: 24px;
+}
+.heder-icon-arrow {
 }
 .title-icon {
    display: flex;
+   align-items: center;
    gap: 10px;
-   & img {
-      cursor: pointer;
+}
+.heder-icon-arrow {
+   width: 24px;
+   height: 24px;
+   display: block;
+   // padding: 4px 2px;
+   transition: var(--transition);
+   border-radius: 5px;
+   cursor: pointer;
+   & svg {
+      width: 19px;
+      height: 19px;
+   }
+   &:hover {
+      background: var(--background-admin-hover);
+      color: var(--admin-button-accent);
    }
 }
-
 .remove-btn {
    border-radius: 6px;
    width: 181px;
@@ -23,22 +40,29 @@
    border: none;
    cursor: pointer;
    font-family: Roboto;
-   background: #fde4e4;
+   background: var(--admin-red-background);
    &:hover {
-      border: solid 1px #ff6060;
+      border: solid 1px var(--admin-red-accent);
    }
    & div {
       display: flex;
       gap: 20px;
       justify-content: center;
       align-items: center;
-      color: #ff6060;
+      color: var(--admin-red-accent);
    }
 }
-@media (max-width: 768px) {
-   .sub-title-container {
-      height: 50px;
+.btn-disable {
+   background: var(--admin-button-disabled);
+   &:hover {
+      border: none;
+      cursor: no-drop;
    }
+   & div {
+      color: white;
+   }
+}
+@media (max-width: 1279px) {
    .remove-btn {
       width: 30px;
       height: 30px;
@@ -46,16 +70,31 @@
          display: none;
       }
    }
-   // .title-icon-arrow {
-   //    position: absolute;
-   //    top: -30px;
-   //    left: 4px;
-   //    width: 20px;
-   //    height: 20px;
+}
+@media (max-width: 767px) {
+   .sub-title-container {
+      height: 50px;
+   }
+   .title-icon {
+      gap: 5px;
+   }
+   // .remove-btn {
+   //    width: 30px;
+   //    height: 30px;
+   //    & p {
+   //       display: none;
+   //    }
    // }
+   .heder-icon-arrow {
+      & svg {
+         width: 14px;
+         height: 14px;
+         margin-bottom: 2.5px;
+      }
+   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 479px) {
    .sub-title-container {
       padding: 0 10px;
    }

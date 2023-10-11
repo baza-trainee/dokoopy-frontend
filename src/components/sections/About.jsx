@@ -1,14 +1,15 @@
 import localization from "../../assets/language-switcher/localization";
 
-import { useLandingContext } from "../provider-components/landing-provider";
+// import { useLandingContext } from "../provider-components/landing-provider";
+import { useAppContext } from "../provider-components/app-provider";
 
 import { DonateButton } from "../landing-components/DonateButton";
 
 import aboutPhoto from "../../assets/images/about_img.jpg";
 
 export const About = () => {
-   const { language } = useLandingContext();
-
+   // const { language } = useLandingContext();
+   const AppContext = useAppContext();
    return (
       <section id="about" className="about-section">
          <div className="container">

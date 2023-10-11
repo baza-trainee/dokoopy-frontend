@@ -6,39 +6,42 @@ import localization from "../../assets/language-switcher/localization";
 import defImg from "../../assets/images/default-image.jpg";
 
 import { lendingData } from "../../api/api";
-import { formatData, sortData } from "../../assets/helpers";
+import { formatData, formatDataEN } from "../../assets/helpers";
 import { useLoadingData } from "../../hook/useLoadingData";
 
+import { useAppContext } from "../provider-components/app-provider";
 import ProjectSlider from "./ProjectSlider";
 
 export const Projects = () => {
-   const { data, error, isLoading, eventLoading } = useLoadingData(lendingData.getProject);
-
+   const { language } = useAppContext();
+   const [project, setProject] = useState([]);
+   const { isLoading, error, data } = useLoadingData(lendingData.getProject);
    useEffect(() => {
-      if (error) {
-         console.error(error);
+      if (data?.projects) {
+         setProject(
+            data?.projects.map(item => ({
+               ...item,
+               date: language === "ua" ? formatData(item.date) : formatDataEN(item.date),
+               title: language === "ua" ? item.title : item.title_eng,
+               description: language === "ua" ? item.description : item.description_eng,
+            }))
+         );
+         if (error) {
+            console.error(error);
+         }
       }
-      
-      if (data) {         
-         setProjectsData(sortData(data.projects));
-         console.log(data); 
-      }
-
-   }, [data, error]);
-
-   const [projectsData, setProjectsData] = useState([]);
+   }, [data?.projects, language]);
 
    return (
       <div className="projects">
          <div className="container">
             <h2 className="title   title-dark">{localization.projects.title}</h2>
             <ul className="projects-block-desktop">
-               {projectsData.slice(0, 4).map(project => (
+               {project?.slice(0, 4).map(project => (
                   <li key={project.id} className="project-cart">
                      <img
                         className="projects-block-box-img"
-                        src={`https://dokoopy.onrender.com/${project.imageURL}` || defImg }
-                       
+                        src={`https://dokoopy.onrender.com/${project.imageURL}` || defImg}
                         alt={project.title}
                      />
 
@@ -51,9 +54,9 @@ export const Projects = () => {
             </ul>
          </div>
          <ul className="slider-project">
-            <ProjectSlider data={projectsData} />
+            <ProjectSlider data={project} />
          </ul>
-         {4 < projectsData.length && (
+         {4 < project.length && (
             <Link to="allprojects/1" className="link-more-project">
                <div
                   onClick={() => {

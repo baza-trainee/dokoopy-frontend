@@ -2,9 +2,19 @@ import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
 import { AdminEditIcon } from "../../assets/admin-icons/admin-edit";
+import { useEffect, useRef } from "react";
+import { formatData } from "../../assets/helpers";
 
 export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
-   // console.log(data);
+   const gridContainerRef = useRef(null);
+
+   useEffect(() => {
+      const numberOfRows = data.length;
+      if (gridContainerRef.current) {
+        gridContainerRef.current.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
+      }
+    }, [data]);
+
    return (
       <div className="admin-main-wrapper">
          <div className="admin-main-header">
@@ -16,18 +26,18 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                <div className="admin-main-header-title"></div>
             </div>
          </div>
-         <ul className="admin-main-content">
-            {/* {!isLoading && (heroes.heroes.map(contentData => { */}
+         <ul className="admin-main-content" ref={gridContainerRef}>
             {data.map(contentData => {
                return (
                   <li
                      key={contentData.id}
-                     className={
+                     
+                  >
+                     <Link to={`edit/${contentData.id}`} className={
                         contentData.date
                            ? "admin-main-content-element"
                            : "admin-main-content-element-partners"
-                     }
-                  >
+                     }>
                      <p
                         className={
                            contentData.date
@@ -35,14 +45,14 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                               : "content-element-name-partners"
                         }
                      >
-                        {contentData.name}
+                        {contentData.title}
                      </p>
                      <div className="content-element-img-box">
                         <div
                            className={contentData.date ? "wrapper-img-box" : "wrapper-img-box-svg"}
                         >
                            <img
-                              src={contentData.img}
+                              src={`https://dokoopy.onrender.com/${contentData.imageURL}`}
                               alt={contentData.alt}
                               className="content-element-img"
                            ></img>
@@ -53,12 +63,14 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                            contentData.date ? "content-element-data" : "content-element-link"
                         }
                      >
-                        {contentData.date ? contentData.date : contentData.link}
+                        {contentData.date ? formatData(contentData.date) : contentData.link}
                      </p>
-                     <Link to={`edit/${contentData.id}`}>
-                              <AdminEditIcon />
+                     <div>
+                        <AdminEditIcon />
+                     </div>
                      </Link>
                   </li>
+                  
                );
             })}
          </ul>

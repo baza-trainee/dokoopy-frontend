@@ -19,12 +19,12 @@ export const AdminMainHeader = ({ title, previousPage }) => {
    return (
       <div className="admin-hero-header">
         <div className="admin-hero-header-wrapper">
-          <div className="admin-hero-header-title-box">
-            <div className="admin-hero-header-arrow-box">
+          {/* <div className="admin-hero-header-title-box"> */}
+            {/* <div className="admin-hero-header-arrow-box">
               <AdminArrowIcon />
-            </div>
+            </div> */}
               <h2 className="admin-hero-header-title">{title}</h2>
-            </div>
+            {/* </div> */}
             <Link to={redirectToAddNew()}>
           <div className="admin-hero-add-icon-box">
             {/* <div className="admin-hero-add-icon-wrapper"> */}

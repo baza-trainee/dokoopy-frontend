@@ -1,40 +1,64 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import leftArow from "../../assets/icon/Vector.svg";
-import removeIcon from "../../assets/icon/remove-icon.svg";
+import { AdminArrowLeft } from "../../assets/admin-icons/admin-arrow-left";
+import { RemoveIcon } from "../../assets/admin-icons/remove-icon";
 import { AdminModal } from "../admin-components/AdminModal";
 
-export const PageHeader = ({ title, edit, removeClick }) => {
+export const PageHeader = ({ title, edit, removeClick, success, minLength }) => {
    const navigate = useNavigate();
 
    const [isModalOpen, setIsModalOpen] = useState(false);
 
    const handleOpenModal = () => {
-      setIsModalOpen(true);
+      if (!minLength) {
+         setIsModalOpen(true);
+      }
    };
 
    const handleCloseModal = () => {
       setIsModalOpen(false);
    };
+   let elementType = "";
+
+   switch (title) {
+      case "Редагувати проєкт":
+         elementType = "проєкт";
+         break;
+      case "Редагувати партнера":
+         elementType = "партнера";
+         break;
+      case "Редагувати слайдер":
+         elementType = "слайд";
+         break;
+      default:
+         elementType = "елемент";
+   }
 
    return (
       <>
          <div className="sub-title-container">
             <div className="title-icon">
-               <img className="title-icon-arrow" onClick={() => navigate(-1)} src={leftArow}></img>
+               <div className="heder-icon-arrow" onClick={() => navigate(-1)}>
+                  <AdminArrowLeft></AdminArrowLeft>
+               </div>
                <h3 className="admin-sub-title">{title}</h3>
             </div>
             {edit && (
-               <button className="remove-btn" onClick={handleOpenModal}>
+               <button
+                  className={minLength ? "remove-btn btn-disable" : "remove-btn"}
+                  onClick={handleOpenModal}
+               >
                   <div>
                      <p className="remove-btn-text">Видалити</p>
-                     <img src={removeIcon}></img>
+                     <RemoveIcon />
                   </div>
                </button>
             )}
          </div>
          <div className="divider"></div>
-         {isModalOpen && <AdminModal removeItem={removeClick} onClose={handleCloseModal} />}
+         {isModalOpen && (
+            <AdminModal success={success} removeItem={removeClick} onClose={handleCloseModal}  elementType={elementType}/>
+         )}
       </>
    );
 };

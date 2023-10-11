@@ -1,19 +1,25 @@
-import { LandingProvider } from "../provider-components/landing-provider";
+// import { LandingProvider } from "../provider-components/landing-provider";
+
+import { useAppContext } from "../provider-components/app-provider";
 
 import { Outlet } from "react-router-dom";
 import { Footer } from "../landing-components/Footer";
 import { Header } from "../landing-components/Header";
 
+// import { Contacts } from "../sections/Contacts";
+
 export const SharedLayout = () => {
+   const AppContext = useAppContext();
+
    return (
-      <LandingProvider>
-         <div>
-            <div className="header-wrapper">
-               <Header></Header>
-            </div>
-            <Outlet testPropsShared={"testPropsShared"} />
-            <Footer></Footer>
+      <div className="wrapper-general">
+         <div className="header-wrapper">
+            <Header></Header>
          </div>
-      </LandingProvider>
+         <main className="wrapper-general-main">
+            <Outlet testPropsShared={"testPropsShared"} />
+         </main>
+         <Footer></Footer>
+      </div>
    );
 };

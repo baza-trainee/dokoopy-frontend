@@ -4,12 +4,15 @@ import { lendingData } from "../../api/api";
 
 import { formatData, formatDataEN } from "../../assets/helpers";
 import Pagination from "../../components/landing-components/Pagination";
-import { useLandingContext } from "../../components/provider-components/landing-provider";
-import { Contacts } from "../../components/sections/Contacts.jsx";
+import { useAppContext } from "../../components/provider-components/app-provider";
 import { useLoadingData } from "../../hook/useLoadingData";
 
+import { Contacts } from "../../components/sections/Contacts";
+
+import localization from "../../assets/language-switcher/localization";
+
 export const AllProjects = () => {
-   const { language } = useLandingContext();
+   const { language } = useAppContext();
    const [project, setProject] = useState([]);
    const { isLoading, error, data } = useLoadingData(lendingData.getProject);
 
@@ -66,7 +69,7 @@ export const AllProjects = () => {
    return (
       <>
          <section className="container container-project">
-            <h2 className="project-title">Наші проєкти</h2>
+            <h2 className="project-title">{localization.allProjects}</h2>
             <ul className="project-page-list">
                {isLoading ? (
                   <div></div>
@@ -91,14 +94,12 @@ export const AllProjects = () => {
                )}
             </ul>
 
-            <div className="pagination">
-               <Pagination
-                  totalPosts={project?.length}
-                  postsPerPage={postsPerPage}
-                  setCurrentPage={setCurrentPage}
-                  currentPage={currentPage}
-               />
-            </div>
+            <Pagination
+               totalPosts={project?.length}
+               postsPerPage={postsPerPage}
+               setCurrentPage={setCurrentPage}
+               currentPage={currentPage}
+            />
          </section>
          <Contacts></Contacts>
       </>

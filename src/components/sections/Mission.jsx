@@ -1,6 +1,10 @@
 import localization from "../../assets/language-switcher/localization";
 
+import { useAppContext } from "../provider-components/app-provider";
+
 export const Mission = () => {
+   const AppContext = useAppContext();
+
    return (
       <div id="mission" className="mission">
          <div className="container">

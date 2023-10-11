@@ -23,10 +23,18 @@ export const EditBankAccount = () => {
 
    return (
       <section className="page-container">
-         <PageHeader title={"Редагувати банківські реквізити"} />
-         <div className="edit-contact-form-wrap">
-            <div className="edit-contact-form">
-               <InputSm setSmInput={setBankLink} label={"Посилання на банку*"} value={bankLink} />
+         <PageHeader
+            currentModal={"банківськй реквізит"}
+            title={"Редагувати банківські реквізити"}
+         />
+         <div className="edit-contact-payment-form-wrap ">
+            <div className="edit-contact-payment-form">
+               <InputSm
+                  setSmInput={setBankLink}
+                  label={"Посилання на банку*"}
+                  value={bankLink}
+                  isLink={true}
+               />
             </div>
             <button
                className="admin-button"

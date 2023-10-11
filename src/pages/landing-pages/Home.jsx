@@ -4,19 +4,16 @@ import { useLocation } from "react-router-dom";
 
 import { DividingLine } from "../../components/landing-components/DividingLine";
 import { About } from "../../components/sections/About";
-import { Contacts } from "../../components/sections/Contacts";
-import { Hero } from "../../components/sections/Hero";
 import { Mission } from "../../components/sections/Mission";
+import { MySlider } from "../../components/sections/MySlider";
 import { Partners } from "../../components/sections/Partners";
 import { Projects } from "../../components/sections/Projects";
 
 export const Home = () => {
-   const [modalActive, setModalActive] = useState(false);
-
    const location = useLocation();
 
    useEffect(() => {
-      const elementId = location.hash.substring(1); // Remove the leading '#' from the URL hash
+      const elementId = location.hash.substring(1);
       scrollToElement(elementId);
    }, [location]);
 
@@ -29,14 +26,13 @@ export const Home = () => {
 
    return (
       <>
-         <Hero></Hero>
+         <MySlider />
          <Mission></Mission>
          <DividingLine mainColor={"whiteContainer"}></DividingLine>
          <About></About>
          <Projects></Projects>
          <DividingLine mainColor={"greenContainer"}></DividingLine>
          <Partners></Partners>
-         <Contacts></Contacts>
       </>
    );
 };

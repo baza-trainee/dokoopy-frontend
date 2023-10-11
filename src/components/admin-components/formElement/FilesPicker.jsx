@@ -1,29 +1,52 @@
 import { useRef, useState } from "react";
-import { EditIcon } from "../../../assets/icon/EditIcon";
+import { EditIcon } from "../../../assets/admin-icons/EditIcon";
 import successIcon from "../../../assets/icon/success-icon.svg";
 
-export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile }) => {
-   const [onLeave, setOnLeave] = useState(false);
+export const FilesPicker = ({
+   errors,
+   setError,
+   defaultInfo,
+   selectedFile,
+   setSelectedFile,
+   filesType = ".png, .jpeg, .webp, .jpg",
+   title = "Фото",
+}) => {
    const [isSuccessFile, setSuccessFile] = useState(false);
    const filePicker = useRef(null);
 
+   const fileValidator = file => {
+      const valFilesPattern = filesType.split(" ");
+      const matchFile = file?.type.split("/")[1];
+      const isMath = valFilesPattern.find(item => item.includes(matchFile));
+
+      if (!isMath) {
+         setError("Вибраний файл не підримується");
+      } else if (file.size > 5 * 1024 * 1024) {
+         setError("Максимальний розмір файлу 5Мб");
+      } else {
+         setError(null);
+         setSelectedFile(file);
+         setSuccessFile(true);
+      }
+   };
    const handleFileChange = e => {
       e.preventDefault();
       const file = e.target.files[0];
-      setSelectedFile(file);
-      setSuccessFile(true);
+      if (file) {
+         fileValidator(file);
+      }
    };
 
    const handleDrop = e => {
       e.preventDefault();
       const file = e.dataTransfer.files[0];
-      setFile(true);
-      setSuccessFile(file);
+      if (file) {
+         fileValidator(file);
+      }
    };
 
    const handleDragOver = e => {
       e.preventDefault();
-      setOnLeave(true);
    };
    const handelPick = () => {
       filePicker.current.click();
@@ -34,30 +57,24 @@ export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile
          onDrop={handleDrop}
          onDragOver={handleDragOver}
          onDragStart={handleDragOver}
-         onDragLeave={() => setOnLeave(false)}
       >
          <div className="label-icon-blok">
-            <p className="input-liable">Фото*</p>
-            {isEdit && (
-               <div onClick={handelPick} className="edit-button-icon">
-                  <EditIcon />
-               </div>
-            )}
+            <p className="input-liable">{title}*</p>
+
+            <div onClick={handelPick} className="edit-button-icon">
+               <EditIcon />
+            </div>
          </div>
          <input
             ref={filePicker}
             className="hidden"
             type="file"
-            accept=".pdf, .jpg, .png, .gif"
+            accept={filesType}
             onChange={handleFileChange}
          />
-         <div
-            htmlFor="drag-input"
-            onClick={handelPick}
-            className={onLeave ? "active-drop" : "drag-input"}
-         >
+         <div htmlFor="drag-input" onClick={handelPick} className={"drag-input"}>
             <label>
-               {isSuccessFile ? (
+               {isSuccessFile && selectedFile ? (
                   <div className="success-icon">
                      <img src={successIcon}></img>
                      <label>{selectedFile?.name}</label>
@@ -66,7 +83,11 @@ export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile
                   <div className="editImg">
                      {defaultInfo ? (
                         <img
-                           src={`https://dokoopy.onrender.com/${defaultInfo.imageURL}`}
+                           src={
+                              title === "Фото"
+                                 ? `https://dokoopy.onrender.com/${defaultInfo.imageURL}`
+                                 : defaultInfo.imageURL
+                           }
                            className="editImg-default"
                         ></img>
                      ) : (
@@ -78,6 +99,7 @@ export const FilesPicker = ({ isEdit, defaultInfo, selectedFile, setSelectedFile
                )}
             </label>
          </div>
+         {!!errors && <p className="error-message error-file">{errors}</p>}
       </div>
    );
 };

@@ -1,15 +1,16 @@
-import { useParams } from "react-router-dom";
-
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { AdminApi } from "../../../api/api";
-import foto from "../../../assets/images/hero_example.jpg";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { Spinner } from "../../../components/admin-components/Spinner";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const EditSlider = () => {
    const { slideId } = useParams();
    const [currentHero, setCurrentHero] = useState(null);
+   const [minLength, setMinLength] = useState(false);
    const deleteHeros = useLoadingData(AdminApi.deleteHero, true);
    const updateHeros = useLoadingData(AdminApi.updateHero, true);
    const getHeros = useLoadingData(AdminApi.getHerosAdmin);
@@ -17,16 +18,19 @@ export const EditSlider = () => {
    useEffect(() => {
       if (getHeros.data?.heroes) {
          setCurrentHero(getHeros.data.heroes.find(({ id }) => id === slideId));
+         if (getHeros.data?.heroes.length <= 2) {
+            setMinLength(true);
+         }
       }
    }, [getHeros.data?.heroes]);
 
    const submitClick = data => {
       const formData = new FormData();
-      formData.append("title", data.title);
-      formData.append("description", data.description);
-      formData.append("description_eng", data.descriptionEN);
+      formData.append("title", data.e.title);
+      formData.append("description", data.e.description);
+      formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      formData.append("date", data.date);
+      formData.append("date", currentHero?.date);
 
       const params = {
          id: slideId,
@@ -35,30 +39,33 @@ export const EditSlider = () => {
       updateHeros.eventLoading(params);
    };
 
-   const defaultInfo = {
-      imageURL: foto,
-      title: "",
-      description: "Збір на 57 бригаду, котрі беруть участь в найзапекліших боях",
-      description_eng: "Gathering for the 57th brigade participating in the fiercest battles",
-   };
-
    return (
-      <section className="page-container">
-         <PageHeader
-            removeClick={() => deleteHeros.eventLoading(slideId)}
-            edit={true}
-            title={"Редагувати слайдер"}
-         />
-         <AddForm
-            isEdit={true}
-            lgLiable={"Опис слайдеру*"}
-            smLiable={"Назва слайдеру*"}
-            nameButton={"Внести зміни"}
-            submitClick={submitClick}
-            defaultInfo={currentHero}
-            hiddenInputENG={true}
-            counter={110}
-         />
-      </section>
+      <>
+         {!currentHero ? (
+            <Spinner size={300} color={"#2672e4"} />
+         ) : (
+            <section className="page-container">
+               <PageHeader
+                  removeClick={() => deleteHeros.eventLoading(slideId)}
+                  edit={true}
+                  title={"Редагувати слайдер"}
+                  success={deleteHeros.data?.code === 200 ? true : false}
+                  minLength={minLength}
+               />
+
+               <AddForm
+                  lgLiable={"Опис слайдеру*"}
+                  smLiable={"Назва слайдеру*"}
+                  nameButton={"Внести зміни"}
+                  submitClick={submitClick}
+                  defaultInfo={currentHero}
+                  hiddenInputENG={true}
+                  counter={110}
+                  schema={validSchema.heros}
+                  success={updateHeros.data?.code === 200 ? true : false}
+               />
+            </section>
+         )}
+      </>
    );
 };

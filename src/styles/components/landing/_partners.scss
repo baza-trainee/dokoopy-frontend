@@ -36,6 +36,10 @@
       height: 170px;
       width: 367px;
    }
+   .partner_img img {
+      width: 236px;
+      flex-shrink: 0;
+   }
 }
 @media screen and (min-width: 908px) {
    .card {
@@ -45,6 +49,10 @@
    .partner_img {
       height: 200px;
       width: 397px;
+   }
+   .partner_img img {
+      width: 236px;
+      flex-shrink: 0;
    }
 }
 @media screen and (min-width: 1280px) {

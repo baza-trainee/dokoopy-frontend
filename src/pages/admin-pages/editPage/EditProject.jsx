@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AdminApi } from "../../../api/api.js";
-import foto from "../../../assets/images/default-image.jpg";
 import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
+import { Spinner } from "../../../components/admin-components/Spinner.jsx";
+import { validSchema } from "../../../components/admin-components/formElement/validSchema.js";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
 export const EditProject = () => {
    const { projectId } = useParams();
    const [currentProject, setCurrentProject] = useState(null);
+   const [minLength, setMinLength] = useState(false);
    const deleteProject = useLoadingData(AdminApi.deleteProject, true);
    const updateProject = useLoadingData(AdminApi.updateProject, true);
    const getProject = useLoadingData(AdminApi.getProjectAdmin);
@@ -15,49 +17,52 @@ export const EditProject = () => {
    useEffect(() => {
       if (getProject.data?.projects) {
          setCurrentProject(getProject.data.projects.find(({ id }) => id === projectId));
+         if (getProject.data?.projects.length <= 2) {
+            setMinLength(true);
+         }
       }
    }, [getProject.data]);
 
    const submitClick = data => {
       const formData = new FormData();
-      formData.append("title", data.title);
-      formData.append("title_eng", data.titleEN);
-      formData.append("description", data.description);
-      formData.append("description_eng", data.descriptionEN);
+      formData.append("title", data.e.title);
+      formData.append("title_eng", data.e.titleEN);
+      formData.append("description", data.e.description);
+      formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      formData.append("date", data.date);
+      formData.append("date", currentProject?.date);
       const params = {
          id: projectId,
          body: formData,
       };
       updateProject.eventLoading(params);
    };
-   const defaultInfo = {
-      img: foto,
-      title: "Збір на 57 бригаду",
-      title_eng: "Donation for the 57th brigade",
-      description:
-         "Ми – 57 бригада та беремо участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо",
-      description_eng:
-         "We are the 57th brigade and participate in the fiercest battles. Therefore, the need for consumables is simply veeleetenskaya - these are walkie-talkies, car repairs, tires on wheels, etc.",
-   };
-
    return (
-      <section className="page-container">
-         <PageHeader
-            removeClick={() => deleteProject.eventLoading(projectId)}
-            edit={true}
-            title={"Редагувати проєкт"}
-         />
-         <AddForm
-            isEdit={true}
-            lgLiable={"Опис проєкту*"}
-            smLiable={"Назва проєкту*"}
-            nameButton={"Внести зміни"}
-            defaultInfo={currentProject}
-            submitClick={submitClick}
-            counter={300}
-         />
-      </section>
+      <>
+         {!currentProject ? (
+            <Spinner size={300} color={"#2672e4"} />
+         ) : (
+            <section className="page-container">
+               <PageHeader
+                  removeClick={() => deleteProject.eventLoading(projectId)}
+                  edit={true}
+                  title={"Редагувати проєкт"}
+                  success={deleteProject.data?.code === 200 ? true : false}
+                  minLength={minLength}
+               />
+
+               <AddForm
+                  lgLiable={"Опис проєкту*"}
+                  smLiable={"Назва проєкту*"}
+                  nameButton={"Внести зміни"}
+                  defaultInfo={currentProject}
+                  submitClick={submitClick}
+                  counter={300}
+                  schema={validSchema.project}
+                  success={updateProject.data?.code === 200 ? true : false}
+               />
+            </section>
+         )}
+      </>
    );
 };

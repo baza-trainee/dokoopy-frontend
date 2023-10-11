@@ -1,13 +1,14 @@
 import Slider from "react-slick";
-
 import localization from "../../assets/language-switcher/localization";
-
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { lendingData } from "../../api/api";
 
+import { useAppContext } from "../provider-components/app-provider";
+
 export const Partners = () => {
+   const AppContext = useAppContext();
    const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getPartners);
 
    if (isLoading) {
@@ -18,7 +19,7 @@ export const Partners = () => {
       return <p>Error: {error.message}</p>;
    }
    const partnerData = data.partners || [];
- 
+
    const settings = {
       dots: false,
       arrows: false,
@@ -82,7 +83,7 @@ export const Partners = () => {
                   <li className="partner-card" key={partner.id}>
                      <div className="card">
                         <a className="partner_img" href={partner.link} target="_blank">
-                        <img src={`https://dokoopy.onrender.com/${partner.imageURL}`} />
+                           <img src={`https://dokoopy.onrender.com/${partner.imageURL}`} />
                         </a>
                      </div>
                   </li>
