@@ -43,7 +43,7 @@ export const AdminReporting = () => {
                               target="_blank"
                               rel="noopener noreferrer"
                            >
-                              Звітність
+                               {report.reportURL}
                            </a>
                         </Link>
                      </div>
