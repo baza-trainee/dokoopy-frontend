@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const AsideListItem = ({ title, children }) => {
-   const [active, setActive] = useState(false);
+export const AsideListItem = ({ title, style, link, children }) => {
    return (
-      <li className="admin-list-item">
-         <Link className="admin-list-link">
-            {children} <span className="bank-account-text">{title}</span>
-         </Link>
-      </li>
+      <Link to={link} className={style}>
+         {children} <span className="bank-account-text">{title}</span>
+      </Link>
    );
 };

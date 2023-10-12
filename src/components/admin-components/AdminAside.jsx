@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Link } from "react-router-dom";
 // import { useAdminContext } from "../provider-components/admin-provider";
 // import { useAppContext } from "../provider-components/app-provider";
@@ -14,56 +16,50 @@ import { AdminChangePasswordIcon } from "../../assets/admin-icons/admin-password
 import { AdminLogoutIcon } from "../../assets/admin-icons/admin-logout";
 
 export const AdminAside = () => {
-   // const { loggedIn } = useAppContext();
+   const [isActive, setIsActive] = useState({
+      name: "Слайдер",
+      icon: AdminSliderIcon,
+      link: "/admin",
+   });
 
-   const asideTitles = {
-      slider: "Слайдер",
-      projects: "Проєкти",
-      partners: "Партнери",
-      contacts: "Контакти",
-      bankAccount: "Банківські реквізити",
-      report: "Звітність",
-      changePassword: "Зміна пароля",
-   };
+   const asideTitles = [
+      { name: "Слайдер", icon: AdminSliderIcon, link: "/admin" },
+      { name: "Проєкти", icon: AdminProjectsIcon, link: "projects" },
+      { name: "Партнери", icon: AdminPartnersIcon, link: "partners" },
+      { name: "Контакти", icon: AdminContactsIcon, link: "contacts" },
+      { name: "Банківські реквізити", icon: AdminBankIcon, link: "bank-account" },
+      { name: "Звітність", icon: AdminReportIcon, link: "reporting" },
+      { name: "Зміна пароля", icon: AdminChangePasswordIcon, link: "change-password" },
+   ];
 
    return (
       <aside className="aside">
          <ul>
-            <AsideListItem title={asideTitles.slider}>
-               <div className="admin-list-icon">
-                  <AdminSliderIcon />
-               </div>
-            </AsideListItem>
-            <AsideListItem title={asideTitles.projects}>
-               <div className="admin-list-icon">
-                  <AdminProjectsIcon />
-               </div>
-            </AsideListItem>
-            <AsideListItem title={asideTitles.partners}>
-               <div className="admin-list-icon">
-                  <AdminPartnersIcon />
-               </div>
-            </AsideListItem>
-            <AsideListItem title={asideTitles.contacts}>
-               <div className="admin-list-icon">
-                  <AdminContactsIcon />
-               </div>
-            </AsideListItem>
-            <AsideListItem title={asideTitles.bankAccount}>
-               <div className="admin-list-icon">
-                  <AdminBankIcon />
-               </div>
-            </AsideListItem>
-            <AsideListItem title={asideTitles.report}>
-               <div className="admin-list-icon">
-                  <AdminReportIcon />
-               </div>
-            </AsideListItem>
-            <AsideListItem title={asideTitles.report}>
-               <div className="admin-list-icon">
-                  <AdminChangePasswordIcon />
-               </div>
-            </AsideListItem>
+            {asideTitles.map((element, index) => {
+               return (
+                  <li
+                     key={index}
+                     onClick={() => {
+                        setIsActive(element);
+                     }}
+                     className="admin-list-item"
+                  >
+                     <AsideListItem
+                        title={element.name}
+                        link={element.link}
+                        style={
+                           isActive?.name === element?.name
+                              ? "admin-list-link admin-list-link_active"
+                              : "admin-list-link"
+                        }
+                     >
+                        <div className="admin-list-icon">
+                           <element.icon />
+                        </div>
+                     </AsideListItem>
+                  </li>
+               );
+            })}
          </ul>
          <Link to="/login" className="admin-logout">
             <div className="admin-list-icon">
@@ -138,4 +134,42 @@ export const AdminAside = () => {
             Вийти
          </Link>
       </aside> */
+}
+
+{
+   /* <AsideListItem title={asideTitles.slider}>
+               <div className="admin-list-icon">
+                  <AdminSliderIcon />
+               </div>
+            </AsideListItem>
+            <AsideListItem title={asideTitles.projects}>
+               <div className="admin-list-icon">
+                  <AdminProjectsIcon />
+               </div>
+            </AsideListItem>
+            <AsideListItem title={asideTitles.partners}>
+               <div className="admin-list-icon">
+                  <AdminPartnersIcon />
+               </div>
+            </AsideListItem>
+            <AsideListItem title={asideTitles.contacts}>
+               <div className="admin-list-icon">
+                  <AdminContactsIcon />
+               </div>
+            </AsideListItem>
+            <AsideListItem title={asideTitles.bankAccount}>
+               <div className="admin-list-icon">
+                  <AdminBankIcon />
+               </div>
+            </AsideListItem>
+            <AsideListItem title={asideTitles.report}>
+               <div className="admin-list-icon">
+                  <AdminReportIcon />
+               </div>
+            </AsideListItem>
+            <AsideListItem title={asideTitles.report}>
+               <div className="admin-list-icon">
+                  <AdminChangePasswordIcon />
+               </div>
+            </AsideListItem> */
 }
