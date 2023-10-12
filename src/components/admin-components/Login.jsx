@@ -16,6 +16,7 @@ import { useAppContext } from "../provider-components/app-provider";
 export const Login = () => {
    const [type, setType] = useState(true);
    const [typeName, setTypeName] = useState("password");
+   const [message, setMessage] = useState(null);
 
    const navigate = useNavigate();
 
@@ -35,7 +36,6 @@ export const Login = () => {
       email: yup.string().email("Введіть дійсний email").required("Введіть email"),
       password: yup.string().required("Введіть пароль"),
    });
-
    const {
       register,
       reset,
@@ -48,23 +48,31 @@ export const Login = () => {
          .then(res => {
             localStorage.setItem("token", res.data);
             logIn(res.data);
-            console.log(res);
          })
          .then(() => {
             navigate("/admin");
          })
-         .catch(e => console.warn(e));
+         .catch(e => {
+            if (e.response.data.message === "Wrong email or password") {
+               setMessage("Неправильний email або пароль");
+            }
+         });
       reset({ email: "", password: "" });
    }
 
    return (
       <div className="login-content">
-         <h2>Увійти в акаунт</h2>
+         <div>
+            <h2>Увійти в акаунт</h2>
+         </div>
          <p className="login-text">Введіть email і пароль від вашого акаунту</p>
          <form onSubmit={handleSubmit(onSubmit)} className="login-form">
             <label className="login-input mail">
                Email*
                <input
+                  style={
+                     errors.email ? { backgroundColor: "#FDE4E4" } : { backgroundColor: "#FFFFFF" }
+                  }
                   {...register("email")}
                   type="text"
                   placeholder="name@company.com"
@@ -74,6 +82,11 @@ export const Login = () => {
             <label className="login-input pass">
                Пароль*
                <input
+                  style={
+                     errors.password
+                        ? { backgroundColor: "#FDE4E4" }
+                        : { backgroundColor: "#FFFFFF" }
+                  }
                   {...register("password")}
                   type={typeName}
                   placeholder="************"
@@ -85,11 +98,14 @@ export const Login = () => {
                )}
             </label>
             <p className="errorText">{errors.password?.message}</p>
+            <p className="message messageNotFound">{message}</p>
             <button type="submit">Увійти</button>
          </form>
-         <Link to={"forget-password"} className="forget-password">
-            Забули пароль?
-         </Link>
+         <div className="forgetContainer">
+            <Link to={"forget-password"} className="forget-password">
+               Забули пароль?
+            </Link>
+         </div>
       </div>
    );
 };
