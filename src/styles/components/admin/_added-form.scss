@@ -96,6 +96,8 @@
    margin-top: auto;
 }
 .added-form {
+   // max-width: 1013px;
+   width: 100%;
    padding: 0 24px;
    font-size: 20px;
    display: flex;
@@ -173,7 +175,11 @@
    line-height: 16.5px;
    margin: 0 auto;
 }
-
+@media (min-width: 1440px) {
+   .added-form {
+      max-width: 1013px;
+   }
+}
 @media (max-width: 1279px) {
    .desc-files-picker {
       display: none;
