@@ -37,7 +37,7 @@ export const RenewPassword = () => {
    } = useForm({ resolver: yupResolver(userSchema) });
 
    function onSubmit(e) {
-      fetch(`https://dokoopy-pr-29.onrender.com/api/auth/admin/reset-password/${token}`, {
+      fetch(`https://dokoopy.onrender.com/api/auth/admin/reset-password/${token}`, {
          method: "POST",
          headers: {
             "Content-Type": "application/json",
@@ -54,35 +54,26 @@ export const RenewPassword = () => {
    return (
       <div className="renew-content">
          <div className="login-content forget-h2">
-            <h2>Завершення відновлення пароля</h2>
+            <div>
+               <h2>Завершення відновлення пароля</h2>
+            </div>
             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
-               <label
-                  className={errors.password ? "login-input pass errorText" : "login-input pass"}
-               >
+               <label className="login-input pass">
                   Новий пароль*
-                  <input
-                     {...register("password")}
-                     type={typeName}
-                     placeholder={errors.password ? errors.password?.message : "************"}
-                  />
+                  <input {...register("password")} type={typeName} placeholder="************" />
                   {!type ? (
                      <LoginEyeClosed onClick={() => click()} />
                   ) : (
                      <LoginEyeOpened onClick={() => click()} />
                   )}
                </label>
-               <label
-                  className={
-                     errors.confirmPassword ? "login-input pass errorText" : "login-input pass"
-                  }
-               >
+               <p className="errorText">{errors.password?.message}</p>
+               <label className="login-input pass">
                   Повторити новий пароль*
                   <input
                      {...register("confirmPassword")}
                      type={typeName}
-                     placeholder={
-                        errors.confirmPassword ? errors.confirmPassword?.message : "************"
-                     }
+                     placeholder="************"
                   />
                   {!type ? (
                      <LoginEyeClosed onClick={() => click()} />
@@ -90,6 +81,7 @@ export const RenewPassword = () => {
                      <LoginEyeOpened onClick={() => click()} />
                   )}
                </label>
+               <p className="errorText">{errors.confirmPassword?.message}</p>
                <button type="submit">Змінити пароль</button>
             </form>
          </div>
