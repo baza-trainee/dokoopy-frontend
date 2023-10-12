@@ -48,7 +48,7 @@ export const AdminAside = () => {
                         title={element.name}
                         link={element.link}
                         style={
-                           isActive?.name === element?.name
+                           isActive.name === element?.name
                               ? "admin-list-link admin-list-link_active"
                               : "admin-list-link"
                         }
