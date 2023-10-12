@@ -17,7 +17,7 @@ export const EditPartner = () => {
       formData.append("link", data.e.link);
       formData.append("imageURL", data.selectedFile);
       const params = {
-         id: partnerId,
+         id: state.item.id,
          body: formData,
       };
       updatePartner.eventLoading(params);

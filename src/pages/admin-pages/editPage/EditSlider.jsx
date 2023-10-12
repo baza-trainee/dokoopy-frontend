@@ -15,10 +15,10 @@ export const EditSlider = () => {
       formData.append("description", data.e.description);
       formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      formData.append("date", currentHero?.date);
+      formData.append("date", state.item?.date);
 
       const params = {
-         id: slideId,
+         id: state.item.id,
          body: formData,
       };
       updateHeros.eventLoading(params);

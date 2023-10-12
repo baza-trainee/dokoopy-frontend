@@ -16,9 +16,9 @@ export const EditProject = () => {
       formData.append("description", data.e.description);
       formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      formData.append("date", currentProject?.date);
+      formData.append("date", state.item?.date);
       const params = {
-         id: projectId,
+         id: state.item.id,
          body: formData,
       };
       updateProject.eventLoading(params);
