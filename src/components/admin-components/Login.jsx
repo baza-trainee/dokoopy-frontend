@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { LoginEyeOpened } from "../../assets/admin-icons/login-eye-opened";
-import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
 import { useForm } from "react-hook-form";
+import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
+import { LoginEyeOpened } from "../../assets/admin-icons/login-eye-opened";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -47,6 +47,7 @@ export const Login = () => {
       AdminApi.loginAdmin(e)
          .then(res => {
             localStorage.setItem("token", res.data);
+            AdminApi.setToken(res.data.token);
             logIn(res.data);
          })
          .then(() => {
