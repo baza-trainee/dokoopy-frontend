@@ -16,10 +16,10 @@ export const FilesPicker = ({
 
    const fileValidator = file => {
       const valFilesPattern = filesType.split(" ");
-      const matchFile = file?.type.split("/")[1];
-      const isMath = valFilesPattern.find(item => item.includes(matchFile));
+      const matchedFile = file?.type.split("/")[1];
+      const isMatched = valFilesPattern.find(item => item.includes(matchedFile));
 
-      if (!isMath) {
+      if (!isMatched) {
          setError("Вибраний файл не підримується");
       } else if (file.size > 5 * 1024 * 1024) {
          setError("Максимальний розмір файлу 5Мб");
@@ -82,14 +82,7 @@ export const FilesPicker = ({
                ) : (
                   <div className="editImg">
                      {defaultInfo ? (
-                        <img
-                           src={
-                              title === "Фото"
-                                 ? `https://dokoopy.onrender.com/${defaultInfo.imageURL}`
-                                 : defaultInfo.imageURL
-                           }
-                           className="editImg-default"
-                        ></img>
+                        <img src={defaultInfo.imageURL} className="editImg-default"></img>
                      ) : (
                         <p className="file-placeholder">
                            Перетягніть або натисніть тут, щоб завантажити файл
