@@ -1,7 +1,7 @@
 import { EditEyeOpened } from "../../assets/admin-icons/edit-password-eye-o";
 import { EditEyeClosed } from "../../assets/admin-icons/edit-password-eye-c";
 import { useState, useEffect } from "react";
-// import { AdminApi } from "../../api/api";
+import { AdminApi } from "../../api/api";
 
 export const AdminChangePassword = () => {
 
@@ -19,12 +19,26 @@ export const AdminChangePassword = () => {
 
 
    const [showErrorMessage, setShowErrorMessage] = useState(false);
+   const [showErrorMessage2, setShowErrorMessage2] = useState(false);
 
    useEffect(() => {
       if (showErrorMessage) {
 
          const timer = setTimeout(() => {
             setShowErrorMessage(false);
+            
+         }, 3000);
+
+
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage]); 
+   
+   useEffect(() => {
+      if (showErrorMessage2) {
+
+         const timer = setTimeout2(() => {
+            setShowErrorMessage2(false);
             
          }, 3000);
 
@@ -46,20 +60,30 @@ export const AdminChangePassword = () => {
    function editPassword(event) {
       event.preventDefault();
 
+      if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
+         setShowErrorMessage2(true);
+         return;
+       }
+
       if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
          divNew.style.bacground = "";
          divNew.style.border = "";
          divReturn.style.bacground = "";
          divReturn.style.border = "";
-         // Додатковий код для зміни паролю на сервері
-         // AdminApi.resetPasswordAdmin(resetToken, { newPassword })
-         //    .then(response => {
-         //       console.log("Пароль змінено успішно");
-         //    })
-         //    .catch(error => {
-         //       console.error("Помилка при зміні паролю", error);
-         //    });
+
+
+      const resetToken = "";
+      const body = { password: newPassword };
+
+    AdminApi.resetPasswordAdmin(resetToken, body)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Помилка при зміні пароля:", error);
+      });
+
       } else {
          setPasswordMismatch(true);
          setShowErrorMessage(true); 
@@ -129,7 +153,10 @@ export const AdminChangePassword = () => {
                   )}
                   </div>
                   {showErrorMessage && (
-                     <p style={{ color: 'red' }}>Паролі не співпадають</p>
+                     <p style={{ color: 'red' }}>Нові паролі не співпадають</p>
+                  )}
+                  {showErrorMessage2 && (
+                     <p style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
 
                </label>
