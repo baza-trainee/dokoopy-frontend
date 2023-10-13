@@ -15,8 +15,8 @@ export default function ProjectSlider({ data }) {
    return (
       <Slider {...settings}>
          {data.slice(0, 4).map(project => (
-            <div key={project.id} className="slide-blok">
-               <li key={project.id} className="projects-block-box">
+            <div key={project._id} className="slide-blok">
+               <li className="projects-block-box">
                   <img
                      className="projects-img"
                      src={`https://dokoopy.onrender.com/${project.imageURL}`}

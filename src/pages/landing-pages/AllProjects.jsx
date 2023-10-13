@@ -21,7 +21,7 @@ export const AllProjects = () => {
          setProject(
             data?.projects.map(item => ({
                ...item,
-               date: language === "ua" ? formatData(item.date) : formatDataEN(item.date),
+               date: language === "ua" ? formatData(item.createdAt) : formatDataEN(item.createdAt),
                title: language === "ua" ? item.title : item.title_eng,
                description: language === "ua" ? item.description : item.description_eng,
             }))
@@ -75,12 +75,9 @@ export const AllProjects = () => {
                   <div></div>
                ) : (
                   currentPosts?.map(item => (
-                     <li key={item.id}>
+                     <li key={item._id}>
                         <div className="all-project-content">
-                           <img
-                              className="project-img-blok"
-                              src={`https://dokoopy.onrender.com/${item.imageURL}`}
-                           />
+                           <img className="project-img-blok" src={item.imageURL} />
                            <div className="text-blok">
                               <div className="page-data-title-blok">
                                  <p className="project-data">{item.date}</p>
