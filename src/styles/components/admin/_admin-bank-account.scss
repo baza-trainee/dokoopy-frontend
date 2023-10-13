@@ -110,6 +110,7 @@
 }
 @media (min-width: 768px) and (max-width: 1279px){
     .bank-contacts{
+        
         display: flex;
         align-items: flex-start;
         flex: 1 0 0;
@@ -334,6 +335,7 @@
         align-items: flex-start;
         background: var( --admin-table-header-background);
     }
+    
     .bank-contacts-list-title p{
         width: 70px;
         color: var(--admin-title-color);

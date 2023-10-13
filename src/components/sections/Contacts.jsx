@@ -25,11 +25,9 @@ export const Contacts = () => {
                   <a className="navigation-list-item" href={`mailto:${data?.contacts?.email}`}>
                      email
                   </a>
-                  <a
-                     className="navigation-list-item"
-                     href={`${data?.contacts?.telegram}`}
-                     target="_blank"
-                  >
+                  <a className="navigation-list-item"
+                     href={`${data?.contacts?.data}`}
+                     target="_blank">
                      telegram
                   </a>
                </div>
