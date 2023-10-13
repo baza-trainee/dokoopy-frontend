@@ -8,7 +8,6 @@ export const AddPartner = () => {
 
    const submitClick = data => {
       const formData = new FormData();
-      console.log(data);
       formData.append("title", data.e.title);
       formData.append("link", data.e.link);
       formData.append("imageURL", data.selectedFile);

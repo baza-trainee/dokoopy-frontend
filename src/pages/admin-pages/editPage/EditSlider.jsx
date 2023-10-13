@@ -15,10 +15,9 @@ export const EditSlider = () => {
       formData.append("description", data.e.description);
       formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      formData.append("date", state.item?.date);
 
       const params = {
-         id: state.item.id,
+         id: state.item._id,
          body: formData,
       };
       updateHeros.eventLoading(params);
@@ -27,7 +26,7 @@ export const EditSlider = () => {
    return (
       <section className="page-container">
          <PageHeader
-            removeClick={() => deleteHeros.eventLoading(state.item.id)}
+            removeClick={() => deleteHeros.eventLoading(state.item._id)}
             edit={true}
             title={"Редагувати слайдер"}
             success={deleteHeros.data?.code === 200 ? true : false}
