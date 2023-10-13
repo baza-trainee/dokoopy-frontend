@@ -82,14 +82,7 @@ export const FilesPicker = ({
                ) : (
                   <div className="editImg">
                      {defaultInfo ? (
-                        <img
-                           src={
-                              title === "Фото"
-                                 ? `https://dokoopy.onrender.com/${defaultInfo.imageURL}`
-                                 : defaultInfo.imageURL
-                           }
-                           className="editImg-default"
-                        ></img>
+                        <img src={defaultInfo.imageURL} className="editImg-default"></img>
                      ) : (
                         <p className="file-placeholder">
                            Перетягніть або натисніть тут, щоб завантажити файл
