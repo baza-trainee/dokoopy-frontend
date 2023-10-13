@@ -19,12 +19,26 @@ export const AdminChangePassword = () => {
 
 
    const [showErrorMessage, setShowErrorMessage] = useState(false);
+   const [showErrorMessage2, setShowErrorMessage2] = useState(false);
 
    useEffect(() => {
       if (showErrorMessage) {
 
          const timer = setTimeout(() => {
             setShowErrorMessage(false);
+            
+         }, 3000);
+
+
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage]); 
+   
+   useEffect(() => {
+      if (showErrorMessage2) {
+
+         const timer = setTimeout2(() => {
+            setShowErrorMessage2(false);
             
          }, 3000);
 
@@ -47,7 +61,7 @@ export const AdminChangePassword = () => {
       event.preventDefault();
 
       if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
-         setShowErrorMessage(true);
+         setShowErrorMessage2(true);
          return;
        }
 
@@ -140,6 +154,9 @@ export const AdminChangePassword = () => {
                   </div>
                   {showErrorMessage && (
                      <p style={{ color: 'red' }}>Нові паролі не співпадають</p>
+                  )}
+                  {showErrorMessage2 && (
+                     <p style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
 
                </label>
