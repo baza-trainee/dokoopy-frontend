@@ -35,7 +35,7 @@ export const Footer = () => {
                         return (
                            <a
                               key={report._id}
-                              href={`https://dokoopy.onrender.com/${report.reportURL}`}
+                              href={report.reportURL}
                               className="footer-policy-link"
                               target="_blank"
                               rel="noreferrer"
