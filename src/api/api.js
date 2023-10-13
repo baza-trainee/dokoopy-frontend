@@ -91,8 +91,8 @@ export const AdminApi = {
    },
 
    //Contacts
-   updateContacts(body) {
-      return axios.patch("contacts/admin", body);
+   updateContacts({ id, body }) {
+      return axios.patch(`contacts/admin${id}`, body);
    },
    getContactsAdmin() {
       return axios.get("contacts/admin");
