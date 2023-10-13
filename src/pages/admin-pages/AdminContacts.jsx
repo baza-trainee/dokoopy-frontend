@@ -8,6 +8,7 @@ export const AdminContacts = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin);
 
    const contactsData = data || [];
+   console.log(data);
 
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
@@ -52,7 +53,7 @@ export const AdminContacts = () => {
                   <li className="contacts-card">
                      <div className="contacts-li">
                         <p>Telegram</p>
-                        <a href={`${data?.contacts?.telegram}`}>{data?.contacts?.telegram}</a>
+                        <a href={`${data?.contacts?.data}`}>{data?.contacts?.data}</a>
                         <button className="edit-contcts">
                            <AdminIconEdit />
                         </button>
