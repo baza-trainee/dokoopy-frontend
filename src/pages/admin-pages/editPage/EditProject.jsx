@@ -16,9 +16,9 @@ export const EditProject = () => {
       formData.append("description", data.e.description);
       formData.append("description_eng", data.e.descriptionEN);
       formData.append("imageURL", data.selectedFile);
-      formData.append("date", state.item?.date);
+
       const params = {
-         id: state.item.id,
+         id: state.item._id,
          body: formData,
       };
       updateProject.eventLoading(params);
@@ -26,7 +26,7 @@ export const EditProject = () => {
    return (
       <section className="page-container">
          <PageHeader
-            removeClick={() => deleteProject.eventLoading(state.item.id)}
+            removeClick={() => deleteProject.eventLoading(state.item._id)}
             edit={true}
             title={"Редагувати проєкт"}
             success={deleteProject.data?.code === 200 ? true : false}
