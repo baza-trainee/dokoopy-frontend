@@ -34,10 +34,14 @@ export const AdminApi = {
    logoutAdmin(body) {
       return axios.get("auth/admin/logout", body);
    },
-   
-   // resetPasswordAdmin(resetToken,body) {
-   //    return axios.post(`auth/admin/reset-password/${resetToken}`, body);
-   // },
+
+   resetPasswordAdmin(resetToken, body) {
+   return axios.post(`auth/admin/reset-password/${resetToken}`, body, {
+         headers: {
+            "Content-Type": "application/json",
+         },
+      });
+   },
 
    //Project
    getProjectAdmin() {
