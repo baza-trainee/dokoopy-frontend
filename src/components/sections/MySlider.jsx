@@ -23,7 +23,6 @@ export const MySlider = () => {
          setSlides(
             data?.heroes.map(item => ({
                ...item,
-               imageURL: `https://dokoopy.onrender.com/${item.imageURL}`,
                description: language === "ua" ? item.description : item.description_eng,
             }))
          );
@@ -65,7 +64,7 @@ export const MySlider = () => {
             <div className="hero" ref={refSliderObserver}>
                <Slider ref={slideRef} {...settings}>
                   {slides.map(item => (
-                     <div key={item.id} className="slider-container">
+                     <div key={item._id} className="slider-container">
                         <div className="slider">
                            <img alt={item.title} src={item.imageURL}></img>
                         </div>

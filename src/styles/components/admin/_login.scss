@@ -1,31 +1,35 @@
 .login-content {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   margin-top: 87px;
-   h2 {
+   background-color: #ffffff;
+   margin: 73px 15px;
+   div {
       margin: 0 auto;
-      margin-bottom: 40px;
+      width: 280px;
+   }
+   div h2 {
+      text-align: center;
+      margin-bottom: 56px;
       font-size: 24px;
       font-weight: 500;
    }
+   @media (min-width: 480px) {
+      margin: 84px 24px;
+   }
    @media (min-width: 768px) {
-      h2 {
+      margin: 95px 113px;
+      div h2 {
+         margin-bottom: 56px;
          font-size: 28px;
       }
    }
-   @media (min-width: 768px) {
-      h2 {
-         margin-bottom: 48px;
-      }
+   @media (min-width: 1280px) {
+      margin: 95px 203px;
    }
 }
 
 .login-text {
-   width: 320px;
-   margin: 0 auto;
+   width: 270px;
    color: var(--admin-main-font);
-   font-size: 14px;
+   font-size: 16px;
    @media (min-width: 768px) {
       width: 466px;
       font-size: 16px;
@@ -35,8 +39,6 @@
 .login-form {
    display: flex;
    flex-direction: column;
-   margin: 0 auto;
-   width: 320px;
    margin-bottom: 24px;
    button {
       border: none;
@@ -44,12 +46,15 @@
       background-color: var(--admin-button-main);
       color: var(--white);
       height: 50px;
-      margin-top: 105px;
+      margin-top: 68px;
       cursor: pointer;
       font-size: 16px;
       &:hover {
          background-color: var(--admin-main-accent);
       }
+   }
+   @media (min-width: 480px) {
+      width: 384px;
    }
    @media (min-width: 768px) {
       width: 466px;
@@ -85,14 +90,17 @@
 
 .pass {
    height: 48px;
-   margin-top: 60px;
+   margin-top: 20px;
    margin-bottom: 0;
 }
 .password-eye {
    position: relative;
-   left: 285px;
-   bottom: 37px;
+   left: 245px;
+   bottom: 36px;
    cursor: pointer;
+   @media (min-width: 480px) {
+      left: 345px;
+   }
    @media (min-width: 768px) {
       left: 435px;
    }
@@ -110,4 +118,13 @@
 .errorText {
    color: #ff6060;
    margin-top: 30px;
+   height: 10px;
+}
+
+.errorInput {
+   border: 1px solid red;
+}
+
+.forgetContainer {
+   text-align: center;
 }

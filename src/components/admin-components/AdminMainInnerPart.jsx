@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { AdminEditIcon } from "../../assets/admin-icons/admin-edit";
-import { useEffect, useRef } from "react";
 import { formatData } from "../../assets/helpers";
 
 export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
@@ -11,15 +11,14 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
    useEffect(() => {
       const numberOfRows = data.length;
       if (gridContainerRef.current) {
-        gridContainerRef.current.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
+         gridContainerRef.current.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
       }
-    }, [data]);
+   }, [data]);
 
    return (
       <div className="admin-main-wrapper">
          <div className="admin-main-header">
-            <div className="admin-main-header-wrapper"
-            >
+            <div className="admin-main-header-wrapper">
                <div className="admin-main-header-title">{name}</div>
                <div className="admin-main-header-title">{photo}</div>
                <div className="admin-main-header-title">{date ? date : link}</div>
@@ -27,50 +26,52 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
             </div>
          </div>
          <ul className="admin-main-content" ref={gridContainerRef}>
-            {data.map(contentData => {
+            {data.map((contentData, index) => {
                return (
-                  <li
-                     key={contentData.id}
-                     
-                  >
-                     <Link to={`edit/${contentData.id}`} className={
-                        contentData.date
-                           ? "admin-main-content-element"
-                           : "admin-main-content-element-partners"
-                     }>
-                     <p
+                  <li key={contentData.id}>
+                     <Link
+                        to={`edit/${contentData.id}`}
+                        state={{ item: contentData, minLength: data.length }}
                         className={
                            contentData.date
-                              ? "content-element-name"
-                              : "content-element-name-partners"
+                              ? "admin-main-content-element"
+                              : "admin-main-content-element-partners"
                         }
                      >
-                        {contentData.title}
-                     </p>
-                     <div className="content-element-img-box">
-                        <div
-                           className={contentData.date ? "wrapper-img-box" : "wrapper-img-box-svg"}
+                        <p
+                           className={
+                              contentData.date
+                                 ? "content-element-name"
+                                 : "content-element-name-partners"
+                           }
                         >
-                           <img
-                              src={`https://dokoopy.onrender.com/${contentData.imageURL}`}
-                              alt={contentData.alt}
-                              className="content-element-img"
-                           ></img>
+                           {contentData.title}
+                        </p>
+                        <div className="content-element-img-box">
+                           <div
+                              className={
+                                 contentData.date ? "wrapper-img-box" : "wrapper-img-box-svg"
+                              }
+                           >
+                              <img
+                                 src={`https://dokoopy.onrender.com/${contentData.imageURL}`}
+                                 alt={contentData.alt}
+                                 className="content-element-img"
+                              ></img>
+                           </div>
                         </div>
-                     </div>
-                     <p
-                        className={
-                           contentData.date ? "content-element-data" : "content-element-link"
-                        }
-                     >
-                        {contentData.date ? formatData(contentData.date) : contentData.link}
-                     </p>
-                     <div>
-                        <AdminEditIcon />
-                     </div>
+                        <p
+                           className={
+                              contentData.date ? "content-element-data" : "content-element-link"
+                           }
+                        >
+                           {contentData.date ? formatData(contentData.date) : contentData.link}
+                        </p>
+                        <div>
+                           <AdminEditIcon />
+                        </div>
                      </Link>
                   </li>
-                  
                );
             })}
          </ul>

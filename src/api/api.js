@@ -1,6 +1,6 @@
 import axios from "axios";
 axios.defaults.baseURL = "https://dokoopy.onrender.com/api/";
-const token = localStorage.getItem('token');
+const token = localStorage.getItem("token");
 
 export const lendingData = {
    getHero() {
@@ -51,7 +51,7 @@ export const AdminApi = {
       return axios.post("projects/admin", body);
    },
    updateProject({ id, body }) {
-      return axios.put(`projects/admin/${id}`, body);
+      return axios.patch(`projects/admin/${id}`, body);
    },
    deleteProject(id) {
       return axios.delete(`projects/admin/${id}`);
@@ -62,7 +62,7 @@ export const AdminApi = {
       return axios.get("bank/admin");
    },
    updateBank(body) {
-      return axios.get("bank/admin", body);
+      return axios.patch("bank/admin", body);
    },
 
    //Heros
@@ -73,7 +73,7 @@ export const AdminApi = {
       return axios.post("hero/admin", body);
    },
    updateHero({ id, body }) {
-      return axios.put(`hero/admin/${id}`, body);
+      return axios.patch(`hero/admin/${id}`, body);
    },
    deleteHero(id) {
       return axios.delete(`hero/admin/${id}`);
@@ -87,12 +87,12 @@ export const AdminApi = {
       return axios.get("reports/admin");
    },
    updateReports({ id, body }) {
-      return axios.put(`reports/admin/${id}`, body);
+      return axios.patch(`reports/admin/${id}`, body);
    },
 
    //Contacts
    updateContacts(body) {
-      return axios.put("contacts/admin", body);
+      return axios.patch("contacts/admin", body);
    },
    getContactsAdmin() {
       return axios.get("contacts/admin");
@@ -106,7 +106,7 @@ export const AdminApi = {
       return axios.get("partners/admin");
    },
    updatePartners({ id, body }) {
-      return axios.put(`partners/admin/${id}`, body);
+      return axios.patch(`partners/admin/${id}`, body);
    },
    deletePartners(id) {
       return axios.delete(`partners/admin/${id}`);

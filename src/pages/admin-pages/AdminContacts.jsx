@@ -38,7 +38,8 @@ export const AdminContacts = () => {
                <span></span>
             </div>
             <ul className="admin-contacts-list-ul">
-               <Link to="edit">
+               <Link to="edit"
+                state={{ item: data }}>
                   <li className="contacts-card">
                      <div className="contacts-li">
                         <p>Email</p>
@@ -49,7 +50,7 @@ export const AdminContacts = () => {
                      </div>
                   </li>
                </Link>
-               <Link to="edit">
+               <Link to="edit" state={{ item: data }}>
                   <li className="contacts-card">
                      <div className="contacts-li">
                         <p>Telegram</p>

@@ -8,9 +8,10 @@ export const PageHeader = ({ title, edit, removeClick, success, minLength }) => 
    const navigate = useNavigate();
 
    const [isModalOpen, setIsModalOpen] = useState(false);
+   let isRemove = minLength <= 2 ? true : false;
 
    const handleOpenModal = () => {
-      if (!minLength) {
+      if (!isRemove) {
          setIsModalOpen(true);
       }
    };
@@ -45,7 +46,7 @@ export const PageHeader = ({ title, edit, removeClick, success, minLength }) => 
             </div>
             {edit && (
                <button
-                  className={minLength ? "remove-btn btn-disable" : "remove-btn"}
+                  className={isRemove ? "remove-btn btn-disable" : "remove-btn"}
                   onClick={handleOpenModal}
                >
                   <div>
@@ -57,7 +58,12 @@ export const PageHeader = ({ title, edit, removeClick, success, minLength }) => 
          </div>
          <div className="divider"></div>
          {isModalOpen && (
-            <AdminModal success={success} removeItem={removeClick} onClose={handleCloseModal}  elementType={elementType}/>
+            <AdminModal
+               success={success}
+               removeItem={removeClick}
+               onClose={handleCloseModal}
+               elementType={elementType}
+            />
          )}
       </>
    );
