@@ -37,7 +37,7 @@ export const AdminBankAccount = () => {
                   <span></span>
                </div>
                <ul className="bank-contacts-list-ul">
-                  <Link to="edit">
+                  <Link to="edit" state={{ item: data }}>
                      <li className="bank-card">
                         <div className="bank-li">
                            <p>Реквізити</p>

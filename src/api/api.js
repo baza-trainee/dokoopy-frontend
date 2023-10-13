@@ -54,7 +54,7 @@ export const AdminApi = {
       return axios.get("bank/admin");
    },
    updateBank(body) {
-      return axios.get("bank/admin", body);
+      return axios.put("bank/admin", body);
    },
 
    //Heros
