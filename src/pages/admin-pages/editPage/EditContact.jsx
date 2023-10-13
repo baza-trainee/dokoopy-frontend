@@ -48,16 +48,16 @@ export const EditContact = () => {
    return (
       <section className="page-container">
          <PageHeader title={"Редагувати контакти"} />
-         <div className="edit-contact-payment-form-wrap">
+         {/* <div className="edit-contact-payment-form-wrap"> */}
          <form onSubmit={(e) => {e.preventDefault(); eventLoading(formData)}} className="edit-contact-payment-form-wrap">
             <div className="edit-contact-payment-form">
-               <InputSm setSmInput={setEmail} label={"Email:"} value={email} isLink={true} 
+               <InputSm setSmInput={setEmail} label={"Email*"} value={email} isLink={true} 
                isEmptyInput={email.trim() === ""}
                onChange={handleEmailChange}
                />
                <InputSm
                   setSmInput={setTelegram}
-                  label={"Telegram:"}
+                  label={"Telegram*"}
                   value={telegram}
                   isLink={true}
                   onChange={handleTelegramChange}
@@ -72,7 +72,7 @@ export const EditContact = () => {
                Внести зміни
             </button>
           </form> 
-         </div>
+         {/* </div> */}
       </section>
    );
 };
