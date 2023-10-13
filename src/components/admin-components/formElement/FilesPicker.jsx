@@ -17,9 +17,9 @@ export const FilesPicker = ({
    const fileValidator = file => {
       const valFilesPattern = filesType.split(" ");
       const matchFile = file?.type.split("/")[1];
-      const isMath = valFilesPattern.find(item => item.includes(matchFile));
+      const isMatched = valFilesPattern.find(item => item.includes(matchFile));
 
-      if (!isMath) {
+      if (!isMatched) {
          setError("Вибраний файл не підримується");
       } else if (file.size > 5 * 1024 * 1024) {
          setError("Максимальний розмір файлу 5Мб");
