@@ -61,7 +61,7 @@ export const AdminApi = {
    getBankAdmin(id) {
       return axios.get(`bank/admin${id}`);
    },
-   updateBank({ body }) {
+   updateBank({ id, body }) {
       return axios.patch(`bank/admin${id}`, body);
    },
 
