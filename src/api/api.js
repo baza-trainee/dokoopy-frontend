@@ -58,11 +58,11 @@ export const AdminApi = {
    },
 
    //Bank
-   getBankAdmin() {
-      return axios.get("bank/admin");
+   getBankAdmin(id) {
+      return axios.get(`bank/admin${id}`);
    },
-   updateBank(body) {
-      return axios.patch("bank/admin", body);
+   updateBank({ body }) {
+      return axios.patch(`bank/admin${id}`, body);
    },
 
    //Heros
