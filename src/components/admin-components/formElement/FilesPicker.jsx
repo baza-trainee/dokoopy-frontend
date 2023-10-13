@@ -16,8 +16,8 @@ export const FilesPicker = ({
 
    const fileValidator = file => {
       const valFilesPattern = filesType.split(" ");
-      const matchFile = file?.type.split("/")[1];
-      const isMatched = valFilesPattern.find(item => item.includes(matchFile));
+      const matchedFile = file?.type.split("/")[1];
+      const isMatched = valFilesPattern.find(item => item.includes(matchedFile));
 
       if (!isMatched) {
          setError("Вибраний файл не підримується");
