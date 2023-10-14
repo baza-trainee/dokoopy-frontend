@@ -22,7 +22,8 @@ export const AdminReporting = () => {
       );
    }
 
-   const reports = data?.reports || [];
+   const reports = data?.result || [];
+
 
    return (
       <div className="admin-reporting">
@@ -33,22 +34,25 @@ export const AdminReporting = () => {
          </div>
          <div className="reporting-container-card">
             <ul className="reporting-files">
-               {reports.map(report => (
-                  <li className="reporting-cards" key={report.id}>
-                     <div className="card-reporting">
-                        <Link to="edit" className="card-reporting">
-                           <img src={fileText} alt="File" />
-                           <a
-                              href={`https://dokoopy.onrender.com/${report.reportURL}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                           >
-                               {report.reportURL}
-                           </a>
-                        </Link>
-                     </div>
-                  </li>
-               ))}
+               {data.result.map((report) => {
+                  const fileName = report.reportURL.split("dokoopy/")[1].split(".")[0];
+                  return (
+                     <li className="reporting-cards" key={report.id}>
+                        <div className="card-reporting">
+                           <Link to="edit" className="card-reporting">
+                              <img src={fileText} alt="File" />
+                              <a
+                                 href={`https://dokoopy.onrender.com/${report.reportURL}`}
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                              >
+                                 {fileName}
+                              </a>
+                           </Link>
+                        </div>
+                     </li>
+                  );
+               })}
             </ul>
          </div>
       </div>

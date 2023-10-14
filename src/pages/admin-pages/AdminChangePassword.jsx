@@ -2,12 +2,9 @@ import { EditEyeOpened } from "../../assets/admin-icons/edit-password-eye-o";
 import { EditEyeClosed } from "../../assets/admin-icons/edit-password-eye-c";
 import { useState, useEffect } from "react";
 import { AdminApi } from "../../api/api";
+import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminChangePassword = () => {
-
-   const divNew = document.querySelector(".new-admin-change-password-input");
-   const divReturn = document.querySelector(".return-admin-change-password-input");
-
    const [currentPassword, setCurrentPassword] = useState(true);
    const [newPassword, setNewPassword] = useState('');
    const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,35 +14,30 @@ export const AdminChangePassword = () => {
    const [typeConfirmPassword, setTypeConfirmPassword] = useState("password");
    const [passwordMismatch, setPasswordMismatch] = useState(false);
 
-
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
 
+   const { data, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, false);
+
    useEffect(() => {
       if (showErrorMessage) {
-
          const timer = setTimeout(() => {
             setShowErrorMessage(false);
-            
          }, 3000);
-
 
          return () => clearTimeout(timer);
       }
    }, [showErrorMessage]); 
-   
+
    useEffect(() => {
       if (showErrorMessage2) {
-
-         const timer = setTimeout2(() => {
+         const timer = setTimeout(() => {
             setShowErrorMessage2(false);
-            
          }, 3000);
-
 
          return () => clearTimeout(timer);
       }
-   }, [showErrorMessage]);
+   }, [showErrorMessage2]);
 
    function togglePasswordVisibility(passwordType) {
       if (passwordType === "current") {
@@ -63,38 +55,29 @@ export const AdminChangePassword = () => {
       if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
          setShowErrorMessage2(true);
          return;
-       }
+      }
 
       if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
-         divNew.style.bacground = "";
-         divNew.style.border = "";
-         divReturn.style.bacground = "";
-         divReturn.style.border = "";
 
+         const body = {
+            password: currentPassword,
+            newPassword: newPassword,
+         };
 
-      const resetToken = "";
-      const body = { password: newPassword };
+         eventLoading(body);
 
-    AdminApi.resetPasswordAdmin(resetToken, body)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Помилка при зміні пароля:", error);
-      });
-
-      } else {
-         setPasswordMismatch(true);
-         setShowErrorMessage(true); 
+         setCurrentPassword("");
          setNewPassword("");
          setConfirmPassword("");
-         divNew.style.backgroundColor = "rgba(245, 19, 19, 0.4)";
-         divNew.style.border = "1px solid red";
-         divReturn.style.backgroundColor = "rgba(245, 19, 19, 0.4)";
-         divReturn.style.border = "1px solid red";
+      } else {
+         setPasswordMismatch(true);
+         setShowErrorMessage(true);
+         setNewPassword("");
+         setConfirmPassword("");
       }
    }
+
 
    return (
       <div className="admin-change-password">
