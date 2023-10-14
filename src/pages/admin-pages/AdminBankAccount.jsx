@@ -7,6 +7,7 @@ import { useLoadingData } from "../../hook/useLoadingData";
 export const AdminBankAccount = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getBankAdmin);
 
+   const banklink = data.bank[0];
    
    const bankAccountData = data || [];
    if (isLoading) {
@@ -26,7 +27,7 @@ export const AdminBankAccount = () => {
          </div>
       );
    }
-   const banklink = data.bank[0];
+
    return (
       <div>
          <div className="bank-contacts">

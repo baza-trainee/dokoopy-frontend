@@ -7,7 +7,7 @@ import { useLoadingData } from "../../hook/useLoadingData";
 export const AdminContacts = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin);
 
-   const contactsData = data || [];
+   const contact = data.contacts[0]; 
 
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
@@ -26,7 +26,6 @@ export const AdminContacts = () => {
       );
    }
 
-   const contact = data.contacts[0]; 
 
    return (
       <div className="admin-contacts">
@@ -40,6 +39,8 @@ export const AdminContacts = () => {
                <span></span>
             </div>
             <ul className="admin-contacts-list-ul">
+            <Link to="edit"
+                state={{ item: data }}>
                <li className="contacts-card">
                   <div className="contacts-li">
                      <p>Email</p>
@@ -49,6 +50,9 @@ export const AdminContacts = () => {
                      </button>
                   </div>
                </li>
+               </Link>
+               <Link to="edit"
+                state={{ item: data }}>
                <li className="contacts-card">
                   <div className="contacts-li">
                      <p>Telegram</p>
@@ -58,6 +62,7 @@ export const AdminContacts = () => {
                      </button>
                   </div>
                </li>
+               </Link>
             </ul>
          </div>
       </div>

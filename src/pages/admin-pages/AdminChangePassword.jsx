@@ -83,19 +83,17 @@ export const AdminChangePassword = () => {
                password: currentPassword,
                newPassword: newPassword,
             };
-   
-            // Додати блок спроби (try) для відправки запиту на сервер
-            try {
+               try {
                 eventLoading(body);
-               // Операція зміни паролю завершилася успішно
+
                setCurrentPassword("");
                setNewPassword("");
                setConfirmPassword("");
-               // Додати повідомлення про успішну операцію, якщо потрібно
+
             } catch (error) {
-               // Обробити помилки, які можуть виникнути під час операції
+
                console.error(error);
-               // Додати обробку помилок, якщо потрібно
+
             }
          } else {
             setPasswordMismatch(true);
@@ -104,9 +102,9 @@ export const AdminChangePassword = () => {
             setConfirmPassword("");
          }
       } catch (error) {
-         // Обробити будь-які інші помилки, які можуть виникнути
+
          console.error(error);
-         // Додати обробку помилок, якщо потрібно
+
       }
    }
 

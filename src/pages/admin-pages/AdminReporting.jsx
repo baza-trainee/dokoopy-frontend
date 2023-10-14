@@ -6,7 +6,7 @@ import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminReporting = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
-
+   const reports = data?.result || [];
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
@@ -22,7 +22,7 @@ export const AdminReporting = () => {
       );
    }
 
-   const reports = data?.result || [];
+
 
 
    return (
