@@ -8,13 +8,13 @@ export const AdminContacts = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin);
 
    const contactsData = data || [];
-   console.log(data);
 
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
 
    if (error && error.data) {
+      
       return (
          <p>
             Error: {error.message}
@@ -25,6 +25,8 @@ export const AdminContacts = () => {
          </p>
       );
    }
+
+   const contact = data.contacts[0]; 
 
    return (
       <div className="admin-contacts">
@@ -38,29 +40,24 @@ export const AdminContacts = () => {
                <span></span>
             </div>
             <ul className="admin-contacts-list-ul">
-               <Link to="edit"
-                state={{ item: data }}>
-                  <li className="contacts-card">
-                     <div className="contacts-li">
-                        <p>Email</p>
-                        <a href={`mailto:${data?.contacts?.email}`}>{data?.contacts?.email}</a>
-                        <button className="edit-contcts">
-                           <AdminIconEdit />
-                        </button>
-                     </div>
-                  </li>
-               </Link>
-               <Link to="edit" state={{ item: data }}>
-                  <li className="contacts-card">
-                     <div className="contacts-li">
-                        <p>Telegram</p>
-                        <a href={`${data?.contacts?.data}`}>{data?.contacts?.data}</a>
-                        <button className="edit-contcts">
-                           <AdminIconEdit />
-                        </button>
-                     </div>
-                  </li>
-               </Link>
+               <li className="contacts-card">
+                  <div className="contacts-li">
+                     <p>Email</p>
+                     <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                     <button className="edit-contacts">
+                        <AdminIconEdit />
+                     </button>
+                  </div>
+               </li>
+               <li className="contacts-card">
+                  <div className="contacts-li">
+                     <p>Telegram</p>
+                     <a href={`https://t.me/${contact.telegram}`}>{contact.telegram}</a>
+                     <button className="edit-contacts">
+                        <AdminIconEdit />
+                     </button>
+                  </div>
+               </li>
             </ul>
          </div>
       </div>

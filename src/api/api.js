@@ -46,6 +46,11 @@ export const AdminApi = {
          },
       });
    },
+   changePasswordAdmin(body) {
+      return axios.patch("reset-password/admin", body);
+   },
+
+
 
    //Project
    getProjectAdmin() {
@@ -62,11 +67,11 @@ export const AdminApi = {
    },
 
    //Bank
-   getBankAdmin(id) {
-      return axios.get(`bank/admin${id}`);
+   getBankAdmin() {
+      return axios.get("bank/admin");
    },
    updateBank({ body }) {
-      return axios.patch(`bank/admin${id}`, body);
+      return axios.patch(`bank/admin/${id}`, body);
    },
 
    //Heros
