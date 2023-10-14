@@ -12,8 +12,11 @@ export const ForgetPassword = () => {
    const [message, setMessage] = useState(null);
    const [clasMessage, setClassMessage] = useState("message");
 
+   const mailRegx =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
    let userSchema = yup.object({
-      email: yup.string().email("Введіть дійсний email").required("Введіть email"),
+      email: yup.string().matches(mailRegx, "Введіть дійсний email").required("Введіть email"),
    });
 
    const {
