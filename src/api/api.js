@@ -40,6 +40,9 @@ export const AdminApi = {
    resetPasswordAdmin(resetToken, body) {
       return axios.post(`auth/admin/reset-password/${resetToken}`, body);
    },
+   changePasswordAdmin(body) {
+      return axios.patch("reset-password/admin", body);
+   },
 
    //Project
    getProjectAdmin() {
