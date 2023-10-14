@@ -6,23 +6,9 @@ import { AdminApi } from "../../../api/api";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const EditContact = () => {
-   // const contactsData = [
-   //    {
-   //       id: 1,
-   //       name: "Email",
-   //       contact: "info@baza-trainee.tech",
-   //       link: "mailto:info@baza-trainee.tech",
-   //    },
-   //    {
-   //       id: 2,
-   //       name: "Telegram",
-   //       contact: "telegram_link",
-   //       link: "https://t.me/+CBXkAJlsCy83ZDYy",
-   //    },
-   // ];
    const { state } = useLocation();
-   const [email, setEmail] = useState(state.item.contacts.email);
-   const [telegram, setTelegram] = useState(state.item.contacts.data);
+   const [email, setEmail] = useState(state?.item?.contacts[0].email);
+   const [telegram, setTelegram] = useState(state?.item?.contacts[0].telegram);
    const {data, eventLoading} = useLoadingData(AdminApi.updateContacts, true);
    const navigate = useNavigate();
 
@@ -39,10 +25,13 @@ export const EditContact = () => {
 	}
 
    const formData = {
-      email: email,
-      telegram: telegram,
+      id: state.item.contacts[0]._id,
+      body: {
+         email: email,
+         telegram: telegram,
+      }
     };
-
+   
    const isSaveButtonDisabled = email.trim() === "" || telegram.trim() === "";
 
    return (
