@@ -154,7 +154,7 @@
    font-family: PT Sans;
    font-weight: 700;
 
-   overflow: scroll;
+   overflow-y: scroll;
    @media screen and (min-width: 1280px) {
       display: none;
    }
@@ -190,7 +190,7 @@
    margin-left: auto;
    margin-right: auto;
    margin-top: 32px;
-   min-width: 342px;
+   width: 85%;
 
    font-size: 28px;
    line-height: 1.3;
@@ -201,13 +201,18 @@
 
 .navigation-list_mobile-menu {
    display: flex;
+   margin-left: auto;
+   margin-right: auto;
    flex-direction: column;
    align-items: center;
+   width: 88%;
    color: var(--button-burger-hover-color);
 }
 
 .navigation-item_mobile-menu {
    margin-bottom: 32px;
+   margin-left: auto;
+   margin-right: auto;
    transition: var(--transition);
    &:hover {
       color: var(--accent-color);
@@ -245,6 +250,7 @@
       margin-bottom: 75px;
    }
    @media screen and (min-width: 768px) {
+      margin-bottom: 150px;
       width: 86px;
       font-size: 45px;
    }
@@ -271,7 +277,7 @@
    }
    @media screen and (min-width: 768px) {
       top: 100%;
-      left: 20%;
+      left: -8%;
    }
 }
 
@@ -288,4 +294,7 @@
    padding: 8px 20px;
    font-size: 16px;
    transition: var(--transition);
+   @media screen and (min-width: 768px) {
+      font-size: 45px;
+   }
 }
