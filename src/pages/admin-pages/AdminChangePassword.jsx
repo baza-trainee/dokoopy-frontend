@@ -20,6 +20,7 @@ export const AdminChangePassword = () => {
    
 
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
+   
 
 
 
@@ -70,45 +71,32 @@ export const AdminChangePassword = () => {
 
    function editPassword(event) {
 
-      try {
-         if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
-            setShowErrorMessage2(true);
-            return;
-         }
-   
-         if (newPassword === confirmPassword) {
-            setPasswordMismatch(false);
-   
-            const body = {
-               password: currentPassword,
-               newPassword: newPassword,
-            };
-               try {
-                eventLoading(body);
+      if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
+         setShowErrorMessage2(true);
+         return;
+         
+      }
 
-               setCurrentPassword("");
-               setNewPassword("");
-               setConfirmPassword("");
+      if (newPassword === confirmPassword) {
+         setPasswordMismatch(false);
 
-            } catch (error) {
+         const body = {
+            password: currentPassword,
+            newPassword: newPassword,
+         };
+         console.log(body);
+         eventLoading(body);
 
-               console.error(error);
-
-            }
-         } else {
-            setPasswordMismatch(true);
-            setShowErrorMessage(true);
-            setNewPassword("");
-            setConfirmPassword("");
-         }
-      } catch (error) {
-
-         console.error(error);
-
+         setCurrentPassword("");
+         setNewPassword("");
+         setConfirmPassword("");
+      } else {
+         setPasswordMismatch(true);
+         setShowErrorMessage(true);
+         setNewPassword("");
+         setConfirmPassword("");
       }
    }
-
-
 
 
    return (
