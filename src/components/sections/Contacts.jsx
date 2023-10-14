@@ -12,6 +12,7 @@ export const Contacts = () => {
 
 
    const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getContact);
+   console.log(data);
 
    return (
       <section className="contact">
@@ -26,7 +27,7 @@ export const Contacts = () => {
                      email
                   </a>
                   <a className="navigation-list-item"
-                     href={`${data?.contacts?.data}`}
+                     href={`https://t.me/${data?.contacts?.telegram}`}
                      target="_blank">
                      telegram
                   </a>

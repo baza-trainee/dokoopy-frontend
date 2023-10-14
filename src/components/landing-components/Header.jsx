@@ -57,9 +57,9 @@ export const Header = () => {
          <div className="container">
             <div className="header">
                <div>
-                  <Link to="/" className="logo" onClick={logoClickHandler}>
+                  <a to="/" className="logo" onClick={logoClickHandler}>
                      dokoopy
-                  </Link>
+                  </a>
                </div>
                <nav className="navigation">
                   <ul className="navigation-list">

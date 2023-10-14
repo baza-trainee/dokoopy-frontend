@@ -6,16 +6,8 @@ import { useLoadingData } from "../../../hook/useLoadingData";
 import { AdminApi } from "../../../api/api";
 
 export const EditBankAccount = () => {
-   // const bankAccountData = [
-   //    {
-   //       id: 1,
-   //       name: "Link",
-   //       contact: "monobank_link",
-   //       link: "https://send.monobank.ua/jar/4B1mQWmGVS",
-   //    },
-   // ];
    const { state } = useLocation();
-   const [bankLink, setBankLink] = useState(state.item.link);
+   const [bankLink, setBankLink] = useState(state.item.bank[0].link);
    const {data, eventLoading} = useLoadingData(AdminApi.updateBank, true);
    const navigate = useNavigate();
 
@@ -28,9 +20,9 @@ export const EditBankAccount = () => {
 	}
 
    const formData = {
-      id: state.item._id,
+      id: state.item.bank[0]._id,
       body: {
-      link: bankLink,
+         link: bankLink,
       }
     };
 

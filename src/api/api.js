@@ -46,6 +46,11 @@ export const AdminApi = {
          },
       });
    },
+   changePasswordAdmin(body) {
+      return axios.patch("reset-password/admin", body);
+   },
+
+
 
    //Project
    getProjectAdmin() {
