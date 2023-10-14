@@ -3,7 +3,7 @@ import { EditEyeClosed } from "../../assets/admin-icons/edit-password-eye-c";
 import { useState, useEffect } from "react";
 import { AdminApi } from "../../api/api";
 import { useLoadingData } from "../../hook/useLoadingData";
-import { Spinner } from "../../components/admin-components/Spinner";
+
 
 export const AdminChangePassword = () => {
    const [currentPassword, setCurrentPassword] = useState('');
@@ -17,22 +17,23 @@ export const AdminChangePassword = () => {
 
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
+   
 
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
 
-   if (isLoading) {
-      return <Spinner size={300} color={"#2672e4"} />;
-   }
 
-   if (error && error.data) {
+
+   if (error) {
       return (
-         <p>
-            Error: {error.message}
-            <br />
-            Код помилки: {error.code}
-            <br />
-            URL-адреса: {error.url}
-         </p>
+         <div>
+            <p>
+               Error: {error.message}
+               <br />
+               Код помилки: {error.code}
+               <br />
+               URL-адреса: {error.url}
+            </p>
+         </div>
       );
    }
 
@@ -93,6 +94,7 @@ export const AdminChangePassword = () => {
          setShowErrorMessage(true);
          setNewPassword("");
          setConfirmPassword("");
+         console.log(error);
       }
    }
 
@@ -158,6 +160,7 @@ export const AdminChangePassword = () => {
                   )}
                   {showErrorMessage2 && (
                      <p style={{ color: 'red' }}>Незаповнене поле</p>
+                     
                   )}
 
                </label>
