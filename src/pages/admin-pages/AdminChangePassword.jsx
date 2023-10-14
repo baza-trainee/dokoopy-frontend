@@ -5,7 +5,7 @@ import { AdminApi } from "../../api/api";
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminChangePassword = () => {
-   const [currentPassword, setCurrentPassword] = useState(true);
+   const [currentPassword, setCurrentPassword] = useState('');
    const [newPassword, setNewPassword] = useState('');
    const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -17,7 +17,8 @@ export const AdminChangePassword = () => {
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
 
-   const { data, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, false);
+   const { data, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
+
 
    useEffect(() => {
       if (showErrorMessage) {
