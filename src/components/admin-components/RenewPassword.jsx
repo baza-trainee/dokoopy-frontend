@@ -11,6 +11,7 @@ export const RenewPassword = () => {
    const [type, setType] = useState(true);
    const [typeName, setTypeName] = useState("password");
    const token = window.location.href.split("/")[window.location.href.split("/").length - 1];
+   const id = window.location.href.split("/")[window.location.href.split("/").length - 2];
 
    function click() {
       setType(!type);
@@ -20,9 +21,13 @@ export const RenewPassword = () => {
          setTypeName("password");
       }
    }
-
+   let reg = /^\S+$/;
    let userSchema = yup.object({
-      password: yup.string().required("Введіть пароль"),
+      password: yup
+         .string()
+         .required("Введіть пароль")
+         .min(6, "Введіть пароль довжиною не менше 6 символів")
+         .matches(reg, "Пароль не має містити пробілів"),
       confirmPassword: yup
          .string()
          .required("Введіть пароль")
@@ -37,17 +42,20 @@ export const RenewPassword = () => {
    } = useForm({ resolver: yupResolver(userSchema) });
 
    function onSubmit(e) {
-      fetch(`https://dokoopy.onrender.com/api/auth/admin/reset-password/${token}`, {
+      fetch(`https://dokoopy.onrender.com/api/auth/admin/reset-password/${id}/${token}`, {
          method: "POST",
          headers: {
             "Content-Type": "application/json",
          },
          body: JSON.stringify({ password: e.password }),
-      }).then(res => {
-         if (res.ok) {
-            navigate("/login/successful-renew");
-         }
-      });
+      })
+         .then(res => {
+            console.log(res);
+            if (res.ok) {
+               navigate("/login/successful-renew");
+            }
+         })
+         .catch(e => console.log(e));
       reset({ password: "", confirmPassword: "" });
    }
 
@@ -60,7 +68,16 @@ export const RenewPassword = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
                <label className="login-input pass">
                   Новий пароль*
-                  <input {...register("password")} type={typeName} placeholder="************" />
+                  <input
+                     style={
+                        errors.password
+                           ? { backgroundColor: "#FDE4E4" }
+                           : { backgroundColor: "#FFFFFF" }
+                     }
+                     {...register("password")}
+                     type={typeName}
+                     placeholder="************"
+                  />
                   {!type ? (
                      <LoginEyeClosed onClick={() => click()} />
                   ) : (
@@ -71,6 +88,11 @@ export const RenewPassword = () => {
                <label className="login-input pass">
                   Повторити новий пароль*
                   <input
+                     style={
+                        errors.confirmPassword
+                           ? { backgroundColor: "#FDE4E4" }
+                           : { backgroundColor: "#FFFFFF" }
+                     }
                      {...register("confirmPassword")}
                      type={typeName}
                      placeholder="************"
