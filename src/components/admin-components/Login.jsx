@@ -54,7 +54,6 @@ export const Login = () => {
             navigate("/admin");
          })
          .catch(e => {
-            console.log(e);
             if (e.response.data.message === "Email or password is wrong") {
                setMessage("Неправильний email або пароль");
             }
