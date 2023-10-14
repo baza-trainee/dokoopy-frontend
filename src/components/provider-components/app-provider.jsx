@@ -8,17 +8,19 @@ export const useAppContext = () => useContext(AppContext);
 
 export const AppProvider = ({ children }) => {
    const [token, setToken] = useState("");
-   const [loggedIn, setLoggedIn] = useState(false);
+   const [loggedIn, setLoggedIn] = useState(localStorage.getItem("isLoggedIn"));
 
    const [language, setLanguage] = useState("ua");
 
    function logIn(token) {
       setToken(token);
+      localStorage.setItem("isLoggedIn", JSON.stringify(true));
       setLoggedIn(true);
    }
 
    function logOff() {
       setToken("");
+      localStorage.setItem("isLoggedIn", JSON.stringify(false));
       setLoggedIn(false);
    }
 

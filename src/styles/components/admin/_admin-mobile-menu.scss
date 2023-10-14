@@ -2,14 +2,14 @@
    position: absolute;
    display: flex;
    flex-direction: column;
-   justify-content: space-between;
+   justify-content: flex-start;
    top: 0px;
    right: 0px;
    background-color: var(--background-light);
 
    width: 94%;
    height: 100vh;
-   padding: 40px 10px 100px;
+   padding: 35px 10px 20px;
 
    @media screen and (min-width: 480px) {
       width: 300px;
@@ -63,7 +63,7 @@
    display: flex;
    justify-content: flex-start;
    align-items: center;
-   margin-top: auto;
+   margin-top: 100px;
    padding: 12px 5px;
    font-size: 16px;
    &:hover {

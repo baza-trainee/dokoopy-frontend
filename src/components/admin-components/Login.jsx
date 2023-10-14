@@ -46,10 +46,9 @@ export const Login = () => {
    function onSubmit(e) {
       AdminApi.loginAdmin(e)
          .then(res => {
-            localStorage.setItem("token", res.data);
+            localStorage.setItem("token", res.data.token);
             AdminApi.setToken(res.data.token);
-            logIn(res.data);
-            console.log(res);
+            logIn(res.data.token);
          })
          .then(() => {
             navigate("/admin");
