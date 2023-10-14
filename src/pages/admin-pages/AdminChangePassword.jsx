@@ -70,6 +70,7 @@ export const AdminChangePassword = () => {
    }
 
    function editPassword(event) {
+      event.preventDefault();
 
       if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
          setShowErrorMessage2(true);
