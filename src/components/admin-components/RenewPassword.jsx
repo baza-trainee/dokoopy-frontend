@@ -1,15 +1,18 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { LoginEyeOpened } from "../../assets/admin-icons/login-eye-opened";
 import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
+import arrowLeft from "../../assets/icon/arrow-left-icon.svg";
+import arrowLeftFocused from "../../assets/icon/arrow-left-icon-focused.svg";
 
 export const RenewPassword = () => {
    const navigate = useNavigate();
    const [type, setType] = useState(true);
    const [typeName, setTypeName] = useState("password");
+   const [icon, setIcon] = useState(true);
    const token = window.location.href.split("/")[window.location.href.split("/").length - 1];
    const id = window.location.href.split("/")[window.location.href.split("/").length - 2];
 
@@ -61,6 +64,15 @@ export const RenewPassword = () => {
 
    return (
       <div className="renew-content">
+         <button className="return-to-login">
+            <Link to={"/login"}>
+               <img
+                  onMouseEnter={() => setIcon(false)}
+                  onMouseLeave={() => setIcon(true)}
+                  src={icon ? arrowLeft : arrowLeftFocused}
+               />
+            </Link>
+         </button>
          <div className="login-content forget-h2">
             <div>
                <h2>Завершення відновлення пароля</h2>
