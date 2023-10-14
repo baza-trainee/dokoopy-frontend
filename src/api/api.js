@@ -62,11 +62,11 @@ export const AdminApi = {
    },
 
    //Bank
-   getBankAdmin(id) {
-      return axios.get(`bank/admin${id}`);
+   getBankAdmin() {
+      return axios.get(`bank/admin`);
    },
    updateBank({ id, body }) {
-      return axios.patch(`bank/admin${id}`, body);
+      return axios.patch(`bank/admin/${id}`, body);
    },
 
    //Heros
@@ -96,7 +96,7 @@ export const AdminApi = {
 
    //Contacts
    updateContacts({ id, body }) {
-      return axios.patch(`contacts/admin${id}`, body);
+      return axios.patch(`contacts/admin/${id}`, body);
    },
    getContactsAdmin() {
       return axios.get("contacts/admin");

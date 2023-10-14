@@ -15,12 +15,12 @@ export const EditBankAccount = () => {
    //    },
    // ];
    const { state } = useLocation();
-   const [bankLink, setBankLink] = useState(state.item.bank.link);
+   const [bankLink, setBankLink] = useState(state.item.link);
    const {data, eventLoading} = useLoadingData(AdminApi.updateBank, true);
    const navigate = useNavigate();
 
    useEffect(() => {
-      data?.code === 200 ? navigate("/admin/bank-account") : null;
+      data?.code === 201 ? navigate("/admin/bank-account") : null;
    }, [navigate, data?.code]);
 
    const handleBankLinkChange = (e) => {
@@ -28,7 +28,10 @@ export const EditBankAccount = () => {
 	}
 
    const formData = {
+      id: state.item._id,
+      body: {
       link: bankLink,
+      }
     };
 
    const isSaveButtonDisabled = bankLink.trim() === "";

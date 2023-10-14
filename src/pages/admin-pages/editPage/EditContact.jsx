@@ -20,9 +20,11 @@ export const EditContact = () => {
    //       link: "https://t.me/+CBXkAJlsCy83ZDYy",
    //    },
    // ];
+
+   //test5@test.com
    const { state } = useLocation();
-   const [email, setEmail] = useState(state.item.contacts.email);
-   const [telegram, setTelegram] = useState(state.item.contacts.data);
+   const [email, setEmail] = useState(state?.item?.contacts[0].email);
+   const [telegram, setTelegram] = useState(state?.item?.contacts[0].telegram);
    const {data, eventLoading} = useLoadingData(AdminApi.updateContacts, true);
    const navigate = useNavigate();
 
@@ -39,10 +41,13 @@ export const EditContact = () => {
 	}
 
    const formData = {
+      id: state.item.contacts[0]._id,
+      body: {
       email: email,
       telegram: telegram,
+      }
     };
-
+   
    const isSaveButtonDisabled = email.trim() === "" || telegram.trim() === "";
 
    return (
