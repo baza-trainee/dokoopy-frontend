@@ -93,7 +93,7 @@ export const AdminApi = {
 
    //Contacts
    updateContacts({ id, body }) {
-      return axios.patch(`contacts/admin${id}`, body);
+      return axios.patch(`contacts/admin/${id}`, body);
    },
    getContactsAdmin() {
       return axios.get("contacts/admin");
