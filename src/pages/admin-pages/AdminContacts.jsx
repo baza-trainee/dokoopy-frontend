@@ -9,12 +9,12 @@ export const AdminContacts = () => {
 
    const contactsData = data || [];
 
-
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
 
    if (error && error.data) {
+      
       return (
          <p>
             Error: {error.message}
