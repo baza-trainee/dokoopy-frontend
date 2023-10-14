@@ -30,7 +30,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                return (
                   <li key={contentData._id}>
                      <Link
-                        to={`edit/${contentData.id}`}
+                        to={`edit/${contentData._id}`}
                         state={{ item: contentData, minLength: data.length }}
                         className={
                            contentData.date
