@@ -17,7 +17,7 @@ export const EditSlider = () => {
       formData.append("imageURL", data.selectedFile);
 
       const params = {
-         id: state.item._id,
+         id: state?.item._id,
          body: formData,
       };
       updateHeros.eventLoading(params);
@@ -26,11 +26,11 @@ export const EditSlider = () => {
    return (
       <section className="page-container">
          <PageHeader
-            removeClick={() => deleteHeros.eventLoading(state.item._id)}
+            removeClick={() => deleteHeros.eventLoading(state?.item._id)}
             edit={true}
             title={"Редагувати слайдер"}
             success={deleteHeros.data?.code === 200 ? true : false}
-            minLength={state.minLength}
+            minLength={state?.minLength}
          />
 
          <AddForm
@@ -38,7 +38,7 @@ export const EditSlider = () => {
             smLiable={"Назва слайдеру*"}
             nameButton={"Внести зміни"}
             submitClick={submitClick}
-            defaultInfo={state.item}
+            defaultInfo={state?.item}
             hiddenInputENG={true}
             counter={110}
             schema={validSchema.heros}

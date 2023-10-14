@@ -25,32 +25,24 @@ export const lendingData = {
 
 export const AdminApi = {
    setToken(token) {
-      console.log(token);
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
    },
+   getCurrentAdmin(body) {
+      return axios.get(`auth/admin/current`, body);
+   },
    loginAdmin(body) {
-      return axios.post("auth/admin/login", body, {
-         headers: {
-            "Content-Type": "application/json",
-         },
-      });
+      return axios.post("auth/admin/login", body);
    },
    logoutAdmin(body) {
       return axios.post("auth/admin/logout", body);
    },
 
    resetPasswordAdmin(resetToken, body) {
-      return axios.post(`auth/admin/reset-password/${resetToken}`, body, {
-         headers: {
-            "Content-Type": "application/json",
-         },
-      });
+      return axios.post(`auth/admin/reset-password/${resetToken}`, body);
    },
    changePasswordAdmin(body) {
       return axios.patch("reset-password/admin", body);
    },
-
-
 
    //Project
    getProjectAdmin() {
@@ -67,10 +59,10 @@ export const AdminApi = {
    },
 
    //Bank
-   getBankAdmin() {
-      return axios.get(`bank/admin`);
+   getBankAdmin(body) {
+      return axios.get('bank/admin', body);
    },
-   updateBank({ id, body }) {
+   updateBank({ body, id }) {
       return axios.patch(`bank/admin/${id}`, body);
    },
 
