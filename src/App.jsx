@@ -49,27 +49,132 @@ function App() {
             <Route path="renew/*" element={<RenewPassword />} />
             <Route path="successful-renew" element={<SuccessfullRenew />} />
          </Route>
-         <Route path="/admin" element={<AdminSharedLayout />}>
-            <Route index element={<AdminHero />} />
-            <Route path="add-new-slide" element={<AddSlide />} />
-            <Route path="edit/:slideId" element={<EditSlider />} />
-            <Route path="projects" element={<AdminProjects />} />
-            <Route path="projects/add-new-project" element={<AddProject />} />
-            <Route path="projects/edit/:projectId" element={<EditProject />} />
-            <Route path="partners" element={<AdminPartners />} />
-            <Route path="partners/add-new-partner" element={<AddPartner />} />
-            <Route path="partners/edit/:partnerId" element={<EditPartner />} />
-            <Route path="contacts" element={<AdminContacts />} />
-            <Route path="contacts/edit" element={<EditContact />} />
-            <Route path="bank-account" element={<AdminBankAccount />} />
-            <Route path="bank-account/edit" element={<EditBankAccount />} />
-            <Route path="reporting" element={<AdminReporting />} />
-            <Route path="reporting/edit" element={<EditReporting />} />
-            <Route path="change-password" element={<AdminChangePassword />} />
+         <Route
+            path="/admin"
+            element={<PrivateRoute redirectTo="/login" component={<AdminSharedLayout />} />}
+         >
+            <Route index element={<PrivateRoute redirectTo="/login" component={<AdminHero />} />} />
+            <Route
+               path="add-new-slide"
+               element={<PrivateRoute redirectTo="/login" component={<AddSlide />} />}
+            />
+            <Route
+               path="edit/:slideId"
+               element={<PrivateRoute redirectTo="/login" component={<EditSlider />} />}
+            />
+            <Route
+               path="projects"
+               element={<PrivateRoute redirectTo="/login" component={<AdminProjects />} />}
+            />
+            <Route
+               path="projects/add-new-project"
+               element={<PrivateRoute redirectTo="/login" component={<AddProject />} />}
+            />
+            <Route
+               path="projects/edit/:projectId"
+               element={<PrivateRoute redirectTo="/login" component={<EditProject />} />}
+            />
+            <Route
+               path="partners"
+               element={<PrivateRoute redirectTo="/login" component={<AdminPartners />} />}
+            />
+            <Route
+               path="partners/add-new-partner"
+               element={<PrivateRoute redirectTo="/login" component={<AddPartner />} />}
+            />
+            <Route
+               path="partners/edit/:partnerId"
+               element={<PrivateRoute redirectTo="/login" component={<EditPartner />} />}
+            />
+            <Route
+               path="contacts"
+               element={<PrivateRoute redirectTo="/login" component={<AdminContacts />} />}
+            />
+            <Route
+               path="contacts/edit"
+               element={<PrivateRoute redirectTo="/login" component={<EditContact />} />}
+            />
+            <Route
+               path="bank-account"
+               element={<PrivateRoute redirectTo="/login" component={<AdminBankAccount />} />}
+            />
+            <Route
+               path="bank-account/edit"
+               element={<PrivateRoute redirectTo="/login" component={<EditBankAccount />} />}
+            />
+            <Route
+               path="reporting"
+               element={<PrivateRoute redirectTo="/login" component={<AdminReporting />} />}
+            />
+            <Route
+               path="reporting/edit"
+               element={<PrivateRoute redirectTo="/login" component={<EditReporting />} />}
+            />
+            <Route
+               path="change-password"
+               element={<PrivateRoute redirectTo="/login" component={<AdminChangePassword />} />}
+            />
          </Route>
-         <Route path="admin/*" element={<AdminNotFound />} />
+         <Route
+            path="/admin/*"
+            element={<PrivateRoute redirectTo="/login" component={<AdminNotFound />} />}
+         />
+      </Routes>
+   );
+}
 
-         {/* <Route
+export default App;
+
+//* 14.10.2023
+{
+   /* <Route path="/admin" element={<AdminSharedLayout />}>
+<Route index element={<AdminHero />} />
+<Route path="add-new-slide" element={<AddSlide />} />
+<Route path="edit/:slideId" element={<EditSlider />} />
+<Route path="projects" element={<AdminProjects />} />
+<Route path="projects/add-new-project" element={<AddProject />} />
+<Route path="projects/edit/:projectId" element={<EditProject />} />
+<Route path="partners" element={<AdminPartners />} />
+<Route path="partners/add-new-partner" element={<AddPartner />} />
+<Route path="partners/edit/:partnerId" element={<EditPartner />} />
+<Route path="contacts" element={<AdminContacts />} />
+<Route path="contacts/edit" element={<EditContact />} />
+<Route path="bank-account" element={<AdminBankAccount />} />
+<Route path="bank-account/edit" element={<EditBankAccount />} />
+<Route path="reporting" element={<AdminReporting />} />
+<Route path="reporting/edit" element={<EditReporting />} />
+<Route path="change-password" element={<AdminChangePassword />} />
+</Route> */
+}
+
+{
+   /* <Route path="/" element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path="allprojects/:id" element={<AllProjects />} />
+            <Route path="*" element={<NotFound />} />
+         </Route>
+         <Route path="/admin" element={<AdminSharedLayout />}>
+           <Route index element={<AdminHero />} />
+           <Route path="add-new-slide" element={<AddSlide />} />
+           <Route path="edit/:slideId" element={<EditSlider />} />
+            <Route path="projects" element={<AdminProjects />} />
+           <Route path="projects/add-new-project" element={<AddProject />} />
+           <Route path="projects/edit/:projectId" element={<EditProject />} />
+           <Route path="partners" element={<AdminPartners />} />
+           <Route path="partners/add-new-partner" element={<AddPartner />} />
+           <Route path="partners/edit/:partnerId" element={<EditPartner />} />
+           <Route path="contacts" element={<AdminContacts />} />
+           <Route path="contacts/edit" element={<EditContact />} />
+           <Route path="bank-account" element={<AdminBankAccount />} />
+          <Route path="bank-account/edit" element={<EditBankAccount />} />
+           <Route path="reporting" element={<AdminReporting />} />
+            <Route path="reporting/edit" element={<EditReporting />} />
+            <Route path="*" element={<AdminNotFound />} />
+         </Route> */
+}
+
+{
+   /* <Route
             path="/admin"
             element={<PrivateRoute redirectTo="/login" component={<AdminSharedLayout />} />}
          >
@@ -134,35 +239,5 @@ function App() {
                path="*"
                element={<PrivateRoute redirectTo="/login" component={<AdminNotFound />} />}
             />
-         </Route> */}
-      </Routes>
-   );
-}
-
-export default App;
-
-{
-   /* <Route path="/" element={<SharedLayout />}>
-            <Route index element={<Home />} />
-            <Route path="allprojects/:id" element={<AllProjects />} />
-            <Route path="*" element={<NotFound />} />
-         </Route>
-         <Route path="/admin" element={<AdminSharedLayout />}>
-           <Route index element={<AdminHero />} />
-           <Route path="add-new-slide" element={<AddSlide />} />
-           <Route path="edit/:slideId" element={<EditSlider />} />
-            <Route path="projects" element={<AdminProjects />} />
-           <Route path="projects/add-new-project" element={<AddProject />} />
-           <Route path="projects/edit/:projectId" element={<EditProject />} />
-           <Route path="partners" element={<AdminPartners />} />
-           <Route path="partners/add-new-partner" element={<AddPartner />} />
-           <Route path="partners/edit/:partnerId" element={<EditPartner />} />
-           <Route path="contacts" element={<AdminContacts />} />
-           <Route path="contacts/edit" element={<EditContact />} />
-           <Route path="bank-account" element={<AdminBankAccount />} />
-          <Route path="bank-account/edit" element={<EditBankAccount />} />
-           <Route path="reporting" element={<AdminReporting />} />
-            <Route path="reporting/edit" element={<EditReporting />} />
-            <Route path="*" element={<AdminNotFound />} />
          </Route> */
 }
