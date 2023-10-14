@@ -8,7 +8,7 @@ export const SuccessfullRenew = () => {
          <div className="check-mark">
             <img src={checkMark} />
          </div>
-         <h2>Пароль успішно змінено!</h2>
+         <h2 className="successfullRenew">Пароль успішно змінено!</h2>
          <form className="login-form success-form">
             <button onClick={() => navigate("/login")}>Увійти в акаунт</button>
          </form>

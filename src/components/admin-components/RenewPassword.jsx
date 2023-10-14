@@ -74,7 +74,7 @@ export const RenewPassword = () => {
             </Link>
          </button>
          <div className="login-content forget-h2">
-            <div>
+            <div className="renewHeader">
                <h2>Завершення відновлення пароля</h2>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className="login-form">
