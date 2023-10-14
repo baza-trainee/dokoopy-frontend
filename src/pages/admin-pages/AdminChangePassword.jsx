@@ -69,34 +69,48 @@ export const AdminChangePassword = () => {
    }
 
    function editPassword(event) {
-      event.preventDefault();
 
-      if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
-         setShowErrorMessage2(true);
-         return;
-      }
-
-      if (newPassword === confirmPassword) {
-         setPasswordMismatch(false);
-
-         const body = {
-            password: currentPassword,
-            newPassword: newPassword,
-         };
-
-         eventLoading(body);
-
-         setCurrentPassword("");
-         setNewPassword("");
-         setConfirmPassword("");
-      } else {
-         setPasswordMismatch(true);
-         setShowErrorMessage(true);
-         setNewPassword("");
-         setConfirmPassword("");
-         console.log(error);
+      try {
+         if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
+            setShowErrorMessage2(true);
+            return;
+         }
+   
+         if (newPassword === confirmPassword) {
+            setPasswordMismatch(false);
+   
+            const body = {
+               password: currentPassword,
+               newPassword: newPassword,
+            };
+   
+            // Додати блок спроби (try) для відправки запиту на сервер
+            try {
+                eventLoading(body);
+               // Операція зміни паролю завершилася успішно
+               setCurrentPassword("");
+               setNewPassword("");
+               setConfirmPassword("");
+               // Додати повідомлення про успішну операцію, якщо потрібно
+            } catch (error) {
+               // Обробити помилки, які можуть виникнути під час операції
+               console.error(error);
+               // Додати обробку помилок, якщо потрібно
+            }
+         } else {
+            setPasswordMismatch(true);
+            setShowErrorMessage(true);
+            setNewPassword("");
+            setConfirmPassword("");
+         }
+      } catch (error) {
+         // Обробити будь-які інші помилки, які можуть виникнути
+         console.error(error);
+         // Додати обробку помилок, якщо потрібно
       }
    }
+
+
 
 
    return (
