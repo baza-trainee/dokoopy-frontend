@@ -6,7 +6,7 @@ export const SuccessfullRenew = () => {
    return (
       <div className="login-content">
          <img className="check-mark" src={checkMark} />
-         <h2 className="successfullH2">Пароль успішно змінено!</h2>
+         <h2>Пароль успішно змінено!</h2>
          <form className="login-form success-form">
             <button onClick={() => navigate("/login")}>Увійти в акаунт</button>
          </form>
