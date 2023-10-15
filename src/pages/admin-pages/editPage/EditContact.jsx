@@ -7,8 +7,8 @@ import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const EditContact = () => {
    const { state } = useLocation();
-   const [email, setEmail] = useState(state?.item?.contacts[0].email);
-   const [telegram, setTelegram] = useState(state?.item?.contacts[0].telegram);
+   const [email, setEmail] = useState(state?.item?.email);
+   const [telegram, setTelegram] = useState(state?.item?.telegram);
    const {data, eventLoading} = useLoadingData(AdminApi.updateContacts, true);
    const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ export const EditContact = () => {
 	}
 
    const formData = {
-      id: state.item.contacts[0]._id,
+      id: state.item._id,
       body: {
          email: email,
          telegram: telegram,
@@ -37,7 +37,6 @@ export const EditContact = () => {
    return (
       <section className="page-container">
          <PageHeader title={"Редагувати контакти"} />
-         {/* <div className="edit-contact-payment-form-wrap"> */}
          <form onSubmit={(e) => {e.preventDefault(); eventLoading(formData)}} className="edit-contact-payment-form-wrap">
             <div className="edit-contact-payment-form">
                <InputSm setSmInput={setEmail} label={"Email*"} value={email} isLink={true} 
@@ -61,7 +60,6 @@ export const EditContact = () => {
                Внести зміни
             </button>
           </form> 
-         {/* </div> */}
       </section>
    );
 };

@@ -50,7 +50,7 @@ export const AdminBankAccount = () => {
                            </div>
                         </Link>
                      </li>
-                  ))};
+                  ))}
                </ul>
             </div>
          </div>

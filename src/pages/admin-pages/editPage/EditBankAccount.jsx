@@ -7,7 +7,7 @@ import { AdminApi } from "../../../api/api";
 
 export const EditBankAccount = () => {
    const { state } = useLocation();
-   const [bankLink, setBankLink] = useState(state.item.bank[0].link);
+   const [bankLink, setBankLink] = useState(state.item.link);
    const {data, eventLoading} = useLoadingData(AdminApi.updateBank, true);
    const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ export const EditBankAccount = () => {
 	}
 
    const formData = {
-      id: state.item.bank[0]._id,
+      id: state.item._id,
       body: {
          link: bankLink,
       }
@@ -34,7 +34,6 @@ export const EditBankAccount = () => {
             currentModal={"банківськй реквізит"}
             title={"Редагувати банківські реквізити"}
          />
-         {/* <div className="edit-contact-payment-form-wrap "> */}
          <form onSubmit={(e) => {e.preventDefault(); eventLoading(formData)}} className="edit-contact-payment-form-wrap">
             <div className="edit-contact-payment-form">
                <InputSm
@@ -53,7 +52,6 @@ export const EditBankAccount = () => {
                Внести зміни
             </button>
             </form>
-         {/* </div> */}
       </section>
    );
 };
