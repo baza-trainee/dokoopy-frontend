@@ -7,8 +7,8 @@ import { useLoadingData } from "../../../hook/useLoadingData";
 
 export const EditContact = () => {
    const { state } = useLocation();
-   const [email, setEmail] = useState(state?.item?.contacts[0].email);
-   const [telegram, setTelegram] = useState(state?.item?.contacts[0].telegram);
+   const [email, setEmail] = useState(state?.item?.email);
+   const [telegram, setTelegram] = useState(state?.item?.telegram);
    const {data, eventLoading} = useLoadingData(AdminApi.updateContacts, true);
    const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ export const EditContact = () => {
 	}
 
    const formData = {
-      id: state.item.contacts[0]._id,
+      id: state.item._id,
       body: {
          email: email,
          telegram: telegram,

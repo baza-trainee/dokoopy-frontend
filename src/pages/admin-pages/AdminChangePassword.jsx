@@ -2,6 +2,8 @@ import { EditEyeOpened } from "../../assets/admin-icons/edit-password-eye-o";
 import { EditEyeClosed } from "../../assets/admin-icons/edit-password-eye-c";
 import { useState, useEffect } from "react";
 import { AdminApi } from "../../api/api";
+import { useLoadingData } from "../../hook/useLoadingData";
+
 
 export const AdminChangePassword = () => {
 
@@ -20,6 +22,13 @@ export const AdminChangePassword = () => {
 
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
+   
+
+   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
+
+   const handleChange = (event) => {
+      setCurrentPassword(event.target.value);
+    };
 
    useEffect(() => {
       if (showErrorMessage) {
@@ -63,27 +72,20 @@ export const AdminChangePassword = () => {
       if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
          setShowErrorMessage2(true);
          return;
-       }
+         
+      }
 
       if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
-         divNew.style.bacground = "";
-         divNew.style.border = "";
-         divReturn.style.bacground = "";
-         divReturn.style.border = "";
 
-
-      const resetToken = "";
-      const body = { password: newPassword };
-
-    AdminApi.resetPasswordAdmin(resetToken, body)
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Помилка при зміні пароля:", error);
-      });
-
+         const body = {
+            password: currentPassword,
+            newPassword: newPassword,
+         };
+         eventLoading(body);
+         setCurrentPassword("");
+         setNewPassword("");
+         setConfirmPassword("");
       } else {
          setPasswordMismatch(true);
          setShowErrorMessage(true); 
@@ -107,8 +109,12 @@ export const AdminChangePassword = () => {
                <label className="this-admin-change-password">
                   <p>Поточний пароль*</p>
                   <div className="this-admin-change-password-input">
-                  <input type={typeCurrentPassword} 
-                  placeholder="************"/>
+                  <input
+                        type={typeCurrentPassword}
+                        value={currentPassword}
+                        onChange={handleChange}
+                        placeholder="************"
+                        />
                   {!currentPassword ? (
                      <EditEyeClosed onClick={() => togglePasswordVisibility("current")} />
                   ) : (
@@ -157,6 +163,7 @@ export const AdminChangePassword = () => {
                   )}
                   {showErrorMessage2 && (
                      <p style={{ color: 'red' }}>Незаповнене поле</p>
+                     
                   )}
 
                </label>

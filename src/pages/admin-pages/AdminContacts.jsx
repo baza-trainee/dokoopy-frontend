@@ -5,28 +5,12 @@ import { Spinner } from "../../components/admin-components/Spinner";
 import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminContacts = () => {
-   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getContactsAdmin);
-
-   const contactsData = data || [];
+   const { data, isLoading } = useLoadingData(AdminApi.getContactsAdmin);
+   
 
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
-
-   if (error && error.data) {
-      
-      return (
-         <p>
-            Error: {error.message}
-            <br />
-            Код помилки: {error.code}
-            <br />
-            URL-адреса: {error.url}
-         </p>
-      );
-   }
-
-   const contact = data.contacts[0]; 
 
    return (
       <div className="admin-contacts">
@@ -40,24 +24,32 @@ export const AdminContacts = () => {
                <span></span>
             </div>
             <ul className="admin-contacts-list-ul">
-               <li className="contacts-card">
-                  <div className="contacts-li">
-                     <p>Email</p>
-                     <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                     <button className="edit-contacts">
-                        <AdminIconEdit />
-                     </button>
-                  </div>
-               </li>
-               <li className="contacts-card">
-                  <div className="contacts-li">
-                     <p>Telegram</p>
-                     <a href={`https://t.me/${contact.telegram}`}>{contact.telegram}</a>
-                     <button className="edit-contacts">
-                        <AdminIconEdit />
-                     </button>
-                  </div>
-               </li>
+               {data.contacts.map((contact, index) => (
+                  <li key={contact._id} className="contacts-card">
+                     <Link to="edit" state={{ item: contact }}>
+                        <div className="contacts-li">
+                           <p>Email</p>
+                           <a href={contact.email}>{contact.email}</a>
+                           <button className="edit-contacts">
+                              <AdminIconEdit />
+                           </button>
+                        </div>
+                     </Link>
+                  </li>
+               ))}
+               {data.contacts.map((contact, index) => (
+                  <li key={contact._id} className="contacts-card">
+                     <Link to="edit" state={{ item: contact }}>
+                        <div className="contacts-li">
+                           <p>Telegram</p>
+                           <a href={contact.telegram}>{contact.telegram}</a>
+                           <button className="edit-contacts">
+                              <AdminIconEdit />
+                           </button>
+                        </div>
+                     </Link>
+                  </li>
+               ))}
             </ul>
          </div>
       </div>

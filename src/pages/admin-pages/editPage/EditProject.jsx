@@ -18,7 +18,7 @@ export const EditProject = () => {
       formData.append("imageURL", data.selectedFile);
 
       const params = {
-         id: state.item._id,
+         id: state?.item._id,
          body: formData,
       };
       updateProject.eventLoading(params);
@@ -26,18 +26,18 @@ export const EditProject = () => {
    return (
       <section className="page-container">
          <PageHeader
-            removeClick={() => deleteProject.eventLoading(state.item._id)}
+            removeClick={() => deleteProject.eventLoading(state?.item._id)}
             edit={true}
             title={"Редагувати проєкт"}
             success={deleteProject.data?.code === 200 ? true : false}
-            minLength={state.minLength}
+            minLength={state?.minLength}
          />
 
          <AddForm
             lgLiable={"Опис проєкту*"}
             smLiable={"Назва проєкту*"}
             nameButton={"Внести зміни"}
-            defaultInfo={state.item}
+            defaultInfo={state?.item}
             submitClick={submitClick}
             counter={300}
             schema={validSchema.project}
