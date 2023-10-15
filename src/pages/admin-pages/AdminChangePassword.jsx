@@ -6,11 +6,7 @@ import { useLoadingData } from "../../hook/useLoadingData";
 
 
 export const AdminChangePassword = () => {
-
-   const divNew = document.querySelector(".new-admin-change-password-input");
-   const divReturn = document.querySelector(".return-admin-change-password-input");
-
-   const [currentPassword, setCurrentPassword] = useState(true);
+   const [currentPassword, setCurrentPassword] = useState('');
    const [newPassword, setNewPassword] = useState('');
    const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -18,7 +14,6 @@ export const AdminChangePassword = () => {
    const [typeNewPassword, setTypeNewPassword] = useState("password");
    const [typeConfirmPassword, setTypeConfirmPassword] = useState("password");
    const [passwordMismatch, setPasswordMismatch] = useState(false);
-
 
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
@@ -32,29 +27,23 @@ export const AdminChangePassword = () => {
 
    useEffect(() => {
       if (showErrorMessage) {
-
          const timer = setTimeout(() => {
             setShowErrorMessage(false);
-            
          }, 3000);
-
 
          return () => clearTimeout(timer);
       }
    }, [showErrorMessage]); 
-   
+
    useEffect(() => {
       if (showErrorMessage2) {
-
-         const timer = setTimeout2(() => {
+         const timer = setTimeout(() => {
             setShowErrorMessage2(false);
-            
          }, 3000);
-
 
          return () => clearTimeout(timer);
       }
-   }, [showErrorMessage]);
+   }, [showErrorMessage2]);
 
    function togglePasswordVisibility(passwordType) {
       if (passwordType === "current") {
@@ -88,15 +77,12 @@ export const AdminChangePassword = () => {
          setConfirmPassword("");
       } else {
          setPasswordMismatch(true);
-         setShowErrorMessage(true); 
+         setShowErrorMessage(true);
          setNewPassword("");
          setConfirmPassword("");
-         divNew.style.backgroundColor = "rgba(245, 19, 19, 0.4)";
-         divNew.style.border = "1px solid red";
-         divReturn.style.backgroundColor = "rgba(245, 19, 19, 0.4)";
-         divReturn.style.border = "1px solid red";
       }
    }
+
 
    return (
       <div className="admin-change-password">
