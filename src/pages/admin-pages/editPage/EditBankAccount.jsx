@@ -34,7 +34,6 @@ export const EditBankAccount = () => {
             currentModal={"банківськй реквізит"}
             title={"Редагувати банківські реквізити"}
          />
-         {/* <div className="edit-contact-payment-form-wrap "> */}
          <form onSubmit={(e) => {e.preventDefault(); eventLoading(formData)}} className="edit-contact-payment-form-wrap">
             <div className="edit-contact-payment-form">
                <InputSm
@@ -53,7 +52,6 @@ export const EditBankAccount = () => {
                Внести зміни
             </button>
             </form>
-         {/* </div> */}
       </section>
    );
 };

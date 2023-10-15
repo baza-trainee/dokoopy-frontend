@@ -37,7 +37,6 @@ export const EditContact = () => {
    return (
       <section className="page-container">
          <PageHeader title={"Редагувати контакти"} />
-         {/* <div className="edit-contact-payment-form-wrap"> */}
          <form onSubmit={(e) => {e.preventDefault(); eventLoading(formData)}} className="edit-contact-payment-form-wrap">
             <div className="edit-contact-payment-form">
                <InputSm setSmInput={setEmail} label={"Email*"} value={email} isLink={true} 
@@ -61,7 +60,6 @@ export const EditContact = () => {
                Внести зміни
             </button>
           </form> 
-         {/* </div> */}
       </section>
    );
 };
