@@ -12,19 +12,17 @@ export const AdminReporting = () => {
    }
    if (error && error.data) {
       return (
-         <p>
-            Error: {error.message}
-            <br />
-            Код помилки: {error.code}
-            <br />
-            URL-адреса: {error.url}
-         </p>
+         <div>
+            <p>
+               Помилка: {error.message}
+               <br />
+               Код помилки: {error.code}
+               <br />
+               URL-адреса: {error.url}
+            </p>
+         </div>
       );
    }
-
-
-
-
    return (
       <div className="admin-reporting">
          <div className="reporting-container">

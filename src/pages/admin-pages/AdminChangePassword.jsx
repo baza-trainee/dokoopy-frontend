@@ -20,24 +20,10 @@ export const AdminChangePassword = () => {
    
 
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
-   
 
-
-
-   if (error) {
-      return (
-         <div>
-            <p>
-               Error: {error.message}
-               <br />
-               Код помилки: {error.code}
-               <br />
-               URL-адреса: {error.url}
-            </p>
-         </div>
-      );
-   }
-
+   const handleChange = (event) => {
+      setCurrentPassword(event.target.value);
+    };
 
    useEffect(() => {
       if (showErrorMessage) {
@@ -85,9 +71,7 @@ export const AdminChangePassword = () => {
             password: currentPassword,
             newPassword: newPassword,
          };
-         console.log(body);
          eventLoading(body);
-
          setCurrentPassword("");
          setNewPassword("");
          setConfirmPassword("");
@@ -111,8 +95,12 @@ export const AdminChangePassword = () => {
                <label className="this-admin-change-password">
                   <p>Поточний пароль*</p>
                   <div className="this-admin-change-password-input">
-                  <input type={typeCurrentPassword} 
-                  placeholder="************"/>
+                  <input
+                        type={typeCurrentPassword}
+                        value={currentPassword}
+                        onChange={handleChange}
+                        placeholder="************"
+                        />
                   {!currentPassword ? (
                      <EditEyeClosed onClick={() => togglePasswordVisibility("current")} />
                   ) : (
