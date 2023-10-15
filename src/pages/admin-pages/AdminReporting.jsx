@@ -6,25 +6,23 @@ import { useLoadingData } from "../../hook/useLoadingData";
 
 export const AdminReporting = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
-
+   const reports = data?.result || [];
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
    if (error && error.data) {
       return (
-         <p>
-            Error: {error.message}
-            <br />
-            Код помилки: {error.code}
-            <br />
-            URL-адреса: {error.url}
-         </p>
+         <div>
+            <p>
+               Помилка: {error.message}
+               <br />
+               Код помилки: {error.code}
+               <br />
+               URL-адреса: {error.url}
+            </p>
+         </div>
       );
    }
-
-   const reports = data?.result || [];
-
-
    return (
       <div className="admin-reporting">
          <div className="reporting-container">

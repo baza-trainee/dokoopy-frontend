@@ -41,8 +41,9 @@ export const AdminApi = {
       return axios.post(`auth/admin/reset-password/${resetToken}`, body);
    },
    changePasswordAdmin(body) {
-      return axios.patch("reset-password/admin", body);
+      return axios.patch("auth/admin/change-password", body);
    },
+
 
    //Project
    getProjectAdmin() {
