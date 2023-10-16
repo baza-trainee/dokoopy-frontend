@@ -26,7 +26,7 @@ export const AdminChangePassword = () => {
     const [confirmInputStyles, setConfirmInputStyles] = useState({
       backgroundColor: 'transparent',
       border: '1px solid var(--inputs_color, #ACACAC)',
-    });
+      });
     const [currentInputStyles, setCurrentInputStyles] = useState({
       backgroundColor: 'transparent',
       border: '1px solid var(--inputs_color, #ACACAC)',
