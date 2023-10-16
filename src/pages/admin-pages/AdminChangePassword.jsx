@@ -18,6 +18,13 @@ export const AdminChangePassword = () => {
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
    
+   const [isCurrentPasswordVisible, setIsCurrentPasswordVisible] = useState(false);
+   const [isNewPasswordVisible, setIsNewPasswordVisible] = useState(false);
+   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
+
+   const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
+   const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
+   const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
 
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
 
@@ -45,15 +52,20 @@ export const AdminChangePassword = () => {
       }
    }, [showErrorMessage2]);
 
-   function togglePasswordVisibility(passwordType) {
+
+   const toggleVisibility = (passwordType) => {
       if (passwordType === "current") {
-         setTypeCurrentPassword(typeCurrentPassword === "password" ? "text" : "password");
+        setIsVisibleCurrentPassword(!isVisibleCurrentPassword);
+        setTypeCurrentPassword(typeCurrentPassword === "password" ? "text" : "password");
       } else if (passwordType === "new") {
-         setTypeNewPassword(typeNewPassword === "password" ? "text" : "password");
+        setIsVisibleNewPassword(!isVisibleNewPassword);
+        setTypeNewPassword(typeNewPassword === "password" ? "text" : "password");
       } else if (passwordType === "confirm") {
-         setTypeConfirmPassword(typeConfirmPassword === "password" ? "text" : "password");
+        setIsVisibleConfirmPassword(!isVisibleConfirmPassword);
+        setTypeConfirmPassword(typeConfirmPassword === "password" ? "text" : "password");
       }
-   }
+    };
+
 
    function editPassword(event) {
       event.preventDefault();
@@ -101,11 +113,11 @@ export const AdminChangePassword = () => {
                         onChange={handleChange}
                         placeholder="************"
                         />
-                  {!currentPassword ? (
-                     <EditEyeClosed onClick={() => togglePasswordVisibility("current")} />
-                  ) : (
-                     <EditEyeOpened onClick={() => togglePasswordVisibility("current")} />
-                  )}
+                  {isVisibleCurrentPassword ? (
+                        <EditEyeOpened onClick={() => toggleVisibility("current")} />
+                        ) : (
+                        <EditEyeClosed onClick={() => toggleVisibility("current")} />
+                        )}
                   </div>
                </label>
                <label className="new-admin-change-password">
@@ -120,11 +132,12 @@ export const AdminChangePassword = () => {
                      }}
                      placeholder="************"
                   />
-                  {!newPassword ? (
-                     <EditEyeClosed onClick={() => togglePasswordVisibility("new")} />
-                  ) : (
-                     <EditEyeOpened onClick={() => togglePasswordVisibility("new")} />
-                  )}</div>
+                  {isVisibleNewPassword ? (
+                     <EditEyeOpened onClick={() => toggleVisibility("new")} />
+                     ) : (
+                     <EditEyeClosed onClick={() => toggleVisibility("new")} />
+                     )}
+               </div>
                </label>
                <label className="return-admin-change-password">
                   <p>Повторити новий пароль*</p>
@@ -138,11 +151,11 @@ export const AdminChangePassword = () => {
                      }}
                      placeholder="************"
                   />
-                  {!confirmPassword ? (
-                     <EditEyeClosed onClick={() => togglePasswordVisibility("confirm")} />
-                  ) : (
-                     <EditEyeOpened onClick={() => togglePasswordVisibility("confirm")} />
-                  )}
+                  {isVisibleConfirmPassword ? (
+                        <EditEyeOpened onClick={() => toggleVisibility("confirm")} />
+                        ) : (
+                        <EditEyeClosed onClick={() => toggleVisibility("confirm")} />
+                        )}
                   </div>
                   {showErrorMessage && (
                      <p style={{ color: 'red' }}>Нові паролі не співпадають</p>
