@@ -20,15 +20,12 @@ export const AdminChangePassword = () => {
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
    const navigate = useNavigate();
    const [newInputStyles, setNewInputStyles] = useState({
-      backgroundColor: 'transparent',
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
     const [confirmInputStyles, setConfirmInputStyles] = useState({
-      backgroundColor: 'transparent',
       border: '1px solid var(--inputs_color, #ACACAC)',
       });
     const [currentInputStyles, setCurrentInputStyles] = useState({
-      backgroundColor: 'transparent',
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
@@ -39,21 +36,17 @@ export const AdminChangePassword = () => {
     useEffect(() => {
       if (showErrorMessage) {
         setNewInputStyles({
-          backgroundColor: 'rgba(180, 34, 34, 0.4)',
           border: '1px solid red',
         });
         setConfirmInputStyles({
-          backgroundColor: 'rgba(180, 34, 34, 0.4)',
           border: '1px solid red',
         });
         const timer = setTimeout(() => {
           setShowErrorMessage(false);
           setNewInputStyles({
-            backgroundColor: 'transparent',
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
           setConfirmInputStyles({
-            backgroundColor: 'transparent',
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
           setShowErrorMessage(false);
@@ -66,29 +59,23 @@ export const AdminChangePassword = () => {
    useEffect(() => {
       if (showErrorMessage2) {
          setCurrentInputStyles({
-            backgroundColor: 'rgba(180, 34, 34, 0.4)',
             border: '1px solid red',
           });
          setNewInputStyles({
-           backgroundColor: 'rgba(180, 34, 34, 0.4)',
            border: '1px solid red',
          });
          setConfirmInputStyles({
-           backgroundColor: 'rgba(180, 34, 34, 0.4)',
            border: '1px solid red',
          });
          const timer = setTimeout(() => {
            setShowErrorMessage(false);
            setCurrentInputStyles({
-            backgroundColor: 'transparent',
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
            setNewInputStyles({
-             backgroundColor: 'transparent',
              border: '1px solid var(--inputs_color, #ACACAC)',
            });
            setConfirmInputStyles({
-             backgroundColor: 'transparent',
              border: '1px solid var(--inputs_color, #ACACAC)',
            });
            setShowErrorMessage2(false);
