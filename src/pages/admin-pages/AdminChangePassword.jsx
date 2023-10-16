@@ -5,50 +5,36 @@ import { AdminApi } from "../../api/api";
 import { useLoadingData } from "../../hook/useLoadingData";
 import { useNavigate } from "react-router-dom";
 
-
 export const AdminChangePassword = () => {
    const [currentPassword, setCurrentPassword] = useState('');
    const [newPassword, setNewPassword] = useState('');
    const [confirmPassword, setConfirmPassword] = useState('');
-
    const [typeCurrentPassword, setTypeCurrentPassword] = useState("password");
    const [typeNewPassword, setTypeNewPassword] = useState("password");
    const [typeConfirmPassword, setTypeConfirmPassword] = useState("password");
    const [passwordMismatch, setPasswordMismatch] = useState(false);
-
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
-
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
-
    const navigate = useNavigate();
-
-
    const [newInputStyles, setNewInputStyles] = useState({
       backgroundColor: 'transparent',
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
-    
     const [confirmInputStyles, setConfirmInputStyles] = useState({
       backgroundColor: 'transparent',
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
-
     const [currentInputStyles, setCurrentInputStyles] = useState({
       backgroundColor: 'transparent',
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
-
    const handleChange = (event) => {
       setCurrentPassword(event.target.value);
     };
-
-
-
-
 
     useEffect(() => {
       if (showErrorMessage) {
@@ -112,7 +98,6 @@ export const AdminChangePassword = () => {
       }
    }, [showErrorMessage2]); 
 
-
    const toggleVisibility = (passwordType) => {
       if (passwordType === "current") {
         setIsVisibleCurrentPassword(!isVisibleCurrentPassword);
@@ -126,19 +111,14 @@ export const AdminChangePassword = () => {
       }
     };
 
-
    function editPassword(event) {
       event.preventDefault();
-
       if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
          setShowErrorMessage2(true);
          return;
-         
       }
-
       if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
-
          const body = {
             password: currentPassword,
             newPassword: newPassword,
@@ -155,7 +135,6 @@ export const AdminChangePassword = () => {
          setConfirmPassword("");
       }
    }
-
 
    return (
       <div className="admin-change-password">
@@ -225,7 +204,6 @@ export const AdminChangePassword = () => {
                      <p style={{ color: 'red' }}>Незаповнене поле</p>
                      
                   )}
-
                </label>
                </div>
                <button className="edit-password-btn" type="submit">Змінити пароль</button>
