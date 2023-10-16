@@ -3,6 +3,7 @@ import { EditEyeClosed } from "../../assets/admin-icons/edit-password-eye-c";
 import { useState, useEffect } from "react";
 import { AdminApi } from "../../api/api";
 import { useLoadingData } from "../../hook/useLoadingData";
+import { useNavigate } from "react-router-dom";
 
 
 export const AdminChangePassword = () => {
@@ -21,6 +22,9 @@ export const AdminChangePassword = () => {
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
+
+   const navigate = useNavigate();
+
 
    const [newInputStyles, setNewInputStyles] = useState({
       backgroundColor: 'transparent',
@@ -143,6 +147,7 @@ export const AdminChangePassword = () => {
          setCurrentPassword("");
          setNewPassword("");
          setConfirmPassword("");
+         navigate("/login/successful-renew");
       } else {
          setPasswordMismatch(true);
          setShowErrorMessage(true);
