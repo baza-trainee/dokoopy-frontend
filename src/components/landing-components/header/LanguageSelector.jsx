@@ -12,8 +12,22 @@ export const LanguageSelector = () => {
 
    const { switchToEnglish, switchToUkraine } = useAppContext();
 
+   useEffect(() => {
+      window.addEventListener("click", closeLanguageMenu);
+
+      return () => {
+         window.removeEventListener("click", closeLanguageMenu);
+      };
+   }, []);
+
    function toggleLanguageMenu() {
       setLanguageMenuOpen(!languageMenuOpen);
+   }
+
+   function closeLanguageMenu(event) {
+      if (!event.target.classList.contains("language-selector")) {
+         setLanguageMenuOpen(false);
+      }
    }
 
    function setLanguageUkraine() {
