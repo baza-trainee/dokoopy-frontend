@@ -186,9 +186,9 @@ export const AdminChangePassword = () => {
                         placeholder="************"
                         />
                   {isVisibleCurrentPassword ? (
-                        <EditEyeOpened onClick={() => toggleVisibility("current")} />
-                        ) : (
                         <EditEyeClosed onClick={() => toggleVisibility("current")} />
+                        ) : (
+                           <EditEyeOpened onClick={() => toggleVisibility("current")} />
                         )}
                   </div>
                </label>
@@ -205,9 +205,9 @@ export const AdminChangePassword = () => {
                      placeholder="************"
                   />
                   {isVisibleNewPassword ? (
-                     <EditEyeOpened onClick={() => toggleVisibility("new")} />
-                     ) : (
                      <EditEyeClosed onClick={() => toggleVisibility("new")} />
+                     ) : (
+                        <EditEyeOpened onClick={() => toggleVisibility("new")} />
                      )}
                </div>
                </label>
@@ -224,9 +224,9 @@ export const AdminChangePassword = () => {
                      placeholder="************"
                   />
                   {isVisibleConfirmPassword ? (
-                        <EditEyeOpened onClick={() => toggleVisibility("confirm")} />
+                     <EditEyeClosed onClick={() => toggleVisibility("confirm")} />
                         ) : (
-                        <EditEyeClosed onClick={() => toggleVisibility("confirm")} />
+                     <EditEyeOpened onClick={() => toggleVisibility("confirm")} />
                         )}
                   </div>
                   {showErrorMessage && (
