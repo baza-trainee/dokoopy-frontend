@@ -62,10 +62,10 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                         </div>
                         <p
                            className={
-                              contentData.createdAt ? "content-element-data" : "content-element-link"
+                              date ? "content-element-data" : "content-element-link"
                            }
                         >
-                           {contentData.createdAt ? formatData(contentData.createdAt) : contentData.link}
+                           {date ? formatData(contentData.createdAt) : contentData.link}
                         </p>
                         <div>
                            <AdminEditIcon />
