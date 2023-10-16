@@ -33,7 +33,7 @@ export const AdminChangePassword = () => {
     });
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
    const handleChange = (event) => {
-      setCurrentPassword(event.target.value);
+         setCurrentPassword(event.target.value);
     };
 
     useEffect(() => {
