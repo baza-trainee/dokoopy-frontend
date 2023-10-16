@@ -15,9 +15,12 @@ export const AdminChangePassword = () => {
    const [passwordMismatch, setPasswordMismatch] = useState(false);
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
+   const [showErrorMessage3, setShowErrorMessage3] = useState(false);
+   const [showErrorMessage4, setShowErrorMessage4] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
+
    const navigate = useNavigate();
    const [newInputStyles, setNewInputStyles] = useState({
       border: '1px solid var(--inputs_color, #ACACAC)',
@@ -85,6 +88,41 @@ export const AdminChangePassword = () => {
       }
    }, [showErrorMessage2]); 
 
+   useEffect(() => {
+      if (showErrorMessage3) {
+         setNewInputStyles({
+            border: '1px solid red',
+          });
+         const timer = setTimeout(() => {
+           setShowErrorMessage3(false);
+           setNewInputStyles({
+            border: '1px solid red',
+          });
+           setShowErrorMessage3(false);
+         }, 3000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage3]); 
+
+   useEffect(() => {
+      if (showErrorMessage4) {
+         setCurrentInputStyles({
+            border: '1px solid red',
+          });
+         const timer = setTimeout(() => {
+           setShowErrorMessage(false);
+           setCurrentInputStyles({
+            border: '1px solid var(--inputs_color, #ACACAC)',
+          });
+           setShowErrorMessage4(false);
+         }, 3000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage4]);
+
+
    const toggleVisibility = (passwordType) => {
       if (passwordType === "current") {
         setIsVisibleCurrentPassword(!isVisibleCurrentPassword);
@@ -100,10 +138,17 @@ export const AdminChangePassword = () => {
 
    function editPassword(event) {
       event.preventDefault();
+
       if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
          setShowErrorMessage2(true);
          return;
       }
+         
+      if (newPassword.length < 6 || !/[A-Z]/.test(newPassword) || !/[a-z]/.test(newPassword) || /\s/.test(newPassword)) {
+         setShowErrorMessage4(true);
+            return;
+          }
+
       if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
          const body = {
@@ -121,7 +166,7 @@ export const AdminChangePassword = () => {
          setNewPassword("");
          setConfirmPassword("");
       }
-   }
+      }
 
    return (
       <div className="admin-change-password">
@@ -141,9 +186,9 @@ export const AdminChangePassword = () => {
                         placeholder="************"
                         />
                   {isVisibleCurrentPassword ? (
-                        <EditEyeOpened onClick={() => toggleVisibility("current")} />
-                        ) : (
                         <EditEyeClosed onClick={() => toggleVisibility("current")} />
+                        ) : (
+                           <EditEyeOpened onClick={() => toggleVisibility("current")} />
                         )}
                   </div>
                </label>
@@ -160,9 +205,9 @@ export const AdminChangePassword = () => {
                      placeholder="************"
                   />
                   {isVisibleNewPassword ? (
-                     <EditEyeOpened onClick={() => toggleVisibility("new")} />
-                     ) : (
                      <EditEyeClosed onClick={() => toggleVisibility("new")} />
+                     ) : (
+                        <EditEyeOpened onClick={() => toggleVisibility("new")} />
                      )}
                </div>
                </label>
@@ -179,9 +224,9 @@ export const AdminChangePassword = () => {
                      placeholder="************"
                   />
                   {isVisibleConfirmPassword ? (
-                        <EditEyeOpened onClick={() => toggleVisibility("confirm")} />
+                     <EditEyeClosed onClick={() => toggleVisibility("confirm")} />
                         ) : (
-                        <EditEyeClosed onClick={() => toggleVisibility("confirm")} />
+                     <EditEyeOpened onClick={() => toggleVisibility("confirm")} />
                         )}
                   </div>
                   {showErrorMessage && (
@@ -189,7 +234,12 @@ export const AdminChangePassword = () => {
                   )}
                   {showErrorMessage2 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
-                     
+                  )}
+                  {showErrorMessage3 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не співпада</p>
+                  )}
+                  {showErrorMessage4 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не відповідає вимогам</p>
                   )}
                </label>
                </div>
