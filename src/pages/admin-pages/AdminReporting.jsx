@@ -8,9 +8,6 @@ export const AdminReporting = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
    const reports = data?.result || [];
 
-
-   console.log(data);
-
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
