@@ -10,7 +10,7 @@ export const AdminReporting = () => {
 
 
    console.log(data);
-   
+
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
@@ -55,7 +55,6 @@ export const AdminReporting = () => {
                      </li>
                   );
                })}
-
             </ul>
          </div>
       </div>
