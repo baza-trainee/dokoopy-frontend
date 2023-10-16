@@ -17,40 +17,96 @@ export const AdminChangePassword = () => {
 
    const [showErrorMessage, setShowErrorMessage] = useState(false);
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
-   
-   const [isCurrentPasswordVisible, setIsCurrentPasswordVisible] = useState(false);
-   const [isNewPasswordVisible, setIsNewPasswordVisible] = useState(false);
-   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
 
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
 
+   const [newInputStyles, setNewInputStyles] = useState({
+      backgroundColor: 'transparent',
+      border: '1px solid var(--inputs_color, #ACACAC)',
+    });
+    
+    const [confirmInputStyles, setConfirmInputStyles] = useState({
+      backgroundColor: 'transparent',
+      border: '1px solid var(--inputs_color, #ACACAC)',
+    });
+
+    const [currentInputStyles, setCurrentInputStyles] = useState({
+      backgroundColor: 'transparent',
+      border: '1px solid var(--inputs_color, #ACACAC)',
+    });
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
 
    const handleChange = (event) => {
       setCurrentPassword(event.target.value);
     };
 
-   useEffect(() => {
-      if (showErrorMessage) {
-         const timer = setTimeout(() => {
-            setShowErrorMessage(false);
-         }, 3000);
 
-         return () => clearTimeout(timer);
+
+
+
+    useEffect(() => {
+      if (showErrorMessage) {
+        setNewInputStyles({
+          backgroundColor: 'rgba(180, 34, 34, 0.4)',
+          border: '1px solid red',
+        });
+        setConfirmInputStyles({
+          backgroundColor: 'rgba(180, 34, 34, 0.4)',
+          border: '1px solid red',
+        });
+        const timer = setTimeout(() => {
+          setShowErrorMessage(false);
+          setNewInputStyles({
+            backgroundColor: 'transparent',
+            border: '1px solid var(--inputs_color, #ACACAC)',
+          });
+          setConfirmInputStyles({
+            backgroundColor: 'transparent',
+            border: '1px solid var(--inputs_color, #ACACAC)',
+          });
+          setShowErrorMessage(false);
+        }, 3000);
+    
+        return () => clearTimeout(timer);
       }
-   }, [showErrorMessage]); 
+    }, [showErrorMessage]);
 
    useEffect(() => {
       if (showErrorMessage2) {
+         setCurrentInputStyles({
+            backgroundColor: 'rgba(180, 34, 34, 0.4)',
+            border: '1px solid red',
+          });
+         setNewInputStyles({
+           backgroundColor: 'rgba(180, 34, 34, 0.4)',
+           border: '1px solid red',
+         });
+         setConfirmInputStyles({
+           backgroundColor: 'rgba(180, 34, 34, 0.4)',
+           border: '1px solid red',
+         });
          const timer = setTimeout(() => {
-            setShowErrorMessage2(false);
+           setShowErrorMessage(false);
+           setCurrentInputStyles({
+            backgroundColor: 'transparent',
+            border: '1px solid var(--inputs_color, #ACACAC)',
+          });
+           setNewInputStyles({
+             backgroundColor: 'transparent',
+             border: '1px solid var(--inputs_color, #ACACAC)',
+           });
+           setConfirmInputStyles({
+             backgroundColor: 'transparent',
+             border: '1px solid var(--inputs_color, #ACACAC)',
+           });
+           setShowErrorMessage2(false);
          }, 3000);
 
          return () => clearTimeout(timer);
       }
-   }, [showErrorMessage2]);
+   }, [showErrorMessage2]); 
 
 
    const toggleVisibility = (passwordType) => {
@@ -106,7 +162,7 @@ export const AdminChangePassword = () => {
                <div className="all-input-change">
                <label className="this-admin-change-password">
                   <p>Поточний пароль*</p>
-                  <div className="this-admin-change-password-input">
+                  <div className="this-admin-change-password-input" style={currentInputStyles}>
                   <input
                         type={typeCurrentPassword}
                         value={currentPassword}
@@ -122,7 +178,7 @@ export const AdminChangePassword = () => {
                </label>
                <label className="new-admin-change-password">
                   <p>Новий пароль*</p>
-                  <div className="new-admin-change-password-input">
+                  <div className="new-admin-change-password-input" style={newInputStyles}>
                   <input
                      type={typeNewPassword}
                      value={newPassword}
@@ -141,7 +197,7 @@ export const AdminChangePassword = () => {
                </label>
                <label className="return-admin-change-password">
                   <p>Повторити новий пароль*</p>
-                  <div className="return-admin-change-password-input">
+                  <div className="return-admin-change-password-input" style={confirmInputStyles}>
                   <input
                      type={typeConfirmPassword}
                      value={confirmPassword}
