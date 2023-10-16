@@ -198,10 +198,10 @@ export const AdminChangePassword = () => {
                         )}
                   </div>
                   {showErrorMessage && (
-                     <p style={{ color: 'red' }}>Нові паролі не співпадають</p>
+                     <p className="error-icon-message" style={{ color: 'red' }}>Нові паролі не співпадають</p>
                   )}
                   {showErrorMessage2 && (
-                     <p style={{ color: 'red' }}>Незаповнене поле</p>
+                     <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
                      
                   )}
                </label>
