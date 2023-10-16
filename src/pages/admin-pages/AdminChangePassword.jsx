@@ -71,7 +71,7 @@ export const AdminChangePassword = () => {
            border: '1px solid red',
          });
          const timer = setTimeout(() => {
-           setShowErrorMessage(false);
+           setShowErrorMessage2(false);
            setCurrentInputStyles({
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
@@ -90,28 +90,11 @@ export const AdminChangePassword = () => {
 
    useEffect(() => {
       if (showErrorMessage3) {
-         setNewInputStyles({
-            border: '1px solid red',
-          });
-         const timer = setTimeout(() => {
-           setShowErrorMessage3(false);
-           setNewInputStyles({
-            border: '1px solid red',
-          });
-           setShowErrorMessage3(false);
-         }, 3000);
-
-         return () => clearTimeout(timer);
-      }
-   }, [showErrorMessage3]); 
-
-   useEffect(() => {
-      if (showErrorMessage4) {
          setCurrentInputStyles({
             border: '1px solid red',
           });
          const timer = setTimeout(() => {
-           setShowErrorMessage(false);
+           setShowErrorMessage3(false);
            setCurrentInputStyles({
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
@@ -120,6 +103,24 @@ export const AdminChangePassword = () => {
 
          return () => clearTimeout(timer);
       }
+   }, [showErrorMessage3]); 
+
+   useEffect(() => {
+      if (showErrorMessage4) {
+         setNewInputStyles({
+            border: '1px solid red',
+          });
+         const timer = setTimeout(() => {
+           setShowErrorMessage4(false);
+           setNewInputStyles({
+            border: '1px solid red',
+          });
+           setShowErrorMessage4(false);
+         }, 3000);
+
+         return () => clearTimeout(timer);
+      }
+         
    }, [showErrorMessage4]);
 
 
@@ -156,10 +157,23 @@ export const AdminChangePassword = () => {
             newPassword: newPassword,
          };
          eventLoading(body);
-         setCurrentPassword("");
-         setNewPassword("");
-         setConfirmPassword("");
-         navigate("/login/successful-renew");
+         if (error) {
+            const responseStatus = error.response.status;
+          
+            if (responseStatus === 200) {
+               setCurrentPassword("");
+               setNewPassword("");
+               setConfirmPassword("");
+               navigate("/login/successful-renew");
+            } else {
+               setShowErrorMessage3(true);
+         return;
+            }
+          }
+         // setCurrentPassword("");
+         // setNewPassword("");
+         // setConfirmPassword("");
+         // navigate("/login/successful-renew");
       } else {
          setPasswordMismatch(true);
          setShowErrorMessage(true);
@@ -188,7 +202,7 @@ export const AdminChangePassword = () => {
                   {isVisibleCurrentPassword ? (
                         <EditEyeClosed onClick={() => toggleVisibility("current")} />
                         ) : (
-                           <EditEyeOpened onClick={() => toggleVisibility("current")} />
+                        <EditEyeOpened onClick={() => toggleVisibility("current")} />
                         )}
                   </div>
                </label>
