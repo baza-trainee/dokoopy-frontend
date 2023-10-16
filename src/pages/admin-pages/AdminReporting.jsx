@@ -7,6 +7,10 @@ import { useLoadingData } from "../../hook/useLoadingData";
 export const AdminReporting = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
    const reports = data?.result || [];
+
+
+   console.log(data);
+   
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
@@ -35,7 +39,7 @@ export const AdminReporting = () => {
                {data.result.map((report) => {
                   const fileName = report.reportURL.split("dokoopy/")[1].split(".")[0];
                   return (
-                     <li className="reporting-cards" key={report.id}>
+                     <li className="reporting-cards" key={report._id}>
                         <div className="card-reporting">
                            <Link to="edit" className="card-reporting">
                               <img src={fileText} alt="File" />
