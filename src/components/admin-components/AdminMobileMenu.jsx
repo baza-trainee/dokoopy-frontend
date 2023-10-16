@@ -80,7 +80,7 @@ export const AdminMobileMenu = ({ openMenu }) => {
                   <div className="admin-mobile-list-icon">
                      <AdminChangePasswordIcon />
                   </div>
-                  <Link to="reporting">Зміна пароля</Link>
+                  <Link to="change-password">Зміна пароля</Link>
                </li>
             </ul>
             <Link to="/admin" className="admin-mobile-logout">
