@@ -25,6 +25,7 @@ export const lendingData = {
 
 export const AdminApi = {
    setToken(token) {
+      console.log("accT", token);
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
    },
    getCurrentAdmin(body) {
@@ -44,7 +45,6 @@ export const AdminApi = {
       return axios.patch("auth/admin/change-password", body);
    },
 
-
    //Project
    getProjectAdmin() {
       return axios.get("projects/admin");
@@ -61,7 +61,7 @@ export const AdminApi = {
 
    //Bank
    getBankAdmin(body) {
-      return axios.get('bank/admin', body);
+      return axios.get("bank/admin", body);
    },
    updateBank({ body, id }) {
       return axios.patch(`bank/admin/${id}`, body);
