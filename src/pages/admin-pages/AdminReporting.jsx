@@ -38,7 +38,7 @@ export const AdminReporting = () => {
                   return (
                      <li className="reporting-cards" key={report._id}>
                         <div className="card-reporting">
-                           <Link to="edit" className="card-reporting">
+                           <Link to="edit" state={{ item: report }} className="card-reporting">
                               <img src={fileText} alt="File" />
                               <a
                                  href={`https://dokoopy.onrender.com/${report.reportURL}`}
