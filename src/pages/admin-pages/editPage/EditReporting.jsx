@@ -8,47 +8,60 @@ import { useLoadingData } from "../../../hook/useLoadingData";
 import { AdminApi } from "../../../api/api";
 
 
-
 export const EditReporting = () => {
-   const { state } = useLocation();
-   
+   const location = useLocation();
+   const { state } = location;
+
    const [error, setError] = useState(null);
    const [selectedFile, setSelectedFile] = useState(null);
-   
-   const {data, eventLoading} = useLoadingData(AdminApi.updateReports, true);
+
+   const { data, eventLoading } = useLoadingData(AdminApi.updateReports, true);
    const navigate = useNavigate();
 
    useEffect(() => {
       data?.code === 201 ? navigate("/admin/reporting") : null;
    }, [navigate, data?.code]);
 
+useEffect(() => {
+   if (state && state.report) {
+      console.log("Selected Report:", state.report);
+      setSelectedFile(state.report);
+   }
+}, [state]);
+
+
    const handleFileSelect = file => {
       setSelectedFile(file);
    };
 
    const handleFormSubmit = () => {
-      const formData = new FormData();
-      formData.append("reportURL", selectedFile);
+   console.log(state.item);
+  if (!selectedFile || !state.item._id) {
+    return; 
+  }
 
-      axios.post("reports/admin", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
-        .then(response => {
-          if (response.status === 201) {
-            console.log("Звіт був успішно доданий:", response.data);
-            
-          } else {
-            console.error("Помилка додавання звіту. Отримано неправильний статус відповіді:", response.status);
-           
-          }
-        })
-        .catch(error => {
-          console.error("Помилка додавання звіту:", error);
-          
-        });
-   };
+  const formData = new FormData();
+  formData.append("reportURL", selectedFile);
+  const fileId = state.item._id; 
+
+  axios.patch(`reports/admin/${fileId}`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data"
+    }
+  })
+    .then(response => {
+      if (response.status === 201) {
+        console.log("Звіт був успішно оновлений:", response.data);
+        navigate("/admin/reporting");
+      } else {
+        console.error("Помилка оновлення звіту. Отримано неправильний статус відповіді:", response.status);
+      }
+    })
+    .catch(error => {
+      console.error("Помилка оновлення звіту:", error);
+    });
+};
+
 
    return (
       <section className="page-container page-container-reporting">
@@ -57,7 +70,7 @@ export const EditReporting = () => {
             <FilesPicker
                selectedFile={selectedFile}
                setSelectedFile={handleFileSelect}
-               filesType=".pdf"
+               filesType=".pdf, .jpg, .jpeg, .png"
                title="Файл"
                errors={error}
                setError={setError}
