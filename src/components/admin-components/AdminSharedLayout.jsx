@@ -6,13 +6,13 @@ import { Navigate } from "react-router-dom";
 import { useAppContext } from "../provider-components/app-provider";
 import { AdminAside } from "./AdminAside";
 export const AdminSharedLayout = () => {
-   // const { loggedIn } = useAppContext();
+   const { isLoading } = useAppContext();
 
    // if (!loggedIn) {
    //    return <Navigate to={"/login"} />;
    // }
 
-   return (
+   return isLoading ? (
       <div className="main-wrapper">
          <AdminAside></AdminAside>
          <div className="body-wrapper">
@@ -22,5 +22,5 @@ export const AdminSharedLayout = () => {
             </main>
          </div>
       </div>
-   );
+   ) : null;
 };
