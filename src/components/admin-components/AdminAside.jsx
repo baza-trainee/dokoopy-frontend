@@ -25,10 +25,23 @@ export const AdminAside = () => {
    ];
    const { pathname } = useLocation();
    const [isActive, setIsActive] = useState(getCurrentLocation());
+   // const [isActive, setIsActive] = useState({
+   //    name: "Слайдер",
+   //    icon: AdminSliderIcon,
+   //    link: "/admin",
+   // });
+
+   // const currentLocation = pathname.split("/");
+   // console.log(currentLocation);
 
    function getCurrentLocation() {
-      const currentLocation = pathname.split("/admin/");
-      const page = currentLocation[currentLocation.length - 1];
+      const currentLocation = pathname.split("/");
+      console.log(currentLocation[2]);
+
+      if (!currentLocation[2] || currentLocation[2] === "edit") {
+         return asideTitles[0];
+      }
+      const page = currentLocation[2];
       const currentPage = asideTitles.find(element => {
          return element.link === page;
       });
