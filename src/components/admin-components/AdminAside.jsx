@@ -38,7 +38,11 @@ export const AdminAside = () => {
       const currentLocation = pathname.split("/");
       console.log(currentLocation[2]);
 
-      if (!currentLocation[2] || currentLocation[2] === "edit") {
+      if (
+         !currentLocation[2] ||
+         currentLocation[2] === "edit" ||
+         currentLocation[2] === "add-new-slide"
+      ) {
          return asideTitles[0];
       }
       const page = currentLocation[2];
