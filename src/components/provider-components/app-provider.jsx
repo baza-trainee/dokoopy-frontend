@@ -10,19 +10,21 @@ export const useAppContext = () => useContext(AppContext);
 export const AppProvider = ({ children }) => {
    const [token, setToken] = useState("");
    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem("isLoggedIn"));
+   const [isLoading, setIsLoading] = useState(false);
 
    const [language, setLanguage] = useState("ua");
 
    useEffect(() => {
       AdminApi.setToken(JSON.parse(sessionStorage.getItem("accToken")));
+      setIsLoading(true);
    }, []);
 
    function logIn(token) {
       setToken(token);
       sessionStorage.setItem("isLoggedIn", JSON.stringify(true));
-      setLoggedIn(true);
       sessionStorage.setItem("accToken", JSON.stringify(token));
       AdminApi.setToken(JSON.parse(sessionStorage.getItem("accToken")));
+      setLoggedIn(true);
    }
 
    function logOff() {
@@ -42,7 +44,16 @@ export const AppProvider = ({ children }) => {
    }
    return (
       <AppContext.Provider
-         value={{ token, loggedIn, language, logIn, logOff, switchToEnglish, switchToUkraine }}
+         value={{
+            token,
+            loggedIn,
+            isLoading,
+            language,
+            logIn,
+            logOff,
+            switchToEnglish,
+            switchToUkraine,
+         }}
       >
          {children}
       </AppContext.Provider>
