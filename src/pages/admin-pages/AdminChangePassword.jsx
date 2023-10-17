@@ -159,7 +159,7 @@ export const AdminChangePassword = () => {
          eventLoading(body);
          if (error) {
             const responseStatus = error.response.status;
-          
+            console.log(error)
             if (responseStatus === 200) {
                setCurrentPassword("");
                setNewPassword("");
@@ -170,10 +170,6 @@ export const AdminChangePassword = () => {
          return;
             }
           }
-         // setCurrentPassword("");
-         // setNewPassword("");
-         // setConfirmPassword("");
-         // navigate("/login/successful-renew");
       } else {
          setPasswordMismatch(true);
          setShowErrorMessage(true);
