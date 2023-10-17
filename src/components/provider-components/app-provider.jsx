@@ -55,6 +55,8 @@ export const AppProvider = ({ children }) => {
       return switchToEnglish();
    }
 
+   console.log(navigator.language);
+
    return (
       <AppContext.Provider
          value={{
