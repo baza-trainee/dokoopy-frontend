@@ -49,7 +49,7 @@ export const AppProvider = ({ children }) => {
    }
 
    function getDefaultBroweserLanguage() {
-      if (currentLanguage === "ru-RU" || currentLanguage === "uk-UA") {
+      if (currentLanguage === "ru-RU" || currentLanguage === "uk-UA" || currentLanguage === "uk") {
          return switchToUkraine();
       }
       return switchToEnglish();
