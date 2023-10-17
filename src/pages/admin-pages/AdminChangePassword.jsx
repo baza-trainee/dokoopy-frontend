@@ -166,6 +166,7 @@ export const AdminChangePassword = () => {
                setConfirmPassword("");
                navigate("/login/successful-renew");
             } else {
+               
                setShowErrorMessage3(true);
          return;
             }
