@@ -1,8 +1,6 @@
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
-// import { useAdminContext } from "../provider-components/admin-provider";
-// import { useAppContext } from "../provider-components/app-provider";
+import { Link, useLocation } from "react-router-dom";
 
 import { AsideListItem } from "./aside-components/aside-list-item";
 
@@ -16,12 +14,6 @@ import { AdminChangePasswordIcon } from "../../assets/admin-icons/admin-password
 import { AdminLogoutIcon } from "../../assets/admin-icons/admin-logout";
 
 export const AdminAside = () => {
-   const [isActive, setIsActive] = useState({
-      name: "Слайдер",
-      icon: AdminSliderIcon,
-      link: "/admin",
-   });
-
    const asideTitles = [
       { name: "Слайдер", icon: AdminSliderIcon, link: "/admin" },
       { name: "Проєкти", icon: AdminProjectsIcon, link: "projects" },
@@ -31,6 +23,17 @@ export const AdminAside = () => {
       { name: "Звітність", icon: AdminReportIcon, link: "reporting" },
       { name: "Зміна пароля", icon: AdminChangePasswordIcon, link: "change-password" },
    ];
+   const { pathname } = useLocation();
+   const [isActive, setIsActive] = useState(getCurrentLocation());
+
+   function getCurrentLocation() {
+      const currentLocation = pathname.split("/admin/");
+      const page = currentLocation[currentLocation.length - 1];
+      const currentPage = asideTitles.find(element => {
+         return element.link === page;
+      });
+      return currentPage;
+   }
 
    return (
       <aside className="aside">
