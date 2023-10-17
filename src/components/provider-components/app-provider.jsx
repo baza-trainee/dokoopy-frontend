@@ -11,8 +11,13 @@ export const AppProvider = ({ children }) => {
    const [token, setToken] = useState("");
    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem("isLoggedIn"));
    const [isLoading, setIsLoading] = useState(false);
-
    const [language, setLanguage] = useState("ua");
+
+   const currentLanguage = navigator.language;
+
+   useEffect(() => {
+      getDefaultBroweserLanguage();
+   }, []);
 
    useEffect(() => {
       AdminApi.setToken(JSON.parse(sessionStorage.getItem("accToken")));
@@ -42,6 +47,14 @@ export const AppProvider = ({ children }) => {
       localization.setLanguage("en");
       setLanguage("en");
    }
+
+   function getDefaultBroweserLanguage() {
+      if (currentLanguage === "ru-RU" || currentLanguage === "uk-UA") {
+         return switchToUkraine();
+      }
+      return switchToEnglish();
+   }
+
    return (
       <AppContext.Provider
          value={{
