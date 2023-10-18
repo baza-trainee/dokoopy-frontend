@@ -14,7 +14,7 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
          gridContainerRef.current.style.gridTemplateRows = `repeat(${numberOfRows}, 1fr)`;
       }
    }, [data]);
-
+  
    return (
       <div className="admin-main-wrapper">
          <div className="admin-main-header">
@@ -28,9 +28,9 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
          <ul className="admin-main-content" ref={gridContainerRef}>
             {data.map((contentData, index) => {
                return (
-                  <li key={contentData.id}>
+                  <li key={contentData._id}>
                      <Link
-                        to={`edit/${contentData.id}`}
+                        to={`edit/${contentData._id}`}
                         state={{ item: contentData, minLength: data.length }}
                         className={
                            contentData.date
@@ -54,18 +54,18 @@ export const AdminMainInnerPart = ({ name, photo, date, link, data }) => {
                               }
                            >
                               <img
-                                 src={`https://dokoopy.onrender.com/${contentData.imageURL}`}
-                                 alt={contentData.alt}
+                                 src={contentData.imageURL}
+                                 alt={"logo"}
                                  className="content-element-img"
                               ></img>
                            </div>
                         </div>
                         <p
                            className={
-                              contentData.date ? "content-element-data" : "content-element-link"
+                              date ? "content-element-data" : "content-element-link"
                            }
                         >
-                           {contentData.date ? formatData(contentData.date) : contentData.link}
+                           {date ? formatData(contentData.createdAt) : contentData.link}
                         </p>
                         <div>
                            <AdminEditIcon />

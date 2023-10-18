@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 
+import { useAppContext } from "../../components/provider-components/app-provider";
+
 export const AdminNotFound = () => {
+   const { token, loggedIn } = useAppContext();
+   console.log(token, loggedIn);
+
    return (
       <div className="admin-wrapper-error">   
          <div className="admin-error-content">
@@ -11,6 +16,6 @@ export const AdminNotFound = () => {
             <Link to={"/admin"} className="admin-error-btn">
                Ви можете перейти на головну сторінку
             </Link>          
-         </div>
+       </div>
    );
 };

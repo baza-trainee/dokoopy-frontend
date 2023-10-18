@@ -2,9 +2,9 @@ import { useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import { LoginEyeOpened } from "../../assets/admin-icons/login-eye-opened";
-import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
 import { useForm } from "react-hook-form";
+import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
+import { LoginEyeOpened } from "../../assets/admin-icons/login-eye-opened";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -23,7 +23,6 @@ export const Login = () => {
    const { logIn } = useAppContext();
 
    function click(e) {
-      console.log(e);
       setType(!type);
       if (type) {
          setTypeName("text");
@@ -31,9 +30,10 @@ export const Login = () => {
          setTypeName("password");
       }
    }
-
+   const mailRegx =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
    let userSchema = yup.object({
-      email: yup.string().email("Введіть дійсний email").required("Введіть email"),
+      email: yup.string().required("Введіть email").matches(mailRegx, "Введіть дійсний email"),
       password: yup.string().required("Введіть пароль"),
    });
    const {
@@ -46,14 +46,15 @@ export const Login = () => {
    function onSubmit(e) {
       AdminApi.loginAdmin(e)
          .then(res => {
-            localStorage.setItem("token", res.data);
-            logIn(res.data);
+            localStorage.setItem("token", res.data.token);
+            // AdminApi.setToken(res.data.token);
+            logIn(res.data.token);
          })
          .then(() => {
             navigate("/admin");
          })
          .catch(e => {
-            if (e.response.data.message === "Wrong email or password") {
+            if (e.response.data.message === "Email or password is wrong") {
                setMessage("Неправильний email або пароль");
             }
          });

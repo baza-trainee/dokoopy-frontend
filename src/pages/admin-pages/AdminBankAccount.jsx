@@ -7,20 +7,21 @@ import { useLoadingData } from "../../hook/useLoadingData";
 export const AdminBankAccount = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getBankAdmin);
 
-   const bankAccountData = data || [];
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
    }
 
    if (error && error.data) {
       return (
-         <p>
-            Error: {error.message}
-            <br />
-            Код помилки: {error.code}
-            <br />
-            URL-адреса: {error.url}
-         </p>
+         <div>
+            <p>
+               Помилка: {error.message}
+               <br />
+               Код помилки: {error.code}
+               <br />
+               URL-адреса: {error.url}
+            </p>
+         </div>
       );
    }
 
@@ -37,17 +38,19 @@ export const AdminBankAccount = () => {
                   <span></span>
                </div>
                <ul className="bank-contacts-list-ul">
-                  <Link to="edit">
-                     <li className="bank-card">
-                        <div className="bank-li">
-                           <p>Реквізити</p>
-                           <a href={`mailto:${data?.bank?.link}`}>{data?.bank?.link}</a>
-                           <button>
-                              <AdminIconEdit />
-                           </button>
-                        </div>
+                  {data.bank?.map((linkback, index) => (
+                     <li className="bank-card" key={linkback._id}>
+                        <Link to="edit" state={{ item: linkback }}>
+                           <div className="bank-li">
+                              <p>Реквізити</p>
+                              <a href={linkback.link}>{linkback.link}</a>
+                              <button className="edit-contacts">
+                                 <AdminIconEdit />
+                              </button>
+                           </div>
+                        </Link>
                      </li>
-                  </Link>
+                  ))}
                </ul>
             </div>
          </div>

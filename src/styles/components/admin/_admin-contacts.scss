@@ -53,7 +53,6 @@
    width: 100%;
 }
 .contacts-card {
-   display: flex;
    width: 100%;
 }
 .contacts-li {
@@ -150,7 +149,6 @@
       flex-direction: column;
    }
    .contacts-card {
-      display: flex;
       width: 100%;
    }
    .contacts-li {
@@ -248,7 +246,6 @@
       flex-direction: column;
    }
    .contacts-card {
-      display: flex;
       width: 100%;
    }
    .contacts-li {
@@ -288,7 +285,7 @@
       height: 18px;
    }
 }
-@media screen and (max-width: 479px){
+@media (max-width: 479px){
    .admin-contacts {
       display: flex;
       width: 100%;
@@ -347,7 +344,6 @@
       flex-direction: column;
    }
    .contacts-card {
-      display: flex;
       width: 100%;
    }
    .contacts-li {

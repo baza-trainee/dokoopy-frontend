@@ -1,13 +1,18 @@
 import { Outlet } from "react-router-dom";
 
-// import { AdminProvider } from "../provider-components/admin-provider";
-
 import { AdminHeader } from "./AdminHeader";
-// import { AdminFooter } from "./AdminFooter";
-import { AdminAside } from "./AdminAside";
 
+import { Navigate } from "react-router-dom";
+import { useAppContext } from "../provider-components/app-provider";
+import { AdminAside } from "./AdminAside";
 export const AdminSharedLayout = () => {
-   return (
+   const { isLoading } = useAppContext();
+
+   // if (!loggedIn) {
+   //    return <Navigate to={"/login"} />;
+   // }
+
+   return isLoading ? (
       <div className="main-wrapper">
          <AdminAside></AdminAside>
          <div className="body-wrapper">
@@ -15,8 +20,7 @@ export const AdminSharedLayout = () => {
             <main className="admin-backdrop">
                <Outlet />
             </main>
-            {/* <AdminFooter></AdminFooter> */}
          </div>
       </div>
-   );
+   ) : null;
 };

@@ -17,7 +17,7 @@ export const EditPartner = () => {
       formData.append("link", data.e.link);
       formData.append("imageURL", data.selectedFile);
       const params = {
-         id: state.item.id,
+         id: state?.item._id,
          body: formData,
       };
       updatePartner.eventLoading(params);
@@ -26,7 +26,7 @@ export const EditPartner = () => {
    return (
       <section className="page-container">
          <PageHeader
-            removeClick={() => deletePartner.eventLoading(state.item.id)}
+            removeClick={() => deletePartner.eventLoading(state?.item._id)}
             edit={true}
             title={"Редагувати партнера"}
             success={deletePartner?.data?.code === 200 ? true : false}
@@ -37,7 +37,7 @@ export const EditPartner = () => {
             lgLiable={"Посилання на сайт партнера*"}
             nameButton={"Внести зміни"}
             submitClick={submitClick}
-            defaultInfo={state.item}
+            defaultInfo={state?.item}
             schema={validSchema.partner}
             success={updatePartner.data?.code === 200 ? true : false}
          />

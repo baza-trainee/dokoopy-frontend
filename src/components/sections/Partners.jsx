@@ -1,9 +1,9 @@
 import Slider from "react-slick";
-import localization from "../../assets/language-switcher/localization";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import { useLoadingData } from "../../hook/useLoadingData";
 import { lendingData } from "../../api/api";
+import localization from "../../assets/language-switcher/localization";
+import { useLoadingData } from "../../hook/useLoadingData";
 
 import { useAppContext } from "../provider-components/app-provider";
 
@@ -80,10 +80,10 @@ export const Partners = () => {
          <ul className="partners_list">
             <Slider {...settings}>
                {partnerData.map(partner => (
-                  <li className="partner-card" key={partner.id}>
+                  <li className="partner-card" key={partner._id}>
                      <div className="card">
                         <a className="partner_img" href={partner.link} target="_blank">
-                           <img src={`https://dokoopy.onrender.com/${partner.imageURL}`} />
+                           <img src={partner.imageURL} />
                         </a>
                      </div>
                   </li>

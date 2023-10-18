@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 import localization from "../../assets/language-switcher/localization";
 
-import defImg from "../../assets/images/default-image.jpg";
-
 import { lendingData } from "../../api/api";
 import { formatData, formatDataEN } from "../../assets/helpers";
 import { useLoadingData } from "../../hook/useLoadingData";
@@ -16,12 +14,13 @@ export const Projects = () => {
    const { language } = useAppContext();
    const [project, setProject] = useState([]);
    const { isLoading, error, data } = useLoadingData(lendingData.getProject);
+
    useEffect(() => {
       if (data?.projects) {
          setProject(
             data?.projects.map(item => ({
                ...item,
-               date: language === "ua" ? formatData(item.date) : formatDataEN(item.date),
+               date: language === "ua" ? formatData(item.createdAt) : formatDataEN(item.createdAt),
                title: language === "ua" ? item.title : item.title_eng,
                description: language === "ua" ? item.description : item.description_eng,
             }))
@@ -38,10 +37,10 @@ export const Projects = () => {
             <h2 className="title   title-dark">{localization.projects.title}</h2>
             <ul className="projects-block-desktop">
                {project?.slice(0, 4).map(project => (
-                  <li key={project.id} className="project-cart">
+                  <li key={project._id} className="project-cart">
                      <img
                         className="projects-block-box-img"
-                        src={`https://dokoopy.onrender.com/${project.imageURL}` || defImg}
+                        src={project.imageURL}
                         alt={project.title}
                      />
 

@@ -1,4 +1,4 @@
-import { useState, forwardRef } from "react";
+import { useState, useEffect, forwardRef } from "react";
 import { Link } from "react-router-dom";
 
 import { LanguageSelectorMobile } from "./LanguageSelectorMobile.jsx";
@@ -18,8 +18,22 @@ export const BurgerMenu = forwardRef(function BurgerMenu(
 
    const [languageMobile, setLanguageMobile] = useState(false);
 
+   useEffect(() => {
+      window.addEventListener("click", closeLanguageMenu);
+
+      return () => {
+         window.removeEventListener("click", closeLanguageMenu);
+      };
+   }, []);
+
    function toggleLanguageMobile() {
       setLanguageMobile(!languageMobile);
+   }
+
+   function closeLanguageMenu(event) {
+      if (!event.target.classList.contains("language-selector_mobile")) {
+         setLanguageMobile(false);
+      }
    }
 
    return (
