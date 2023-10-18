@@ -2,7 +2,6 @@ import { EditEyeOpened } from "../../assets/admin-icons/edit-password-eye-o";
 import { EditEyeClosed } from "../../assets/admin-icons/edit-password-eye-c";
 import { useState, useEffect } from "react";
 import { AdminApi } from "../../api/api";
-import { useLoadingData } from "../../hook/useLoadingData";
 import { useNavigate } from "react-router-dom";
 
 export const AdminChangePassword = () => {
@@ -17,10 +16,12 @@ export const AdminChangePassword = () => {
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
    const [showErrorMessage3, setShowErrorMessage3] = useState(false);
    const [showErrorMessage4, setShowErrorMessage4] = useState(false);
+   const [showErrorMessage5, setShowErrorMessage5] = useState(false);
+   const [showErrorMessage6, setShowErrorMessage6] = useState(false);
+   const [showErrorMessage7, setShowErrorMessage7] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
-
    const navigate = useNavigate();
    const [newInputStyles, setNewInputStyles] = useState({
       border: '1px solid var(--inputs_color, #ACACAC)',
@@ -31,7 +32,7 @@ export const AdminChangePassword = () => {
     const [currentInputStyles, setCurrentInputStyles] = useState({
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
-   const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.changePasswordAdmin, true);
+   
    const handleChange = (event) => {
          setCurrentPassword(event.target.value);
     };
@@ -137,47 +138,65 @@ export const AdminChangePassword = () => {
       }
     };
 
-   function editPassword(event) {
+    function editPassword(event) {
       event.preventDefault();
-
+    
+      if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
+        setShowErrorMessage2(true);
+        return;
+      }
+    
       if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
          setShowErrorMessage2(true);
          return;
-      }
-         
-      if (newPassword.length < 6 || !/[A-Z]/.test(newPassword) || !/[a-z]/.test(newPassword) || /\s/.test(newPassword)) {
+       }
+     
+       // Перевірка, чи новий пароль має довжину не менше 6 символів
+       if (newPassword.length < 6) {
          setShowErrorMessage4(true);
-            return;
-          }
-
-      if (newPassword === confirmPassword) {
-         setPasswordMismatch(false);
-         const body = {
-            password: currentPassword,
-            newPassword: newPassword,
-         };
-         eventLoading(body);
-         if (error) {
-            const responseStatus = error.response.status;
-            console.log(error)
-            if (responseStatus === 200) {
-               setCurrentPassword("");
-               setNewPassword("");
-               setConfirmPassword("");
-               navigate("/login/successful-renew");
-            } else {
-               
-               setShowErrorMessage3(true);
          return;
-            }
-          }
-      } else {
-         setPasswordMismatch(true);
-         setShowErrorMessage(true);
+       }
+     
+       // Перевірка, чи пароль містить пробілі
+       if (/\s/.test(newPassword)) {
+         setShowErrorMessage5(true);
+         return;
+       }
+     
+       // Перевірка, чи пароль містить великі літери
+       if (!/[A-Z]/.test(newPassword)) {
+         setShowErrorMessage6(true);
+         return;
+       }
+     
+       // Перевірка, чи пароль містить малі літери
+       if (!/[a-z]/.test(newPassword)) {
+         setShowErrorMessage7(true);
+         return;
+       }
+    
+      if (newPassword === confirmPassword) {
+        setPasswordMismatch(false);
+        const body = {
+          password: currentPassword,
+          newPassword: newPassword,
+        };
+        AdminApi.changePasswordAdmin(body).then(() => {
+         setCurrentPassword("");
          setNewPassword("");
          setConfirmPassword("");
+         navigate("/login/successful-renew");
+       }).catch((error) => {
+         setShowErrorMessage3(true);
+       });
+ 
+      } else {
+        setPasswordMismatch(true);
+        setShowErrorMessage(true);
+        setNewPassword("");
+        setConfirmPassword("");
       }
-      }
+    }
 
    return (
       <div className="admin-change-password">
@@ -247,10 +266,19 @@ export const AdminChangePassword = () => {
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
                   {showErrorMessage3 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не співпада</p>
+                     <p className="error-icon-message" style={{ color: 'red' }}>Поточний пароль невірний</p>
                   )}
                   {showErrorMessage4 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не відповідає вимогам</p>
+                     <p className="error-icon-message" style={{ color: 'red' }}>Введіть пароль довжиною не менше 6 символів</p>
+                  )}
+                   {showErrorMessage5 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити пробілів</p>
+                  )}
+                   {showErrorMessage6 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити великі літери</p>
+                  )}
+                   {showErrorMessage5 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити малі літери</p>
                   )}
                </label>
                </div>
