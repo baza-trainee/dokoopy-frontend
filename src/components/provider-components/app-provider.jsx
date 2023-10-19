@@ -11,12 +11,17 @@ export const AppProvider = ({ children }) => {
    const [token, setToken] = useState("");
    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem("isLoggedIn"));
    const [isLoading, setIsLoading] = useState(false);
-   const [language, setLanguage] = useState("ua");
+   const [language, setLanguage] = useState(sessionStorage.getItem("preferableLanguage"));
 
    const currentLanguage = navigator.language;
 
    useEffect(() => {
-      getDefaultBroweserLanguage();
+      if (JSON.parse(sessionStorage.getItem("preferableLanguage")) === "ua") {
+         return switchToUkraine();
+      } else if (JSON.parse(sessionStorage.getItem("preferableLanguage")) === "en") {
+         return switchToEnglish();
+      }
+      getDefaultBrowserLanguage();
    }, []);
 
    useEffect(() => {
@@ -39,16 +44,18 @@ export const AppProvider = ({ children }) => {
    }
 
    function switchToUkraine() {
+      sessionStorage.setItem("preferableLanguage", JSON.stringify("ua"));
       localization.setLanguage("ua");
       setLanguage("ua");
    }
 
    function switchToEnglish() {
+      sessionStorage.setItem("preferableLanguage", JSON.stringify("en"));
       localization.setLanguage("en");
       setLanguage("en");
    }
 
-   function getDefaultBroweserLanguage() {
+   function getDefaultBrowserLanguage() {
       if (currentLanguage === "ru-RU" || currentLanguage === "uk-UA" || currentLanguage === "uk") {
          return switchToUkraine();
       }
