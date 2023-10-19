@@ -19,8 +19,8 @@
    align-items: center;
 }
 .partner_img img {
-   width: 121.417px;
-   height: 111px;
+  max-width: 121.417px;
+   max-height: 111px;
    flex-shrink: 0;
 }
 @media screen and (min-width: 769px) {
@@ -37,7 +37,7 @@
       width: 367px;
    }
    .partner_img img {
-      width: 236px;
+      max-width: 236px;
       flex-shrink: 0;
    }
 }
@@ -51,7 +51,7 @@
       width: 397px;
    }
    .partner_img img {
-      width: 236px;
+      max-width: 236px;
       flex-shrink: 0;
    }
 }
@@ -72,7 +72,7 @@
       width: 397px;
    }
    .partner_img img {
-      width: 236px;
+      max-width: 236px;
       flex-shrink: 0;
    }
 }
