@@ -2,7 +2,7 @@ import { EditEyeOpened } from "../../assets/admin-icons/edit-password-eye-o";
 import { EditEyeClosed } from "../../assets/admin-icons/edit-password-eye-c";
 import { useState, useEffect } from "react";
 import { AdminApi } from "../../api/api";
-import { useNavigate } from "react-router-dom";
+import { AdminModalSuccessful } from "../../components/admin-components/AdminModalSuccessful";
 
 export const AdminChangePassword = () => {
    const [currentPassword, setCurrentPassword] = useState('');
@@ -18,11 +18,10 @@ export const AdminChangePassword = () => {
    const [showErrorMessage4, setShowErrorMessage4] = useState(false);
    const [showErrorMessage5, setShowErrorMessage5] = useState(false);
    const [showErrorMessage6, setShowErrorMessage6] = useState(false);
-   const [showErrorMessage7, setShowErrorMessage7] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
-   const navigate = useNavigate();
+   const [isModalTrue, setIsModalTrue] = useState(false);
    const [newInputStyles, setNewInputStyles] = useState({
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
@@ -219,7 +218,7 @@ export const AdminChangePassword = () => {
          setCurrentPassword("");
          setNewPassword("");
          setConfirmPassword("");
-         navigate("/login/successful-renew");
+         setIsModalTrue(true);
        }).catch((error) => {
          setShowErrorMessage3(true);
        });
@@ -314,6 +313,7 @@ export const AdminChangePassword = () => {
                <button className="edit-password-btn" type="submit">Змінити пароль</button>
             </form>
          </div>
+         {isModalTrue && (<AdminModalSuccessful/>)}
       </div>
    );
 };
