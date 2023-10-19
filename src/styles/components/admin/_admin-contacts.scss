@@ -93,7 +93,7 @@
    justify-content: center;
 }
 
-@media (min-width: 768px) and (max-width: 1280px) {
+@media (min-width: 768px) and (max-width: 1279px) {
    .admin-contacts {
       display: flex;
       align-items: flex-start;
@@ -187,7 +187,7 @@
       height: 17px;
 }
 }
-@media (min-width: 480px) and (max-width: 768px) {
+@media (min-width: 480px) and (max-width: 767px) {
    .admin-contacts {
       display: flex;
       width: 100%;
@@ -286,7 +286,7 @@
       height: 18px;
    }
 }
-@media (max-width: 480px){
+@media (max-width: 479px){
    .admin-contacts {
       display: flex;
       width: 100%;

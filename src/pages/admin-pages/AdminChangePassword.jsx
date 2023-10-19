@@ -60,34 +60,39 @@ export const AdminChangePassword = () => {
       }
     }, [showErrorMessage]);
 
-   useEffect(() => {
+    useEffect(() => {
       if (showErrorMessage2) {
-         setCurrentInputStyles({
-            border: '1px solid red',
-          });
-         setNewInputStyles({
-           border: '1px solid red',
-         });
-         setConfirmInputStyles({
-           border: '1px solid red',
-         });
-         const timer = setTimeout(() => {
-           setShowErrorMessage2(false);
-           setCurrentInputStyles({
-            border: '1px solid var(--inputs_color, #ACACAC)',
-          });
-           setNewInputStyles({
-             border: '1px solid var(--inputs_color, #ACACAC)',
-           });
-           setConfirmInputStyles({
-             border: '1px solid var(--inputs_color, #ACACAC)',
-           });
-           setShowErrorMessage2(false);
-         }, 10000);
-
-         return () => clearTimeout(timer);
+        const inputStyles = {
+          current: { border: '1px solid var(--inputs_color, #ACACAC)' },
+          new: { border: '1px solid var(--inputs_color, #ACACAC)' },
+          confirm: { border: '1px solid var(--inputs_color, #ACACAC)' },
+        };
+    
+        if (currentPassword.trim() === '') {
+          inputStyles.current = { border: '1px solid red' };
+        }
+        if (newPassword.trim() === '') {
+          inputStyles.new = { border: '1px solid red' };
+        }
+        if (confirmPassword.trim() === '') {
+          inputStyles.confirm = { border: '1px solid red' };
+        }
+    
+        setCurrentInputStyles(inputStyles.current);
+        setNewInputStyles(inputStyles.new);
+        setConfirmInputStyles(inputStyles.confirm);
+    
+        const timer = setTimeout(() => {
+          setShowErrorMessage2(false);
+          setCurrentInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
+          setNewInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
+          setConfirmInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
+          setShowErrorMessage2(false);
+        }, 7000);
+    
+        return () => clearTimeout(timer);
       }
-   }, [showErrorMessage2]); 
+    }, [showErrorMessage2, currentPassword, newPassword, confirmPassword]);
 
    useEffect(() => {
       if (showErrorMessage3) {
@@ -189,7 +194,7 @@ export const AdminChangePassword = () => {
      
 
       // Перевірка, чи пароль містить великі літери
-      if (!/[A-Z]/.test(newPassword) || !/[a-z]/.test(newPassword)) {
+      if (!/[A-Z]/.test(newPassword)) {
           setShowErrorMessage6(true);
           return;
       }
