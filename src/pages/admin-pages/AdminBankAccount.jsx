@@ -44,7 +44,7 @@ export const AdminBankAccount = () => {
                            <div className="bank-li">
                               <p>Реквізити</p>
                               <a href={linkback.link}>{linkback.link}</a>
-                              <button className="edit-contacts">
+                              <button className="edit-cont">
                                  <AdminIconEdit />
                               </button>
                            </div>
