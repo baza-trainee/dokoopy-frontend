@@ -54,7 +54,7 @@ export const AdminChangePassword = () => {
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
           setShowErrorMessage(false);
-        }, 3000);
+        }, 10000);
     
         return () => clearTimeout(timer);
       }
@@ -83,7 +83,7 @@ export const AdminChangePassword = () => {
              border: '1px solid var(--inputs_color, #ACACAC)',
            });
            setShowErrorMessage2(false);
-         }, 3000);
+         }, 10000);
 
          return () => clearTimeout(timer);
       }
@@ -100,7 +100,7 @@ export const AdminChangePassword = () => {
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
            setShowErrorMessage4(false);
-         }, 3000);
+         }, 10000);
 
          return () => clearTimeout(timer);
       }
@@ -117,13 +117,48 @@ export const AdminChangePassword = () => {
             border: '1px solid red',
           });
            setShowErrorMessage4(false);
-         }, 3000);
+         }, 10000);
 
          return () => clearTimeout(timer);
       }
          
    }, [showErrorMessage4]);
 
+   useEffect(() => {
+      if (showErrorMessage5) {
+         setNewInputStyles({
+            border: '1px solid red',
+          });
+         const timer = setTimeout(() => {
+           setShowErrorMessage5(false);
+           setNewInputStyles({
+            border: '1px solid red',
+          });
+           setShowErrorMessage5(false);
+         }, 10000);
+
+         return () => clearTimeout(timer);
+      }
+         
+   }, [showErrorMessage5]);
+
+   useEffect(() => {
+      if (showErrorMessage6) {
+         setNewInputStyles({
+            border: '1px solid red',
+          });
+         const timer = setTimeout(() => {
+           setShowErrorMessage6(false);
+           setNewInputStyles({
+            border: '1px solid red',
+          });
+           setShowErrorMessage6(false);
+         }, 10000);
+
+         return () => clearTimeout(timer);
+      }
+         
+   }, [showErrorMessage6]);
 
    const toggleVisibility = (passwordType) => {
       if (passwordType === "current") {
@@ -140,16 +175,11 @@ export const AdminChangePassword = () => {
 
     function editPassword(event) {
       event.preventDefault();
-    
+      // Перевірка, чи заповнені поля
       if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
         setShowErrorMessage2(true);
         return;
       }
-    
-      if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
-         setShowErrorMessage2(true);
-         return;
-       }
      
        // Перевірка, чи новий пароль має довжину не менше 6 символів
        if (newPassword.length < 6) {
@@ -157,31 +187,30 @@ export const AdminChangePassword = () => {
          return;
        }
      
+
+      // Перевірка, чи пароль містить великі літери
+      if (!/[A-Z]/.test(newPassword) || !/[a-z]/.test(newPassword)) {
+          setShowErrorMessage6(true);
+          return;
+      }
+
+
        // Перевірка, чи пароль містить пробілі
        if (/\s/.test(newPassword)) {
          setShowErrorMessage5(true);
          return;
        }
      
-       // Перевірка, чи пароль містить великі літери
-       if (!/[A-Z]/.test(newPassword)) {
-         setShowErrorMessage6(true);
-         return;
-       }
      
-       // Перевірка, чи пароль містить малі літери
-       if (!/[a-z]/.test(newPassword)) {
-         setShowErrorMessage7(true);
-         return;
-       }
-    
+
+    // Перевірка, чи паролі збігаються новий з підтвердженням
       if (newPassword === confirmPassword) {
         setPasswordMismatch(false);
         const body = {
-          password: currentPassword,
+          password: currentPassword, //зберігає введені дані
           newPassword: newPassword,
         };
-        AdminApi.changePasswordAdmin(body).then(() => {
+        AdminApi.changePasswordAdmin(body).then(() => {     
          setCurrentPassword("");
          setNewPassword("");
          setConfirmPassword("");
@@ -193,8 +222,6 @@ export const AdminChangePassword = () => {
       } else {
         setPasswordMismatch(true);
         setShowErrorMessage(true);
-        setNewPassword("");
-        setConfirmPassword("");
       }
     }
 
@@ -276,9 +303,6 @@ export const AdminChangePassword = () => {
                   )}
                    {showErrorMessage6 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити великі літери</p>
-                  )}
-                   {showErrorMessage5 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити малі літери</p>
                   )}
                </label>
                </div>
