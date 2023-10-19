@@ -98,12 +98,13 @@
    margin: 0 auto;
    width: 90%;
    max-width: 432px;
-   padding: 18px 0px;
+   padding: 17px 0px;
    margin-top: 100px;
    color: var(--white);
    font-family: PT Sans;
    font-size: 24px;
    font-weight: 700;
+   line-height: normal;
    text-transform: uppercase;
    border: 1px solid var(--white);
    display: flex;
@@ -132,6 +133,9 @@
    }
    .title-dark {
       padding: 100px 0 20px 0;
+   }
+   .projects-btn {
+      width: 276px;      
    }
 }
 @media (min-width: 1280px) {
