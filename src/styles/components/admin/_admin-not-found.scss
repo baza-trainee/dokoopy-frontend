@@ -1,5 +1,5 @@
 .admin-wrapper-error{
-   height: 100%;
+   height: 100vh;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -8,15 +8,22 @@
    padding: 18px;   
 }
 
+.admin-error-content{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   flex-grow: 1;
+}
+
 .admin-error-title {
    color: var(--admin-title-color);
    font-family: Roboto;
-   font-size: 150px;
+   font-size: 100px;
    font-style: normal;
    font-weight: 500;
    line-height: normal;
-   text-align: center;
-   margin-top: 88px;
 }
 
 .admin-error-text-warning {
@@ -27,11 +34,11 @@
    font-weight: 600;
    line-height: normal;
    text-align: center;
+   margin-top: 20px;
+   margin-bottom: 22px;
 }
 
 .admin-error-text {
-   margin-top: 22px;
-   margin-bottom: 102px;
    color: var(--admin-title-color);
    font-family: Roboto;
    font-size: 17px;
@@ -39,7 +46,6 @@
    font-weight: 400;
    line-height: normal;
    text-align: center;
-   max-width: 284px;
 }
 
 .admin-error-btn {
@@ -51,42 +57,26 @@
    line-height: normal;
    text-decoration-line: underline;
    text-align: center;
-   width: 206px;
+   margin-bottom: 30px;
 }
 
  @media screen and (min-width: 480px) {
-      .admin-error-title {           
-         margin-top: 138px;  
-      } 
-      .admin-error-text {          
-         margin-top: 19px;
-         margin-bottom: 184px;
-         max-width: 309px;
-      }
       .admin-error-btn {   
          font-size: 18px;
-         width: 100%;
       }
  }
 
   @media screen and (min-width: 768px) {
-     .admin-error-title {     
-         margin-top: 198px;
+     .admin-error-title {   
          font-size: 250px;
      }
       .admin-error-text-warning {
          font-size: 40px;              
       }
-      .admin-error-text {                    
-         margin-top: 20px;
-         margin-bottom: 53px;
-         max-width: 100%;
+      .admin-error-text {                   
          font-size: 20px;
-      }               
+      }  
+      .admin-error-btn {
+         margin-bottom: 140px;
+      }
   }
-
-   @media screen and (min-width: 1280px) {
-      .admin-error-title {     
-         margin-top: 158px;
-      } 
-   }
