@@ -11,7 +11,9 @@ export const AppProvider = ({ children }) => {
    const [token, setToken] = useState("");
    const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem("isLoggedIn"));
    const [isLoading, setIsLoading] = useState(false);
-   const [language, setLanguage] = useState(sessionStorage.getItem("preferableLanguage"));
+   const [language, setLanguage] = useState(
+      JSON.parse(sessionStorage.getItem("preferableLanguage"))
+   );
 
    const currentLanguage = navigator.language;
 
