@@ -352,7 +352,7 @@ export const AdminChangePassword = () => {
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити пробілів</p>
                   )}
                    {showErrorMessage6 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити великі літери</p>
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну велику літеру</p>
                   )}
                    {showErrorMessage7 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити кирилицю</p>
