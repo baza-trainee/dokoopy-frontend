@@ -22,7 +22,7 @@ export const Contacts = () => {
    }
    const contactData = data.contacts || [];
 
-   const removeAtSymbol = (text) => text.replace("@", "");
+   const removeAtSymbol = (text) => text.replace(/^@/, "");
 
    return (
       <section className="contact">
