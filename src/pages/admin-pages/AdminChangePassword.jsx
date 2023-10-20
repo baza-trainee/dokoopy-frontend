@@ -120,7 +120,7 @@ export const AdminChangePassword = () => {
          const timer = setTimeout(() => {
            setShowErrorMessage4(false);
            setNewInputStyles({
-            border: '1px solid red',
+            border: '1px solid var(--inputs_color, #ACACAC)',
           });
            setShowErrorMessage4(false);
          }, 7000);
@@ -138,7 +138,7 @@ export const AdminChangePassword = () => {
          const timer = setTimeout(() => {
            setShowErrorMessage5(false);
            setNewInputStyles({
-            border: '1px solid red',
+            border: '1px solid var(--inputs_color, #ACACAC)',
           });
            setShowErrorMessage5(false);
          }, 7000);
@@ -156,7 +156,7 @@ export const AdminChangePassword = () => {
          const timer = setTimeout(() => {
            setShowErrorMessage6(false);
            setNewInputStyles({
-            border: '1px solid red',
+            border: '1px solid var(--inputs_color, #ACACAC)',
           });
            setShowErrorMessage6(false);
          }, 7000);
@@ -173,7 +173,7 @@ export const AdminChangePassword = () => {
        const timer = setTimeout(() => {
          setShowErrorMessage7(false);
          setNewInputStyles({
-          border: '1px solid red',
+          border: '1px solid var(--inputs_color, #ACACAC)',
         });
          setShowErrorMessage7(false);
        }, 7000);
@@ -190,7 +190,7 @@ export const AdminChangePassword = () => {
      const timer = setTimeout(() => {
        setShowErrorMessage8(false);
        setNewInputStyles({
-        border: '1px solid red',
+        border: '1px solid var(--inputs_color, #ACACAC)',
       });
        setShowErrorMessage8(false);
      }, 7000);
