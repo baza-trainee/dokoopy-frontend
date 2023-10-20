@@ -12,6 +12,7 @@ export const Contacts = () => {
 
 
    const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getContact);
+   
    if (isLoading) {
       return <p>Loading...</p>;
    }
@@ -21,6 +22,7 @@ export const Contacts = () => {
    }
    const contactData = data.contacts || [];
 
+   const removeAtSymbol = (text) => text.replace("@", "");
 
    return (
       <section className="contact">
@@ -38,11 +40,7 @@ export const Contacts = () => {
                         <a className="navigation-list-item" href={`mailto:${contact.email}`}>
                            email
                         </a>
-                        <a className="navigation-list-item"
-                           href={`https://t.me/${contact.telegram}`}
-                              target="_blank">
-                            telegram
-                         </a>
+                        <a className="navigation-list-item" href={`https://t.me/${removeAtSymbol(contact.telegram)}`} target="_blank">telegram</a>
                      </li>
                   ))}
                </ul>
