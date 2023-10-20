@@ -12,7 +12,17 @@ export const Contacts = () => {
 
 
    const { data, isLoading, error, eventLoading } = useLoadingData(lendingData.getContact);
-   console.log(data);
+   
+   if (isLoading) {
+      return <p>Loading...</p>;
+   }
+
+   if (error) {
+      return <p>Error: {error.message}</p>;
+   }
+   const contactData = data.contacts || [];
+
+   const removeAtSymbol = (text) => text.replace("@", "");
 
    return (
       <section className="contact">
@@ -22,16 +32,18 @@ export const Contacts = () => {
                   <h2 className="contact-box-title-h2">{localization.contacts.title}</h2>
                   <p className="contact-box-title-p">{localization.contacts.appeal}</p>
                </div>
-               <div className="contact-link ">
-                  <a className="navigation-list-item" href={`mailto:${data?.contacts?.email}`}>
-                     email
-                  </a>
-                  <a className="navigation-list-item"
-                     href={`https://t.me/${data?.contacts?.telegram}`}
-                     target="_blank">
-                     telegram
-                  </a>
-               </div>
+               <ul className="contact-link ">
+                  {contactData.map(contact => (
+
+
+                     <li key={contact._id} className="contact-link ">
+                        <a className="navigation-list-item" href={`mailto:${contact.email}`}>
+                           email
+                        </a>
+                        <a className="navigation-list-item" href={`https://t.me/${removeAtSymbol(contact.telegram)}`} target="_blank">telegram</a>
+                     </li>
+                  ))}
+               </ul>
             </div>
          </div>
       </section>

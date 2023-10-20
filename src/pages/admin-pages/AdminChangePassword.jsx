@@ -2,7 +2,7 @@ import { EditEyeOpened } from "../../assets/admin-icons/edit-password-eye-o";
 import { EditEyeClosed } from "../../assets/admin-icons/edit-password-eye-c";
 import { useState, useEffect } from "react";
 import { AdminApi } from "../../api/api";
-import { useNavigate } from "react-router-dom";
+import { AdminModalSuccessful } from "../../components/admin-components/AdminModalSuccessful";
 
 export const AdminChangePassword = () => {
    const [currentPassword, setCurrentPassword] = useState('');
@@ -19,10 +19,11 @@ export const AdminChangePassword = () => {
    const [showErrorMessage5, setShowErrorMessage5] = useState(false);
    const [showErrorMessage6, setShowErrorMessage6] = useState(false);
    const [showErrorMessage7, setShowErrorMessage7] = useState(false);
+   const [showErrorMessage8, setShowErrorMessage8] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
-   const navigate = useNavigate();
+   const [isModalTrue, setIsModalTrue] = useState(false);
    const [newInputStyles, setNewInputStyles] = useState({
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
@@ -54,7 +55,7 @@ export const AdminChangePassword = () => {
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
           setShowErrorMessage(false);
-        }, 10000);
+        }, 7000);
     
         return () => clearTimeout(timer);
       }
@@ -105,7 +106,7 @@ export const AdminChangePassword = () => {
             border: '1px solid var(--inputs_color, #ACACAC)',
           });
            setShowErrorMessage4(false);
-         }, 10000);
+         }, 7000);
 
          return () => clearTimeout(timer);
       }
@@ -122,7 +123,7 @@ export const AdminChangePassword = () => {
             border: '1px solid red',
           });
            setShowErrorMessage4(false);
-         }, 10000);
+         }, 7000);
 
          return () => clearTimeout(timer);
       }
@@ -140,7 +141,7 @@ export const AdminChangePassword = () => {
             border: '1px solid red',
           });
            setShowErrorMessage5(false);
-         }, 10000);
+         }, 7000);
 
          return () => clearTimeout(timer);
       }
@@ -158,12 +159,47 @@ export const AdminChangePassword = () => {
             border: '1px solid red',
           });
            setShowErrorMessage6(false);
-         }, 10000);
+         }, 7000);
 
          return () => clearTimeout(timer);
-      }
-         
+      }    
    }, [showErrorMessage6]);
+
+   useEffect(() => {
+    if (showErrorMessage7) {
+       setNewInputStyles({
+          border: '1px solid red',
+        });
+       const timer = setTimeout(() => {
+         setShowErrorMessage7(false);
+         setNewInputStyles({
+          border: '1px solid red',
+        });
+         setShowErrorMessage7(false);
+       }, 7000);
+
+       return () => clearTimeout(timer);
+    }     
+ }, [showErrorMessage7]);
+
+ useEffect(() => {
+  if (showErrorMessage8) {
+     setNewInputStyles({
+        border: '1px solid red',
+      });
+     const timer = setTimeout(() => {
+       setShowErrorMessage8(false);
+       setNewInputStyles({
+        border: '1px solid red',
+      });
+       setShowErrorMessage8(false);
+     }, 7000);
+
+     return () => clearTimeout(timer);
+  }
+}, [showErrorMessage8]);
+
+
 
    const toggleVisibility = (passwordType) => {
       if (passwordType === "current") {
@@ -192,13 +228,22 @@ export const AdminChangePassword = () => {
          return;
        }
      
+      // Перевірка, чи пароль містить кирилицю
+      if (/[А-ЯЁ]/i.test(newPassword)) {
+          setShowErrorMessage7(true);
+          return;
 
+      }
       // Перевірка, чи пароль містить великі літери
       if (!/[A-Z]/.test(newPassword)) {
           setShowErrorMessage6(true);
           return;
       }
-
+      // Перевірка, чи пароль містить все у верхньому регістрі
+      if (newPassword === newPassword.toUpperCase()) {
+        setShowErrorMessage8(true);
+        return;
+      }
 
        // Перевірка, чи пароль містить пробілі
        if (/\s/.test(newPassword)) {
@@ -219,7 +264,7 @@ export const AdminChangePassword = () => {
          setCurrentPassword("");
          setNewPassword("");
          setConfirmPassword("");
-         navigate("/login/successful-renew");
+         setIsModalTrue(true);
        }).catch((error) => {
          setShowErrorMessage3(true);
        });
@@ -309,11 +354,18 @@ export const AdminChangePassword = () => {
                    {showErrorMessage6 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити великі літери</p>
                   )}
+                   {showErrorMessage7 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити кирилицю</p>
+                  )}
+                   {showErrorMessage8 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити усі великі літери</p>
+                  )}
                </label>
                </div>
                <button className="edit-password-btn" type="submit">Змінити пароль</button>
             </form>
          </div>
+         {isModalTrue && (<AdminModalSuccessful/>)}
       </div>
    );
 };
