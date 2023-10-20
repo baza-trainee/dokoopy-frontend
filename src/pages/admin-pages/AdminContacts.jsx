@@ -29,7 +29,7 @@ export const AdminContacts = () => {
                      <Link to="edit" state={{ item: contact }}>
                         <div className="contacts-li">
                            <p>Email</p>
-                           <a href={contact.email}>{contact.email}</a>
+                           <h4 className="contacts-li-a">{contact.email}</h4>
                            <button className="edit-contacts">
                               <AdminIconEdit />
                            </button>
@@ -42,7 +42,7 @@ export const AdminContacts = () => {
                      <Link to="edit" state={{ item: contact }}>
                         <div className="contacts-li">
                            <p>Telegram</p>
-                           <a href={contact.telegram}>{contact.telegram}</a>
+                           <h4 className="contacts-li-a">{contact.telegram}</h4>
                            <button className="edit-contacts">
                               <AdminIconEdit />
                            </button>

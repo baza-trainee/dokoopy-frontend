@@ -11,6 +11,8 @@
     padding: 12px 5px;
     align-items: center;
     flex-shrink: 0;
+    border-bottom: 1px solid var( --admin-table-header-background);
+    background: var(--background-light);
 }
 .bank-contacts-header h2{
     color: var(--admin-title-color);
@@ -80,8 +82,7 @@
     font-weight: 400;
     line-height: normal;
 }
-.bank-li a{
-
+.bank-li-a{
     display: flex;
     width: 70px;
     color: var(--admin-main-accent);
@@ -128,6 +129,8 @@
         justify-content: space-between;
         align-items: center;
         flex-shrink: 0;
+        border-bottom: 1px solid var( --admin-table-header-background);
+        background: var(--background-light);
     }
     .bank-contacts-header h2{
         color: var(--admin-title-color);
@@ -193,7 +196,7 @@
         font-weight: 400;
         line-height: normal;
     }
-    .bank-li a{
+    .bank-li-a{
         display: flex;
         width: 106px;
         color: var(--admin-main-accent);
@@ -225,6 +228,8 @@
         padding: 37px 20px;
         justify-content: space-between;
         align-items: center;
+        border-bottom: 1px solid var( --admin-table-header-background);
+        background: var(--background-light);
     }
     .bank-contacts-header h2{
         flex: 1 0 0;
@@ -291,7 +296,7 @@
         line-height: normal;
     }
 
-    .bank-li a{
+.bank-li-a{
         width: 135px;
         color: var(--admin-main-accent);
         font-family: Roboto;
@@ -404,7 +409,7 @@
         font-weight: 400;
         line-height: normal;
     }
-    .bank-li a{
+    .bank-li-a{
         width: 240px;
         color: var(--admin-main-accent);
         font-family: Roboto;

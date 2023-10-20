@@ -467,7 +467,7 @@
       font-weight: 400;
       line-height: normal;
    }
-   .contacts-li a {
+   .contacts-li-a {
       width: 70px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -577,7 +577,7 @@
       font-weight: 400;
       line-height: normal;
    }
-   .contacts-li a {
+.contacts-li-a {
       width: 106px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -675,7 +675,7 @@
       font-weight: 400;
       line-height: normal;
    }
-   .contacts-li a {
+   .contacts-li-a {
       width: 135px;
       color: var(--admin-button-accent);
       font-family: Roboto;
@@ -771,7 +771,7 @@
       width: 240px;
       flex-shrink: 0;
    }
-   .contacts-li a{
+   .contacts-li-a{
        width: 240px;
        color: var(--admin-button-accent);
    }
