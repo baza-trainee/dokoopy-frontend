@@ -31,11 +31,10 @@ import { useLoadingData } from "../../hook/useLoadingData";
 //       alt: "slider_photo",
 //    },
 // ];
-export const AdminHero = () => {
+const AdminHero = () => {
    const [sliders, setSliders] = useState([]);
    const { data, isLoading } = useLoadingData(AdminApi.getHerosAdmin);
    const { pathname } = useLocation();
- 
 
    useEffect(() => {
       if (data !== null) {
@@ -54,3 +53,5 @@ export const AdminHero = () => {
       </div>
    );
 };
+
+export default AdminHero;

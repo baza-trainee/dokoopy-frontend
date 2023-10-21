@@ -4,7 +4,7 @@ import fileText from "../../assets/icon/filetext.svg";
 import { Spinner } from "../../components/admin-components/Spinner";
 import { useLoadingData } from "../../hook/useLoadingData";
 
-export const AdminReporting = () => {
+const AdminReporting = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getReportsAdmin);
    const reports = data?.result || [];
 
@@ -33,16 +33,14 @@ export const AdminReporting = () => {
          </div>
          <div className="reporting-container-card">
             <ul className="reporting-files">
-               {data.result.map((report) => {
+               {data.result.map(report => {
                   const fileName = report.reportURL.split("dokoopy/")[1].split(".")[0];
                   return (
                      <li className="reporting-cards" key={report._id}>
                         <div className="card-reporting">
                            <Link to="edit" state={{ item: report }} className="card-reporting">
                               <img src={fileText} alt="File" />
-                              <h4 className="card-reporting-h4"
-                                 rel="noopener noreferrer"
-                              >
+                              <h4 className="card-reporting-h4" rel="noopener noreferrer">
                                  {fileName}
                               </h4>
                            </Link>
@@ -55,3 +53,5 @@ export const AdminReporting = () => {
       </div>
    );
 };
+
+export default AdminReporting;

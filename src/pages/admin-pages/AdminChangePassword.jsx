@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { AdminApi } from "../../api/api";
 import { AdminModalSuccessful } from "../../components/admin-components/AdminModalSuccessful";
 
-export const AdminChangePassword = () => {
-   const [currentPassword, setCurrentPassword] = useState('');
-   const [newPassword, setNewPassword] = useState('');
-   const [confirmPassword, setConfirmPassword] = useState('');
+const AdminChangePassword = () => {
+   const [currentPassword, setCurrentPassword] = useState("");
+   const [newPassword, setNewPassword] = useState("");
+   const [confirmPassword, setConfirmPassword] = useState("");
    const [typeCurrentPassword, setTypeCurrentPassword] = useState("password");
    const [typeNewPassword, setTypeNewPassword] = useState("password");
    const [typeConfirmPassword, setTypeConfirmPassword] = useState("password");
@@ -24,29 +24,29 @@ export const AdminChangePassword = () => {
    const [showErrorMessage10, setShowErrorMessage10] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
-   const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);  
+   const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
    const [isModalTrue, setIsModalTrue] = useState(false);
    const openModal = () => {
       setIsModalTrue(true);
       console.log("Modal opened, isModalOpen: true");
-      };
+   };
    const closeModal = () => {
       setIsModalTrue(false);
       console.log("Modal closed, isModalOpen: false");
-    }; 
+   };
    const [newInputStyles, setNewInputStyles] = useState({
-      border: '1px solid var(--inputs_color, #ACACAC)',
-    });
-    const [confirmInputStyles, setConfirmInputStyles] = useState({
-      border: '1px solid var(--inputs_color, #ACACAC)',
-      });
-    const [currentInputStyles, setCurrentInputStyles] = useState({
-      border: '1px solid var(--inputs_color, #ACACAC)',
-    });
-   
-   const handleChange = (event) => {
-         setCurrentPassword(event.target.value);
-    };
+      border: "1px solid var(--inputs_color, #ACACAC)",
+   });
+   const [confirmInputStyles, setConfirmInputStyles] = useState({
+      border: "1px solid var(--inputs_color, #ACACAC)",
+   });
+   const [currentInputStyles, setCurrentInputStyles] = useState({
+      border: "1px solid var(--inputs_color, #ACACAC)",
+   });
+
+   const handleChange = event => {
+      setCurrentPassword(event.target.value);
+   };
 
    const toggleVisibility = (passwordType) => {
       if (passwordType === "current") {
@@ -63,29 +63,30 @@ export const AdminChangePassword = () => {
 
     useEffect(() => {
       if (showErrorMessage) {
-        setNewInputStyles({
-          border: '1px solid red',
-        });
-        setConfirmInputStyles({
-          border: '1px solid red',
-        });
-        const timer = setTimeout(() => {
-          setShowErrorMessage(false);
-          setNewInputStyles({
-            border: '1px solid var(--inputs_color, #ACACAC)',
-          });
-          setConfirmInputStyles({
-            border: '1px solid var(--inputs_color, #ACACAC)',
-          });
-          setShowErrorMessage(false);
-        }, 7000);
-    
-        return () => clearTimeout(timer);
-      }
-    }, [showErrorMessage]);
+         setNewInputStyles({
+            border: "1px solid red",
+         });
+         setConfirmInputStyles({
+            border: "1px solid red",
+         });
+         const timer = setTimeout(() => {
+            setShowErrorMessage(false);
+            setNewInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+            setConfirmInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+            setShowErrorMessage(false);
+         }, 7000);
 
-    useEffect(() => {
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage]);
+
+   useEffect(() => {
       if (showErrorMessage2) {
+
         const inputStyles = {
           current: { border: '1px solid var(--inputs_color, #ACACAC)' },
         };
@@ -145,114 +146,109 @@ export const AdminChangePassword = () => {
    useEffect(() => {
       if (showErrorMessage3) {
          setCurrentInputStyles({
-            border: '1px solid red',
-          });
+            border: "1px solid red",
+         });
          const timer = setTimeout(() => {
-           setShowErrorMessage3(false);
-           setCurrentInputStyles({
-            border: '1px solid var(--inputs_color, #ACACAC)',
-          });
-           setShowErrorMessage4(false);
+            setShowErrorMessage3(false);
+            setCurrentInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+            setShowErrorMessage4(false);
          }, 7000);
 
          return () => clearTimeout(timer);
       }
-   }, [showErrorMessage3]); 
+   }, [showErrorMessage3]);
 
    useEffect(() => {
       if (showErrorMessage4) {
          setNewInputStyles({
-            border: '1px solid red',
-          });
+            border: "1px solid red",
+         });
          const timer = setTimeout(() => {
-           setShowErrorMessage4(false);
-           setNewInputStyles({
-            border: '1px solid var(--inputs_color, #ACACAC)',
-          });
-           setShowErrorMessage4(false);
+            setShowErrorMessage4(false);
+            setNewInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+            setShowErrorMessage4(false);
          }, 7000);
 
          return () => clearTimeout(timer);
       }
-         
    }, [showErrorMessage4]);
 
    useEffect(() => {
       if (showErrorMessage5) {
          setNewInputStyles({
-            border: '1px solid red',
-          });
+            border: "1px solid red",
+         });
          const timer = setTimeout(() => {
-           setShowErrorMessage5(false);
-           setNewInputStyles({
-            border: '1px solid var(--inputs_color, #ACACAC)',
-          });
-           setShowErrorMessage5(false);
+            setShowErrorMessage5(false);
+            setNewInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+            setShowErrorMessage5(false);
          }, 7000);
 
          return () => clearTimeout(timer);
       }
-         
    }, [showErrorMessage5]);
 
    useEffect(() => {
       if (showErrorMessage6) {
          setNewInputStyles({
-            border: '1px solid red',
-          });
+            border: "1px solid red",
+         });
          const timer = setTimeout(() => {
-           setShowErrorMessage6(false);
-           setNewInputStyles({
-            border: '1px solid var(--inputs_color, #ACACAC)',
-          });
-           setShowErrorMessage6(false);
+            setShowErrorMessage6(false);
+            setNewInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+            setShowErrorMessage6(false);
          }, 7000);
 
          return () => clearTimeout(timer);
-      }    
+      }
    }, [showErrorMessage6]);
 
    useEffect(() => {
-    if (showErrorMessage7) {
-       setNewInputStyles({
-          border: '1px solid red',
-        });
-       const timer = setTimeout(() => {
-         setShowErrorMessage7(false);
+      if (showErrorMessage7) {
          setNewInputStyles({
-          border: '1px solid var(--inputs_color, #ACACAC)',
-        });
-         setShowErrorMessage7(false);
-       }, 7000);
+            border: "1px solid red",
+         });
+         const timer = setTimeout(() => {
+            setShowErrorMessage7(false);
+            setNewInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+            setShowErrorMessage7(false);
+         }, 7000);
 
-       return () => clearTimeout(timer);
-    }     
- }, [showErrorMessage7]);
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage7]);
 
- useEffect(() => {
-  if (showErrorMessage8) {
-     setNewInputStyles({
-        border: '1px solid red',
-      });
-     const timer = setTimeout(() => {
-       setShowErrorMessage8(false);
-       setNewInputStyles({
-        border: '1px solid var(--inputs_color, #ACACAC)',
-      });
-       setShowErrorMessage8(false);
-     }, 7000);
+   useEffect(() => {
+      if (showErrorMessage8) {
+         setNewInputStyles({
+            border: "1px solid red",
+         });
+         const timer = setTimeout(() => {
+            setShowErrorMessage8(false);
+            setNewInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+            setShowErrorMessage8(false);
+         }, 7000);
 
-     return () => clearTimeout(timer);
-  }
-}, [showErrorMessage8]);
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage8]);
 
-
-
-
-
-    function editPassword(event) {
+   function editPassword(event) {
       event.preventDefault();
       // Перевірка, чи заповнені поля
+
       if (currentPassword.trim() === ''){
                 setShowErrorMessage2(true);
         return;
@@ -263,61 +259,60 @@ export const AdminChangePassword = () => {
       } if (confirmPassword.trim() === '') {
         setShowErrorMessage10(true);
         return;
+
       }
-     
-       // Перевірка, чи новий пароль має довжину не менше 6 символів
-       if (newPassword.length < 6) {
+
+      // Перевірка, чи новий пароль має довжину не менше 6 символів
+      if (newPassword.length < 6) {
          setShowErrorMessage4(true);
          return;
-       }
-     
+      }
+
       // Перевірка, чи пароль містить кирилицю
       if (/[А-ЯЁ]/i.test(newPassword)) {
-          setShowErrorMessage7(true);
-          return;
-
+         setShowErrorMessage7(true);
+         return;
       }
       // Перевірка, чи пароль містить великі літери
       if (!/[A-Z]/.test(newPassword)) {
-          setShowErrorMessage6(true);
-          return;
+         setShowErrorMessage6(true);
+         return;
       }
       // Перевірка, чи пароль містить все у верхньому регістрі
       if (newPassword === newPassword.toUpperCase()) {
-        setShowErrorMessage8(true);
-        return;
+         setShowErrorMessage8(true);
+         return;
       }
 
-       // Перевірка, чи пароль містить пробілі
-       if (/\s/.test(newPassword)) {
+      // Перевірка, чи пароль містить пробілі
+      if (/\s/.test(newPassword)) {
          setShowErrorMessage5(true);
          return;
-       }
-     
-     
-
-    // Перевірка, чи паролі збігаються новий з підтвердженням
-      if (newPassword === confirmPassword) {
-        setPasswordMismatch(false);
-        const body = {
-          password: currentPassword, //зберігає введені дані
-          newPassword: newPassword,
-        };
-        AdminApi.changePasswordAdmin(body).then(() => {     
-         setCurrentPassword("");
-         setNewPassword("");
-         setConfirmPassword("");
-         openModal();
-         setIsModalTrue(true);
-       }).catch((error) => {
-         setShowErrorMessage3(true);
-       });
- 
-      } else {
-        setPasswordMismatch(true);
-        setShowErrorMessage(true);
       }
-    }
+
+      // Перевірка, чи паролі збігаються новий з підтвердженням
+      if (newPassword === confirmPassword) {
+         setPasswordMismatch(false);
+         const body = {
+            password: currentPassword, //зберігає введені дані
+            newPassword: newPassword,
+         };
+         AdminApi.changePasswordAdmin(body)
+            .then(() => {
+               setCurrentPassword("");
+               setNewPassword("");
+               setConfirmPassword("");
+               openModal();
+               setIsModalTrue(true);
+            })
+            .catch(error => {
+               setShowErrorMessage3(true);
+            });
+      } else {
+         setPasswordMismatch(true);
+         setShowErrorMessage(true);
+      }
+   }
 
    return (
       <div className="admin-change-password">
@@ -327,20 +322,21 @@ export const AdminChangePassword = () => {
          <div className="inputs-admin-change-password">
             <form onSubmit={editPassword} className="admin-change-form">
                <div className="all-input-change">
-               <label className="this-admin-change-password">
-                  <p>Поточний пароль*</p>
-                  <div className="this-admin-change-password-input" style={currentInputStyles}>
-                  <input
-                        type={typeCurrentPassword}
-                        value={currentPassword}
-                        onChange={handleChange}
-                        placeholder="************"
+                  <label className="this-admin-change-password">
+                     <p>Поточний пароль*</p>
+                     <div className="this-admin-change-password-input" style={currentInputStyles}>
+                        <input
+                           type={typeCurrentPassword}
+                           value={currentPassword}
+                           onChange={handleChange}
+                           placeholder="************"
                         />
-                  {isVisibleCurrentPassword ? (
-                        <EditEyeClosed onClick={() => toggleVisibility("current")} />
+                        {isVisibleCurrentPassword ? (
+                           <EditEyeClosed onClick={() => toggleVisibility("current")} />
                         ) : (
-                        <EditEyeOpened onClick={() => toggleVisibility("current")} />
+                           <EditEyeOpened onClick={() => toggleVisibility("current")} />
                         )}
+
                   </div>
                {showErrorMessage3 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Поточний пароль невірний</p>
@@ -348,24 +344,32 @@ export const AdminChangePassword = () => {
                                     {showErrorMessage2 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
+
                   </label>
-               <label className="new-admin-change-password">
-                  <p>Новий пароль*</p>
-                  <div className="new-admin-change-password-input" style={newInputStyles}>
-                  <input
-                     type={typeNewPassword}
-                     value={newPassword}
-                     onChange={(e) => {
-                        setNewPassword(e.target.value);
-                        setPasswordMismatch(false); 
-                     }}
-                     placeholder="************"
-                  />
-                  {isVisibleNewPassword ? (
-                     <EditEyeClosed onClick={() => toggleVisibility("new")} />
-                     ) : (
-                        <EditEyeOpened onClick={() => toggleVisibility("new")} />
+                  <label className="new-admin-change-password">
+                     <p>Новий пароль*</p>
+                     <div className="new-admin-change-password-input" style={newInputStyles}>
+                        <input
+                           type={typeNewPassword}
+                           value={newPassword}
+                           onChange={e => {
+                              setNewPassword(e.target.value);
+                              setPasswordMismatch(false);
+                           }}
+                           placeholder="************"
+                        />
+                        {isVisibleNewPassword ? (
+                           <EditEyeClosed onClick={() => toggleVisibility("new")} />
+                        ) : (
+                           <EditEyeOpened onClick={() => toggleVisibility("new")} />
+                        )}
+                     </div>
+                     {showErrorMessage4 && (
+                        <p className="error-icon-message" style={{ color: "red" }}>
+                           Введіть пароль довжиною не менше 6 символів
+                        </p>
                      )}
+
                </div>
                    {showErrorMessage4 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Введіть пароль довжиною не менше 6 символів</p>
@@ -400,9 +404,11 @@ export const AdminChangePassword = () => {
                   />
                   {isVisibleConfirmPassword ? (
                      <EditEyeClosed onClick={() => toggleVisibility("confirm")} />
+
                         ) : (
-                     <EditEyeOpened onClick={() => toggleVisibility("confirm")} />
+                           <EditEyeOpened onClick={() => toggleVisibility("confirm")} />
                         )}
+
                   </div>
                   {showErrorMessage && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Нові паролі не співпадають</p>
@@ -411,11 +417,16 @@ export const AdminChangePassword = () => {
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
                </label>
+
                </div>
-               <button className="edit-password-btn" type="submit">Змінити пароль</button>
+               <button className="edit-password-btn" type="submit">
+                  Змінити пароль
+               </button>
             </form>
          </div>
          <AdminModalSuccessful isModalTrue={isModalTrue} closeModal={closeModal} />
       </div>
    );
 };
+
+export default AdminChangePassword;

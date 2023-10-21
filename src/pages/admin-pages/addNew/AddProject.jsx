@@ -3,7 +3,8 @@ import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
-export const AddProject = () => {
+
+const AddProject = () => {
    const { eventLoading, data } = useLoadingData(AdminApi.addProject, true);
 
    const submitClick = data => {
@@ -31,3 +32,5 @@ export const AddProject = () => {
       </section>
    );
 };
+
+export default AddProject;

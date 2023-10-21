@@ -32,7 +32,7 @@ import { Spinner } from "../../components/admin-components/Spinner";
 //    },
 // ];
 
-export const AdminProjects = () => {
+const AdminProjects = () => {
    const { pathname } = useLocation();
    const [projects, setProjects] = useState([]);
    const { data, isLoading } = useLoadingData(AdminApi.getProjectAdmin);
@@ -54,3 +54,5 @@ export const AdminProjects = () => {
       </div>
    );
 };
+
+export default AdminProjects;

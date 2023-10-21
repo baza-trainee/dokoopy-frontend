@@ -4,7 +4,8 @@ import { AddForm } from "../../../components/admin-components/AddForm";
 import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema.js";
 import { useLoadingData } from "../../../hook/useLoadingData.js";
-export const EditProject = () => {
+
+const EditProject = () => {
    const { state } = useLocation();
    const deleteProject = useLoadingData(AdminApi.deleteProject, true);
    const updateProject = useLoadingData(AdminApi.updateProject, true);
@@ -46,3 +47,5 @@ export const EditProject = () => {
       </section>
    );
 };
+
+export default EditProject;

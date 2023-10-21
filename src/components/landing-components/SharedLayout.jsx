@@ -1,8 +1,8 @@
-// import { LandingProvider } from "../provider-components/landing-provider";
+import { Suspense } from "react";
+import { Outlet } from "react-router-dom";
 
 import { useAppContext } from "../provider-components/app-provider";
 
-import { Outlet } from "react-router-dom";
 import { Footer } from "../landing-components/Footer";
 import { Header } from "../landing-components/Header";
 
@@ -17,7 +17,9 @@ export const SharedLayout = () => {
             <Header></Header>
          </div>
          <main className="wrapper-general-main">
-            <Outlet testPropsShared={"testPropsShared"} />
+            <Suspense fallback={<div>Loading...</div>}>
+               <Outlet />
+            </Suspense>
          </main>
          <Footer></Footer>
       </div>

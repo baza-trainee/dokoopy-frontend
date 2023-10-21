@@ -2,6 +2,8 @@ import { useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
+import { useAppContext } from "../provider-components/app-provider";
+
 import { CloseModal } from "../../assets/icon/close-modal";
 import { AdminSliderIcon } from "../../assets/admin-icons/admin-slider";
 import { AdminProjectsIcon } from "../../assets/admin-icons/admin-projects";
@@ -13,6 +15,8 @@ import { AdminChangePasswordIcon } from "../../assets/admin-icons/admin-password
 import { AdminLogoutIcon } from "../../assets/admin-icons/admin-logout";
 
 export const AdminMobileMenu = ({ openMenu }) => {
+   const { logOff } = useAppContext();
+
    useEffect(() => {
       window.addEventListener("keydown", handleKeyPress);
 
@@ -31,6 +35,11 @@ export const AdminMobileMenu = ({ openMenu }) => {
       if (event.currentTarget === event.target) {
          openMenu();
       }
+   }
+
+   function logOffHandler() {
+      logOff();
+      openMenu();
    }
 
    return (
@@ -83,7 +92,7 @@ export const AdminMobileMenu = ({ openMenu }) => {
                   <Link to="change-password">Зміна пароля</Link>
                </li>
             </ul>
-            <Link to="/admin" className="admin-mobile-logout">
+            <Link to="/login" onClick={logOffHandler} className="admin-mobile-logout">
                <div className="admin-mobile-list-icon">
                   <AdminLogoutIcon />
                </div>

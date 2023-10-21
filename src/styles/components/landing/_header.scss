@@ -221,7 +221,7 @@
 
 .language-selector-container {
    position: relative;
-   width: 66px;
+   width: 50px;
    min-height: 37px;
    margin-left: auto;
    margin-right: auto;
@@ -239,7 +239,7 @@
 .language-selector_mobile {
    display: flex;
    align-items: center;
-   width: 49px;
+   // width: 49px;
    font-size: 30px;
    line-height: 1.2;
    text-align: center;
@@ -251,7 +251,7 @@
    }
    @media screen and (min-width: 768px) {
       margin-bottom: 150px;
-      width: 86px;
+      width: 78px;
       font-size: 45px;
    }
 

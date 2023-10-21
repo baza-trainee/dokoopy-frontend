@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-export const ForgetPassword = () => {
+const ForgetPassword = () => {
    const navigate = useNavigate();
    const [icon, setIcon] = useState(true);
    const [message, setMessage] = useState(null);
@@ -86,3 +86,5 @@ export const ForgetPassword = () => {
       </div>
    );
 };
+
+export default ForgetPassword;

@@ -4,9 +4,8 @@ import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit";
 import { Spinner } from "../../components/admin-components/Spinner";
 import { useLoadingData } from "../../hook/useLoadingData";
 
-export const AdminContacts = () => {
+const AdminContacts = () => {
    const { data, isLoading } = useLoadingData(AdminApi.getContactsAdmin);
-   
 
    if (isLoading) {
       return <Spinner size={300} color={"#2672e4"} />;
@@ -55,3 +54,5 @@ export const AdminContacts = () => {
       </div>
    );
 };
+
+export default AdminContacts;

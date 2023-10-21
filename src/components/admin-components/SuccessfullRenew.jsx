@@ -1,7 +1,7 @@
 import checkMark from "../../assets/icon/check-mark.svg";
 import { useNavigate } from "react-router-dom";
 
-export const SuccessfullRenew = () => {
+const SuccessfullRenew = () => {
    const navigate = useNavigate();
    return (
       <div className="login-content">
@@ -13,3 +13,5 @@ export const SuccessfullRenew = () => {
       </div>
    );
 };
+
+export default SuccessfullRenew;

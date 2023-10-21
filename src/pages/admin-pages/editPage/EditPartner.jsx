@@ -5,7 +5,7 @@ import { PartnersForm } from "../../../components/admin-components/PartnersForm"
 import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
-export const EditPartner = () => {
+const EditPartner = () => {
    const { state } = useLocation();
 
    const deletePartner = useLoadingData(AdminApi.deletePartners, true);
@@ -44,3 +44,5 @@ export const EditPartner = () => {
       </section>
    );
 };
+
+export default EditPartner;
