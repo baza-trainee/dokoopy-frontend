@@ -298,7 +298,10 @@ export const AdminChangePassword = () => {
                         <EditEyeOpened onClick={() => toggleVisibility("current")} />
                         )}
                   </div>
-               </label>
+               {showErrorMessage3 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Поточний пароль невірний</p>
+                  )}
+                  </label>
                <label className="new-admin-change-password">
                   <p>Новий пароль*</p>
                   <div className="new-admin-change-password-input" style={newInputStyles}>
@@ -317,6 +320,21 @@ export const AdminChangePassword = () => {
                         <EditEyeOpened onClick={() => toggleVisibility("new")} />
                      )}
                </div>
+                   {showErrorMessage4 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Введіть пароль довжиною не менше 6 символів</p>
+                  )}
+                   {showErrorMessage5 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити пробілів</p>
+                  )}
+                   {showErrorMessage6 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну велику літеру</p>
+                  )}
+                   {showErrorMessage7 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити кирилицю</p>
+                  )}
+                   {showErrorMessage8 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну маленьку літеру</p>
+                  )}
                </label>
                <label className="return-admin-change-password">
                   <p>Повторити новий пароль*</p>
@@ -341,24 +359,6 @@ export const AdminChangePassword = () => {
                   )}
                   {showErrorMessage2 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
-                  )}
-                  {showErrorMessage3 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Поточний пароль невірний</p>
-                  )}
-                  {showErrorMessage4 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Введіть пароль довжиною не менше 6 символів</p>
-                  )}
-                   {showErrorMessage5 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити пробілів</p>
-                  )}
-                   {showErrorMessage6 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну велику літеру</p>
-                  )}
-                   {showErrorMessage7 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити кирилицю</p>
-                  )}
-                   {showErrorMessage8 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну маленьку літеру</p>
                   )}
                </label>
                </div>
