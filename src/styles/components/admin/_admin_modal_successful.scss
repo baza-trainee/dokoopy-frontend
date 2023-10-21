@@ -9,11 +9,11 @@
    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1), visibility 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-// .backdrop.is-hidden {
-//    opacity: 0;
-//    visibility: hidden;
-//    pointer-events: none;
-// }
+.backdrop.is-hidden {
+   opacity: 0;
+   visibility: hidden;
+   pointer-events: none;
+}
 
 .modal-successful{
    position: absolute;
@@ -49,6 +49,8 @@
    border-radius: 6px;
    cursor: pointer;   
    padding: 0;
+   border-color: transparent;
+   background-color: transparent;
    
 }
 

@@ -22,8 +22,16 @@ export const AdminChangePassword = () => {
    const [showErrorMessage8, setShowErrorMessage8] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
-   const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);
+   const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);  
    const [isModalTrue, setIsModalTrue] = useState(false);
+   const openModal = () => {
+      setIsModalTrue(true);
+      console.log("Modal opened, isModalOpen: true");
+      };
+   const closeModal = () => {
+      setIsModalTrue(false);
+      console.log("Modal closed, isModalOpen: false");
+    }; 
    const [newInputStyles, setNewInputStyles] = useState({
       border: '1px solid var(--inputs_color, #ACACAC)',
     });
@@ -264,6 +272,7 @@ export const AdminChangePassword = () => {
          setCurrentPassword("");
          setNewPassword("");
          setConfirmPassword("");
+         openModal();
          setIsModalTrue(true);
        }).catch((error) => {
          setShowErrorMessage3(true);
@@ -365,7 +374,7 @@ export const AdminChangePassword = () => {
                <button className="edit-password-btn" type="submit">Змінити пароль</button>
             </form>
          </div>
-         {isModalTrue && (<AdminModalSuccessful/>)}
+         <AdminModalSuccessful isModalTrue={isModalTrue} closeModal={closeModal} />
       </div>
    );
 };
