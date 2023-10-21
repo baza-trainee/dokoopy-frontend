@@ -13,7 +13,7 @@ import { AdminApi } from "../../api/api";
 
 import { useAppContext } from "../provider-components/app-provider";
 
-export const Login = () => {
+const Login = () => {
    const [type, setType] = useState(true);
    const [typeName, setTypeName] = useState("password");
    const [message, setMessage] = useState(null);
@@ -110,3 +110,5 @@ export const Login = () => {
       </div>
    );
 };
+
+export default Login;

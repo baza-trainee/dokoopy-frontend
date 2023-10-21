@@ -37,6 +37,11 @@ export const AdminMobileMenu = ({ openMenu }) => {
       }
    }
 
+   function logOffHandler() {
+      logOff;
+      openMenu();
+   }
+
    return (
       <div onClick={onBackdropHandler} className="mobile-admin-backdrop">
          <div className="admin-mobile-menu-wrapper">
@@ -87,7 +92,7 @@ export const AdminMobileMenu = ({ openMenu }) => {
                   <Link to="change-password">Зміна пароля</Link>
                </li>
             </ul>
-            <Link to="/login" onClick={logOff} className="admin-mobile-logout">
+            <Link to="/login" onClick={logOffHandler} className="admin-mobile-logout">
                <div className="admin-mobile-list-icon">
                   <AdminLogoutIcon />
                </div>

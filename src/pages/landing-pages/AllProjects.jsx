@@ -11,7 +11,7 @@ import { Contacts } from "../../components/sections/Contacts";
 
 import localization from "../../assets/language-switcher/localization";
 
-export const AllProjects = () => {
+const AllProjects = () => {
    const { language } = useAppContext();
    const [project, setProject] = useState([]);
    const { isLoading, error, data } = useLoadingData(lendingData.getProject);
@@ -102,3 +102,5 @@ export const AllProjects = () => {
       </>
    );
 };
+
+export default AllProjects;

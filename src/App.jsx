@@ -1,3 +1,5 @@
+import { lazy } from "react";
+
 import { Route, Routes } from "react-router-dom";
 
 import { PrivateRoute } from "./components/admin-components/PrivateRoute";
@@ -5,13 +7,20 @@ import { PrivateRoute } from "./components/admin-components/PrivateRoute";
 import { SharedLayout } from "./components/landing-components/SharedLayout";
 import { AdminSharedLayout } from "./components/admin-components/AdminSharedLayout";
 
-import { AllProjects } from "./pages/landing-pages/AllProjects";
 import { Home } from "./pages/landing-pages/Home";
-import { NotFound } from "./pages/landing-pages/NotFound";
 
+// ? Landing Pages lazy loading
+const AllProjects = lazy(() => import("./pages/landing-pages/AllProjects"));
+const NotFound = lazy(() => import("./pages/landing-pages/NotFound"));
+
+// ? Login Pages lazy loading
 import { LoginLayout } from "../src/components/admin-components/LoginLayout";
-import { Login } from "./components/admin-components/Login";
-import { ForgetPassword } from "./components/admin-components/ForgetPassword";
+
+const Login = lazy(() => import("./components/admin-components/Login"));
+const ForgetPassword = lazy(() => import("./components/admin-components/ForgetPassword"));
+
+// import { Login } from "./components/admin-components/Login";
+// import { ForgetPassword } from "./components/admin-components/ForgetPassword";
 import { RenewPassword } from "./components/admin-components/RenewPassword";
 import { SuccessfullRenew } from "./components/admin-components/SuccessfullRenew";
 
