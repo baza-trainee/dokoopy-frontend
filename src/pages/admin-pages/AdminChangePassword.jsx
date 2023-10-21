@@ -20,6 +20,8 @@ export const AdminChangePassword = () => {
    const [showErrorMessage6, setShowErrorMessage6] = useState(false);
    const [showErrorMessage7, setShowErrorMessage7] = useState(false);
    const [showErrorMessage8, setShowErrorMessage8] = useState(false);
+   const [showErrorMessage9, setShowErrorMessage9] = useState(false);
+   const [showErrorMessage10, setShowErrorMessage10] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
    const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(false);
    const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(false);  
@@ -44,6 +46,19 @@ export const AdminChangePassword = () => {
    
    const handleChange = (event) => {
          setCurrentPassword(event.target.value);
+    };
+
+   const toggleVisibility = (passwordType) => {
+      if (passwordType === "current") {
+        setIsVisibleCurrentPassword(!isVisibleCurrentPassword);
+        setTypeCurrentPassword(typeCurrentPassword === "password" ? "text" : "password");
+      } else if (passwordType === "new") {
+        setIsVisibleNewPassword(!isVisibleNewPassword);
+        setTypeNewPassword(typeNewPassword === "password" ? "text" : "password");
+      } else if (passwordType === "confirm") {
+        setIsVisibleConfirmPassword(!isVisibleConfirmPassword);
+        setTypeConfirmPassword(typeConfirmPassword === "password" ? "text" : "password");
+      }
     };
 
     useEffect(() => {
@@ -73,35 +88,59 @@ export const AdminChangePassword = () => {
       if (showErrorMessage2) {
         const inputStyles = {
           current: { border: '1px solid var(--inputs_color, #ACACAC)' },
-          new: { border: '1px solid var(--inputs_color, #ACACAC)' },
-          confirm: { border: '1px solid var(--inputs_color, #ACACAC)' },
         };
     
         if (currentPassword.trim() === '') {
           inputStyles.current = { border: '1px solid red' };
         }
-        if (newPassword.trim() === '') {
-          inputStyles.new = { border: '1px solid red' };
-        }
-        if (confirmPassword.trim() === '') {
-          inputStyles.confirm = { border: '1px solid red' };
-        }
-    
         setCurrentInputStyles(inputStyles.current);
-        setNewInputStyles(inputStyles.new);
-        setConfirmInputStyles(inputStyles.confirm);
     
         const timer = setTimeout(() => {
           setShowErrorMessage2(false);
           setCurrentInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-          setNewInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-          setConfirmInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-          setShowErrorMessage2(false);
         }, 7000);
     
         return () => clearTimeout(timer);
       }
-    }, [showErrorMessage2, currentPassword, newPassword, confirmPassword]);
+    }, [showErrorMessage2, currentPassword]);
+     useEffect(() => {
+      if (showErrorMessage9) {
+        const inputStyles = {
+          new: { border: '1px solid var(--inputs_color, #ACACAC)' },
+        };
+        if (newPassword.trim() === '') {
+          inputStyles.new = { border: '1px solid red' };
+        }setNewInputStyles(inputStyles.new);
+    
+        const timer = setTimeout(() => {
+          setShowErrorMessage9(false);
+          setNewInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
+        }, 7000);
+    
+        return () => clearTimeout(timer);
+      }
+    }, [showErrorMessage9, newPassword]);
+     
+    useEffect(() => {
+      if (showErrorMessage10) {
+        const inputStyles = {
+          confirm: { border: '1px solid var(--inputs_color, #ACACAC)' },
+        };
+    
+        if (confirmPassword.trim() === '') {
+          inputStyles.confirm = { border: '1px solid red' };
+        }
+    
+        setConfirmInputStyles(inputStyles.confirm);
+    
+        const timer = setTimeout(() => {
+          setShowErrorMessage10(false);
+          setConfirmInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
+        }, 7000);
+    
+        return () => clearTimeout(timer);
+      }
+    }, [showErrorMessage10, confirmPassword]);
 
    useEffect(() => {
       if (showErrorMessage3) {
@@ -209,24 +248,20 @@ export const AdminChangePassword = () => {
 
 
 
-   const toggleVisibility = (passwordType) => {
-      if (passwordType === "current") {
-        setIsVisibleCurrentPassword(!isVisibleCurrentPassword);
-        setTypeCurrentPassword(typeCurrentPassword === "password" ? "text" : "password");
-      } else if (passwordType === "new") {
-        setIsVisibleNewPassword(!isVisibleNewPassword);
-        setTypeNewPassword(typeNewPassword === "password" ? "text" : "password");
-      } else if (passwordType === "confirm") {
-        setIsVisibleConfirmPassword(!isVisibleConfirmPassword);
-        setTypeConfirmPassword(typeConfirmPassword === "password" ? "text" : "password");
-      }
-    };
+
 
     function editPassword(event) {
       event.preventDefault();
       // Перевірка, чи заповнені поля
-      if (currentPassword.trim() === '' || newPassword.trim() === '' || confirmPassword.trim() === '') {
-        setShowErrorMessage2(true);
+      if (currentPassword.trim() === ''){
+                setShowErrorMessage2(true);
+        return;
+      }  if (newPassword.trim() === ''){
+        setShowErrorMessage9(true);
+        return;
+
+      } if (confirmPassword.trim() === '') {
+        setShowErrorMessage10(true);
         return;
       }
      
@@ -310,6 +345,9 @@ export const AdminChangePassword = () => {
                {showErrorMessage3 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Поточний пароль невірний</p>
                   )}
+                                    {showErrorMessage2 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
+                  )}
                   </label>
                <label className="new-admin-change-password">
                   <p>Новий пароль*</p>
@@ -344,6 +382,9 @@ export const AdminChangePassword = () => {
                    {showErrorMessage8 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну маленьку літеру</p>
                   )}
+                                    {showErrorMessage9 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
+                  )}
                </label>
                <label className="return-admin-change-password">
                   <p>Повторити новий пароль*</p>
@@ -366,7 +407,7 @@ export const AdminChangePassword = () => {
                   {showErrorMessage && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Нові паролі не співпадають</p>
                   )}
-                  {showErrorMessage2 && (
+                  {showErrorMessage10 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
                </label>
