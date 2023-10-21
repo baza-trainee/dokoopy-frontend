@@ -5,7 +5,8 @@ import checkMark from "../../assets/icon/check-mark.svg";
 export const AdminModalSuccessful = ({ isModalTrue, closeModal }) => {
   const handleModalClose = () => {
     closeModal();
-  };
+   };   
+   
   return (
     <div className={`backdrop ${isModalTrue ? "" : "is-hidden"}`}>
       <div className="modal-successful">
