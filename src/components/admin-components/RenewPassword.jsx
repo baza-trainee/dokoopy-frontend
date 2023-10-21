@@ -24,13 +24,18 @@ export const RenewPassword = () => {
          setTypeName("password");
       }
    }
+   let reg1 = /(?=.*[a-z])(?=.*[A-Z])/;
    let reg = /^\S+$/;
    let userSchema = yup.object({
       password: yup
          .string()
          .required("Введіть пароль")
          .min(6, "Введіть пароль довжиною не менше 6 символів")
-         .matches(reg, "Пароль не має містити пробілів"),
+         .matches(reg, "Пароль не має містити пробілів")
+         .matches(
+            reg1,
+            "Пароль має містити хоча б одну велику літеру, хоча б одну маленьку літеру та не має містити кирилицю"
+         ),
       confirmPassword: yup
          .string()
          .required("Введіть пароль")
