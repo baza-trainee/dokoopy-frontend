@@ -40,8 +40,9 @@ export const AppProvider = ({ children }) => {
    }
 
    function logOff() {
-      setToken("");
       sessionStorage.setItem("isLoggedIn", JSON.stringify(false));
+      sessionStorage.setItem("accToken", JSON.stringify(""));
+      AdminApi.setToken(JSON.parse(sessionStorage.getItem("accToken")));
       setLoggedIn(false);
    }
 

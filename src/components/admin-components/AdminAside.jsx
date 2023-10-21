@@ -2,7 +2,8 @@ import { useState } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 
-import { AsideListItem } from "./aside-components/aside-list-item";
+import { useAppContext } from "../provider-components/app-provider";
+import { AsideListItem } from "./aside-components/AsideListItem";
 
 import { AdminSliderIcon } from "../../assets/admin-icons/admin-slider";
 import { AdminProjectsIcon } from "../../assets/admin-icons/admin-projects";
@@ -23,21 +24,14 @@ export const AdminAside = () => {
       { name: "Звітність", icon: AdminReportIcon, link: "reporting" },
       { name: "Зміна пароля", icon: AdminChangePasswordIcon, link: "change-password" },
    ];
+
+   const { logOff } = useAppContext();
+
    const { pathname } = useLocation();
    const [isActive, setIsActive] = useState(getCurrentLocation());
-   // const [isActive, setIsActive] = useState({
-   //    name: "Слайдер",
-   //    icon: AdminSliderIcon,
-   //    link: "/admin",
-   // });
-
-   // const currentLocation = pathname.split("/");
-   // console.log(currentLocation);
 
    function getCurrentLocation() {
       const currentLocation = pathname.split("/");
-      console.log(currentLocation[2]);
-
       if (
          !currentLocation[2] ||
          currentLocation[2] === "edit" ||
@@ -81,7 +75,7 @@ export const AdminAside = () => {
                );
             })}
          </ul>
-         <Link to="/login" className="admin-logout">
+         <Link to="/login" onClick={logOff} className="admin-logout">
             <div className="admin-list-icon">
                <AdminLogoutIcon />
             </div>
