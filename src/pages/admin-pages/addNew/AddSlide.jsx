@@ -4,7 +4,7 @@ import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
-export const AddSlide = () => {
+const AddSlide = () => {
    const { eventLoading, data } = useLoadingData(AdminApi.addHero, true);
    const submitClick = data => {
       const formData = new FormData();
@@ -31,3 +31,5 @@ export const AddSlide = () => {
       </section>
    );
 };
+
+export default AddSlide;

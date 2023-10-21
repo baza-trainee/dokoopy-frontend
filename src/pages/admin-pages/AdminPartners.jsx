@@ -38,7 +38,7 @@ import { Spinner } from "../../components/admin-components/Spinner";
 //    },
 // ];
 
-export const AdminPartners = () => {
+const AdminPartners = () => {
    const { pathname } = useLocation();
    const [partners, setPartners] = useState([]);
    const { data, isLoading } = useLoadingData(AdminApi.getPartnersAdmin);
@@ -60,3 +60,5 @@ export const AdminPartners = () => {
       </div>
    );
 };
+
+export default AdminPartners;

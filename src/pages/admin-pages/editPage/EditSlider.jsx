@@ -5,7 +5,7 @@ import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
 
-export const EditSlider = () => {
+const EditSlider = () => {
    const { state } = useLocation();
    const deleteHeros = useLoadingData(AdminApi.deleteHero, true);
    const updateHeros = useLoadingData(AdminApi.updateHero, true);
@@ -47,3 +47,5 @@ export const EditSlider = () => {
       </section>
    );
 };
+
+export default EditSlider;

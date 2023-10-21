@@ -8,7 +8,7 @@ import { LoginEyeClosed } from "../../assets/admin-icons/login-eye-closed";
 import arrowLeft from "../../assets/icon/arrow-left-icon.svg";
 import arrowLeftFocused from "../../assets/icon/arrow-left-icon-focused.svg";
 
-export const RenewPassword = () => {
+const RenewPassword = () => {
    const navigate = useNavigate();
    const [type, setType] = useState(true);
    const [typeName, setTypeName] = useState("password");
@@ -122,3 +122,5 @@ export const RenewPassword = () => {
       </div>
    );
 };
+
+export default RenewPassword;

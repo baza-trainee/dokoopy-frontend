@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useLoadingData } from "../../../hook/useLoadingData";
 import { AdminApi } from "../../../api/api";
 
-export const EditReporting = () => {
+const EditReporting = () => {
    const location = useLocation();
    const { state } = location;
 
@@ -19,7 +19,7 @@ export const EditReporting = () => {
 
    useEffect(() => {
       data?.code === 200 ? navigate(-1) : null;
-   }, [navigate, data?.code]);  
+   }, [navigate, data?.code]);
 
    useEffect(() => {
       if (state && state.report) {
@@ -34,29 +34,33 @@ export const EditReporting = () => {
 
    const handleFormSubmit = () => {
       if (!selectedFile || !state.item._id) {
-         return; 
+         return;
       }
 
       const formData = new FormData();
       formData.append("reportURL", selectedFile);
-      const fileId = state.item._id; 
+      const fileId = state.item._id;
 
-      axios.patch(`reports/admin/${fileId}`, formData, {
-         headers: {
-            "Content-Type": "multipart/form-data"
-         }
-      })
-      .then(response => {
-         if (response.status === 200) {
-            console.log("Звіт був успішно оновлений:", response.data);
-            navigate(-1);
-         } else {
-            console.error("Помилка оновлення звіту. Отримано неправильний статус відповіді:", response.status);
-         }
-      })
-      .catch(error => {
-         console.error("Помилка оновлення звіту:", error);
-      });
+      axios
+         .patch(`reports/admin/${fileId}`, formData, {
+            headers: {
+               "Content-Type": "multipart/form-data",
+            },
+         })
+         .then(response => {
+            if (response.status === 200) {
+               console.log("Звіт був успішно оновлений:", response.data);
+               navigate(-1);
+            } else {
+               console.error(
+                  "Помилка оновлення звіту. Отримано неправильний статус відповіді:",
+                  response.status
+               );
+            }
+         })
+         .catch(error => {
+            console.error("Помилка оновлення звіту:", error);
+         });
    };
 
    return (
@@ -82,3 +86,4 @@ export const EditReporting = () => {
    );
 };
 
+export default EditReporting;

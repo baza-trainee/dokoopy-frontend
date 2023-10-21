@@ -1,8 +1,9 @@
+import { Suspense } from "react";
+
 import { Outlet } from "react-router-dom";
 
 import { AdminHeader } from "./AdminHeader";
 
-import { Navigate } from "react-router-dom";
 import { useAppContext } from "../provider-components/app-provider";
 import { AdminAside } from "./AdminAside";
 export const AdminSharedLayout = () => {
@@ -18,7 +19,9 @@ export const AdminSharedLayout = () => {
          <div className="body-wrapper">
             <AdminHeader></AdminHeader>
             <main className="admin-backdrop">
-               <Outlet />
+               <Suspense fallback={<div>Loading...</div>}>
+                  <Outlet />
+               </Suspense>
             </main>
          </div>
       </div>

@@ -4,12 +4,10 @@ import { Route, Routes } from "react-router-dom";
 
 import { PrivateRoute } from "./components/admin-components/PrivateRoute";
 
+// ? Landing Pages lazy loading
 import { SharedLayout } from "./components/landing-components/SharedLayout";
-import { AdminSharedLayout } from "./components/admin-components/AdminSharedLayout";
-
 import { Home } from "./pages/landing-pages/Home";
 
-// ? Landing Pages lazy loading
 const AllProjects = lazy(() => import("./pages/landing-pages/AllProjects"));
 const NotFound = lazy(() => import("./pages/landing-pages/NotFound"));
 
@@ -18,31 +16,35 @@ import { LoginLayout } from "../src/components/admin-components/LoginLayout";
 
 const Login = lazy(() => import("./components/admin-components/Login"));
 const ForgetPassword = lazy(() => import("./components/admin-components/ForgetPassword"));
+const RenewPassword = lazy(() => import("./components/admin-components/RenewPassword"));
+const SuccessfullRenew = lazy(() => import("./components/admin-components/SuccessfullRenew"));
 
-// import { Login } from "./components/admin-components/Login";
-// import { ForgetPassword } from "./components/admin-components/ForgetPassword";
-import { RenewPassword } from "./components/admin-components/RenewPassword";
-import { SuccessfullRenew } from "./components/admin-components/SuccessfullRenew";
+// ? Admin Main Pages lazy loading
+import { AdminSharedLayout } from "./components/admin-components/AdminSharedLayout";
 
-import { AdminBankAccount } from "./pages/admin-pages/AdminBankAccount";
-import { AdminContacts } from "./pages/admin-pages/AdminContacts";
-import { AdminHero } from "./pages/admin-pages/AdminSlider";
-import { AdminNotFound } from "./pages/admin-pages/AdminNotFound";
-import { AdminPartners } from "./pages/admin-pages/AdminPartners";
-import { AdminProjects } from "./pages/admin-pages/AdminProjects";
-import { AdminReporting } from "./pages/admin-pages/AdminReporting";
-import { AdminChangePassword } from "./pages/admin-pages/AdminChangePassword";
+const AdminHero = lazy(() => import("./pages/admin-pages/AdminHero"));
+const AdminProjects = lazy(() => import("./pages/admin-pages/AdminProjects"));
+const AdminPartners = lazy(() => import("./pages/admin-pages/AdminPartners"));
+const AdminContacts = lazy(() => import("./pages/admin-pages/AdminContacts"));
+const AdminBankAccount = lazy(() => import("./pages/admin-pages/AdminBankAccount"));
+const AdminReporting = lazy(() => import("./pages/admin-pages/AdminReporting"));
+const AdminChangePassword = lazy(() => import("./pages/admin-pages/AdminChangePassword"));
+const AdminNotFound = lazy(() => import("./pages/admin-pages/AdminNotFound"));
 
-import { AddSlide } from "./pages/admin-pages/addNew/AddSlide";
-import { AddProject } from "./pages/admin-pages/addNew/AddProject";
-import { AddPartner } from "./pages/admin-pages/addNew/AddPartner";
+// ? Admin Add Pages lazy loading
 
-import { EditSlider } from "./pages/admin-pages/editPage/EditSlider";
-import { EditProject } from "./pages/admin-pages/editPage/EditProject";
-import { EditPartner } from "./pages/admin-pages/editPage/EditPartner";
-import { EditContact } from "./pages/admin-pages/editPage/EditContact";
-import { EditBankAccount } from "./pages/admin-pages/editPage/EditBankAccount";
-import { EditReporting } from "./pages/admin-pages/editPage/EditReporting";
+const AddSlide = lazy(() => import("./pages/admin-pages/addNew/AddSlide"));
+const AddProject = lazy(() => import("./pages/admin-pages/addNew/AddProject"));
+const AddPartner = lazy(() => import("./pages/admin-pages/addNew/AddPartner"));
+
+// ? Admin Edit Pages lazy loading
+
+const EditSlider = lazy(() => import("./pages/admin-pages/editPage/EditSlider"));
+const EditProject = lazy(() => import("./pages/admin-pages/editPage/EditProject"));
+const EditPartner = lazy(() => import("./pages/admin-pages/editPage/EditPartner"));
+const EditContact = lazy(() => import("./pages/admin-pages/editPage/EditContact"));
+const EditBankAccount = lazy(() => import("./pages/admin-pages/editPage/EditBankAccount"));
+const EditReporting = lazy(() => import("./pages/admin-pages/editPage/EditReporting"));
 
 function App() {
    return (
@@ -133,6 +135,30 @@ function App() {
 }
 
 export default App;
+
+//* 22.10.2023 old imports
+
+// import { Login } from "./components/admin-components/Login";
+// import { ForgetPassword } from "./components/admin-components/ForgetPassword";
+// import { RenewPassword } from "./components/admin-components/RenewPassword";
+// import { SuccessfullRenew } from "./components/admin-components/SuccessfullRenew";
+// import { AdminBankAccount } from "./pages/admin-pages/AdminBankAccount";
+// import { AdminContacts } from "./pages/admin-pages/AdminContacts";
+// import { AdminHero } from "./pages/admin-pages/AdminSlider";
+// import { AdminNotFound } from "./pages/admin-pages/AdminNotFound";
+// import { AdminPartners } from "./pages/admin-pages/AdminPartners";
+// import { AdminProjects } from "./pages/admin-pages/AdminProjects";
+// import { AdminReporting } from "./pages/admin-pages/AdminReporting";
+// import { AdminChangePassword } from "./pages/admin-pages/AdminChangePassword";
+// import { AddSlide } from "./pages/admin-pages/addNew/AddSlide";
+// import { AddProject } from "./pages/admin-pages/addNew/AddProject";
+// import { AddPartner } from "./pages/admin-pages/addNew/AddPartner";
+// import { EditSlider } from "./pages/admin-pages/editPage/EditSlider";
+// import { EditProject } from "./pages/admin-pages/editPage/EditProject";
+// import { EditPartner } from "./pages/admin-pages/editPage/EditPartner";
+// import { EditContact } from "./pages/admin-pages/editPage/EditContact";
+// import { EditBankAccount } from "./pages/admin-pages/editPage/EditBankAccount";
+// import { EditReporting } from "./pages/admin-pages/editPage/EditReporting";
 
 //* 14.10.2023
 {

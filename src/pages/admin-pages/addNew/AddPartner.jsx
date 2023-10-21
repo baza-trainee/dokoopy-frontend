@@ -3,7 +3,8 @@ import { PageHeader } from "../../../components/admin-components/PageHeader";
 import { PartnersForm } from "../../../components/admin-components/PartnersForm";
 import { validSchema } from "../../../components/admin-components/formElement/validSchema";
 import { useLoadingData } from "../../../hook/useLoadingData";
-export const AddPartner = () => {
+
+const AddPartner = () => {
    const { eventLoading, data } = useLoadingData(AdminApi.addPartners, true);
 
    const submitClick = data => {
@@ -28,3 +29,5 @@ export const AddPartner = () => {
       </section>
    );
 };
+
+export default AddPartner;

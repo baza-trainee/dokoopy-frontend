@@ -38,7 +38,7 @@ export const AdminMobileMenu = ({ openMenu }) => {
    }
 
    function logOffHandler() {
-      logOff;
+      logOff();
       openMenu();
    }
 

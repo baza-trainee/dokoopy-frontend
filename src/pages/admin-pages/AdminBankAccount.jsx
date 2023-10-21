@@ -4,7 +4,7 @@ import { AdminIconEdit } from "../../assets/admin-icons/admin-icon-edit";
 import { Spinner } from "../../components/admin-components/Spinner";
 import { useLoadingData } from "../../hook/useLoadingData";
 
-export const AdminBankAccount = () => {
+const AdminBankAccount = () => {
    const { data, isLoading, error, eventLoading } = useLoadingData(AdminApi.getBankAdmin);
 
    if (isLoading) {
@@ -57,3 +57,5 @@ export const AdminBankAccount = () => {
       </div>
    );
 };
+
+export default AdminBankAccount;

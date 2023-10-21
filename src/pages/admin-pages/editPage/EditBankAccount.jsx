@@ -5,26 +5,26 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useLoadingData } from "../../../hook/useLoadingData";
 import { AdminApi } from "../../../api/api";
 
-export const EditBankAccount = () => {
+const EditBankAccount = () => {
    const { state } = useLocation();
    const [bankLink, setBankLink] = useState(state.item.link);
-   const {data, eventLoading} = useLoadingData(AdminApi.updateBank, true);
+   const { data, eventLoading } = useLoadingData(AdminApi.updateBank, true);
    const navigate = useNavigate();
 
    useEffect(() => {
       data?.code === 201 ? navigate("/admin/bank-account") : null;
    }, [navigate, data?.code]);
 
-   const handleBankLinkChange = (e) => {
-		setBankLink(e.target.value); 
-	}
+   const handleBankLinkChange = e => {
+      setBankLink(e.target.value);
+   };
 
    const formData = {
       id: state.item._id,
       body: {
          link: bankLink,
-      }
-    };
+      },
+   };
 
    const isSaveButtonDisabled = bankLink.trim() === "";
 
@@ -34,7 +34,13 @@ export const EditBankAccount = () => {
             currentModal={"банківськй реквізит"}
             title={"Редагувати банківські реквізити"}
          />
-         <form onSubmit={(e) => {e.preventDefault(); eventLoading(formData)}} className="edit-contact-payment-form-wrap">
+         <form
+            onSubmit={e => {
+               e.preventDefault();
+               eventLoading(formData);
+            }}
+            className="edit-contact-payment-form-wrap"
+         >
             <div className="edit-contact-payment-form">
                <InputSm
                   setSmInput={setBankLink}
@@ -45,13 +51,12 @@ export const EditBankAccount = () => {
                   isEmptyInput={bankLink.trim() === ""}
                />
             </div>
-            <button
-               className="admin-button"
-               disabled={isSaveButtonDisabled}
-            >
+            <button className="admin-button" disabled={isSaveButtonDisabled}>
                Внести зміни
             </button>
-            </form>
+         </form>
       </section>
    );
 };
+
+export default EditBankAccount;
