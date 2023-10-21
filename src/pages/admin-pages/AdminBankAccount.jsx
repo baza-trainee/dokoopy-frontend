@@ -43,7 +43,7 @@ export const AdminBankAccount = () => {
                         <Link to="edit" state={{ item: linkback }}>
                            <div className="bank-li">
                               <p>Реквізити</p>
-                              <a href={linkback.link}>{linkback.link}</a>
+                              <h4 className="bank-li-a">{linkback.link}</h4>
                               <button className="edit-cont">
                                  <AdminIconEdit />
                               </button>

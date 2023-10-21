@@ -40,13 +40,11 @@ export const AdminReporting = () => {
                         <div className="card-reporting">
                            <Link to="edit" state={{ item: report }} className="card-reporting">
                               <img src={fileText} alt="File" />
-                              <a
-                                 href={`https://dokoopy.onrender.com/${report.reportURL}`}
-                                 target="_blank"
+                              <h4 className="card-reporting-h4"
                                  rel="noopener noreferrer"
                               >
                                  {fileName}
-                              </a>
+                              </h4>
                            </Link>
                         </div>
                      </li>
