@@ -369,8 +369,6 @@ const AdminChangePassword = () => {
                            Введіть пароль довжиною не менше 6 символів
                         </p>
                      )}
-
-               </div>
                    {showErrorMessage4 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Введіть пароль довжиною не менше 6 символів</p>
                   )}
