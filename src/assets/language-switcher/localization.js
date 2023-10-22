@@ -7,7 +7,7 @@ const localization = new LocalizedStrings({
       mission: {
          title: "Наша мета",
          purpose1:
-            "Збір на 57 бригаду, котрі беруть участь в самих запеклих боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо. Саме тому у нас немає запиту на конкретну суму - на фронті щось потрібно постійно, фінансове питання відкрите завжди.",
+            "Збір для військових 57 бригади, які беруть участь у найзапекліших боях. Тому потреба в розхідних матеріалах просто вееелеетенська - це і рації, і ремонт машин, гума на колеса тощо. Саме тому у нас немає запиту на конкретну суму - на фронті щось потрібно постійно, фінансове питання відкрите завжди",
          purpose2:
             "Ми віримо: якщо спроможні бізнеси, люди та корпорації візьмуть на себе фінансову підтримку хоча б одного військового - потреби фронту будуть закриватися швидше. На цьому сайті ми – Don’t Panic Group та усі, кому відгукується ідея, збираємось до купи, щоб підтримати 57 бригаду.",
       },
@@ -49,7 +49,7 @@ const localization = new LocalizedStrings({
       mission: {
          title: "Our purpose",
          purpose1:
-            "Fundrising for the 57th brigade, which fights in the fiercest battles. This is why needs for consumables is enormous - these includes radio sets, car repairs, tires etc. That is why we do not have a request for a specific amount of money - something is always needed at the military front, financial requests are always open.",
+            "This is a collection for the soldiers of the 57th Brigade, who are fighting in the fiercest battles. That is why the need for consumables is enormous - radios, vehicle repairs, tires, etc. That's why we don't have a request for a specific amount - there is always something needed at the front, the financial issue is always open",
          purpose2:
             "We strongly believe: as soon as commercial businesses, people and corporations take on financial support for even one soldier, the needs of the front will be closed faster. On this web-site, we, the Don't Panic Group, and everyone who shares the idea, are getting together to support the 57th Brigade.",
       },
