@@ -364,13 +364,6 @@ const AdminChangePassword = () => {
                            <EditEyeOpened onClick={() => toggleVisibility("new")} />
                         )}
                      </div>
-                     {showErrorMessage4 && (
-                        <p className="error-icon-message" style={{ color: "red" }}>
-                           Введіть пароль довжиною не менше 6 символів
-                        </p>
-                     )}
-
-               </div>
                    {showErrorMessage4 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Введіть пароль довжиною не менше 6 символів</p>
                   )}
@@ -422,6 +415,8 @@ const AdminChangePassword = () => {
                <button className="edit-password-btn" type="submit">
                   Змінити пароль
                </button>
+
+               
             </form>
          </div>
          <AdminModalSuccessful isModalTrue={isModalTrue} closeModal={closeModal} />
