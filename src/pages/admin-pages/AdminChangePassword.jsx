@@ -415,6 +415,8 @@ const AdminChangePassword = () => {
                <button className="edit-password-btn" type="submit">
                   Змінити пароль
                </button>
+
+               
             </form>
          </div>
          <AdminModalSuccessful isModalTrue={isModalTrue} closeModal={closeModal} />
