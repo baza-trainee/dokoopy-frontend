@@ -176,30 +176,25 @@ const AdminChangePassword = () => {
 
    function editPassword(event) {
       event.preventDefault();
-      // Перевірка, чи заповнені поля
- 
 
 if (currentPassword.trim() === '') {
    setShowErrorMessage2(true);
 }
 
-if (newPassword.trim() === '') {
-   setShowErrorMessage9(true);
-}
-
 if (confirmPassword.trim() === '') {
    setShowErrorMessage10(true);
 }
-else{ 
+if (newPassword.trim() === '') {
+   setShowErrorMessage9(true);
+}
       // Перевірка, чи новий пароль має довжину не менше 6 символів
-      if (newPassword.length < 6 || /[А-ЯЁ]/i.test(newPassword) || !/[A-Z]/.test(newPassword) || newPassword === newPassword.toUpperCase() || /\s/.test(newPassword)) {
+    else if (newPassword.length < 6 || /[А-ЯЁ]/i.test(newPassword) || !/[A-Z]/.test(newPassword) || newPassword === newPassword.toUpperCase() || /\s/.test(newPassword)) {
          setShowErrorMessage4(true);
          return;
       }
 
-
       // Перевірка, чи паролі збігаються новий з підтвердженням
-      if (newPassword === confirmPassword) {
+    else if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
          const body = {
             password: currentPassword, //зберігає введені дані
@@ -220,7 +215,7 @@ else{
          setPasswordMismatch(true);
          setShowErrorMessage(true);
       }
-   }
+   
    }
    return (
       <div className="admin-change-password">
