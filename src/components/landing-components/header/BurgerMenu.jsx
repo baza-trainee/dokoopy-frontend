@@ -36,6 +36,10 @@ export const BurgerMenu = forwardRef(function BurgerMenu(
       }
    }
 
+   // function buttonClickHandler(event) {
+   //    closeMenuHandler();
+   // }
+
    return (
       <div className="mobile-menu" ref={ref}>
          <div className="container">

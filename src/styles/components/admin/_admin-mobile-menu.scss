@@ -8,8 +8,9 @@
    background-color: var(--background-light);
 
    width: 94%;
-   height: 100vh;
+   height: 100%;
    padding: 35px 10px 20px;
+   overflow-y: scroll;
 
    @media screen and (min-width: 480px) {
       width: 300px;
