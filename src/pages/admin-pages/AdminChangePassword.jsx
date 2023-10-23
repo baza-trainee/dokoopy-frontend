@@ -16,6 +16,7 @@ const AdminChangePassword = () => {
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
    const [showErrorMessage3, setShowErrorMessage3] = useState(false);
    const [showErrorMessage4, setShowErrorMessage4] = useState(false);
+   const [showErrorMessage5, setShowErrorMessage5] = useState(false);
    const [showErrorMessage9, setShowErrorMessage9] = useState(false);
    const [showErrorMessage10, setShowErrorMessage10] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
@@ -174,6 +175,22 @@ const AdminChangePassword = () => {
       }
    }, [showErrorMessage4]);
 
+   useEffect(() => {
+      if (showErrorMessage5) {
+         setNewInputStyles({
+            border: "1px solid red",
+         });
+         const timer = setTimeout(() => {
+            setShowErrorMessage5(false);
+            setNewInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+         }, 7000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage5]);
+
    function editPassword(event) {
       event.preventDefault();
     
@@ -201,7 +218,8 @@ const AdminChangePassword = () => {
     
     
       // Перевірка, чи новий пароль має довжину не менше 6 символів
-      else { if (
+      else { 
+         if (
         newPassword.length < 6 ||
         /[А-ЯЁ]/i.test(newPassword) ||
         !/[A-Z]/.test(newPassword) ||
@@ -209,8 +227,12 @@ const AdminChangePassword = () => {
         /\s/.test(newPassword)
       ) {
         setShowErrorMessage4(true);
-      } else {
+      } 
+      else {
         // Другий етап перевірок
+        if (currentPassword === newPassword){
+         setShowErrorMessage5(true);
+        } else {
         if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
          const body = {
@@ -234,7 +256,7 @@ const AdminChangePassword = () => {
       }
       }
     }}
-    
+   }
    return (
       <div className="admin-change-password">
          <div className="header-admin-change-password">
@@ -287,6 +309,9 @@ const AdminChangePassword = () => {
                      </div>
                    {showErrorMessage4 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити мінімум 6 символів, латинські літери верхнього та нижнього регістру, без пробілів (може містити цифри та спецсимволи)</p>
+                  )} 
+                   {showErrorMessage5 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Новий пароль не повинен співпадати з поточним</p>
                   )} 
                     {showErrorMessage9 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
