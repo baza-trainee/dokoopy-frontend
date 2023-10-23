@@ -1,11 +1,25 @@
 .background-container {
    font-family: Roboto;
    width: 100vw;
-   height: 100vh;
    background-color: var(--admin-secondary-accent);
    display: flex;
    justify-content: center;
    align-items: center;
+   @media (min-height: 200px) {
+      height: 350vh;
+   }
+   @media (min-height: 300px) {
+      height: 250vh;
+   }
+   @media (min-height: 400px) {
+      height: 170vh;
+   }
+   @media (min-height: 500px) {
+      height: 130vh;
+   }
+   @media (min-height: 650px) {
+      height: 100vh;
+   }
 }
 
 .login-container {
