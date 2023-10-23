@@ -583,7 +583,7 @@
             color: var(--admin-button-title);
         }
 }
-@media (max-height: 650px){
+@media (orientation: landscape){
         .admin-modal-window{
             width: 550px;
             height: 300px;
