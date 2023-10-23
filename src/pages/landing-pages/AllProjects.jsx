@@ -14,7 +14,7 @@ import localization from "../../assets/language-switcher/localization";
 const AllProjects = () => {
    const { language } = useAppContext();
    const [project, setProject] = useState([]);
-   const { isLoading, error, data } = useLoadingData(lendingData.getProject);
+   const { error, data } = useLoadingData(lendingData.getProject);
 
    useEffect(() => {
       if (data?.projects) {
@@ -71,14 +71,12 @@ const AllProjects = () => {
          <section className="container container-project">
             <h2 className="project-title">{localization.allProjects}</h2>
             <ul className="project-page-list">
-               {isLoading ? (
-                  <div></div>
-               ) : (
+               {currentPosts &&
                   currentPosts?.map(item => (
                      <li key={item._id}>
                         <div className="all-project-content">
                            <img className="project-img-blok" src={item.imageURL} />
-                           <div className="text-blok">
+                           <div className="all-project-text-blok">
                               <div className="page-data-title-blok">
                                  <p className="project-data">{item.date}</p>
                                  <h3 className="page-project-cart-title">{item.title}</h3>
@@ -87,8 +85,7 @@ const AllProjects = () => {
                            </div>
                         </div>
                      </li>
-                  ))
-               )}
+                  ))}
             </ul>
 
             <Pagination
