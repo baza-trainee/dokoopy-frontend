@@ -36,6 +36,10 @@ export const BurgerMenu = forwardRef(function BurgerMenu(
       }
    }
 
+   // function buttonClickHandler(event) {
+   //    closeMenuHandler();
+   // }
+
    return (
       <div className="mobile-menu" ref={ref}>
          <div className="container">
@@ -72,7 +76,7 @@ export const BurgerMenu = forwardRef(function BurgerMenu(
                   <LanguageSelectorMobile toggleLanguageMobile={toggleLanguageMobile} />
                ) : null}
             </div>
-            <DonateButton buttonClass={"burger"}></DonateButton>
+            <DonateButton closeMenuHandler={closeMenuHandler} buttonClass={"burger"}></DonateButton>
          </div>
       </div>
    );
