@@ -72,7 +72,7 @@ export const BurgerMenu = forwardRef(function BurgerMenu(
                   <LanguageSelectorMobile toggleLanguageMobile={toggleLanguageMobile} />
                ) : null}
             </div>
-            <DonateButton buttonClass={"burger"}></DonateButton>
+            <DonateButton closeMenuHandler={closeMenuHandler} buttonClass={"burger"}></DonateButton>
          </div>
       </div>
    );
