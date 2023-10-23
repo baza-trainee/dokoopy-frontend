@@ -244,7 +244,7 @@
          }
     }
 
-    @media (orientation: landscape){
+    @media (max-height: 380px){
         .modal{
             justify-content: center;
             align-items: center;
