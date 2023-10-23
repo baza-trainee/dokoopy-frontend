@@ -36,7 +36,7 @@
    cursor: pointer;
    & img {
       margin: 0px auto;
-      margin-top: 2px;
+      display: block;
    }
    &:hover {
       background-color: var(--hover-arrow-slider);

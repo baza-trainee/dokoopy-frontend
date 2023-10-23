@@ -99,7 +99,7 @@ function NextArrow({ onClick }) {
 function PrevArrow({ onClick }) {
    return (
       <div className="container">
-         <button aria-label="Попередній слайд" onClick={onClick} className="arrow-slider ">
+         <button aria-label="Попередній слайд" onClick={onClick} className="arrow-slider">
             <img src={arrowLeft}></img>
          </button>
       </div>
