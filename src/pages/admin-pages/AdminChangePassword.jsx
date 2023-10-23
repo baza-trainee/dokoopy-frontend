@@ -176,25 +176,42 @@ const AdminChangePassword = () => {
 
    function editPassword(event) {
       event.preventDefault();
+    
+      let hasErrors = false;
 
-if (currentPassword.trim() === '') {
-   setShowErrorMessage2(true);
-}
-
-if (confirmPassword.trim() === '') {
-   setShowErrorMessage10(true);
-}
-if (newPassword.trim() === '') {
-   setShowErrorMessage9(true);
-}
-      // Перевірка, чи новий пароль має довжину не менше 6 символів
-    else if (newPassword.length < 6 || /[А-ЯЁ]/i.test(newPassword) || !/[A-Z]/.test(newPassword) || newPassword === newPassword.toUpperCase() || /\s/.test(newPassword)) {
-         setShowErrorMessage4(true);
-         return;
+      // Перша частина перевірок
+      if (currentPassword.trim() === '') {
+        setShowErrorMessage2(true);
+        hasErrors = true;
       }
-
-      // Перевірка, чи паролі збігаються новий з підтвердженням
-    else if (newPassword === confirmPassword) {
+    
+      if (confirmPassword.trim() === '') {
+        setShowErrorMessage10(true);
+        hasErrors = true;
+      }
+    
+      if (newPassword.trim() === '') {
+        setShowErrorMessage9(true);
+        hasErrors = true;
+      }
+    
+      if (hasErrors) {
+        return; // Вихід, якщо виявлені помилки
+      }
+    
+    
+      // Перевірка, чи новий пароль має довжину не менше 6 символів
+      else { if (
+        newPassword.length < 6 ||
+        /[А-ЯЁ]/i.test(newPassword) ||
+        !/[A-Z]/.test(newPassword) ||
+        newPassword === newPassword.toUpperCase() ||
+        /\s/.test(newPassword)
+      ) {
+        setShowErrorMessage4(true);
+      } else {
+        // Другий етап перевірок
+        if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
          const body = {
             password: currentPassword, //зберігає введені дані
@@ -215,8 +232,9 @@ if (newPassword.trim() === '') {
          setPasswordMismatch(true);
          setShowErrorMessage(true);
       }
-   
-   }
+      }
+    }}
+    
    return (
       <div className="admin-change-password">
          <div className="header-admin-change-password">
