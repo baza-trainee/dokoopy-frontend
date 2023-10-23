@@ -50,15 +50,3 @@ export const formatDataEN = dataUtf => {
 
    return formattedDate;
 };
-
-export const sortData = data => {
-   if (!data) {
-      return null;
-   }
-   const compareDates = (a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateA - dateB;
-   };
-   return data.toSorted(compareDates);
-};
