@@ -104,7 +104,8 @@ const AdminChangePassword = () => {
         return () => clearTimeout(timer);
       }
     }, [showErrorMessage2, currentPassword]);
-     useEffect(() => {
+     
+    useEffect(() => {
       if (showErrorMessage9) {
         const inputStyles = {
           new: { border: '1px solid var(--inputs_color, #ACACAC)' },
@@ -153,7 +154,6 @@ const AdminChangePassword = () => {
             setCurrentInputStyles({
                border: "1px solid var(--inputs_color, #ACACAC)",
             });
-            setShowErrorMessage4(false);
          }, 7000);
 
          return () => clearTimeout(timer);
@@ -170,80 +170,11 @@ const AdminChangePassword = () => {
             setNewInputStyles({
                border: "1px solid var(--inputs_color, #ACACAC)",
             });
-            setShowErrorMessage4(false);
-         }, 7000);
+         }, 10000);
 
          return () => clearTimeout(timer);
       }
    }, [showErrorMessage4]);
-
-   useEffect(() => {
-      if (showErrorMessage5) {
-         setNewInputStyles({
-            border: "1px solid red",
-         });
-         const timer = setTimeout(() => {
-            setShowErrorMessage5(false);
-            setNewInputStyles({
-               border: "1px solid var(--inputs_color, #ACACAC)",
-            });
-            setShowErrorMessage5(false);
-         }, 7000);
-
-         return () => clearTimeout(timer);
-      }
-   }, [showErrorMessage5]);
-
-   useEffect(() => {
-      if (showErrorMessage6) {
-         setNewInputStyles({
-            border: "1px solid red",
-         });
-         const timer = setTimeout(() => {
-            setShowErrorMessage6(false);
-            setNewInputStyles({
-               border: "1px solid var(--inputs_color, #ACACAC)",
-            });
-            setShowErrorMessage6(false);
-         }, 7000);
-
-         return () => clearTimeout(timer);
-      }
-   }, [showErrorMessage6]);
-
-   useEffect(() => {
-      if (showErrorMessage7) {
-         setNewInputStyles({
-            border: "1px solid red",
-         });
-         const timer = setTimeout(() => {
-            setShowErrorMessage7(false);
-            setNewInputStyles({
-               border: "1px solid var(--inputs_color, #ACACAC)",
-            });
-            setShowErrorMessage7(false);
-         }, 7000);
-
-         return () => clearTimeout(timer);
-      }
-   }, [showErrorMessage7]);
-
-   useEffect(() => {
-      if (showErrorMessage8) {
-         setNewInputStyles({
-            border: "1px solid red",
-         });
-         const timer = setTimeout(() => {
-            setShowErrorMessage8(false);
-            setNewInputStyles({
-               border: "1px solid var(--inputs_color, #ACACAC)",
-            });
-            setShowErrorMessage8(false);
-         }, 7000);
-
-         return () => clearTimeout(timer);
-      }
-   }, [showErrorMessage8]);
 
    function editPassword(event) {
       event.preventDefault();
@@ -263,32 +194,11 @@ const AdminChangePassword = () => {
       }
 
       // Перевірка, чи новий пароль має довжину не менше 6 символів
-      if (newPassword.length < 6) {
+      if (newPassword.length < 6 || /[А-ЯЁ]/i.test(newPassword) || !/[A-Z]/.test(newPassword) || newPassword === newPassword.toUpperCase() || /\s/.test(newPassword)) {
          setShowErrorMessage4(true);
          return;
       }
 
-      // Перевірка, чи пароль містить кирилицю
-      if (/[А-ЯЁ]/i.test(newPassword)) {
-         setShowErrorMessage7(true);
-         return;
-      }
-      // Перевірка, чи пароль містить великі літери
-      if (!/[A-Z]/.test(newPassword)) {
-         setShowErrorMessage6(true);
-         return;
-      }
-      // Перевірка, чи пароль містить все у верхньому регістрі
-      if (newPassword === newPassword.toUpperCase()) {
-         setShowErrorMessage8(true);
-         return;
-      }
-
-      // Перевірка, чи пароль містить пробілі
-      if (/\s/.test(newPassword)) {
-         setShowErrorMessage5(true);
-         return;
-      }
 
       // Перевірка, чи паролі збігаються новий з підтвердженням
       if (newPassword === confirmPassword) {
@@ -341,7 +251,7 @@ const AdminChangePassword = () => {
                {showErrorMessage3 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Поточний пароль невірний</p>
                   )}
-                                    {showErrorMessage2 && (
+               {showErrorMessage2 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
 
@@ -365,9 +275,9 @@ const AdminChangePassword = () => {
                         )}
                      </div>
                    {showErrorMessage4 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Введіть пароль довжиною не менше 6 символів</p>
+                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити мінімум 6 символів, латинські літери верхнього та нижнього регістру, без пробілів (може містити цифри та спецсимволи)</p>
                   )}
-                   {showErrorMessage5 && (
+                   {/* {showErrorMessage5 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити пробілів</p>
                   )}
                    {showErrorMessage6 && (
@@ -378,8 +288,8 @@ const AdminChangePassword = () => {
                   )}
                    {showErrorMessage8 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну маленьку літеру</p>
-                  )}
-                                    {showErrorMessage9 && (
+                  )} */}
+                    {showErrorMessage9 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
                </label>
