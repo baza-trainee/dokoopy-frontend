@@ -55,13 +55,13 @@ export const Partners = () => {
          {
             breakpoint: 598,
             settings: {
-               slidesToShow: 1.8,
+               slidesToShow: 2,
             },
          },
          {
             breakpoint: 470,
             settings: {
-               slidesToShow: 1.4,
+               slidesToShow: 2,
             },
          },
          {
