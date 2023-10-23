@@ -16,10 +16,6 @@ const AdminChangePassword = () => {
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
    const [showErrorMessage3, setShowErrorMessage3] = useState(false);
    const [showErrorMessage4, setShowErrorMessage4] = useState(false);
-   const [showErrorMessage5, setShowErrorMessage5] = useState(false);
-   const [showErrorMessage6, setShowErrorMessage6] = useState(false);
-   const [showErrorMessage7, setShowErrorMessage7] = useState(false);
-   const [showErrorMessage8, setShowErrorMessage8] = useState(false);
    const [showErrorMessage9, setShowErrorMessage9] = useState(false);
    const [showErrorMessage10, setShowErrorMessage10] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
@@ -276,19 +272,7 @@ const AdminChangePassword = () => {
                      </div>
                    {showErrorMessage4 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити мінімум 6 символів, латинські літери верхнього та нижнього регістру, без пробілів (може містити цифри та спецсимволи)</p>
-                  )}
-                   {/* {showErrorMessage5 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити пробілів</p>
-                  )}
-                   {showErrorMessage6 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну велику літеру</p>
-                  )}
-                   {showErrorMessage7 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль не має містити кирилицю</p>
-                  )}
-                   {showErrorMessage8 && (
-                     <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити хоча б одну маленьку літеру</p>
-                  )} */}
+                  )} 
                     {showErrorMessage9 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
                   )}
