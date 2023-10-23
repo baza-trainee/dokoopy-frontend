@@ -76,7 +76,7 @@ const localization = new LocalizedStrings({
          title: "contacts info",
          appeal: "If you are ready to join the crowdfund and make charity deed - contact us via:",
       },
-      modal: { title: "Thank you for your support!", toMain: "return to main" },
+      modal: { title: "Thank you for your support!", toMain: "Return to main" },
       allProjects: "Our projects",
       donate: "Make a donation",
       privacyPolicy: "Privacy Policy",
