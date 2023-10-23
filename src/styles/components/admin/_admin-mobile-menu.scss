@@ -10,6 +10,7 @@
    width: 94%;
    height: 100vh;
    padding: 35px 10px 20px;
+   overflow-y: scroll;
 
    @media screen and (min-width: 480px) {
       width: 300px;

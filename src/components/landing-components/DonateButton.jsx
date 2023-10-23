@@ -3,7 +3,7 @@ import { Modal } from "./Modal";
 
 import localization from "../../assets/language-switcher/localization";
 
-export const DonateButton = ({ buttonClass, onClick, href, currentLanguage }) => {
+export const DonateButton = ({ buttonClass, onClick, href, closeMenuHandler }) => {
    const [modalOpen, setModalOpen] = useState(false);
 
    const handleClick = e => {
@@ -18,6 +18,7 @@ export const DonateButton = ({ buttonClass, onClick, href, currentLanguage }) =>
 
    const handleCloseModal = () => {
       setModalOpen(false);
+      closeMenuHandler();
    };
    // console.log(localization.donate);
    return (
