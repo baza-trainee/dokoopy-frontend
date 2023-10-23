@@ -81,62 +81,64 @@ const AdminChangePassword = () => {
    }, [showErrorMessage]);
 
    useEffect(() => {
+      const inputStyles = {
+        current: {
+          border: '1px solid var(--inputs_color, #ACACAC)',
+        },
+      };
+    
       if (showErrorMessage2) {
-
-        const inputStyles = {
-          current: { border: '1px solid var(--inputs_color, #ACACAC)' },
-        };
-    
         if (currentPassword.trim() === '') {
-          inputStyles.current = { border: '1px solid red' };
-        }
-        setCurrentInputStyles(inputStyles.current);
-    
-        const timer = setTimeout(() => {
+          inputStyles.current = {
+            border: '1px solid red',
+          };
+        } else {
+          // Якщо поле заповнене, сховати повідомлення про помилку
           setShowErrorMessage2(false);
-          setCurrentInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 5000);
-    
-        return () => clearTimeout(timer);
-      }
-    }, [showErrorMessage2, currentPassword]);
-     
+          inputStyles.current = {
+            border: '1px solid var(--inputs_color, #ACACAC)',
+          }
+        }setCurrentInputStyles(inputStyles.current);
+      } 
+    }, [showErrorMessage2, currentPassword]); 
+
     useEffect(() => {
+      const inputStyles = {
+        new: {
+          border: '1px solid var(--inputs_color, #ACACAC)',
+        },
+      };
+    
       if (showErrorMessage9) {
-        const inputStyles = {
-          new: { border: '1px solid var(--inputs_color, #ACACAC)' },
-        };
         if (newPassword.trim() === '') {
-          inputStyles.new = { border: '1px solid red' };
-        }setNewInputStyles(inputStyles.new);
-    
-        const timer = setTimeout(() => {
+          inputStyles.new = {
+            border: '1px solid red',
+          };
+        } else {
+          // Якщо поле заповнене, сховати повідомлення про помилку
           setShowErrorMessage9(false);
-          setNewInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 5000);
-    
-        return () => clearTimeout(timer);
-      }
+          inputStyles.new = {
+            border: '1px solid var(--inputs_color, #ACACAC)',
+          }
+        }
+        setNewInputStyles(inputStyles.new);
+      } 
     }, [showErrorMessage9, newPassword]);
      
     useEffect(() => {
-      if (showErrorMessage10) {
-        const inputStyles = {
-          confirm: { border: '1px solid var(--inputs_color, #ACACAC)' },
-        };
+      const inputStyles = {
+        confirm: { border: '1px solid var(--inputs_color, #ACACAC)' },
+      };
     
+      if (showErrorMessage10) {
         if (confirmPassword.trim() === '') {
           inputStyles.confirm = { border: '1px solid red' };
-        }
-    
-        setConfirmInputStyles(inputStyles.confirm);
-    
-        const timer = setTimeout(() => {
+        } else {
+          // Якщо поле заповнене, сховати повідомлення про помилку
           setShowErrorMessage10(false);
-          setConfirmInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 5000);
-    
-        return () => clearTimeout(timer);
+          inputStyles.confirm = { border: '1px solid var(--inputs_color, #ACACAC)' };
+        }
+        setConfirmInputStyles(inputStyles.confirm);
       }
     }, [showErrorMessage10, confirmPassword]);
 
