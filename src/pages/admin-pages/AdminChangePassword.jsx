@@ -95,7 +95,7 @@ const AdminChangePassword = () => {
         const timer = setTimeout(() => {
           setShowErrorMessage2(false);
           setCurrentInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 7000);
+        }, 5000);
     
         return () => clearTimeout(timer);
       }
@@ -113,7 +113,7 @@ const AdminChangePassword = () => {
         const timer = setTimeout(() => {
           setShowErrorMessage9(false);
           setNewInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 7000);
+        }, 5000);
     
         return () => clearTimeout(timer);
       }
@@ -134,7 +134,7 @@ const AdminChangePassword = () => {
         const timer = setTimeout(() => {
           setShowErrorMessage10(false);
           setConfirmInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 7000);
+        }, 5000);
     
         return () => clearTimeout(timer);
       }
@@ -175,20 +175,20 @@ const AdminChangePassword = () => {
    function editPassword(event) {
       event.preventDefault();
       // Перевірка, чи заповнені поля
+ 
 
-      if (currentPassword.trim() === ''){
-                setShowErrorMessage2(true);
-        return;
-      }  if (newPassword.trim() === ''){
-        setShowErrorMessage9(true);
-        return;
+if (currentPassword.trim() === '') {
+   setShowErrorMessage2(true);
+}
 
-      } if (confirmPassword.trim() === '') {
-        setShowErrorMessage10(true);
-        return;
+if (newPassword.trim() === '') {
+   setShowErrorMessage9(true);
+}
 
-      }
-
+if (confirmPassword.trim() === '') {
+   setShowErrorMessage10(true);
+}
+else{ 
       // Перевірка, чи новий пароль має довжину не менше 6 символів
       if (newPassword.length < 6 || /[А-ЯЁ]/i.test(newPassword) || !/[A-Z]/.test(newPassword) || newPassword === newPassword.toUpperCase() || /\s/.test(newPassword)) {
          setShowErrorMessage4(true);
@@ -219,7 +219,7 @@ const AdminChangePassword = () => {
          setShowErrorMessage(true);
       }
    }
-
+   }
    return (
       <div className="admin-change-password">
          <div className="header-admin-change-password">
