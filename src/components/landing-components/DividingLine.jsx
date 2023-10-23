@@ -1,3 +1,4 @@
+import { useState, useMemo } from "react";
 import { useAppContext } from "../provider-components/app-provider";
 
 import localization from "../../assets/language-switcher/localization";
@@ -6,11 +7,20 @@ import icon from "../../assets/icon/Logo_Ukraine_Defense.svg";
 
 export const DividingLine = ({ mainColor }) => {
    const AppContext = useAppContext();
+   const [greenContainerLanguage, setGreenContainerLanguage] = useState("greenContainerUkr");
+   const [whiteContainerLanguage, setwhiteContainerLanguage] = useState("whiteContainerUkr");
 
    if (mainColor === "whiteContainer") {
+      useMemo(() => {
+         if (localization.dividingLine.ice === "#COLDNESS IN VEINS") {
+            setwhiteContainerLanguage("whiteContainerEng");
+         } else {
+            setwhiteContainerLanguage("whiteContainerUkr");
+         }
+      }, [localization.dividingLine.future]);
       return (
          <div className="outerContainer">
-            <div className={mainColor + " containerHeshteg "}>
+            <div className={whiteContainerLanguage + " containerHeshteg "}>
                <div className="contentHeshteg">{localization.dividingLine.ice}</div>
                <div className="contentHeshteg">{localization.dividingLine.fire}</div>
                <div className="contentHeshteg">{localization.dividingLine.ice}</div>
@@ -29,9 +39,16 @@ export const DividingLine = ({ mainColor }) => {
          </div>
       );
    } else {
+      useMemo(() => {
+         if (localization.dividingLine.future === "#FUTURE") {
+            setGreenContainerLanguage("greenContainerEng");
+         } else {
+            setGreenContainerLanguage("greenContainerUkr");
+         }
+      }, [localization.dividingLine.future]);
       return (
          <div className="outerContainer">
-            <div className={mainColor + " containerHeshteg "}>
+            <div className={greenContainerLanguage + " containerHeshteg "}>
                <div className="contentHeshteg">
                   <img src={icon} alt="icon" />
                </div>

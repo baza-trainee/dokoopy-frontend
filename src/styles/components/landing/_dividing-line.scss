@@ -25,15 +25,15 @@
       font-size: 24px;
    }
 }
-.whiteContainer {
+.whiteContainerUkr {
    background-color: #ffffff;
    border-top: 1px solid #000000;
    border-bottom: 1px solid #000000;
-   animation: whiteContentAnimation 15s linear infinite;
+   animation: whiteContentAnimationUkr 15s linear infinite;
 }
 
 @media (min-width: 0) {
-   @keyframes whiteContentAnimation {
+   @keyframes whiteContentAnimationUkr {
       from {
          transform: translateX(0);
       }
@@ -43,23 +43,51 @@
    }
 }
 @media (min-width: 768px) {
-   @keyframes whiteContentAnimation {
+   @keyframes whiteContentAnimationUkr {
       from {
          transform: translateX(0);
       }
       to {
-         transform: translateX(-488px);
+         transform: translateX(-487.5px);
       }
    }
 }
 
-.greenContainer {
-   background-color: var(--button-main-color);
-   animation: greenContentAnimation 30s linear infinite;
+.whiteContainerEng {
+   background-color: #ffffff;
+   border-top: 1px solid #000000;
+   border-bottom: 1px solid #000000;
+   animation: whiteContentAnimationEng 15s linear infinite;
 }
 
 @media (min-width: 0) {
-   @keyframes greenContentAnimation {
+   @keyframes whiteContentAnimationEng {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(-379px);
+      }
+   }
+}
+@media (min-width: 768px) {
+   @keyframes whiteContentAnimationEng {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(-491px);
+      }
+   }
+}
+
+.greenContainerUkr {
+   background-color: var(--button-main-color);
+   animation: greenContentAnimationUkr 30s linear infinite;
+}
+
+@media (min-width: 0) {
+   @keyframes greenContentAnimationUkr {
       from {
          transform: translateX(0);
       }
@@ -69,12 +97,38 @@
    }
 }
 @media (min-width: 768px) {
-   @keyframes greenContentAnimation {
+   @keyframes greenContentAnimationUkr {
       from {
          transform: translateX(0);
       }
       to {
          transform: translateX(-1177px);
+      }
+   }
+}
+
+.greenContainerEng {
+   background-color: var(--button-main-color);
+   animation: greenContentAnimationEng 30s linear infinite;
+}
+
+@media (min-width: 0) {
+   @keyframes greenContentAnimationEng {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(-914px);
+      }
+   }
+}
+@media (min-width: 768px) {
+   @keyframes greenContentAnimationEng {
+      from {
+         transform: translateX(0);
+      }
+      to {
+         transform: translateX(-1254px);
       }
    }
 }
