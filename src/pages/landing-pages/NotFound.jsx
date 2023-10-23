@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const NotFound = () => {
+export const NotFound = () => {
    return (
       <div className="wrapper-error">
          <div className="container">
@@ -16,4 +16,3 @@ const NotFound = () => {
       </div>
    );
 };
-export default NotFound;

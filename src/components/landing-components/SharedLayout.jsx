@@ -17,9 +17,7 @@ export const SharedLayout = () => {
             <Header></Header>
          </div>
          <main className="wrapper-general-main">
-            <Suspense fallback={<div>Loading...</div>}>
-               <Outlet />
-            </Suspense>
+            <Outlet />
          </main>
          <Footer></Footer>
       </div>

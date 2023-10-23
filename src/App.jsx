@@ -1,15 +1,15 @@
 import { lazy } from "react";
-
 import { Route, Routes } from "react-router-dom";
 
 import { PrivateRoute } from "./components/admin-components/PrivateRoute";
 
-// ? Landing Pages lazy loading
 import { SharedLayout } from "./components/landing-components/SharedLayout";
 import { Home } from "./pages/landing-pages/Home";
+import { AllProjects } from "./pages/landing-pages/AllProjects";
+import { NotFound } from "./pages/landing-pages/NotFound";
 
-const AllProjects = lazy(() => import("./pages/landing-pages/AllProjects"));
-const NotFound = lazy(() => import("./pages/landing-pages/NotFound"));
+// const AllProjects = lazy(() => import("./pages/landing-pages/AllProjects"));
+// const NotFound = lazy(() => import("./pages/landing-pages/NotFound"));
 
 // ? Login Pages lazy loading
 import { LoginLayout } from "../src/components/admin-components/LoginLayout";
