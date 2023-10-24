@@ -57,7 +57,7 @@ export const Header = () => {
          <div className="container">
             <div className="header">
                <div>
-                  <a href="/" className="logo" onClick={logoClickHandler}>
+                  <a href="/" className="logo">
                      dokoopy
                   </a>
                </div>
