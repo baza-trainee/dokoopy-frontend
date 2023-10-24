@@ -18,7 +18,6 @@ export const DonateButton = ({ buttonClass, onClick, href, closeMenuHandler }) =
 
    const handleCloseModal = () => {
       setModalOpen(false);
-      closeMenuHandler();
    };
    // console.log(localization.donate);
    return (
@@ -31,7 +30,8 @@ export const DonateButton = ({ buttonClass, onClick, href, closeMenuHandler }) =
          >
             {localization.donate}
          </a>
-         {modalOpen && <Modal onClose={handleCloseModal} />}
+
+         {modalOpen && <Modal onClose={handleCloseModal} closeMenuHandler={closeMenuHandler} />}
       </>
    );
 };

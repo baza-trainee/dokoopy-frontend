@@ -10,7 +10,122 @@
    z-index: 11000;
    position: fixed;
    background-color: rgba(121, 120, 120, 0.7);
+
 }
+.modal-window{
+    margin: 116px auto 256px;
+    display: flex;
+    align-items: center;
+    width: 232px;
+    height: 336px;
+    background-color: var(--background-about);
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+}
+.modal-button {
+    display: flex;
+    height: 18px;
+    justify-content: flex-end;
+    margin-top: 5px;
+    padding-right: 5px;
+    width: 100%;
+
+}
+.iconx{
+    width: 18px;
+    height: 18px;
+}
+.modal-button button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+.modal-text{
+    padding: 0 20px;
+    height: 276px;
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+
+}
+.imgthank{
+    width: 75px;
+    height: 74px;
+}
+@media (min-width: 480px){
+    .modal-window{
+        display: flex;
+        align-items: center;
+        width: 320px;
+        height: 471px;
+        background-color: var(--background-about);
+        flex-direction: column;
+    }
+    .modal-button {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 16px;
+        padding-right: 16px;
+    }
+    .iconx{
+        width: 18px;
+        height: 18px;
+    }
+    .modal-text{
+        padding: 0 20px;
+        height: 371px;
+
+    }
+    .imgthank{
+        width: 89px;
+        height: 89px;
+    }
+}
+@media (min-width: 768px) {
+    .modal-window{
+        display: flex;
+        align-items: center;
+        width: 551px;
+        height: 548px;
+        background-color: var(--background-about);
+        flex-direction: column;
+    }
+    .modal-button {
+        height: 30px;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 25px;
+        padding-right: 86px;
+    }
+    .modal-text{
+        margin-top: 15px;
+        height: 378px;
+
+    }
+    .imgthank{
+       
+        width: 125px;
+        height: 125px;
+        
+    }
+    .iconx{
+        width: 40px;
+        height: 40px;
+    }
+}
+@media (min-width: 1280px) {
+    
+
 .modal-window{
     margin: 116px auto 256px;
     width: 742px;
@@ -55,99 +170,11 @@
     width: 125px;
     height: 125px;
 }
-@media screen and (max-width: 1279px) {
-    .modal-window{
-        display: flex;
-        align-items: center;
-        width: 551px;
-        height: 548px;
-        background-color: var(--background-about);
-        flex-direction: column;
-    }
-    .modal-button {
-        height: 30px;
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        margin-top: 25px;
-        padding-right: 86px;
-    }
-    .modal-text{
-        margin-top: 15px;
-        height: 378px;
-
-    }
-    .imgthank{
-       
-        width: 125px;
-        height: 125px;
-        
-    }
-    .iconx{
-        width: 40px;
-        height: 40px;
-    }
 }
-@media screen and (max-width: 767px){
-    .modal-window{
-        display: flex;
-        align-items: center;
-        width: 320px;
-        height: 471px;
-        background-color: var(--background-about);
-        flex-direction: column;
-    }
-    .modal-button {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 16px;
-        padding-right: 16px;
-    }
-    .iconx{
-        width: 18px;
-        height: 18px;
-    }
-    .modal-text{
-        padding: 0 20px;
-        height: 371px;
 
-    }
-    .imgthank{
-        width: 89px;
-        height: 89px;
-    }
-}
-@media screen and (max-width: 479px){
-    .modal-window{
-        display: flex;
-        align-items: center;
-        width: 232px;
-        height: 336px;
-        background-color: var(--background-about);
-        flex-direction: column;
-    }
-    .modal-button {
-        display: flex;
-        height: 18px;
-        justify-content: flex-end;
-        margin-top: 5px;
-        padding-right: 5px;
-    }
-    .iconx{
-        width: 18px;
-        height: 18px;
-    }
-    .modal-text{
-        padding: 0 20px;
-        height: 276px;
-        margin-top: 0;
 
-    }
-    .imgthank{
-        width: 75px;
-        height: 74px;
-    }
-}
+
+
 
 .modal-text h2{
     width: auto;
@@ -244,7 +271,7 @@
          }
     }
 
-    @media screen and (max-height: 350px){
+    @media (max-height: 380px){
         .modal{
             justify-content: center;
             align-items: center;

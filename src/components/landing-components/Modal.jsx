@@ -9,7 +9,7 @@ import frameThanks from "../../assets/images/frameThanks.svg";
 
 import localization from "../../assets/language-switcher/localization";
 
-export const Modal = ({ onClose }) => {
+export const Modal = ({ onClose, closeMenuHandler }) => {
    const AppProvider = useAppContext();
 
    const handleModalClick = e => {
@@ -25,6 +25,7 @@ export const Modal = ({ onClose }) => {
          navigate("/");
          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
          onClose();
+         closeMenuHandler();
       }
    };
 

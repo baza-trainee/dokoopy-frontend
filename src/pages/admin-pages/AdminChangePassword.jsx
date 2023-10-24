@@ -16,6 +16,7 @@ const AdminChangePassword = () => {
    const [showErrorMessage2, setShowErrorMessage2] = useState(false);
    const [showErrorMessage3, setShowErrorMessage3] = useState(false);
    const [showErrorMessage4, setShowErrorMessage4] = useState(false);
+   const [showErrorMessage5, setShowErrorMessage5] = useState(false);
    const [showErrorMessage9, setShowErrorMessage9] = useState(false);
    const [showErrorMessage10, setShowErrorMessage10] = useState(false);
    const [isVisibleCurrentPassword, setIsVisibleCurrentPassword] = useState(false);
@@ -81,62 +82,64 @@ const AdminChangePassword = () => {
    }, [showErrorMessage]);
 
    useEffect(() => {
+      const inputStyles = {
+        current: {
+          border: '1px solid var(--inputs_color, #ACACAC)',
+        },
+      };
+    
       if (showErrorMessage2) {
-
-        const inputStyles = {
-          current: { border: '1px solid var(--inputs_color, #ACACAC)' },
-        };
-    
         if (currentPassword.trim() === '') {
-          inputStyles.current = { border: '1px solid red' };
-        }
-        setCurrentInputStyles(inputStyles.current);
-    
-        const timer = setTimeout(() => {
+          inputStyles.current = {
+            border: '1px solid red',
+          };
+        } else {
+          // Якщо поле заповнене, сховати повідомлення про помилку
           setShowErrorMessage2(false);
-          setCurrentInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 7000);
-    
-        return () => clearTimeout(timer);
-      }
-    }, [showErrorMessage2, currentPassword]);
-     
+          inputStyles.current = {
+            border: '1px solid var(--inputs_color, #ACACAC)',
+          }
+        }setCurrentInputStyles(inputStyles.current);
+      } 
+    }, [showErrorMessage2, currentPassword]); 
+
     useEffect(() => {
+      const inputStyles = {
+        new: {
+          border: '1px solid var(--inputs_color, #ACACAC)',
+        },
+      };
+    
       if (showErrorMessage9) {
-        const inputStyles = {
-          new: { border: '1px solid var(--inputs_color, #ACACAC)' },
-        };
         if (newPassword.trim() === '') {
-          inputStyles.new = { border: '1px solid red' };
-        }setNewInputStyles(inputStyles.new);
-    
-        const timer = setTimeout(() => {
+          inputStyles.new = {
+            border: '1px solid red',
+          };
+        } else {
+          // Якщо поле заповнене, сховати повідомлення про помилку
           setShowErrorMessage9(false);
-          setNewInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 7000);
-    
-        return () => clearTimeout(timer);
-      }
+          inputStyles.new = {
+            border: '1px solid var(--inputs_color, #ACACAC)',
+          }
+        }
+        setNewInputStyles(inputStyles.new);
+      } 
     }, [showErrorMessage9, newPassword]);
      
     useEffect(() => {
-      if (showErrorMessage10) {
-        const inputStyles = {
-          confirm: { border: '1px solid var(--inputs_color, #ACACAC)' },
-        };
+      const inputStyles = {
+        confirm: { border: '1px solid var(--inputs_color, #ACACAC)' },
+      };
     
+      if (showErrorMessage10) {
         if (confirmPassword.trim() === '') {
           inputStyles.confirm = { border: '1px solid red' };
-        }
-    
-        setConfirmInputStyles(inputStyles.confirm);
-    
-        const timer = setTimeout(() => {
+        } else {
+          // Якщо поле заповнене, сховати повідомлення про помилку
           setShowErrorMessage10(false);
-          setConfirmInputStyles({ border: '1px solid var(--inputs_color, #ACACAC)' });
-        }, 7000);
-    
-        return () => clearTimeout(timer);
+          inputStyles.confirm = { border: '1px solid var(--inputs_color, #ACACAC)' };
+        }
+        setConfirmInputStyles(inputStyles.confirm);
       }
     }, [showErrorMessage10, confirmPassword]);
 
@@ -172,32 +175,65 @@ const AdminChangePassword = () => {
       }
    }, [showErrorMessage4]);
 
+   useEffect(() => {
+      if (showErrorMessage5) {
+         setNewInputStyles({
+            border: "1px solid red",
+         });
+         const timer = setTimeout(() => {
+            setShowErrorMessage5(false);
+            setNewInputStyles({
+               border: "1px solid var(--inputs_color, #ACACAC)",
+            });
+         }, 7000);
+
+         return () => clearTimeout(timer);
+      }
+   }, [showErrorMessage5]);
+
    function editPassword(event) {
       event.preventDefault();
-      // Перевірка, чи заповнені поля
+    
+      let hasErrors = false;
 
-      if (currentPassword.trim() === ''){
-                setShowErrorMessage2(true);
-        return;
-      }  if (newPassword.trim() === ''){
-        setShowErrorMessage9(true);
-        return;
-
-      } if (confirmPassword.trim() === '') {
+      // Перша частина перевірок
+      if (currentPassword.trim() === '') {
+        setShowErrorMessage2(true);
+        hasErrors = true;
+      }
+    
+      if (confirmPassword.trim() === '') {
         setShowErrorMessage10(true);
-        return;
-
+        hasErrors = true;
       }
-
+    
+      if (newPassword.trim() === '') {
+        setShowErrorMessage9(true);
+        hasErrors = true;
+      }
+    
+      if (hasErrors) {
+        return; // Вихід, якщо виявлені помилки
+      }
+    
+    
       // Перевірка, чи новий пароль має довжину не менше 6 символів
-      if (newPassword.length < 6 || /[А-ЯЁ]/i.test(newPassword) || !/[A-Z]/.test(newPassword) || newPassword === newPassword.toUpperCase() || /\s/.test(newPassword)) {
-         setShowErrorMessage4(true);
-         return;
-      }
-
-
-      // Перевірка, чи паролі збігаються новий з підтвердженням
-      if (newPassword === confirmPassword) {
+      else { 
+         if (
+        newPassword.length < 6 ||
+        /[А-ЯЁ]/i.test(newPassword) ||
+        !/[A-Z]/.test(newPassword) ||
+        newPassword === newPassword.toUpperCase() ||
+        /\s/.test(newPassword)
+      ) {
+        setShowErrorMessage4(true);
+      } 
+      else {
+        // Другий етап перевірок
+        if (currentPassword === newPassword){
+         setShowErrorMessage5(true);
+        } else {
+        if (newPassword === confirmPassword) {
          setPasswordMismatch(false);
          const body = {
             password: currentPassword, //зберігає введені дані
@@ -218,8 +254,9 @@ const AdminChangePassword = () => {
          setPasswordMismatch(true);
          setShowErrorMessage(true);
       }
+      }
+    }}
    }
-
    return (
       <div className="admin-change-password">
          <div className="header-admin-change-password">
@@ -272,6 +309,9 @@ const AdminChangePassword = () => {
                      </div>
                    {showErrorMessage4 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Пароль має містити мінімум 6 символів, латинські літери верхнього та нижнього регістру, без пробілів (може містити цифри та спецсимволи)</p>
+                  )} 
+                   {showErrorMessage5 && (
+                     <p className="error-icon-message" style={{ color: 'red' }}>Новий пароль не повинен співпадати з поточним</p>
                   )} 
                     {showErrorMessage9 && (
                      <p className="error-icon-message" style={{ color: 'red' }}>Незаповнене поле</p>
