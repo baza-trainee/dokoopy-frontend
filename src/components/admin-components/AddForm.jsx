@@ -60,6 +60,7 @@ export const AddForm = ({
          setError("Поле обов'язкове для заповнення");
       }
    };
+
    return (
       <div className="form-container">
          <form onSubmit={handleSubmit(submitClickEvent)} className="added-form">
@@ -82,7 +83,7 @@ export const AddForm = ({
                   name={"description"}
                   counter={counter}
                   label={lgLiable}
-                  length={watch().description.length}
+                  length={watch().description.replaceAll("\r\n", "\n").length}
                />
                <div className="desc-files-picker">
                   <FilesPicker
@@ -116,7 +117,7 @@ export const AddForm = ({
                   name={"descriptionEN"}
                   counter={counter}
                   label={lgLiable}
-                  length={watch().descriptionEN.length}
+                  length={watch().descriptionEN.replaceAll("\r\n", "\n").length}
                />
 
                <div className="form-button-blok">

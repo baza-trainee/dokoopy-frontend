@@ -22,7 +22,14 @@ export default function ProjectSlider({ data }) {
                      <p className="project-data">{project.date}</p>
                      <p className="project-cart-title">{project.title}</p>
                   </div>
-                  <p className="project-cart-description">{project.description}</p>
+                  <p className="project-cart-description">
+                     {project.description.split("\n").map((part, index) => (
+                        <span key={index}>
+                           {part}
+                           <br />
+                        </span>
+                     ))}
+                  </p>
                </li>
             </div>
          ))}

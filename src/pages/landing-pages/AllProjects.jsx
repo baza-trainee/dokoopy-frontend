@@ -81,7 +81,14 @@ export const AllProjects = () => {
                                  <p className="project-data">{item.date}</p>
                                  <h3 className="page-project-cart-title">{item.title}</h3>
                               </div>
-                              <p className="all-project-description">{item.description}</p>
+                              <p className="all-project-description">
+                                 {item.description.split("\n").map((part, index) => (
+                                    <span key={index}>
+                                       {part}
+                                       <br />
+                                    </span>
+                                 ))}
+                              </p>
                            </div>
                         </div>
                      </li>
