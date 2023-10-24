@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
+import { lendingData } from '../../api/api';
 
 import localization from "../../assets/language-switcher/localization";
 
 export const DonateButton = ({ buttonClass, onClick, href, closeMenuHandler }) => {
    const [modalOpen, setModalOpen] = useState(false);
+   const [link, setLink] = useState(null);
+
+useEffect(() => {
+   lendingData.getBank().then(res => setLink(res.data.bank[0].link) );
+}, [])
 
    const handleClick = e => {
       if (href) {
@@ -25,7 +31,7 @@ export const DonateButton = ({ buttonClass, onClick, href, closeMenuHandler }) =
          <a
             className={buttonClass + " donateButton"}
             onClick={handleClick}
-            href="https://send.monobank.ua/jar/4B1mQWmGVS"
+            href={link}
             target="_blank"
          >
             {localization.donate}
