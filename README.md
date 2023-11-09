@@ -1,8 +1,43 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is DOKOOPY - foundrising project for 57th Brigade.
 
-Currently, two official plugins are available:
+There are 4 main parts of project:
+- main page
+- detailed project page
+- login form for admin panel
+- admin panel.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Real admin panel is avaliable only for customer. But we have special test-version, for everybody who wants see
+all our efforts.
+
+Team: 
+
+PM:
+Yurii Skochylias
+
+FrontEnd Team:
+Kravchenko Volodymyr - Team Lead
+Andrii Bohonis - Developer
+Olena Kasianenko - Developer
+Olena Oleksenko - Developer
+Oleksandr Zvirych - Developer
+Serhii Onopriienko - Developer
+
+BackEnd Team:
+Olena Stasiuk - Developer
+
+Design: 
+Olena Kasianenko - Designer
+Elisa Greenshpun - Designer
+Ruslana Koval - Designer
+Iryna Misiuk - Designer
+
+QA Team:
+Kateryna Zharova - Team Lead 
+Olena Chornobryvets - QA
+Pavlo Khlebnikov - QA
+Serhii Shtefan-Antoniuk - QA
+Lilia Operchuk - QA
+Maryna Nelipa - QA
+Tetyana Storchak - QA
