@@ -1,5 +1,7 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://dokoopy.onrender.com/api/";
+// axios.defaults.baseURL = "https://dokoopy.onrender.com/api/";
+// axios.defaults.baseURL = "http://185.65.246.252:3000/api/";
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 const token = localStorage.getItem("token");
 
 export const lendingData = {
